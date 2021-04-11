@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-04-11 19:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HIKVISION DS-7316HI-S</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">HIKVISION DS-7316HI-S</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org357a74d">1. Symptoms</a>
+<ul>
+<li><a href="#org679fe1f">1.1. RS-232 interface fix</a></li>
+<li><a href="#orga49fa12">1.2. Firmware restore</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<base href="hikvision-ds-7316hi-s/"/>
+
+<div id="outline-container-org357a74d" class="outline-2">
+<h2 id="org357a74d"><span class="section-number-2">1</span> Symptoms</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The <a href="https://www.hikvision.com/UploadFile/image/US-Technical%20Specification%20of%20DS-7304HI-S_7308HI-S_7316HI-S.pdf">HIKVISION DS-7316HI-S</a> is an NVR supporting analog CCTV cameras which I got for free. It was declared to be broken and indeed was failing to boot. The console output was providing the following hints:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Javascript">
+U-Boot 1.2.0 (Nov 28 2009 - 10:58:12)
+
+DRAM:  256 MB
+AMD Flash devid:0x227e id3:0x2221 id4:0x2201 
+ARM Clock : 364MHz
+DDR Clock : 310MHz
+Hit ctrl+u to stop autoboot:  0 
+### JFFS2 loading 'uImage' to 0x80700000
+jffs2: scanning filesystem . done.
+jffs2: cannot find inode(uImage)
+### JFFS2 load uImage error(0)
+## Booting image at 80700000 ...
+Bad Magic Number
+HKVS # 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org679fe1f" class="outline-3">
+<h3 id="org679fe1f"><span class="section-number-3">1.1</span> RS-232 interface fix</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The bootloader is U-Boot but the console did not work. It would print the above messages but did not accept any input. After investigating this I found out that the RS-232 interface 
+receive path seemed to be broken so I replaced the <a href="https://pdf.datasheetcatalog.com/datasheet/sipex/SP310ECT_TR.pdf">SP2020EEN</a> chip that was responsible. After this the boot process could be stopped and the U-Boot console accessed. Some discovery follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Javascript">
+U-Boot 1.2.0 (Nov 28 2009 - 10:58:12)
+
+DRAM:  256 MB
+AMD Flash devid:0x227e id3:0x2221 id4:0x2201 
+ARM Clock : 364MHz
+DDR Clock : 310MHz
+Hit ctrl+u to stop autoboot:  0 
+HKVS # help                                              
+?       - alias for 'help'
+bootd   - boot default, i.e., run 'bootcmd'
+bootm   - boot application image from memory
+cmp     - memory compare
+cp      - memory copy
+crc32   - checksum calculation
+format  - format nand except bootloader area
+fsinfo	- print information about filesystems
+fsload	- load binary file from a filesystem image
+go      - start application at address 'addr'
+help    - print online help
+ls	- list files in a directory (default /)
+md      - memory display
+mm      - memory modify (auto-incrementing)
+mtest   - simple RAM test
+mw      - memory write (fill)
+nand    - NAND sub-system
+nboot   - boot from NAND device
+ping	- send ICMP ECHO_REQUEST to network host
+pready  - set panel to ready
+printenv- print environment variables
+reset   - Perform RESET of the CPU
+saveenv - save environment variables to persistent storage
+setenv  - set environment variables
+tftpboot- boot image via network using TFTP protocol
+update  - update digicap.dav
+updateb - update uboot(u-boot.bin) to nor
+updatebl- update ubl(ubl_646x.bin) to nand
+updatefs- update filesystem(davinci.img) to nand
+updatek - update kernel(uImage) to nand
+updates - serial update kernel or filesys
+HKVS # printenv
+bootargs=console=ttyS0,115200n8 initrd=2g,1 root=/dev/ram
+bootdelay=3
+baudrate=115200
+ipaddr=192.0.0.64
+serverip=192.0.0.128
+bootfile="uImage"
+netmask=255.255.255.0
+bootcmd=fsload 0x80700000 uImage;bootm
+ethaddr=00:40:48:38:15:07
+
+Environment size: 230/131068 bytes
+HKVS # fsinfo
+### filesystem type is JFFS2
+jffs2: scanning filesystem . done.
+Compression: NONE
+	frag count: 1569
+	compressed sum: 6204344
+	uncompressed sum: 6204344
+Compression: ZERO
+	frag count: 0
+	compressed sum: 0
+	uncompressed sum: 0
+Compression: RTIME
+	frag count: 0
+	compressed sum: 0
+	uncompressed sum: 0
+Compression: RUBINMIPS
+	frag count: 0
+	compressed sum: 0
+	uncompressed sum: 0
+Compression: COPY
+	frag count: 0
+	compressed sum: 0
+	uncompressed sum: 0
+Compression: DYNRUBIN
+	frag count: 0
+	compressed sum: 0
+	uncompressed sum: 0
+Compression: ZLIB
+	frag count: 352
+	compressed sum: 591484
+	uncompressed sum: 1422185
+HKVS # ls
+ -rwxrwxrwx   711436 Thu Jan 01 00:00:00 1970 rootfs.img
+ -rwxrwxrwx   829440 Thu Jan 01 00:00:00 1970 720.422
+ -rwxrwxrwx   269846 Thu Jan 01 00:00:00 1970 ds8062_fpga.rbf
+ -rwxrwxrwx      267 Thu Jan 01 00:00:00 1970 initrun.sh
+ -rwxrwxrwx  4297989 Thu Jan 01 00:00:00 1970 guirc.tar.gz
+ -rwxrwxrwx  1510288 Thu Jan 01 00:00:00 1970 webs.tar.gz
+HKVS # 
+</pre>
+</div>
+
+<p>
+We can see what is wrong here, the 'bootcmd' contains instructions to load the uImage from jffs2 but there is no file named uImage there so the boot process fails. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga49fa12" class="outline-3">
+<h3 id="orga49fa12"><span class="section-number-3">1.2</span> Firmware restore</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+I found a firmware image and a user's manual on a <a href="https://down.dipol.com.pl/Cctv/M76080/">Polish CCTV shop download site</a> (old-skool plain file server!). In order to perform the update you need to setup a TFTP server responding to the
+IP address 192.0.0.128. I used dnsmasq for this and a simple config file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Javascript">interface = enx00248c007801
+enable-tftp
+tftp-root=/srv/tftp
+</pre>
+</div>
+
+<p>
+This config uses a USB Ethernet device enx00248c007801 and /srv/tftp as the location where files are served from. The file we need from the firmware is digicap.dav. The 'update' commands in 
+the U-Boot console triggers the update:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Javascript">
+U-Boot 1.2.0 (Nov 28 2009 - 10:58:12)
+
+DRAM:  256 MB
+AMD Flash devid:0x227e id3:0x2221 id4:0x2201 
+ARM Clock : 364MHz
+DDR Clock : 310MHz
+Hit ctrl+u to stop autoboot:  0 
+HKVS # help    
+?       - alias for 'help'
+bootd   - boot default, i.e., run 'bootcmd'
+bootm   - boot application image from memory
+cmp     - memory compare
+cp      - memory copy
+crc32   - checksum calculation
+format  - format nand except bootloader area
+fsinfo	- print information about filesystems
+fsload	- load binary file from a filesystem image
+go      - start application at address 'addr'
+help    - print online help
+ls	- list files in a directory (default /)
+md      - memory display
+mm      - memory modify (auto-incrementing)
+mtest   - simple RAM test
+mw      - memory write (fill)
+nand    - NAND sub-system
+nboot   - boot from NAND device
+ping	- send ICMP ECHO_REQUEST to network host
+pready  - set panel to ready
+printenv- print environment variables
+reset   - Perform RESET of the CPU
+saveenv - save environment variables to persistent storage
+setenv  - set environment variables
+tftpboot- boot image via network using TFTP protocol
+update  - update digicap.dav
+updateb - update uboot(u-boot.bin) to nor
+updatebl- update ubl(ubl_646x.bin) to nand
+updatefs- update filesystem(davinci.img) to nand
+updatek - update kernel(uImage) to nand
+updates - serial update kernel or filesys
+HKVS # update
+TFTP from server 192.0.0.128; our IP address is 192.0.0.64
+Filename 'digicap.dav'.
+Load address: 0x81200000
+Loading: #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 ####
+done
+Bytes transferred = 10000988 (989a5c hex)
+jffs2: add update file(uImage)...(1569292B-&gt;1580004B)done.
+jffs2: add update file(rootfs.img)...(714721B-&gt;722692B)done.
+jffs2: add update file(720.422)...(829440B-&gt;75324B)done.
+jffs2: add update file(ds8062_fpga.rbf)...(269846B-&gt;231764B)done.
+jffs2: add update file(initrun.sh)...(459B-&gt;396B)done.
+jffs2: add update file(preAllocMem)...(4704B-&gt;2388B)done.
+jffs2: add update file(waitAllocMem)...(3232B-&gt;1556B)done.
+jffs2: add update file(guirc.tar.gz)...(5072087B-&gt;5145416B)done.
+jffs2: add update file(webs.tar.gz)...(1536747B-&gt;1563068B)done.
+Un-Protect Flash space
+Un-Protected 122 sectors
+erase Flash space
+
+ Erase Operation Completed.
+Erased 122 sectors
+Writing jffs2 to Flash.../done
+Re-Protect Flash space
+Protected 122 sectors
+HKVS # 
+</pre>
+</div>
+
+<p>
+After the update process the NVR now boots successfuly:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Javascript">U-Boot 1.2.0 (Nov 28 2009 - 10:58:12)
+
+DRAM:  256 MB
+AMD Flash devid:0x227e id3:0x2221 id4:0x2201 
+ARM Clock : 364MHz
+DDR Clock : 310MHz
+Hit ctrl+u to stop autoboot:  0 
+### JFFS2 loading 'uImage' to 0x80700000
+jffs2: scanning filesystem . done.
+### JFFS2 load complete: 1569292 bytes loaded to 0x80700000
+## Booting image at 80700000 ...
+   Image Name:   Linux-2.6.10_mvl401-davinci_evm
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    1569228 Bytes =  1.5 MB
+   Load Address: 80008000
+   Entry Point:  80008000
+   Verifying Checksum ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+
+
+BusyBox v1.2.1 (2009.08.25-02:50+0000) Built-in shell (ash)
+Enter 'help' for a list of davinci system commands.
+
+Creating initial udev device nodes ... done.
+mount jffs2 filesystem done.
+before allocArmMemory
+after allocArmMemory, vAddr:0x0x40065000, pAddr:0x0x83000000
+waiting allocate memory...
+start compress.
+waiting decompression...
+bootParms.encodeChans 16
+bootParms.decodeChans 1
+devHardInfo.encodeChans 16
+devHardInfo.decodeChans 1
+devHardInfo.alarmInNums = 16
+devHardInfo.alarmOutNums = 4
+devHardInfo.ataCtrlNums = 2
+devHardInfo.decodeChans = 16
+devHardInfo.dspSoftwareBuildDate = 0x0
+devHardInfo.dspSoftwareVersion = 0x0
+devHardInfo.encodeChans = 16
+devHardInfo.hardwareVersion = 0xc100
+devHardInfo.networkNums = 1
+devHardInfo.panelVersion = 0
+devHardInfo.ramSize = 256
+devHardInfo.softwareBuildDate = 0x0
+devHardInfo.softwareVersion = 0x0
+devModel = DS-7316HI-S
+prodNo = 402151991
+magicNumber = 1212897107
+voNums = 3
+ipcChans = 0
+paraChecksum = 2119
+paraLength = 244
+language = 1
+device_class = 2
+oemCode = 1
+encodeChans = 16
+decodeChans = 16
+picFormat = 2
+devHigh = 2
+cpuFreq = 4
+dspFreq = 4
+zone = 3
+webSupport = 1
+voipSupport = 0
+usbNums = 2
+lcdSupport = 0
+vtSupport = 1
+videoMaxtrix = 0
+extendedDecoder = 1
+extendedIVS = 1
+extendedAlarmOut = 1
+devType = 0x50ef
+ubootAdrs = 0x0
+ubootSize = 0
+ubootCheckSum = 0
+tinyKernelAdrs	= 0x0
+tinyKernelSize = 0
+tinyKernelCheckSum = 0
+open /home/hik/netOsd.bin OK !
+readDevParam open devCfg.bin fd 7
+before freeArmMemory
+after freeArmMemory
+write 1 byte to FIFO_FROM_PAM success.
+read 1 byte from FIFO_FROM_PAM, memStat:2
+memset dspMem  0
+chan 0 rec buffer virtAddr = 0x478d4000 phyAddr = 0x8c000000
+chan 0 net buffer virtAddr = 0x47a54000 phyAddr = 0x81300000
+chan 0 sub net buffer virtAddr = 0x47ad4000 phyAddr = 0x81380000
+chan 1 rec buffer virtAddr = 0x47af4000 phyAddr = 0x8c180000
+chan 1 net buffer virtAddr = 0x47c74000 phyAddr = 0x81400000
+chan 1 sub net buffer virtAddr = 0x47cf4000 phyAddr = 0x813a0000
+chan 2 rec buffer virtAddr = 0x47d14000 phyAddr = 0x8c300000
+chan 2 net buffer virtAddr = 0x47e94000 phyAddr = 0x81480000
+chan 2 sub net buffer virtAddr = 0x47f14000 phyAddr = 0x813c0000
+chan 3 rec buffer virtAddr = 0x47f34000 phyAddr = 0x8c480000
+chan 3 net buffer virtAddr = 0x480b4000 phyAddr = 0x81500000
+chan 3 sub net buffer virtAddr = 0x48134000 phyAddr = 0x813e0000
+chan 4 rec buffer virtAddr = 0x48154000 phyAddr = 0x8c600000
+chan 4 net buffer virtAddr = 0x482d4000 phyAddr = 0x81580000
+chan 4 sub net buffer virtAddr = 0x48354000 phyAddr = 0x81600000
+chan 5 rec buffer virtAddr = 0x48374000 phyAddr = 0x8c780000
+chan 5 net buffer virtAddr = 0x484f4000 phyAddr = 0x81680000
+chan 5 sub net buffer virtAddr = 0x48574000 phyAddr = 0x81640000
+chan 6 rec buffer virtAddr = 0x48594000 phyAddr = 0x8c900000
+chan 6 net buffer virtAddr = 0x48714000 phyAddr = 0x81700000
+chan 6 sub net buffer virtAddr = 0x48794000 phyAddr = 0x81660000
+chan 7 rec buffer virtAddr = 0x487b4000 phyAddr = 0x8ca80000
+chan 7 net buffer virtAddr = 0x48934000 phyAddr = 0x81780000
+chan 7 sub net buffer virtAddr = 0x489b4000 phyAddr = 0x81800000
+chan 8 rec buffer virtAddr = 0x489d4000 phyAddr = 0x8cc00000
+chan 8 net buffer virtAddr = 0x48b54000 phyAddr = 0x81880000
+chan 8 sub net buffer virtAddr = 0x48bd4000 phyAddr = 0x81820000
+chan 9 rec buffer virtAddr = 0x48bf4000 phyAddr = 0x8cd80000
+chan 9 net buffer virtAddr = 0x48d74000 phyAddr = 0x81900000
+chan 9 sub net buffer virtAddr = 0x48df4000 phyAddr = 0x81840000
+chan 10 rec buffer virtAddr = 0x48e14000 phyAddr = 0x8cf00000
+chan 10 net buffer virtAddr = 0x48f94000 phyAddr = 0x81980000
+chan 10 sub net buffer virtAddr = 0x49014000 phyAddr = 0x81860000
+chan 11 rec buffer virtAddr = 0x49034000 phyAddr = 0x8d080000
+chan 11 net buffer virtAddr = 0x491b4000 phyAddr = 0x81a00000
+chan 11 sub net buffer virtAddr = 0x49234000 phyAddr = 0x81a80000
+chan 12 rec buffer virtAddr = 0x49254000 phyAddr = 0x8d200000
+chan 12 net buffer virtAddr = 0x493d4000 phyAddr = 0x81b00000
+chan 12 sub net buffer virtAddr = 0x49454000 phyAddr = 0x81aa0000
+chan 13 rec buffer virtAddr = 0x49474000 phyAddr = 0x8d380000
+chan 13 net buffer virtAddr = 0x495f4000 phyAddr = 0x81b80000
+chan 13 sub net buffer virtAddr = 0x49674000 phyAddr = 0x81ac0000
+chan 14 rec buffer virtAddr = 0x49694000 phyAddr = 0x8d500000
+chan 14 net buffer virtAddr = 0x49814000 phyAddr = 0x81c00000
+chan 14 sub net buffer virtAddr = 0x49894000 phyAddr = 0x81ae0000
+chan 15 rec buffer virtAddr = 0x498b4000 phyAddr = 0x8d680000
+chan 15 net buffer virtAddr = 0x49a34000 phyAddr = 0x81c80000
+chan 15 sub net buffer virtAddr = 0x49ab4000 phyAddr = 0x81d00000
+mapbuf0: len=1572864,offset=84000000
+mapbuf1: len=1572864,offset=84180000
+mapbuf2: len=1572864,offset=84300000
+count = 0 visig=0 vi is ok
+ (gxy)-------&gt;ky6467 bufparam bufaddr=0x85743c00,yuvH=288,yuvW=352
+ (lkt)------&gt;ky6467 bufparam audio addr[0]=0x8586cc80,addr[1]=0x8586d1a4,addr[2]=0x8586d6c8
+The read of ISCSI_VERSION_FILE is 2.0-869 
+# [0]ky2009_sdram =0x49fce000
+viDevice:10
+FH streambuf:0x87000000
+ -  - -- - - --logPrintAddr = 0x81190000
+dsp_share_mem-&gt;magic1 = bad3126a
+dsp_share_mem-&gt;magic2 = 312df654
+DSP(0) initialization success.
+retry = 2856
+bootInfo = 100
+DSP START OK
+name = eth0 speed = 0, duplex = 0, and autoneg = 1
+=============set mtu[1500] OK!!!===========
+=============set ipaddr OK!!!===========
+=============set netmask OK!!!===========
+=============set ipaddr OK!!!===========
+eth0 1
+=============set gateway OK!!!===========
+sensorType = 0x0
+send a heartbeat to panel
+startHttpServer!!!
+channel 1 start video capture
+channel 2 start video capture
+channel 3 start video capture
+channel 4 start video capture
+channel 5 start video capture
+channel 6 start video capture
+channel 7 start video capture
+channel 8 start video capture
+channel 9 start video capture
+channel 10 start video capture
+channel 11 start video capture
+channel 12 start video capture
+channel 13 start video capture
+channel 14 start video capture
+channel 15 start video capture
+channel 16 start video capture
+!!!!!!!!!!! mainout = 3, auxout = 1
+######## w = 1024, h = 768
+video_w = 1024, video_h = 768, video_bpp = 32
+--------end of InitGAL--------
+open mouse success!!
+~~~~~~~ ctrlname: calendar_bk_bmp 2
+viLostProc:Chan 1 VI lost.
+viLostProc:Chan 2 VI lost.
+viLostProc:Chan 3 VI lost.
+viLostProc:Chan 4 VI lost.
+viLostProc:Chan 5 VI lost.
+viLostProc:Chan 6 VI lost.
+viLostProc:Chan 7 VI lost.
+viLostProc:Chan 8 VI lost.
+viLostProc:Chan 9 VI lost.
+viLostProc:Chan 10 VI lost.
+viLostProc:Chan 11 VI lost.
+viLostProc:Chan 12 VI lost.
+viLostProc:Chan 13 VI lost.
+viLostProc:Chan 14 VI lost.
+viLostProc:Chan 15 VI lost.
+viLostProc:Chan 16 VI lost.
+~~~~~~~ ctrlname: cancel 2
+End of InitGUI!!
+Panel Version:0xa
+Panel Type:0x301c05
+Shuttle:1
+DoubledDigit:0
+F1/F2:0
+
+</pre>
+</div>
+
+<p>
+Fortunately, the console connection exposes us with a root shell:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Javascript"># ps w
+  PID  Uid     VmSize Stat Command
+    1 root        276 S   init      
+    2 root            SW&lt; [ksoftirqd/0]
+    3 root            SW&lt; [desched/0]
+    4 root            SW&lt; [events/0]
+    5 root            SW&lt; [khelper]
+   10 root            SW&lt; [kthread]
+   21 root            SW&lt; [kblockd/0]
+   44 root            SW  [khubd]
+  108 root            SW  [pdflush]
+  109 root            SW  [pdflush]
+  111 root            SW&lt; [aio/0]
+  110 root            SW  [kswapd0]
+  219 root            SW  [kseriod]
+  259 root            SW  [mtdblockd]
+  280 root            SW&lt; [vbi]
+  293 root            SW&lt; [vbi]
+  315 root            SW&lt; [iscsi_eh]
+  336 root        300 S   /bin/inetd 
+  337 root        392 S   -sh 
+  360 root            SWN [jffs2_gcd_mtd2]
+  377 root        260 S &lt; udevd 
+  391 root      10092 S   ./hicore 
+  393 root      10092 S   ./hicore 
+  394 root      10092 S   ./hicore 
+  397 root      10092 S   ./hicore 
+  413 root        200 S   ./execSystemCmd 
+  415 root        576 S &lt; ./iscsid 
+  426 root      10092 S   ./hicore 
+  427 root      10092 S   ./hicore 
+  428 root      10092 S   ./hicore 
+  429 root      10092 S   ./hicore 
+  430 root      10092 S   ./hicore 
+  431 root      10092 S   ./hicore 
+  432 root      10092 S   ./hicore 
+  433 root      10092 S   ./hicore 
+  434 root      10092 S   ./hicore 
+  435 root      10092 S   ./hicore 
+  436 root      10092 S   ./hicore 
+  437 root      10092 S   ./hicore 
+  438 root      10092 S   ./hicore 
+  439 root      10092 S   ./hicore 
+  440 root      10092 S   ./hicore 
+  441 root      10092 S   ./hicore 
+  442 root      10092 S   ./hicore 
+  443 root      10092 S   ./hicore 
+  444 root      10092 S   ./hicore 
+  445 root      10092 S   ./hicore 
+  446 root      10092 S   ./hicore 
+  447 root      10092 S   ./hicore 
+  448 root      10092 S   ./hicore 
+  449 root      10092 S   ./hicore 
+  450 root      10092 S   ./hicore 
+  451 root      10092 S   ./hicore 
+  452 root      10092 S   ./hicore 
+  453 root      10092 S   ./hicore 
+  454 root      10092 S   ./hicore 
+  455 root      10092 S   ./hicore 
+  456 root      10092 S   ./hicore 
+  457 root      10092 S   ./hicore 
+  458 root      10092 S   ./hicore 
+  460 root      10092 S   ./hicore 
+  461 root      10092 S   ./hicore 
+  462 root      10092 S   ./hicore 
+  463 root      10092 S   ./hicore 
+  464 root      10092 S   ./hicore 
+  465 root      10092 S   ./hicore 
+  466 root      10092 S   ./hicore 
+  468 root      10092 S   ./hicore 
+  469 root      10092 S   ./hicore 
+  470 root      10092 S   ./hicore 
+  471 root      10092 S   ./hicore 
+  472 root      10092 S   ./hicore 
+  473 root      10092 S   ./hicore 
+  474 root      10092 S   ./hicore 
+  475 root      10092 S   ./hicore 
+  476 root      10092 S   ./hicore 
+  477 root      10092 S   ./hicore 
+  478 root      10092 S   ./hicore 
+  479 root      10092 S   ./hicore 
+  480 root      10092 S   ./hicore 
+  482 root      10092 S   ./hicore 
+  483 root      10092 S   ./hicore 
+  484 root      10092 S   ./hicore 
+  485 root      10092 S   ./hicore 
+  486 root      10092 S   ./hicore 
+  489 root        304 R   ps w 
+# whoami
+-sh: whoami: not found
+# id -a
+id: illegal option -- a
+BusyBox v1.2.1 (2009.08.25-02:50+0000) multi-call binary
+
+Usage: id [OPTIONS]... [USERNAME]
+
+Print information for USERNAME or the current user
+
+Options:
+	-g	prints only the group ID
+	-u	prints only the user ID
+	-n	print a name instead of a number
+	-r	prints the real user ID instead of the effective ID
+
+# id -ur   
+0
+# dmesg   
+&lt;4&gt;Linux version 2.6.10_mvl401-davinci_evm (root@localhost.localdomain)
+&lt;4&gt;(gcc version 3.4.3 (MontaVista 3.4.3-25.0.104.0600975 2006-07-06))
+&lt;4&gt;#111 Fri Oct 29 05:41:05 CST 2010
+&lt;4&gt;CPU: ARM926EJ-Sid(wb) [41069265] revision 5 (ARMv5TEJ)
+&lt;4&gt;CPU0: D VIVT write-back cache
+&lt;4&gt;CPU0: I cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+&lt;4&gt;CPU0: D cache: 8192 bytes, associativity 4, 32 byte lines, 64 sets
+&lt;4&gt;Machine: DaVinci-DM6467
+&lt;4&gt;boardtype is 0xc100
+&lt;4&gt;Memory policy: ECC disabled, Data cache writeback
+&lt;7&gt;On node 0 totalpages: 16384
+&lt;7&gt;  DMA zone: 16384 pages, LIFO batch:4
+&lt;7&gt;  Normal zone: 0 pages, LIFO batch:1
+&lt;7&gt;  HighMem zone: 0 pages, LIFO batch:1
+&lt;4&gt;Kernel command line: console=ttyS0,115200n8 initrd=2g,1 root=/dev/ram  ip=192.0.0.64:::255.255.255.0 eth=00:40:48:38:15:07 mem=64M
+&lt;4&gt;TI DaVinci EMAC: Kernel Boot params Eth address: 00:40:48:38:15:07
+&lt;4&gt;PID hash table entries: 512 (order: 9, 8192 bytes)
+&lt;4&gt;Console: colour dummy device 80x30
+&lt;4&gt;Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+&lt;4&gt;Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+&lt;6&gt;Memory: 64MB = 64MB total
+&lt;5&gt;Memory: 61328KB available (2585K code, 622K data, 116K init)
+&lt;7&gt;Calibrating delay loop... 181.86 BogoMIPS (lpj=909312)
+&lt;4&gt;Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+&lt;6&gt;CPU: Testing write buffer coherency: ok
+&lt;4&gt;spawn_desched_task(00000000)
+&lt;4&gt;desched cpu_callback 3/00000000
+&lt;4&gt;ksoftirqd started up.
+&lt;4&gt;desched cpu_callback 2/00000000
+&lt;4&gt;desched thread 0 started up.
+&lt;6&gt;NET: Registered protocol family 16
+&lt;6&gt;Registering platform device 'serial8250.0'. Parent at platform
+&lt;6&gt;Registering platform device 'nand_davinci.0'. Parent at platform
+&lt;6&gt;Registering platform device 'nor_davinci.0'. Parent at platform
+&lt;6&gt;DaVinci: 48 gpio irqs
+&lt;6&gt;Registering platform device 'i2c'. Parent at platform
+&lt;5&gt;SCSI subsystem initialized
+&lt;6&gt;usbcore: registered new driver usbfs
+&lt;6&gt;usbcore: registered new driver hub
+&lt;6&gt;musb_hdrc: version 2.2a/db-0.4.8 [pio] [host] [debug=0]
+&lt;6&gt;Registering platform device 'musb_hdrc'. Parent at platform
+&lt;7&gt;musb_hdrc: ConfigData=0x06 (UTMI-8, dyn FIFOs, SoftConn)
+&lt;7&gt;musb_hdrc: MHDRC RTL version 1.500 
+&lt;7&gt;musb_hdrc: setup fifo_mode 4
+&lt;6&gt;musb_hdrc: USB Host mode controller at c4800000 using PIO, IRQ 13
+&lt;6&gt;musb_hdrc musb_hdrc: new USB bus registered, assigned bus number 1
+&lt;6&gt;hub 1-0:1.0: USB hub found
+&lt;6&gt;hub 1-0:1.0: 1 port detected
+&lt;4&gt;CDCE906 driver registered.
+&lt;4&gt;&lt;duhao&gt;-----&gt;pinmux_sw(0)
+&lt;4&gt;load boot params from flash[420a8000] ok.
+&lt;4&gt;Successfully initialized hikio module
+&lt;6&gt;Registering platform device 'dm_spi.0'. Parent at platform
+&lt;6&gt;JFFS2 version 2.2. (C) 2001-2003 Red Hat, Inc.
+&lt;4&gt;yaffs Oct 29 2010 05:42:52 Installing. 
+&lt;6&gt;Initializing Cryptographic API
+&lt;4&gt;eeprom driver init(0),magic=0x484b5753,vo_mode=0x00,tc_mode=0x00
+&lt;4&gt;register cmem driver successed.
+&lt;0&gt;rtc: [2020-09-20 16:18:26],week is 0
+&lt;6&gt;Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing disabled
+&lt;6&gt;Registering platform device 'serial8250'. Parent at platform
+&lt;4&gt;ttyS0 at MMIO 0x1c20000 (irq = 40) is a ST16654
+&lt;4&gt;ttyS1 at MMIO 0x1c20400 (irq = 41) is a ST16654
+&lt;4&gt;ttyS2 at MMIO 0x1c20800 (irq = 42) is a ST16654
+&lt;6&gt;io scheduler noop registered
+&lt;4&gt;RAMDISK driver initialized: 1 RAM disks of 4096K size 1024 blocksize
+&lt;6&gt;loop: loaded (max 8 devices)
+&lt;6&gt;Registering platform device 'ti_davinci_emac'. Parent at platform
+&lt;4&gt;TI DaVinci EMAC: MAC address is 00:40:48:38:15:07
+&lt;4&gt;TI DaVinci EMAC Linux version updated 5.0
+&lt;4&gt;TI DaVinci EMAC: Installed 1 instances.
+&lt;6&gt;PPP generic driver version 2.4.2
+&lt;6&gt;PPP Deflate Compression module registered
+&lt;6&gt;PPP BSD Compression module registered
+&lt;6&gt;NET: Registered protocol family 24
+&lt;6&gt;SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256).
+&lt;6&gt;i2c /dev entries driver
+&lt;6&gt;elevator: using noop as default io scheduler
+&lt;5&gt;DaVinci flash: probing 16-bit flash bus
+&lt;6&gt;DaVinci flash: Found 1 x16 devices at 0x0 in 16-bit bank
+&lt;7&gt;DaVinci flash: Found an alias at 0x1000000 for the chip at 0x0
+&lt;4&gt; Amd/Fujitsu Extended Query Table at 0x0040
+&lt;4&gt;DaVinci flash: CFI does not contain boot bank location. Assuming top.
+&lt;5&gt;number of CFI chips: 1
+&lt;5&gt;cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+&lt;5&gt;Creating 3 MTD partitions on "DaVinci flash":
+&lt;5&gt;0x00000000-0x000a0000 : "bootloader"
+&lt;5&gt;0x000a0000-0x000c0000 : "params"
+&lt;5&gt;0x000c0000-0x01000000 : "filesystem"
+&lt;6&gt;Linux video capture interface: v1.00
+&lt;6&gt;tvp5158A driver registered.
+&lt;6&gt;tvp5158B driver registered.
+&lt;6&gt;usb 1-1: new high speed USB device using musb_hdrc and address 2
+&lt;6&gt;hub 1-1:1.0: USB hub found
+&lt;6&gt;hub 1-1:1.0: 4 ports detected
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,58
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;7&gt;i2c: NACK detected,59
+&lt;4&gt;tvp5158 chipnum is.......................0
+&lt;6&gt;Registering platform device 'vpif capture.1'. Parent at platform
+&lt;6&gt;tvp5154A driver registered.
+&lt;6&gt;tvp5154B driver registered.
+&lt;6&gt;tvp5154C driver registered.
+&lt;6&gt;tvp5154D driver registered.
+&lt;4&gt;display: set ddr2 VBPR to 0x10
+&lt;6&gt;Registering platform device 'vpif display.1'. Parent at platform
+&lt;4&gt;mount filesystem ok.
+&lt;4&gt;load_yaffs2_file 768
+&lt;4&gt;load fpga filesize is 269846
+&lt;4&gt;load_yaffs2_file 787
+&lt;4&gt;load logo filesize is 829440
+&lt;7&gt;i2c: NACK detected,69
+&lt;7&gt;i2c: NACK detected,69
+&lt;7&gt;i2c: NACK detected,69
+&lt;4&gt;cdce906: hardware not present
+&lt;4&gt;set default video output to PAL
+&lt;4&gt;loading rootfs ... done.
+&lt;4&gt;&lt;duhao&gt;-----&gt;pinmux_sw(2)
+&lt;7&gt;dm6467 pci config done.
+&lt;4&gt;pci: cpld disk count is 4
+&lt;6&gt;PCI: bus0: Fast back to back transfers disabled
+&lt;4&gt;SiI3114: register driver done.
+&lt;6&gt;Uniform Multi-Platform E-IDE driver Revision: 7.00alpha2
+&lt;6&gt;ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+&lt;6&gt;SiI3114 Serial ATA: IDE controller at PCI slot 0000:00:00.0
+&lt;4&gt;PCI: enabling device 0000:00:00.0 (0140 -&gt; 0143)
+&lt;6&gt;SiI3114 Serial ATA: chipset revision 2
+&lt;6&gt;SiI3114 Serial ATA: 100% native mode on irq 50
+&lt;6&gt;    ide0: MMIO-DMA , BIOS settings: hda:pio, hdb:pio
+&lt;4&gt;init ide0!!!!,No 0
+&lt;6&gt;    ide1: MMIO-DMA , BIOS settings: hdc:pio, hdd:pio
+&lt;4&gt;init ide1!!!!,No 1
+&lt;6&gt;    ide2: MMIO-DMA , BIOS settings: hde:pio, hdf:pio
+&lt;4&gt;init ide2!!!!,No 2
+&lt;6&gt;    ide3: MMIO-DMA , BIOS settings: hdg:pio, hdh:pio
+&lt;4&gt;init ide3!!!!,No 3
+&lt;7&gt;Probing IDE interface ide0...
+&lt;7&gt;Probing IDE interface ide1...
+&lt;7&gt;Probing IDE interface ide2...
+&lt;7&gt;Probing IDE interface ide3...
+&lt;4&gt;ide is not exist
+&lt;6&gt;Loading iSCSI transport class v2.0-869.
+&lt;5&gt;iscsi: registered transport (tcp)
+&lt;6&gt;Initializing USB Mass Storage driver...
+&lt;6&gt;usbcore: registered new driver usb-storage
+&lt;6&gt;USB Mass Storage support registered.
+&lt;6&gt;usbcore: registered new driver usbhid
+&lt;6&gt;drivers/usb/input/hid-core.c: v2.6:USB HID core driver
+&lt;6&gt;mice: PS/2 mouse device common for all mice
+&lt;6&gt;NET: Registered protocol family 2
+&lt;6&gt;IP: routing cache hash table of 512 buckets, 4Kbytes
+&lt;6&gt;TCP: Hash tables configured (established 4096 bind 8192)
+&lt;6&gt;NET: Registered protocol family 1
+&lt;6&gt;NET: Registered protocol family 17
+&lt;4&gt;-------------&gt;phy_alive_status=512
+&lt;4&gt;IP-Config: Complete:
+&lt;4&gt;      device=eth0, addr=192.0.0.64, mask=255.255.255.0, gw=255.255.255.255,
+&lt;4&gt;     host=192.0.0.64, domain=, nis-domain=(none),
+&lt;4&gt;     bootserver=255.255.255.255, rootserver=255.255.255.255, rootpath=
+&lt;5&gt;RAMDISK: Compressed image found at block 0
+&lt;4&gt;VFS: Mounted root (minix filesystem).
+&lt;6&gt;Freeing init memory: 116K
+&lt;4&gt;&lt;duhao&gt;-----&gt;pinmux_sw(0)
+&lt;4&gt;-----&gt;[MAP]size=0x1000000,phy=0x83000000,virt=0x40065000
+&lt;4&gt;dsplinkk: no version for "struct_module" found: kernel tainted.
+&lt;4&gt;dsplinkk: module license 'DSP/BIOS(TM) LINK' taints kernel.
+&lt;1&gt;DSPLINK Module (1.50) created on Date: Jan 21 2009 Time: 11:20:30
+&lt;0&gt;&lt;KY09&gt; :Compiled Time: Nov 30 2009 at 10:30:07
+&lt;0&gt;&lt;KY09&gt; :---------------------------------Module init!------------------------------
+&lt;0&gt;&lt;KY09&gt; :vendor=0x3086
+&lt;0&gt;&lt;KY09&gt; : &lt;switch to PCI bus!!&gt;
+&lt;0&gt;&lt;KY09&gt; :pci device [3086:0101] probed
+&lt;4&gt;PCI: enabling device 0000:00:02.0 (0140 -&gt; 0142)
+&lt;0&gt;&lt;KY09&gt; :set DSP in PCI master mode
+&lt;0&gt;&lt;KY09&gt; :device (dsp0) resource -  [PCI physical base address, size, type]
+&lt;0&gt;&lt;KY09&gt; :               sdram:      [ 0x90000000, 0x2000000, 0x1208 ]
+&lt;0&gt;&lt;KY09&gt; :               DDR_CFG:	   [ 0x93000000, 0x400000, 0x1208 ]
+&lt;0&gt;&lt;KY09&gt; :               Reg_CFG:	   [ 0x92000000, 0x1000000, 0x0200 ]
+&lt;0&gt;&lt;KY09&gt; :ky2009_probe(): ky2009_nums = 1
+&lt;0&gt;&lt;KY09&gt; :1 device (dsp) found totally
+&lt;4&gt;
+&lt;0&gt;&lt;KY09&gt; :ky2009_install_dev(): device minor number 0.
+&lt;0&gt;&lt;KY09&gt; :vSdramBase:		0xc7900000
+&lt;0&gt;&lt;KY09&gt; :vDDR_CFG_base:		0xc9980000
+&lt;0&gt;&lt;KY09&gt; :vReg_CFG_base:		0xc9e00000
+&lt;0&gt;&lt;KY09&gt; :*****0)**************************dsp_handle-&gt;logBufAddr=0x81190000
+&lt;0&gt;&lt;KY09&gt; :Setup ky2009 DSP(0)
+&lt;0&gt;&lt;KY09&gt; :HOST_CMD0 val=0
+&lt;0&gt;&lt;KY09&gt; :KY2009[0] init ok.
+&lt;0&gt;&lt;KY09&gt; :read file size=518408
+&lt;0&gt;&lt;KY09&gt; :start to download firmware...
+&lt;0&gt;&lt;KY09&gt; :... ... verify download date OK !
+&lt;0&gt;&lt;KY09&gt; :DSP[0]:download_dsp_program success!
+&lt;4&gt;
+&lt;4&gt;&lt;duhao&gt;-----&gt;pinmux_sw(0)
+&lt;7&gt;watchdog start,clk is 182250000,time is 25(s),f92db90,1
+&lt;4&gt;&lt;duhao&gt;-----&gt;pinmux_sw(2)
+&lt;4&gt;-----&gt;[FREE]size=0x1000000,phy=0x83000000,virt=0x40065000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81300000,virt=0x47a54000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81380000,virt=0x47ad4000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81400000,virt=0x47c74000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x813a0000,virt=0x47cf4000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81480000,virt=0x47e94000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x813c0000,virt=0x47f14000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81500000,virt=0x480b4000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x813e0000,virt=0x48134000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81580000,virt=0x482d4000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81600000,virt=0x48354000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81680000,virt=0x484f4000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81640000,virt=0x48574000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81700000,virt=0x48714000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81660000,virt=0x48794000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81780000,virt=0x48934000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81800000,virt=0x489b4000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81880000,virt=0x48b54000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81820000,virt=0x48bd4000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81900000,virt=0x48d74000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81840000,virt=0x48df4000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81980000,virt=0x48f94000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81860000,virt=0x49014000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81a00000,virt=0x491b4000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81a80000,virt=0x49234000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81b00000,virt=0x493d4000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81aa0000,virt=0x49454000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81b80000,virt=0x495f4000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81ac0000,virt=0x49674000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81c00000,virt=0x49814000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81ae0000,virt=0x49894000
+&lt;4&gt;-----&gt;[MAP]size=0x80000,phy=0x81c80000,virt=0x49a34000
+&lt;4&gt;-----&gt;[MAP]size=0x20000,phy=0x81d00000,virt=0x49ab4000
+&lt;4&gt;devfreq is 729000000
+&lt;4&gt;adv7343 driver is already initialized..
+&lt;4&gt;vobuftype=1,voStd=2
+&lt;4&gt;vo phys buf=84000000
+&lt;4&gt;vo phys buf=84180000
+&lt;4&gt;vo phys buf=84300000
+&lt;7&gt;&lt;duhao&gt;-----&gt;pinmux0 in PCI,cpld_reset(1) not valid.
+&lt;0&gt;&lt;KY09&gt; :[ky2009_mmap-0]: vsize = 0x2000000, offs = 0x0 
+&lt;0&gt;&lt;KY09&gt; :[ky2009_mmap-0]: vsize = 0x400000, offs = 0x0 
+&lt;6&gt;device eth0 entered promiscuous mode
+# 
+
+</pre>
+</div>
+
+<p>
+The repair seems to be successful as the boot splashscreen appears on the connected VGA monitor and the NVR can be reached via telnet and FTP.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2021-04-11 19:41</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
