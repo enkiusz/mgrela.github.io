@@ -7,4 +7,4 @@ if ! which exiv2 > /dev/null; then
     exit 0
 fi
 
-find . -iname '*.png' -or -iname '*.jpg' -print0 | xargs -0 exiv2 -d a
+find . -iname '*.png' -or -iname '*.jpg' -print0 | xargs -r -0 exiv2 -d a
