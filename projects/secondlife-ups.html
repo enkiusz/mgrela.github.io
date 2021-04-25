@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-04-18 16:22 -->
+<!-- 2021-04-25 17:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Second Life UPS</title>
@@ -228,7 +228,8 @@
 <li><a href="#orgee4f6c5">3. The battery</a></li>
 <li><a href="#org9c5bd20">4. The output board</a></li>
 <li><a href="#orgcc9f61f">5. The controller board</a></li>
-<li><a href="#org551b085">6. Final device</a></li>
+<li><a href="#org5694dee">6. AC power connection</a></li>
+<li><a href="#org551b085">7. Final device</a></li>
 </ul>
 </div>
 </div>
@@ -242,7 +243,7 @@ I have decided to build a UPS that would power my home network equipment rack us
 </p>
 
 
-<div id="orge16a9c9" class="figure">
+<div id="orgcaf8c7f" class="figure">
 <p><a href="rack.jpg"><img src="thumb-rack.jpg" alt="thumb-rack.jpg" /></a>
 </p>
 </div>
@@ -357,7 +358,7 @@ The 1U case that I used for this project is a case from a ipTime ZC-SW2405 switc
 </p>
 
 
-<div id="org2c4abcf" class="figure">
+<div id="org1c61e75" class="figure">
 <p><a href="switch-case.jpg"><img src="thumb-switch-case.jpg" alt="thumb-switch-case.jpg" /></a>
 </p>
 </div>
@@ -373,7 +374,7 @@ The case size puts a limit on the size and shape of two biggest internal compone
 </p>
 
 
-<div id="org8fe84cf" class="figure">
+<div id="orgf687e2c" class="figure">
 <p><a href="basic-layout.jpg"><img src="thumb-basic-layout.jpg" alt="thumb-basic-layout.jpg" /></a>
 </p>
 </div>
@@ -434,16 +435,8 @@ From the basic layout the following elements are COTS components:
 <td class="org-left">&#xa0;</td>
 <td class="org-left">XL4015 buck dc-dc converter</td>
 <td class="org-left">5A max</td>
-<td class="org-left">Provides 12 V output</td>
+<td class="org-left">Provides 5 V and  12 V outputs</td>
 <td class="org-left"><a href="https://www.aliexpress.com/item/4000796650052.html">https://www.aliexpress.com/item/4000796650052.html</a></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">LM2596 buck dc-dc converter</td>
-<td class="org-left">3A max</td>
-<td class="org-left">Provides 5 V output</td>
-<td class="org-left"><a href="https://www.aliexpress.com/item/4000064597454.html">https://www.aliexpress.com/item/4000064597454.html</a></td>
 </tr>
 </tbody>
 </table>
@@ -472,7 +465,7 @@ the rows of the cells:
 </p>
 
 
-<div id="org11bbe20" class="figure">
+<div id="orge6a8e2f" class="figure">
 <p><a href="battery-pack1.jpg"><img src="thumb-battery-pack1.jpg" alt="thumb-battery-pack1.jpg" /></a>
 </p>
 </div>
@@ -483,13 +476,13 @@ on the two pictures below:
 </p>
 
 
-<div id="org0a7d441" class="figure">
+<div id="org66a6428" class="figure">
 <p><a href="battery-pack2.jpg"><img src="thumb-battery-pack2.jpg" alt="thumb-battery-pack2.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org78d71d2" class="figure">
+<div id="orgba7067e" class="figure">
 <p><a href="battery-pack3.jpg"><img src="thumb-battery-pack3.jpg" alt="thumb-battery-pack3.jpg" /></a>
 </p>
 </div>
@@ -499,13 +492,13 @@ Next, the battery has the main leads soldered to the ends and balancing wires to
 </p>
 
 
-<div id="orge68e9f3" class="figure">
+<div id="orgdd1b7bd" class="figure">
 <p><a href="battery-pack4.jpg"><img src="thumb-battery-pack4.jpg" alt="thumb-battery-pack4.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org78fcde3" class="figure">
+<div id="orgc4fd138" class="figure">
 <p><a href="battery-pack5.jpg"><img src="thumb-battery-pack5.jpg" alt="thumb-battery-pack5.jpg" /></a>
 </p>
 </div>
@@ -515,7 +508,7 @@ After applying insulating tape on both ends and also between the cells the batte
 </p>
 
 
-<div id="org20ca4bc" class="figure">
+<div id="org906a1b3" class="figure">
 <p><a href="battery-pack6.jpg"><img src="thumb-battery-pack6.jpg" alt="thumb-battery-pack6.jpg" /></a>
 </p>
 </div>
@@ -525,7 +518,7 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </p>
 
 
-<div id="orgb9d8c0f" class="figure">
+<div id="org5c12b06" class="figure">
 <p><a href="battery-pack7.jpg"><img src="thumb-battery-pack7.jpg" alt="thumb-battery-pack7.jpg" /></a>
 </p>
 </div>
@@ -548,7 +541,7 @@ First, the baseboard was fitted and screwed in in front of the cutouts. A piece 
 </p>
 
 
-<div id="orgf551876" class="figure">
+<div id="org88b24b8" class="figure">
 <p><a href="output-board1.jpg"><img src="thumb-output-board1.jpg" alt="thumb-output-board1.jpg" /></a>
 </p>
 </div>
@@ -559,7 +552,7 @@ in a similar fashion:
 </p>
 
 
-<div id="orgfa3b322" class="figure">
+<div id="orgebf6700" class="figure">
 <p><a href="output-board2.jpg"><img src="thumb-output-board2.jpg" alt="thumb-output-board2.jpg" /></a>
 </p>
 </div>
@@ -570,7 +563,7 @@ to 12V (yellow wires) and 5V (red wires) power rails and a common ground rail.
 </p>
 
 
-<div id="orgf6bb079" class="figure">
+<div id="org1b703d7" class="figure">
 <p><a href="output-board3.jpg"><img src="thumb-output-board3.jpg" alt="thumb-output-board3.jpg" /></a>
 </p>
 </div>
@@ -582,7 +575,7 @@ DC-DC converters in between. This will not be available on the front but have a 
 </p>
 
 
-<div id="orgc3b9dc9" class="figure">
+<div id="org0404059" class="figure">
 <p><a href="output-board4.jpg"><img src="thumb-output-board4.jpg" alt="thumb-output-board4.jpg" /></a>
 </p>
 </div>
@@ -590,15 +583,46 @@ DC-DC converters in between. This will not be available on the front but have a 
 <p>
 The DC-DC converters supplying the 12V and 5V rails are mounted on the side of the connector boards one on top of the other secured with distance posts and an isolating pad at the bottom. These have 
 outputs on the right which will be connected with short wires to the connector board, you can also see the blue screw terminal on the connector board used to plug in into the auxillary battery connection.
+In the initial revision of the hardware, the 5V was supplied by an LM2596 module and 12V was sources from an XL4015. This can be seen on the picture below:
 </p>
 
 
-<div id="org96870f1" class="figure">
+<div id="orgd6b9bdf" class="figure">
 <p><a href="output-board5.jpg"><img src="thumb-output-board5.jpg" alt="thumb-output-board5.jpg" /></a>
 </p>
 </div>
+
+<p>
+I have found out however, that the LM1596 isn't capable enough to reliably power all of the 5V loads (a Raspberry Pi + a fan in the rack in my case). Therefore I decided to replace the LM2596 with another 
+XL4015 board adjusted to provide 5.1V just in case to account for voltage drops on shitty wires. During the mounting of both boards I had to provide some distancing between the top and the bottom one
+as the bottom inductor was touching some solder joints on the top board. I used here small M3 screws with plastic insulating distance rings which were originally holding MOSFETs to a heatsink in a power
+supply. I knew they would come in handy some day ;)
+</p>
+
+
+<div id="org81b7d5a" class="figure">
+<p><a href="distance-screw1.jpg"><img src="thumb-distance-screw1.jpg" alt="thumb-distance-screw1.jpg" /></a>
+</p>
+</div>
+
+<p>
+The plastic distance rings fit perfectly into the M3 holes of the module and provide an ideal amount of distancing:
+</p>
+
+
+<div id="org0697dae" class="figure">
+<p><a href="distance-screw2.jpg"><img src="thumb-distance-screw2.jpg" alt="thumb-distance-screw2.jpg" /></a>
+</p>
+</div>
+
+
+<div id="org28d8d2a" class="figure">
+<p><a href="distance-screw3.jpg"><img src="thumb-distance-screw3.jpg" alt="thumb-distance-screw3.jpg" /></a>
+</p>
 </div>
 </div>
+</div>
+
 
 <div id="outline-container-orgcc9f61f" class="outline-2">
 <h2 id="orgcc9f61f"><span class="section-number-2">5</span> The controller board</h2>
@@ -609,7 +633,7 @@ connected together:
 </p>
 
 
-<div id="org96706e4" class="figure">
+<div id="org31d320f" class="figure">
 <p><object type="image/svg+xml" data="control-circuit.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -620,7 +644,7 @@ If your browser can't render SVGs o<sub>O</sub>, you can download the <a href="c
 </p>
 
 
-<div id="org7920349" class="figure">
+<div id="org772255e" class="figure">
 <p><a href="controller-board1.jpg"><img src="thumb-controller-board1.jpg" alt="thumb-controller-board1.jpg" /></a>
 </p>
 </div>
@@ -632,7 +656,7 @@ insulating tape as it was added as an afterthought and I didn't want to disassem
 </p>
 
 
-<div id="org4f41e95" class="figure">
+<div id="org31432ed" class="figure">
 <p><a href="fan-power.jpg"><img src="thumb-fan-power.jpg" alt="thumb-fan-power.jpg" /></a>
 </p>
 </div>
@@ -644,15 +668,30 @@ both the charger and the loads.
 </div>
 </div>
 
-<div id="outline-container-org551b085" class="outline-2">
-<h2 id="org551b085"><span class="section-number-2">6</span> Final device</h2>
+<div id="outline-container-org5694dee" class="outline-2">
+<h2 id="org5694dee"><span class="section-number-2">6</span> AC power connection</h2>
 <div class="outline-text-2" id="text-6">
+<p>
+The AC 230V cable has been attached using an electrical pipe fitting usually found in distribution boxes. It's very practical as it's pretty sturdy and provides a good amount of strain relief for the cable:
+</p>
+
+
+<div id="orgf71c934" class="figure">
+<p><a href="ac-cable1.jpg"><img src="thumb-ac-cable1.jpg" alt="thumb-ac-cable1.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org551b085" class="outline-2">
+<h2 id="org551b085"><span class="section-number-2">7</span> Final device</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 The final result before the case is screwed on:
 </p>
 
 
-<div id="orgf1ee55e" class="figure">
+<div id="org7599f5f" class="figure">
 <p><a href="final-assembly1.jpg"><img src="thumb-final-assembly1.jpg" alt="thumb-final-assembly1.jpg" /></a>
 </p>
 </div>
@@ -662,18 +701,18 @@ The front panel contains two status LEDs as well as the battery cutoff switch.
 </p>
 
 
-<div id="orgec8b690" class="figure">
+<div id="org2d061b5" class="figure">
 <p><a href="final-assembly2.jpg"><img src="thumb-final-assembly2.jpg" alt="thumb-final-assembly2.jpg" /></a>
 </p>
 </div>
 
 <p>
-The AC 230V cable has been attached using an electrical pipe fitting usually found in distribution boxes. It's very practical as it's pretty sturdy and provides a good amount of strain relief for the cable:
+I have also added stickers to showcase maximum current ratings allowed and label the output voltages.
 </p>
 
 
-<div id="orgca85041" class="figure">
-<p><a href="ac-cable1.jpg"><img src="thumb-ac-cable1.jpg" alt="thumb-ac-cable1.jpg" /></a>
+<div id="org0029428" class="figure">
+<p><a href="stickers1.jpg"><img src="thumb-stickers1.jpg" alt="thumb-stickers1.jpg" /></a>
 </p>
 </div>
 </div>
@@ -681,7 +720,7 @@ The AC 230V cable has been attached using an electrical pipe fitting usually fou
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-04-18 16:22</p>
+<p class="date">Created: 2021-04-25 17:15</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
