@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-04-11 19:41 -->
+<!-- 2021-05-13 19:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Whitestar</title>
@@ -223,50 +223,50 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb4be059">1. The hardware</a></li>
-<li><a href="#orgdd1d48d">2. Power</a></li>
-<li><a href="#org497e16c">3. Software setup</a>
+<li><a href="#org6a868b5">1. The hardware</a></li>
+<li><a href="#org62765d7">2. Power</a></li>
+<li><a href="#orgb8f7647">3. Software setup</a>
 <ul>
-<li><a href="#org0619a58">3.1. BIOS setup</a></li>
-<li><a href="#orgd0deb53">3.2. OS installation</a></li>
-<li><a href="#orge40a11a">3.3. Disable console blanking and system splash screen</a></li>
-<li><a href="#org03d244f">3.4. Change default systemd target</a></li>
-<li><a href="#org3dc6532">3.5. Setup udev rules</a>
+<li><a href="#org4bd792c">3.1. BIOS setup</a></li>
+<li><a href="#orga493978">3.2. OS installation</a></li>
+<li><a href="#org1baedd7">3.3. Disable console blanking and system splash screen</a></li>
+<li><a href="#org0cbdde7">3.4. Change default systemd target</a></li>
+<li><a href="#orgc091eab">3.5. Setup udev rules</a>
 <ul>
-<li><a href="#orgda41646">3.5.1. /etc/udev/rules.d/30-whitestar-devices.rules</a></li>
-<li><a href="#org36cb505">3.5.2. /etc/udev/rules.d/50-kismet.rules</a></li>
+<li><a href="#org38fcc84">3.5.1. /etc/udev/rules.d/30-whitestar-devices.rules</a></li>
+<li><a href="#orgfc71bb1">3.5.2. /etc/udev/rules.d/50-kismet.rules</a></li>
 </ul>
 </li>
-<li><a href="#org4c10277">3.6. Start the sshd and avahi-daemon services</a></li>
-<li><a href="#org27794c0">3.7. Copy ssh key</a></li>
-<li><a href="#org63e7a56">3.8. Install Python bindings for kismet</a></li>
-<li><a href="#orgaa27922">3.9. Install kismet and gpsd</a></li>
-<li><a href="#org787f512">3.10. Edit kismet.conf server configuration file</a></li>
-<li><a href="#org003c8f0">3.11. Create a user to run the kismet</a></li>
-<li><a href="#org1dc3472">3.12. Setup log storage on external hard disk</a></li>
-<li><a href="#org1ab2928">3.13. Make journal dir in /var/log</a></li>
-<li><a href="#org7d91090">3.14. Setup fs and swap</a></li>
-<li><a href="#orgabe9984">3.15. Systemd units for custom services</a></li>
-<li><a href="#org8711fdf">3.16. Enable all services to start at boot</a></li>
-<li><a href="#orge7dfae1">3.17. Disable NetworkManager</a></li>
-<li><a href="#org37f0c74">3.18. Systemd .network for LAN link</a></li>
-<li><a href="#org7732928">3.19. Setup archive directory</a></li>
-<li><a href="#orgf8ad77c">3.20. Setup archive file transfer account</a></li>
-<li><a href="#orgd0fd026">3.21. Data transfer from whitestar</a></li>
-<li><a href="#org50b39bb">3.22. Mothership uplink</a></li>
-<li><a href="#orge4b3c86">3.23. Final time measurements</a></li>
-<li><a href="#orga20ee4d">3.24. Boot time optimization</a></li>
-<li><a href="#orge37aeb3">3.25. Future plans</a>
+<li><a href="#orgad20ab8">3.6. Start the sshd and avahi-daemon services</a></li>
+<li><a href="#orgb52b4e8">3.7. Copy ssh key</a></li>
+<li><a href="#orgb032303">3.8. Install Python bindings for kismet</a></li>
+<li><a href="#org6e858e0">3.9. Install kismet and gpsd</a></li>
+<li><a href="#orgc00fd0c">3.10. Edit kismet.conf server configuration file</a></li>
+<li><a href="#org4bc7512">3.11. Create a user to run the kismet</a></li>
+<li><a href="#orga502717">3.12. Setup log storage on external hard disk</a></li>
+<li><a href="#orgdc76bfa">3.13. Make journal dir in /var/log</a></li>
+<li><a href="#org10487a6">3.14. Setup fs and swap</a></li>
+<li><a href="#org4c02b92">3.15. Systemd units for custom services</a></li>
+<li><a href="#orgcb73274">3.16. Enable all services to start at boot</a></li>
+<li><a href="#org4cadc6e">3.17. Disable NetworkManager</a></li>
+<li><a href="#orge8706c1">3.18. Systemd .network for LAN link</a></li>
+<li><a href="#org611a113">3.19. Setup archive directory</a></li>
+<li><a href="#orgd337d79">3.20. Setup archive file transfer account</a></li>
+<li><a href="#orgce2920a">3.21. Data transfer from whitestar</a></li>
+<li><a href="#orgb64e5c8">3.22. Mothership uplink</a></li>
+<li><a href="#org0d38c69">3.23. Final time measurements</a></li>
+<li><a href="#orgc3520cf">3.24. Boot time optimization</a></li>
+<li><a href="#org52e32a3">3.25. Future plans</a>
 <ul>
-<li><a href="#orgcff2606">3.25.1. Other upload destinations</a></li>
-<li><a href="#orgff99257">3.25.2. Better OBD-II integration</a></li>
-<li><a href="#orge63a91b">3.25.3. Improved statistics &amp; monitoring</a></li>
-<li><a href="#org2f1d007">3.25.4. Cell information capture</a></li>
-<li><a href="#orgd617e10">3.25.5. GPS receiver sharing with cell phone</a></li>
-<li><a href="#org28ef513">3.25.6. GPS used to provide time</a></li>
-<li><a href="#orgacd1c12">3.25.7. Zero-flash-writes</a></li>
-<li><a href="#org14bfa01">3.25.8. Navigation integration</a></li>
-<li><a href="#org2891c1b">3.25.9. Custom Gentoo build</a></li>
+<li><a href="#org213bc4c">3.25.1. Other upload destinations</a></li>
+<li><a href="#org3d109d8">3.25.2. Better OBD-II integration</a></li>
+<li><a href="#orga0e48ba">3.25.3. Improved statistics &amp; monitoring</a></li>
+<li><a href="#org76db0bf">3.25.4. Cell information capture</a></li>
+<li><a href="#orge56222b">3.25.5. GPS receiver sharing with cell phone</a></li>
+<li><a href="#org6590a14">3.25.6. GPS used to provide time</a></li>
+<li><a href="#orgf2aad5b">3.25.7. Zero-flash-writes</a></li>
+<li><a href="#org9c0341f">3.25.8. Navigation integration</a></li>
+<li><a href="#org13a64c0">3.25.9. Custom Gentoo build</a></li>
 </ul>
 </li>
 </ul>
@@ -286,14 +286,14 @@ The overall architecture of the system is presented below:
 </p>
 
 
-<div id="orgc434ef4" class="figure">
+<div id="org2dc8580" class="figure">
 <p><object type="image/svg+xml" data="diagram.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 
-<div id="outline-container-orgb4be059" class="outline-2">
-<h2 id="orgb4be059"><span class="section-number-2">1</span> The hardware</h2>
+<div id="outline-container-org6a868b5" class="outline-2">
+<h2 id="org6a868b5"><span class="section-number-2">1</span> The hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The whitestar is built around a kektop (<a href="http://www.ntt.pl/index.php?c=1279">NTT HOME W 300P</a> net-top style PC) with an Intel Atom 230 CPU (1.6 GHz), 1 GB of RAM and a small 16GB internal SSD. 
@@ -305,8 +305,8 @@ extended periods of time.
 </div>
 </div>
 
-<div id="outline-container-orgdd1d48d" class="outline-2">
-<h2 id="orgdd1d48d"><span class="section-number-2">2</span> Power</h2>
+<div id="outline-container-org62765d7" class="outline-2">
+<h2 id="org62765d7"><span class="section-number-2">2</span> Power</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In the beginning the whitestar was powered directly from the car lighter socket via a step-up converter from Aliexpress (XL6009-based). One of the improvements
@@ -323,7 +323,7 @@ You would find it hard to be more generic than this brand:
 </p>
 
 
-<div id="org5740129" class="figure">
+<div id="org2f2df89" class="figure">
 <p><img src="powerbank.jpg" alt="powerbank.jpg" />
 </p>
 </div>
@@ -336,13 +336,13 @@ I figured I would need a supercap bank. Therefore I bought and built it:
 </p>
 
 
-<div id="org5135415" class="figure">
+<div id="orged15471" class="figure">
 <p><img src="supercaps-bag.jpg" alt="supercaps-bag.jpg" />
 </p>
 </div>
 
 
-<div id="orgb494bf7" class="figure">
+<div id="orge58e26e" class="figure">
 <p><img src="supercaps-build1.jpg" alt="supercaps-build1.jpg" />
 </p>
 </div>
@@ -353,7 +353,7 @@ it out, without the battery and relays first. Just the supercaps so that I would
 </p>
 
 
-<div id="orga0ac56d" class="figure">
+<div id="orgb86e60a" class="figure">
 <p><img src="powersupply-build1.jpg" alt="powersupply-build1.jpg" />
 </p>
 </div>
@@ -370,8 +370,8 @@ Cat 12V input &lt;-&gt; 10F@27V supercaps &lt;-&gt; SMPS &lt;-&gt; 19V &lt;-&gt;
 
 
 
-<div id="outline-container-org497e16c" class="outline-2">
-<h2 id="org497e16c"><span class="section-number-2">3</span> Software setup</h2>
+<div id="outline-container-orgb8f7647" class="outline-2">
+<h2 id="orgb8f7647"><span class="section-number-2">3</span> Software setup</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The software that I used was based on a clean Xubuntu installation with a GUI. After that I added some packages and changed some configuration options. 
@@ -380,8 +380,8 @@ Below is a step-by-step guide for installing everything:
 </p>
 </div>
 
-<div id="outline-container-org0619a58" class="outline-3">
-<h3 id="org0619a58"><span class="section-number-3">3.1</span> BIOS setup</h3>
+<div id="outline-container-org4bd792c" class="outline-3">
+<h3 id="org4bd792c"><span class="section-number-3">3.1</span> BIOS setup</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 First we need to enter the BIOS of the machine and set up two important options:
@@ -393,8 +393,8 @@ First we need to enter the BIOS of the machine and set up two important options:
 </div>
 </div>
 
-<div id="outline-container-orgd0deb53" class="outline-3">
-<h3 id="orgd0deb53"><span class="section-number-3">3.2</span> OS installation</h3>
+<div id="outline-container-orga493978" class="outline-3">
+<h3 id="orga493978"><span class="section-number-3">3.2</span> OS installation</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The OS installed on the device is Xubuntu 15.10:
@@ -412,8 +412,8 @@ Codename:	wily
 </div>
 </div>
 
-<div id="outline-container-orge40a11a" class="outline-3">
-<h3 id="orge40a11a"><span class="section-number-3">3.3</span> Disable console blanking and system splash screen</h3>
+<div id="outline-container-org1baedd7" class="outline-3">
+<h3 id="org1baedd7"><span class="section-number-3">3.3</span> Disable console blanking and system splash screen</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Console blanking can be a nuisance when you connect a monitor to the PC to watch the kismet monitor. Also, when the PC boots there usually
@@ -435,8 +435,8 @@ config files in /boot/grub.
 </div>
 </div>
 
-<div id="outline-container-org03d244f" class="outline-3">
-<h3 id="org03d244f"><span class="section-number-3">3.4</span> Change default systemd target</h3>
+<div id="outline-container-org0cbdde7" class="outline-3">
+<h3 id="org0cbdde7"><span class="section-number-3">3.4</span> Change default systemd target</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 The default systemd target for the Xubuntu installation is graphical.target. This will start the X server and launch a graphical login screen.
@@ -454,8 +454,8 @@ The multi-user.target provides us with an old-skool Linux text-based login.
 </div>
 </div>
 
-<div id="outline-container-org3dc6532" class="outline-3">
-<h3 id="org3dc6532"><span class="section-number-3">3.5</span> Setup udev rules</h3>
+<div id="outline-container-orgc091eab" class="outline-3">
+<h3 id="orgc091eab"><span class="section-number-3">3.5</span> Setup udev rules</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 We need to setup some udev rules so that the devices which we will use in configuration of other parts of whitestar will have some defined 
@@ -464,8 +464,8 @@ network devices used for 802.11 scanning should have static kismet UUID identifi
 </p>
 </div>
 
-<div id="outline-container-orgda41646" class="outline-4">
-<h4 id="orgda41646"><span class="section-number-4">3.5.1</span> /etc/udev/rules.d/30-whitestar-devices.rules</h4>
+<div id="outline-container-org38fcc84" class="outline-4">
+<h4 id="org38fcc84"><span class="section-number-4">3.5.1</span> /etc/udev/rules.d/30-whitestar-devices.rules</h4>
 <div class="outline-text-4" id="text-3-5-1">
 <pre class="example">
 # WLAN cards
@@ -488,8 +488,8 @@ to prevent the monitor devices created by kismet from running the rule a second 
 </div>
 </div>
 
-<div id="outline-container-org36cb505" class="outline-4">
-<h4 id="org36cb505"><span class="section-number-4">3.5.2</span> /etc/udev/rules.d/50-kismet.rules</h4>
+<div id="outline-container-orgfc71bb1" class="outline-4">
+<h4 id="orgfc71bb1"><span class="section-number-4">3.5.2</span> /etc/udev/rules.d/50-kismet.rules</h4>
 <div class="outline-text-4" id="text-3-5-2">
 <pre class="example">
 SUBSYSTEM=="net", ACTION=="add", ENV{KISMET_UUID}=="?*", RUN+="/usr/local/bin/kismet-add-source $name:uuid=$env{KISMET_UUID}"
@@ -505,8 +505,8 @@ properly by connecting the devices and looking if all of the properties have bee
 </div>
 </div>
 
-<div id="outline-container-org4c10277" class="outline-3">
-<h3 id="org4c10277"><span class="section-number-3">3.6</span> Start the sshd and avahi-daemon services</h3>
+<div id="outline-container-orgad20ab8" class="outline-3">
+<h3 id="orgad20ab8"><span class="section-number-3">3.6</span> Start the sshd and avahi-daemon services</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 The avahi-daemon and sshd services will allow you to easily connect to whitestar via ethernet using only IPv6 link-local addressing. This will work in every case
@@ -525,8 +525,8 @@ Executing /lib/systemd/systemd-sysv-install enable avahi-daemon
 </div>
 </div>
 
-<div id="outline-container-org27794c0" class="outline-3">
-<h3 id="org27794c0"><span class="section-number-3">3.7</span> Copy ssh key</h3>
+<div id="outline-container-orgb52b4e8" class="outline-3">
+<h3 id="orgb52b4e8"><span class="section-number-3">3.7</span> Copy ssh key</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 Use ssh-copy-id to copy your public SSH key to the authorized<sub>keys</sub> of the user that will run the kismet services.
@@ -534,8 +534,8 @@ Use ssh-copy-id to copy your public SSH key to the authorized<sub>keys</sub> of 
 </div>
 </div>
 
-<div id="outline-container-org63e7a56" class="outline-3">
-<h3 id="org63e7a56"><span class="section-number-3">3.8</span> Install Python bindings for kismet</h3>
+<div id="outline-container-orgb032303" class="outline-3">
+<h3 id="orgb032303"><span class="section-number-3">3.8</span> Install Python bindings for kismet</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 In order to run the whitestar watchdog script you need to install the <a href="https://github.com/PaulMcMillan/kismetclient">kismetclient</a> Python library using pip.
@@ -543,8 +543,8 @@ In order to run the whitestar watchdog script you need to install the <a href="h
 </div>
 </div>
 
-<div id="outline-container-orgaa27922" class="outline-3">
-<h3 id="orgaa27922"><span class="section-number-3">3.9</span> Install kismet and gpsd</h3>
+<div id="outline-container-org6e858e0" class="outline-3">
+<h3 id="org6e858e0"><span class="section-number-3">3.9</span> Install kismet and gpsd</h3>
 <div class="outline-text-3" id="text-3-9">
 <p>
 Install the kismet and gpsd packages using "apt".
@@ -552,8 +552,8 @@ Install the kismet and gpsd packages using "apt".
 </div>
 </div>
 
-<div id="outline-container-org787f512" class="outline-3">
-<h3 id="org787f512"><span class="section-number-3">3.10</span> Edit kismet.conf server configuration file</h3>
+<div id="outline-container-orgc00fd0c" class="outline-3">
+<h3 id="orgc00fd0c"><span class="section-number-3">3.10</span> Edit kismet.conf server configuration file</h3>
 <div class="outline-text-3" id="text-3-10">
 <p>
 Edit the kismet server configuration file, change a few of the options listed below. The other parameters are ok with their default values.
@@ -616,8 +616,8 @@ These settings have the following effect:
 </div>
 </div>
 
-<div id="outline-container-org003c8f0" class="outline-3">
-<h3 id="org003c8f0"><span class="section-number-3">3.11</span> Create a user to run the kismet</h3>
+<div id="outline-container-org4bc7512" class="outline-3">
+<h3 id="org4bc7512"><span class="section-number-3">3.11</span> Create a user to run the kismet</h3>
 <div class="outline-text-3" id="text-3-11">
 <p>
 We need to create a nonprivileged user to run the kismet monitor. In my whitestar this user is called 'enki'.
@@ -625,8 +625,8 @@ We need to create a nonprivileged user to run the kismet monitor. In my whitesta
 </div>
 </div>
 
-<div id="outline-container-org1dc3472" class="outline-3">
-<h3 id="org1dc3472"><span class="section-number-3">3.12</span> Setup log storage on external hard disk</h3>
+<div id="outline-container-orga502717" class="outline-3">
+<h3 id="orga502717"><span class="section-number-3">3.12</span> Setup log storage on external hard disk</h3>
 <div class="outline-text-3" id="text-3-12">
 <p>
 You should create two partitions (or better LVs) on the external HDD. One of those will be for the swap partition, the other we will mount as /var/log.
@@ -634,8 +634,8 @@ You should create two partitions (or better LVs) on the external HDD. One of tho
 </div>
 </div>
 
-<div id="outline-container-org1ab2928" class="outline-3">
-<h3 id="org1ab2928"><span class="section-number-3">3.13</span> Make journal dir in /var/log</h3>
+<div id="outline-container-orgdc76bfa" class="outline-3">
+<h3 id="orgdc76bfa"><span class="section-number-3">3.13</span> Make journal dir in /var/log</h3>
 <div class="outline-text-3" id="text-3-13">
 <p>
 If the /var/log/journal directory exists and systemd-journald has the default configuration "Storage=auto" it will store the journal in /var/log/journal. This is 
@@ -645,8 +645,8 @@ system by just unplugging the drive and taking it with us.
 </div>
 </div>
 
-<div id="outline-container-org7d91090" class="outline-3">
-<h3 id="org7d91090"><span class="section-number-3">3.14</span> Setup fs and swap</h3>
+<div id="outline-container-org10487a6" class="outline-3">
+<h3 id="org10487a6"><span class="section-number-3">3.14</span> Setup fs and swap</h3>
 <div class="outline-text-3" id="text-3-14">
 <p>
 Setup the two LVs as swap and /var/log filesystem in /etc/fstab. Remove the original swap device on the flash drive, it's a massively bad idea to put swap on flash.
@@ -668,8 +668,8 @@ The UUID1 and UUID2 fields are UUID identifiers (from the 'blkid' command) for t
 </div>
 </div>
 
-<div id="outline-container-orgabe9984" class="outline-3">
-<h3 id="orgabe9984"><span class="section-number-3">3.15</span> Systemd units for custom services</h3>
+<div id="outline-container-org4c02b92" class="outline-3">
+<h3 id="org4c02b92"><span class="section-number-3">3.15</span> Systemd units for custom services</h3>
 <div class="outline-text-3" id="text-3-15">
 <p>
 I have created some custom systemd services for:
@@ -803,8 +803,8 @@ device to appear. I'm logging everything including the serial port log for debug
 </div>
 </div>
 
-<div id="outline-container-org8711fdf" class="outline-3">
-<h3 id="org8711fdf"><span class="section-number-3">3.16</span> Enable all services to start at boot</h3>
+<div id="outline-container-orgcb73274" class="outline-3">
+<h3 id="orgcb73274"><span class="section-number-3">3.16</span> Enable all services to start at boot</h3>
 <div class="outline-text-3" id="text-3-16">
 <pre class="example">
 systemctl enable kismet-monitor.service kismet-server.service obdgpslogger.service whitestar-archiver.service whitestar-watchdog.service
@@ -812,8 +812,8 @@ systemctl enable kismet-monitor.service kismet-server.service obdgpslogger.servi
 </div>
 </div>
 
-<div id="outline-container-orge7dfae1" class="outline-3">
-<h3 id="orge7dfae1"><span class="section-number-3">3.17</span> Disable NetworkManager</h3>
+<div id="outline-container-org4cadc6e" class="outline-3">
+<h3 id="org4cadc6e"><span class="section-number-3">3.17</span> Disable NetworkManager</h3>
 <div class="outline-text-3" id="text-3-17">
 <p>
 As we won't be using NetworkManager but instead rely on systemd-networkd we can disable the NetworkManager service:
@@ -825,8 +825,8 @@ As we won't be using NetworkManager but instead rely on systemd-networkd we can 
 </div>
 </div>
 
-<div id="outline-container-org37f0c74" class="outline-3">
-<h3 id="org37f0c74"><span class="section-number-3">3.18</span> Systemd .network for LAN link</h3>
+<div id="outline-container-orge8706c1" class="outline-3">
+<h3 id="orge8706c1"><span class="section-number-3">3.18</span> Systemd .network for LAN link</h3>
 <div class="outline-text-3" id="text-3-18">
 <p>
 The Ethernet device on the whitestar PC will be used to make an SSH connection for debugging and downloading of the gathered wardriving data. For this we need for
@@ -853,8 +853,8 @@ us as it allows to use the connection even when we just plug in a cable straight
 </div>
 </div>
 
-<div id="outline-container-org7732928" class="outline-3">
-<h3 id="org7732928"><span class="section-number-3">3.19</span> Setup archive directory</h3>
+<div id="outline-container-org611a113" class="outline-3">
+<h3 id="org611a113"><span class="section-number-3">3.19</span> Setup archive directory</h3>
 <div class="outline-text-3" id="text-3-19">
 <p>
 Make a /var/log/archive directory so that the archiver can store the kismet logs for retrieval.
@@ -862,8 +862,8 @@ Make a /var/log/archive directory so that the archiver can store the kismet logs
 </div>
 </div>
 
-<div id="outline-container-orgf8ad77c" class="outline-3">
-<h3 id="orgf8ad77c"><span class="section-number-3">3.20</span> Setup archive file transfer account</h3>
+<div id="outline-container-orgd337d79" class="outline-3">
+<h3 id="orgd337d79"><span class="section-number-3">3.20</span> Setup archive file transfer account</h3>
 <div class="outline-text-3" id="text-3-20">
 <p>
 Create a user called 'archive' with the home directory pointing to /var/log/archive. This user will be used to download the log files from the whitestar via SSH for
@@ -879,8 +879,8 @@ Match User archive
 </div>
 </div>
 
-<div id="outline-container-orgd0fd026" class="outline-3">
-<h3 id="orgd0fd026"><span class="section-number-3">3.21</span> Data transfer from whitestar</h3>
+<div id="outline-container-orgce2920a" class="outline-3">
+<h3 id="orgce2920a"><span class="section-number-3">3.21</span> Data transfer from whitestar</h3>
 <div class="outline-text-3" id="text-3-21">
 <p>
 There are two approaches now when dealing with data transfer from whitestar. The first is the legacy way in which I unplug and take home the HDD. This one is described 
@@ -1094,8 +1094,8 @@ As you can see there are 0 new APs discovered as this is not the first time I ha
 </div>
 </div>
 
-<div id="outline-container-org50b39bb" class="outline-3">
-<h3 id="org50b39bb"><span class="section-number-3">3.22</span> Mothership uplink</h3>
+<div id="outline-container-orgb64e5c8" class="outline-3">
+<h3 id="orgb64e5c8"><span class="section-number-3">3.22</span> Mothership uplink</h3>
 <div class="outline-text-3" id="text-3-22">
 <p>
 Because we now live in a world of serious IoT the whitestar needed a uplink to the mothership in order to stay edgy :). This is now implemented to upload the gathered
@@ -1275,8 +1275,8 @@ Also, now the files land on the mothership server and nothing uploads them anywh
 </div>
 </div>
 
-<div id="outline-container-orge4b3c86" class="outline-3">
-<h3 id="orge4b3c86"><span class="section-number-3">3.23</span> Final time measurements</h3>
+<div id="outline-container-org0d38c69" class="outline-3">
+<h3 id="org0d38c69"><span class="section-number-3">3.23</span> Final time measurements</h3>
 <div class="outline-text-3" id="text-3-23">
 <p>
 Time to Capture == 28 sec from poweron
@@ -1366,8 +1366,8 @@ multi-user.target @9.919s
 </div>
 </div>
 
-<div id="outline-container-orga20ee4d" class="outline-3">
-<h3 id="orga20ee4d"><span class="section-number-3">3.24</span> Boot time optimization</h3>
+<div id="outline-container-orgc3520cf" class="outline-3">
+<h3 id="orgc3520cf"><span class="section-number-3">3.24</span> Boot time optimization</h3>
 <div class="outline-text-3" id="text-3-24">
 <p>
 Attempts at using a custom Gentoo build to speed things up:
@@ -1673,16 +1673,16 @@ $ sudo genkernel &#x2013;no-mdadm &#x2013;no-dmraid &#x2013;no-firmware &#x2013;
 </div>
 </div>
 
-<div id="outline-container-orge37aeb3" class="outline-3">
-<h3 id="orge37aeb3"><span class="section-number-3">3.25</span> Future plans</h3>
+<div id="outline-container-org52e32a3" class="outline-3">
+<h3 id="org52e32a3"><span class="section-number-3">3.25</span> Future plans</h3>
 <div class="outline-text-3" id="text-3-25">
 <p>
 When six out of the below goals will be achieved I will consider the whitestar to be proper Vorlon technology :).
 </p>
 </div>
 
-<div id="outline-container-orgcff2606" class="outline-4">
-<h4 id="orgcff2606"><span class="section-number-4">3.25.1</span> Other upload destinations</h4>
+<div id="outline-container-org213bc4c" class="outline-4">
+<h4 id="org213bc4c"><span class="section-number-4">3.25.1</span> Other upload destinations</h4>
 <div class="outline-text-4" id="text-3-25-1">
 <ul class="org-ul">
 <li>Mozilla stumbler (OK, this one is not opensource but still better than Google ;)</li>
@@ -1690,8 +1690,8 @@ When six out of the below goals will be achieved I will consider the whitestar t
 </ul>
 </div>
 </div>
-<div id="outline-container-orgff99257" class="outline-4">
-<h4 id="orgff99257"><span class="section-number-4">3.25.2</span> Better OBD-II integration</h4>
+<div id="outline-container-org3d109d8" class="outline-4">
+<h4 id="org3d109d8"><span class="section-number-4">3.25.2</span> Better OBD-II integration</h4>
 <div class="outline-text-4" id="text-3-25-2">
 <p>
 While the whitestar already logs OBD-II data using obdgpslogger, a proper integration would allow 
@@ -1699,8 +1699,8 @@ for better fuel economy tracking than the paper-and-pencil method I'm using now.
 </p>
 </div>
 </div>
-<div id="outline-container-orge63a91b" class="outline-4">
-<h4 id="orge63a91b"><span class="section-number-4">3.25.3</span> Improved statistics &amp; monitoring</h4>
+<div id="outline-container-orga0e48ba" class="outline-4">
+<h4 id="orga0e48ba"><span class="section-number-4">3.25.3</span> Improved statistics &amp; monitoring</h4>
 <div class="outline-text-4" id="text-3-25-3">
 <p>
 I feel the need to better monitor the wardriving performance and environmental factors. Measurements like amount of packets 
@@ -1709,8 +1709,8 @@ most information.
 </p>
 </div>
 </div>
-<div id="outline-container-org2f1d007" class="outline-4">
-<h4 id="org2f1d007"><span class="section-number-4">3.25.4</span> Cell information capture</h4>
+<div id="outline-container-org76db0bf" class="outline-4">
+<h4 id="org76db0bf"><span class="section-number-4">3.25.4</span> Cell information capture</h4>
 <div class="outline-text-4" id="text-3-25-4">
 <p>
 A different form of radio beacon that is useful for location services are cellphone tower IDs. There are a number of ways 
@@ -1721,8 +1721,8 @@ network.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd617e10" class="outline-4">
-<h4 id="orgd617e10"><span class="section-number-4">3.25.5</span> GPS receiver sharing with cell phone</h4>
+<div id="outline-container-orge56222b" class="outline-4">
+<h4 id="orge56222b"><span class="section-number-4">3.25.5</span> GPS receiver sharing with cell phone</h4>
 <div class="outline-text-4" id="text-3-25-5">
 <p>
 The GPS receiver that I have connected to the system achieves higher TTFF than my cellphone. It would be thus good to be able
@@ -1730,16 +1730,16 @@ to feed the GPS sentences from the phone to kektop until the whitestar's GPS rec
 </p>
 </div>
 </div>
-<div id="outline-container-org28ef513" class="outline-4">
-<h4 id="org28ef513"><span class="section-number-4">3.25.6</span> GPS used to provide time</h4>
+<div id="outline-container-org6590a14" class="outline-4">
+<h4 id="org6590a14"><span class="section-number-4">3.25.6</span> GPS used to provide time</h4>
 <div class="outline-text-4" id="text-3-25-6">
 <p>
 GPS should be usable as a time synchronization source for ntpd running on the whitestar.
 </p>
 </div>
 </div>
-<div id="outline-container-orgacd1c12" class="outline-4">
-<h4 id="orgacd1c12"><span class="section-number-4">3.25.7</span> Zero-flash-writes</h4>
+<div id="outline-container-orgf2aad5b" class="outline-4">
+<h4 id="orgf2aad5b"><span class="section-number-4">3.25.7</span> Zero-flash-writes</h4>
 <div class="outline-text-4" id="text-3-25-7">
 <p>
 The goal of this setup is to achieve zero writes on the internal flash to increase it's endurance. For this to be achieved a system of monitoring and logging
@@ -1747,8 +1747,8 @@ processes which perform frequent writes to the flash needs to be built.
 </p>
 </div>
 </div>
-<div id="outline-container-org14bfa01" class="outline-4">
-<h4 id="org14bfa01"><span class="section-number-4">3.25.8</span> Navigation integration</h4>
+<div id="outline-container-org9c0341f" class="outline-4">
+<h4 id="org9c0341f"><span class="section-number-4">3.25.8</span> Navigation integration</h4>
 <div class="outline-text-4" id="text-3-25-8">
 <p>
 It would be nice if the phone navigation could be instructed to guide the user through a particular route that is optimal
@@ -1757,8 +1757,8 @@ wifi networks is scarce.
 </p>
 </div>
 </div>
-<div id="outline-container-org2891c1b" class="outline-4">
-<h4 id="org2891c1b"><span class="section-number-4">3.25.9</span> Custom Gentoo build</h4>
+<div id="outline-container-org13a64c0" class="outline-4">
+<h4 id="org13a64c0"><span class="section-number-4">3.25.9</span> Custom Gentoo build</h4>
 <div class="outline-text-4" id="text-3-25-9">
 <p>
 i686-pc-linux-gnu-emerge libgpg-error
@@ -1807,7 +1807,7 @@ Disable xattr for portage to not trigger a build failure:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-04-11 19:41</p>
+<p class="date">Created: 2021-05-13 19:53</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

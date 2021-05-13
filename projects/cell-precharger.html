@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-13 19:08 -->
+<!-- 2021-05-13 19:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A Lithium-Ion Cell Precharger</title>
@@ -223,20 +223,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org156ca5c">1. The rationale</a></li>
-<li><a href="#org07a6d31">2. The problem, "solution" and solution</a></li>
-<li><a href="#org6ca4624">3. The design goals</a></li>
-<li><a href="#org99194c2">4. Breadboard version and testing</a></li>
-<li><a href="#orgc50e872">5. Testing the initial circuit</a></li>
-<li><a href="#orgfb31ba6">6. Manufacturing</a></li>
-<li><a href="#org0862a10">7. Closing thoughts</a></li>
+<li><a href="#org3112339">1. The rationale</a></li>
+<li><a href="#org8a74882">2. The problem, "solution" and solution</a></li>
+<li><a href="#org0496902">3. The design goals</a></li>
+<li><a href="#orgcee1d59">4. Breadboard version and testing</a></li>
+<li><a href="#org1c84abe">5. Testing the initial circuit</a></li>
+<li><a href="#orge289ee2">6. Manufacturing</a></li>
+<li><a href="#orgd659207">7. Closing thoughts</a></li>
 </ul>
 </div>
 </div>
 <base href="cell-precharger/"/>
 
-<div id="outline-container-org156ca5c" class="outline-2">
-<h2 id="org156ca5c"><span class="section-number-2">1</span> The rationale</h2>
+<div id="outline-container-org3112339" class="outline-2">
+<h2 id="org3112339"><span class="section-number-2">1</span> The rationale</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 When working with refurbished Lithium-Ion cells, in particular with attempting to recycle cells from used battery packs you will discover many cells in these packs who are very deeply 
@@ -261,8 +261,8 @@ not totally dead.
 </div>
 
 
-<div id="outline-container-org07a6d31" class="outline-2">
-<h2 id="org07a6d31"><span class="section-number-2">2</span> The problem, "solution" and solution</h2>
+<div id="outline-container-org8a74882" class="outline-2">
+<h2 id="org8a74882"><span class="section-number-2">2</span> The problem, "solution" and solution</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The basic practical issue with deeply discharged cells is that all ordinary chargers have a threshold voltage of a cell which the charger will accept. This voltage is typically around 2.5 or 2.75 V. 
@@ -293,8 +293,8 @@ with a LED so you can connect each precharger to their own cell holder and build
 </div>
 </div>
 
-<div id="outline-container-org6ca4624" class="outline-2">
-<h2 id="org6ca4624"><span class="section-number-2">3</span> The design goals</h2>
+<div id="outline-container-org0496902" class="outline-2">
+<h2 id="org0496902"><span class="section-number-2">3</span> The design goals</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The design considerations I have laid out for this circuit are the following:
@@ -310,15 +310,15 @@ The design considerations I have laid out for this circuit are the following:
 </div>
 </div>
 
-<div id="outline-container-org99194c2" class="outline-2">
-<h2 id="org99194c2"><span class="section-number-2">4</span> Breadboard version and testing</h2>
+<div id="outline-container-orgcee1d59" class="outline-2">
+<h2 id="orgcee1d59"><span class="section-number-2">4</span> Breadboard version and testing</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The first design built on a breadboard was designed to be the following:
 </p>
 
 
-<div id="orgfa2b373" class="figure">
+<div id="org0fab711" class="figure">
 <p><a href="prototype-circuit.jpg"><img src="thumb-prototype-circuit.jpg" alt="thumb-prototype-circuit.jpg" /></a>
 </p>
 </div>
@@ -349,15 +349,15 @@ will light up the LED when the voltage on the lower resistor (equal to U<sub>c</
 </div>
 </div>
 
-<div id="outline-container-orgc50e872" class="outline-2">
-<h2 id="orgc50e872"><span class="section-number-2">5</span> Testing the initial circuit</h2>
+<div id="outline-container-org1c84abe" class="outline-2">
+<h2 id="org1c84abe"><span class="section-number-2">5</span> Testing the initial circuit</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The circuit has been assembled on a breadboard with a voltmeter and ampmeter connected to the cell cage to monitor charging current and cell voltage.
 </p>
 
 
-<div id="orgf4c97d0" class="figure">
+<div id="org9eb21ff" class="figure">
 <p><a href="prototype-breadboard.jpg"><img src="thumb-prototype-breadboard.jpg" alt="thumb-prototype-breadboard.jpg" /></a>
 </p>
 </div>
@@ -373,7 +373,7 @@ A voltmeter and current meter are connected to the cell monitoring voltage and c
 </p>
 
 
-<div id="orgc5c49ad" class="figure">
+<div id="org6be011b" class="figure">
 <p><a href="testcell-initial-state.jpg"><img src="thumb-testcell-initial-state.jpg" alt="thumb-testcell-initial-state.jpg" /></a>
 </p>
 </div>
@@ -383,7 +383,7 @@ The current slowly drops as the cell voltage rises towards 2.5 V, the state afte
 </p>
 
 
-<div id="org7ba6ffe" class="figure">
+<div id="org8642b8c" class="figure">
 <p><a href="testcell-after-10min.jpg"><img src="thumb-testcell-after-10min.jpg" alt="thumb-testcell-after-10min.jpg" /></a>
 </p>
 </div>
@@ -393,7 +393,7 @@ When the target voltage is reached the indicator LED lights up and the current i
 </p>
 
 
-<div id="orgc643031" class="figure">
+<div id="orgf488908" class="figure">
 <p><a href="testcell-precharge-finished.jpg"><img src="thumb-testcell-precharge-finished.jpg" alt="thumb-testcell-precharge-finished.jpg" /></a>
 </p>
 </div>
@@ -403,7 +403,7 @@ The cell is now ready to be charged back up using an ordinary charger:
 </p>
 
 
-<div id="org5b4367c" class="figure">
+<div id="org9ed4ed8" class="figure">
 <p><a href="testcell-final-charge.jpg"><img src="thumb-testcell-final-charge.jpg" alt="thumb-testcell-final-charge.jpg" /></a>
 </p>
 </div>
@@ -415,8 +415,8 @@ You should monitor the cell temperature during this phase as heating may occur i
 </div>
 
 
-<div id="outline-container-orgfb31ba6" class="outline-2">
-<h2 id="orgfb31ba6"><span class="section-number-2">6</span> Manufacturing</h2>
+<div id="outline-container-orge289ee2" class="outline-2">
+<h2 id="orge289ee2"><span class="section-number-2">6</span> Manufacturing</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 As I plan to build a rig for pre-charging around 20 cells at once I tought it might make sense to make a small order from JLCPCB saving work on PCB manufacturing and soldering. This way 
@@ -424,7 +424,7 @@ you can also more easily replicate this project and build the pre-charger yourse
 </p>
 
 
-<div id="orga57e6d3" class="figure">
+<div id="org5e4a630" class="figure">
 <p><img src="manuf-schematic-rev1.png" alt="manuf-schematic-rev1.png" />
 </p>
 </div>
@@ -449,8 +449,8 @@ The <a href="cell-precharger.zip">Kicad project</a> can also be downloaded.
 </div>
 </div>
 
-<div id="outline-container-org0862a10" class="outline-2">
-<h2 id="org0862a10"><span class="section-number-2">7</span> Closing thoughts</h2>
+<div id="outline-container-orgd659207" class="outline-2">
+<h2 id="orgd659207"><span class="section-number-2">7</span> Closing thoughts</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 There is <a href="https://www.nature.com/articles/srep30248.pdf">research</a> showing that the internal shorts do not develop when discharging lithium-ion cells until they are at -12% SoC. That is when they have been discharged to "negative voltage".
@@ -460,7 +460,7 @@ There is <a href="https://www.nature.com/articles/srep30248.pdf">research</a> sh
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-05-13 19:08</p>
+<p class="date">Created: 2021-05-13 19:53</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
