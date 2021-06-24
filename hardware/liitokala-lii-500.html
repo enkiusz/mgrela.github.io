@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-06-24 23:54 -->
+<!-- 2021-06-25 00:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Liitokala Engineer Lii-500 Automation</title>
@@ -303,7 +303,7 @@ Unfortunately, the LCD module also contains an unmarked controller chip on the b
 </p>
 
 
-<div id="org6dfc092" class="figure">
+<div id="org5a738c9" class="figure">
 <p><a href="lcd-module-back.jpg"><img src="thumb-lcd-module-back.jpg" alt="thumb-lcd-module-back.jpg" /></a>
 </p>
 </div>
@@ -385,7 +385,7 @@ reference:
 </p>
 
 
-<div id="org44a5e77" class="figure">
+<div id="orgb959ce7" class="figure">
 <p><a href="lcd-module-connector.jpg"><img src="thumb-lcd-module-connector.jpg" alt="thumb-lcd-module-connector.jpg" /></a>
 </p>
 </div>
@@ -407,7 +407,7 @@ is provided below:
 </p>
 
 
-<div id="org863f3cc" class="figure">
+<div id="orgc653407" class="figure">
 <p><img src="example-command-spi-transfer.png" alt="example-command-spi-transfer.png" />
 </p>
 </div>
@@ -491,7 +491,7 @@ below:
 </p>
 
 
-<div id="org7445666" class="figure">
+<div id="orgfaa714d" class="figure">
 <p><img src="example-lcd-framebuffer-spi-transfer.png" alt="example-lcd-framebuffer-spi-transfer.png" />
 </p>
 </div>
@@ -700,7 +700,7 @@ Using the above code I figured out the mapping between the particular framebuffe
 </p>
 
 
-<div id="org736f110" class="figure">
+<div id="orgc894fcd" class="figure">
 <p><a href="lcd-display-layout.jpg"><img src="thumb-lcd-display-layout.jpg" alt="thumb-lcd-display-layout.jpg" /></a>
 </p>
 </div>
@@ -721,7 +721,7 @@ After confirming the basic facts about the protocol the first version of the sni
 </p>
 
 
-<div id="org2cc632a" class="figure">
+<div id="org089829f" class="figure">
 <p><a href="spi-sniffer-breadboard.jpg"><img src="thumb-spi-sniffer-breadboard.jpg" alt="thumb-spi-sniffer-breadboard.jpg" /></a>
 </p>
 </div>
@@ -742,7 +742,7 @@ vent in the case:
 </p>
 
 
-<div id="orgbb51eb4" class="figure">
+<div id="org1fa46db" class="figure">
 <p><a href="spi-sniffer-breakout-board.jpg"><img src="thumb-spi-sniffer-breakout-board.jpg" alt="thumb-spi-sniffer-breakout-board.jpg" /></a>
 </p>
 </div>
@@ -784,12 +784,12 @@ transfers. I have tried to trigger a single pin on both edges but when the inter
 </p>
 
 <pre>
-#include <libopencm3/stm32/rcc.h>
-#include <libopencm3/stm32/gpio.h>
-#include <libopencm3/stm32/usart.h>
-#include <libopencm3/cm3/nvic.h>
-#include <libopencm3/stm32/exti.h>
-#include <string.h>
+#include &lt;libopencm3/stm32/rcc.h&gt;
+#include &lt;libopencm3/stm32/gpio.h&gt;
+#include &lt;libopencm3/stm32/usart.h&gt;
+#include &lt;libopencm3/cm3/nvic.h&gt;
+#include &lt;libopencm3/stm32/exti.h&gt;
+#include &lt;string.h&gt;
 
 void init_clocks(void);
 void init_io(void);
@@ -985,7 +985,7 @@ This is not by all means a finished project. The future direction of development
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-06-24 23:54</p>
+<p class="date">Created: 2021-06-25 00:25</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
