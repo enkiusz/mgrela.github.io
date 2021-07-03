@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-06-27 14:43 -->
+<!-- 2021-07-03 13:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Liitokala Engineer Lii-500 Automation</title>
@@ -240,7 +240,7 @@
 </ul>
 </li>
 <li><a href="#org7ad4ab6">5. Future developments</a></li>
-<li><a href="#org2926006">6. Extras</a></li>
+<li><a href="#orgb3c2fa0">6. Addendum</a></li>
 </ul>
 </div>
 </div>
@@ -299,14 +299,35 @@ the MCU and the LCD screen. Just a small drop-in pass-through board would be req
 <h3 id="orgeefd9de"><span class="section-number-3">3.1</span> Electrical</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-Unfortunately, the LCD module also contains an unmarked controller chip on the back of the board:
+I have found that some of the LCD modules had unmarked controller chips on the back of the board:
 </p>
 
 
-<div id="org7e0acd1" class="figure">
+<div id="orge4c1040" class="figure">
 <p><a href="lcd-module-back.jpg"><img src="thumb-lcd-module-back.jpg" alt="thumb-lcd-module-back.jpg" /></a>
 </p>
 </div>
+
+<p>
+However, by disassembling the next charger I discovered that it's LCD module contained a marked chip as the LCD controller:
+</p>
+
+
+<div id="orgb080568" class="figure">
+<p><a href="lcd-module-holtek.jpg"><img src="thumb-lcd-module-holtek.jpg" alt="thumb-lcd-module-holtek.jpg" /></a>
+</p>
+</div>
+
+<p>
+The chip is Holtek 1621B the datasheet is easily found. As I have previously reverse engineered the protocol from scratch I was happy to find that everything matches with what the datasheet describes. 
+The LCD driver chip has much more features than are used by the MCU (for example a watchdog timer). The one interesting tidbit is that the LCD driver chip contains no GPIO pins to drive a transistor 
+controlling the backlight. What the designers choose instead is to reuse the buzzer outputs for the backlight driver. When the LCD backlight enable command is sent the buzzer output is configured to 
+output a 4 kHz tone for the buzzer which I assume drives the backlight transistor.
+</p>
+
+<p>
+For posterity I have left all of the reverse-engineering process description below.
+</p>
 
 <p>
 By virtue of educated guessing (wide traces -&gt; power ;) and connecting a logic analyzer I have figured out that the interface here is a rather slow one-directional SPI data flow, the pinout of the LCD module
@@ -385,7 +406,7 @@ reference:
 </p>
 
 
-<div id="orgbd3789f" class="figure">
+<div id="orgfbe1c87" class="figure">
 <p><a href="lcd-module-connector.jpg"><img src="thumb-lcd-module-connector.jpg" alt="thumb-lcd-module-connector.jpg" /></a>
 </p>
 </div>
@@ -407,7 +428,7 @@ is provided below:
 </p>
 
 
-<div id="org5217808" class="figure">
+<div id="org37fc745" class="figure">
 <p><img src="example-command-spi-transfer.png" alt="example-command-spi-transfer.png" />
 </p>
 </div>
@@ -491,7 +512,7 @@ below:
 </p>
 
 
-<div id="orgaaebe17" class="figure">
+<div id="orgeacb120" class="figure">
 <p><img src="example-lcd-framebuffer-spi-transfer.png" alt="example-lcd-framebuffer-spi-transfer.png" />
 </p>
 </div>
@@ -700,7 +721,7 @@ Using the above code I figured out the mapping between the particular framebuffe
 </p>
 
 
-<div id="org170fb1e" class="figure">
+<div id="org74e082e" class="figure">
 <p><a href="lcd-display-layout.jpg"><img src="thumb-lcd-display-layout.jpg" alt="thumb-lcd-display-layout.jpg" /></a>
 </p>
 </div>
@@ -721,7 +742,7 @@ After confirming the basic facts about the protocol the first version of the sni
 </p>
 
 
-<div id="org454033a" class="figure">
+<div id="org7dfbb26" class="figure">
 <p><a href="spi-sniffer-breadboard.jpg"><img src="thumb-spi-sniffer-breadboard.jpg" alt="thumb-spi-sniffer-breadboard.jpg" /></a>
 </p>
 </div>
@@ -742,7 +763,7 @@ vent in the case:
 </p>
 
 
-<div id="org4f910d7" class="figure">
+<div id="org44f9f07" class="figure">
 <p><a href="spi-sniffer-breakout-board.jpg"><img src="thumb-spi-sniffer-breakout-board.jpg" alt="thumb-spi-sniffer-breakout-board.jpg" /></a>
 </p>
 </div>
@@ -1183,19 +1204,20 @@ This is not by all means a finished project. The future direction of development
 </div>
 
 
-<div id="outline-container-org2926006" class="outline-2">
-<h2 id="org2926006"><span class="section-number-2">6</span> Extras</h2>
+<div id="outline-container-orgb3c2fa0" class="outline-2">
+<h2 id="orgb3c2fa0"><span class="section-number-2">6</span> Addendum</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="cell-connected-no-charging.logicdata">Logic probe capture when a cell is connected</a></li>
 <li><a href="start-and-null.logicdata">Logic probe capture after power-on</a></li>
+<li><a href="https://www.holtek.com/documents/10179/116711/HT1621v321.pdf">The LCD controller datasheet</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-06-27 14:43</p>
+<p class="date">Created: 2021-07-03 13:17</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
