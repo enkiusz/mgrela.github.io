@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-07-03 13:17 -->
+<!-- 2021-07-04 00:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Liitokala Engineer Lii-500 Automation</title>
@@ -239,8 +239,9 @@
 <li><a href="#orgf61588d">4.3. Interpreting the data</a></li>
 </ul>
 </li>
-<li><a href="#org7ad4ab6">5. Future developments</a></li>
-<li><a href="#orgb3c2fa0">6. Addendum</a></li>
+<li><a href="#orgff8d5bb">5. The sidekick board</a></li>
+<li><a href="#org7ad4ab6">6. Future developments</a></li>
+<li><a href="#orgb3c2fa0">7. Addendum</a></li>
 </ul>
 </div>
 </div>
@@ -303,7 +304,7 @@ I have found that some of the LCD modules had unmarked controller chips on the b
 </p>
 
 
-<div id="orge4c1040" class="figure">
+<div id="orge9053a0" class="figure">
 <p><a href="lcd-module-back.jpg"><img src="thumb-lcd-module-back.jpg" alt="thumb-lcd-module-back.jpg" /></a>
 </p>
 </div>
@@ -313,7 +314,7 @@ However, by disassembling the next charger I discovered that it's LCD module con
 </p>
 
 
-<div id="orgb080568" class="figure">
+<div id="orgefda928" class="figure">
 <p><a href="lcd-module-holtek.jpg"><img src="thumb-lcd-module-holtek.jpg" alt="thumb-lcd-module-holtek.jpg" /></a>
 </p>
 </div>
@@ -406,7 +407,7 @@ reference:
 </p>
 
 
-<div id="orgfbe1c87" class="figure">
+<div id="orgf362f34" class="figure">
 <p><a href="lcd-module-connector.jpg"><img src="thumb-lcd-module-connector.jpg" alt="thumb-lcd-module-connector.jpg" /></a>
 </p>
 </div>
@@ -428,7 +429,7 @@ is provided below:
 </p>
 
 
-<div id="org37fc745" class="figure">
+<div id="org040aa8b" class="figure">
 <p><img src="example-command-spi-transfer.png" alt="example-command-spi-transfer.png" />
 </p>
 </div>
@@ -512,7 +513,7 @@ below:
 </p>
 
 
-<div id="orgeacb120" class="figure">
+<div id="org771becd" class="figure">
 <p><img src="example-lcd-framebuffer-spi-transfer.png" alt="example-lcd-framebuffer-spi-transfer.png" />
 </p>
 </div>
@@ -721,7 +722,7 @@ Using the above code I figured out the mapping between the particular framebuffe
 </p>
 
 
-<div id="org74e082e" class="figure">
+<div id="org6f8a082" class="figure">
 <p><a href="lcd-display-layout.jpg"><img src="thumb-lcd-display-layout.jpg" alt="thumb-lcd-display-layout.jpg" /></a>
 </p>
 </div>
@@ -742,7 +743,7 @@ After confirming the basic facts about the protocol the first version of the sni
 </p>
 
 
-<div id="org7dfbb26" class="figure">
+<div id="orga315163" class="figure">
 <p><a href="spi-sniffer-breadboard.jpg"><img src="thumb-spi-sniffer-breadboard.jpg" alt="thumb-spi-sniffer-breadboard.jpg" /></a>
 </p>
 </div>
@@ -763,7 +764,7 @@ vent in the case:
 </p>
 
 
-<div id="org44f9f07" class="figure">
+<div id="org2546889" class="figure">
 <p><a href="spi-sniffer-breakout-board.jpg"><img src="thumb-spi-sniffer-breakout-board.jpg" alt="thumb-spi-sniffer-breakout-board.jpg" /></a>
 </p>
 </div>
@@ -1186,9 +1187,19 @@ and when charging finishes:
 </div>
 </div>
 
-<div id="outline-container-org7ad4ab6" class="outline-2">
-<h2 id="org7ad4ab6"><span class="section-number-2">5</span> Future developments</h2>
+<div id="outline-container-orgff8d5bb" class="outline-2">
+<h2 id="orgff8d5bb"><span class="section-number-2">5</span> The sidekick board</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+In order to make the entire idea easier to use I have began developing a custom PCB with streamlined connectors and small footprint. The board is basically a <a href="https://stm32-base.org/assets/pdf/boards/original-schematic-STM32F103C8T6-Blue_Pill.pdf">STM32 Blue Pill</a> remixed for this application.
+The Kicad project of the REV1 board can be downloaded <a href="sidekick.kicad/sidekick-rev1.zip">here</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ad4ab6" class="outline-2">
+<h2 id="org7ad4ab6"><span class="section-number-2">6</span> Future developments</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 This is not by all means a finished project. The future direction of development is planned to be (in the order of highest-priority on top):
 </p>
@@ -1205,8 +1216,8 @@ This is not by all means a finished project. The future direction of development
 
 
 <div id="outline-container-orgb3c2fa0" class="outline-2">
-<h2 id="orgb3c2fa0"><span class="section-number-2">6</span> Addendum</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="orgb3c2fa0"><span class="section-number-2">7</span> Addendum</h2>
+<div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><a href="cell-connected-no-charging.logicdata">Logic probe capture when a cell is connected</a></li>
 <li><a href="start-and-null.logicdata">Logic probe capture after power-on</a></li>
@@ -1217,7 +1228,7 @@ This is not by all means a finished project. The future direction of development
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-07-03 13:17</p>
+<p class="date">Created: 2021-07-04 00:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
