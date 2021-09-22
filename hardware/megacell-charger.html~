@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-18 14:11 -->
+<!-- 2021-09-18 20:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Megacell Charger</title>
@@ -235,6 +235,7 @@
 <li><a href="#org4b2aa03">4.2.2. Set charger configuration</a></li>
 <li><a href="#org69becbe">4.2.3. Charger reset</a></li>
 <li><a href="#org1877f29">4.2.4. Get current cell information</a></li>
+<li><a href="#org3fc8a1b">4.2.5. Performing actions by the charger</a></li>
 </ul>
 </li>
 <li><a href="#org39ae195">4.3. The debug log</a></li>
@@ -1000,7 +1001,7 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">CiD</td>
 <td class="org-left">Cell slot identifier</td>
 <td class="org-left">N/A</td>
-<td class="org-left">C1 - 0</td>
+<td class="org-left">slot C1 - 0</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -1008,7 +1009,7 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">C2 - 1</td>
+<td class="org-left">slot C2 - 1</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -1024,7 +1025,7 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">C16 - 15</td>
+<td class="org-left">slot C16 - 15</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -1040,25 +1041,25 @@ Educated guesses and observation have lead to the following table explaining the
 <tr>
 <td class="org-left">amps</td>
 <td class="org-left">Cell current</td>
+<td class="org-left">mA</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Positive when charging, negative when discharging</td>
 </tr>
 
 <tr>
 <td class="org-left">capacity</td>
+<td class="org-left">Discharge capacity</td>
+<td class="org-left">mAh</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Capacity measured during discharge</td>
 </tr>
 
 <tr>
 <td class="org-left">chargeCapactity</td>
+<td class="org-left">Charge capacity</td>
+<td class="org-left">mAh</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Capacity measured during charge</td>
 </tr>
 </tbody>
 <tbody>
@@ -1067,6 +1068,46 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">- "Not Inserted" when no cell in slot</td>
+<td class="org-left">This is the string displayed on the LCD</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "New cell inserted" after inserting a cell</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "LVC Charging"</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "Stopped Charging"</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "Started Discharging"</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "mCap Started Charging" when capacity test is requested in UI</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -1089,7 +1130,7 @@ Educated guesses and observation have lead to the following table explaining the
 
 <tr>
 <td class="org-left">DiC</td>
-<td class="org-left">discharge cycle</td>
+<td class="org-left">number of disch. cycles</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1097,7 +1138,7 @@ Educated guesses and observation have lead to the following table explaining the
 
 <tr>
 <td class="org-left">complete_cycles</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">number of completed disch. cycles</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1133,7 +1174,125 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">State</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">- "Low voltage cell" when no cell in slot</td>
+<td class="org-left">- "Low voltage cell" when cell voltage is below the minimum for charging</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "Healthy" when cell voltage is OK</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org3fc8a1b" class="outline-4">
+<h4 id="org3fc8a1b"><span class="section-number-4">4.2.5</span> Performing actions by the charger</h4>
+<div class="outline-text-4" id="text-4-2-5">
+<p>
+Performing actions by the charger on particular cells (for example a charge/discharge cycle or LVC) is accomplished by "setting the cell state" using the following request.
+In the example below slots 0 and 1 are requested to perform LVC:
+</p>
+
+$ curl -i -d '{"cells": [{"CiD": 0, "CmD": "alr"},{"CiD": 1, "CmD": "alr"}]}' -X POST http://10.10.10.30/api/set_cell
+HTTP/1.1 200 OK
+Content-Type: text/plane
+Content-Length: 8
+Connection: close
+
+Received%
+
+<p>
+The values of the CmD field correspond to different actions that can be sent to the charger, the following codes have been documented based on what is available in the "New cell
+insert actions" in Megacell Monitor UI:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Action code</th>
+<th scope="col" class="org-left">Action name in Megacell Monitor UI</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Log message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\</td>
+<td class="org-left">&lt;</td>
+<td class="org-left">&lt;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">alr</td>
+<td class="org-left">Start LVC recovery</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: start lvc recovery</td>
+</tr>
+
+<tr>
+<td class="org-left">ach</td>
+<td class="org-left">Start charging</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(Notice) - CellID: 0 - handle_set_cell_state: Start Charging</td>
+</tr>
+
+<tr>
+<td class="org-left">sc</td>
+<td class="org-left">Stop charging</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Stop Charging</td>
+</tr>
+
+<tr>
+<td class="org-left">adc</td>
+<td class="org-left">Start discharging</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Start Discharging</td>
+</tr>
+
+<tr>
+<td class="org-left">odc</td>
+<td class="org-left">Stop discharging</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Stop Discharging</td>
+</tr>
+
+<tr>
+<td class="org-left">act</td>
+<td class="org-left">Start capacity test</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Start cap test</td>
+</tr>
+
+<tr>
+<td class="org-left">omc</td>
+<td class="org-left">Stop capacity test</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Stop cap test</td>
+</tr>
+
+<tr>
+<td class="org-left">"" (empty string)</td>
+<td class="org-left">Stop operation</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -1210,13 +1369,62 @@ The log messages received when a new cell is inserted:
 000 00:03:59.966 - (Warning) - ClearCellData: 0
 000 00:04:00.829 - (Debug) - Update display for cell: 1
 </pre>
+
+<p>
+The log messages received when LVC is requested for an inserted cell:
+</p>
+
+<pre>
+000 00:12:30.474 - (Notice) - Received request to change cell state.
+000 00:12:30.476 - (Informational) - Deserialization succeeded
+000 00:12:30.487 - (Informational) - CellID: 0 - handle_set_cell_state: start lvc recovery
+000 00:12:30.489 - (Warning) - ClearCellData: 0
+000 00:12:30.998 - (Informational) - LVC: eWorkflow: LVC_Check_cell_voltage
+000 00:12:31.000 - (Informational) - LmV: Check details for cell: 0
+000 00:12:31.001 - (Informational) - LmV: 0.30
+000 00:12:31.002 - (Informational) - Cell voltage: 1.25
+000 00:12:31.004 - (Informational) - LVC: Started charging: 0
+000 00:12:34.930 - (Notice) - Setting fan speed to: 10%
+000 00:12:34.943 - (Notice) - CiD: 1 - Cell voltage: 4.24 - cell_amps: 0.00 - full_charge_threshold:  - Cell status: Not Inserted - cell_watchdog: New cell inserted Detected..
+000 00:12:34.945 - (Warning) - ClearCellData: 1
+000 00:12:34.946 - (Warning) - ClearCellData: 1
+000 00:12:34.947 - (Notice) - Setting fan speed to: 10%
+000 00:12:35.094 - (Informational) - LVC: eWorkflow: LVC_Wait_for_readiness
+000 00:12:35.114 - (Notice) - CiD: 1 - Cell voltage: 0.00 - cell_amps: 0.00 - full_charge_threshold:  - Cell status: New cell inserted - cell_watchdog: Cell removed from charger...
+000 00:12:35.116 - (Warning) - ClearCellData: 1
+000 00:12:35.117 - (Warning) - ClearCellData: 1
+000 00:12:35.118 - (Notice) - Setting fan speed to: 10%
+000 00:12:35.230 - (Debug) - Received request to send cell details.
+000 00:12:35.592 - (Informational) - LVC: eWorkflow: LVC_Wait_for_readiness
+000 00:12:36.091 - (Informational) - LVC: eWorkflow: LVC_Wait_for_readiness
+</pre>
+
+<p>
+Log entries received when a capacity test is requested:
+</p>
+
+<pre>
+000 00:47:24.709 - (Notice) - Received request to change cell state.
+000 00:47:24.712 - (Informational) - Deserialization succeeded
+000 00:47:24.724 - (Informational) - CellID: 0 - handle_set_cell_state: Start cap test
+000 00:47:24.727 - (Warning) - startCapTestMacro - reseting dischargeCapacity
+000 00:47:24.729 - (Warning) - startCapTestMacro: clearing chargeCapacity: 0
+000 00:47:25.239 - (Notice) - CiD: 0 - ProcessWorkflow: eWorkflow::initiate_mCap
+000 00:47:25.242 - (Notice) - ProcessWorkflow: eWorkflow::initiate_mCap -> Started charging
+000 00:47:25.244 - (Debug) - CiD: 0 - Voltage read: 3.96 - Max volt: 4.20
+000 00:47:25.244 - (Debug) - ProcessWorkflow: eWorkflow::initiate_mCap -> Next step -> eWorkflow::WaitForChargeReadiness_mcap
+000 00:47:25.245 - (Warning) - initiate_mCap: clearing chargeCapacity: 0
+000 00:47:25.245 - (Warning) - initiate_mCap - reseting dischargeCapacity
+000 00:47:25.249 - (Notice) - Setting fan speed to: 10%
+000 00:47:29.860 - (Debug) - Update display for cell: 1
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-09-18 14:11</p>
+<p class="date">Created: 2021-09-18 20:34</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
