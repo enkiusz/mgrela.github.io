@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-18 20:34 -->
+<!-- 2021-09-22 20:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Megacell Charger</title>
@@ -236,6 +236,7 @@
 <li><a href="#org69becbe">4.2.3. Charger reset</a></li>
 <li><a href="#org1877f29">4.2.4. Get current cell information</a></li>
 <li><a href="#org3fc8a1b">4.2.5. Performing actions by the charger</a></li>
+<li><a href="#orge047693">4.2.6. Changing the log level</a></li>
 </ul>
 </li>
 <li><a href="#org39ae195">4.3. The debug log</a></li>
@@ -1299,6 +1300,39 @@ insert actions" in Megacell Monitor UI:
 </table>
 </div>
 </div>
+
+<div id="outline-container-orge047693" class="outline-4">
+<h4 id="orge047693"><span class="section-number-4">4.2.6</span> Changing the log level</h4>
+<div class="outline-text-4" id="text-4-2-6">
+<p>
+The charger exposes a log on port 8888 (described in detail in the next section). An API request can be used to adjust the log level of messages which are sent to the log.
+The request is the following:
+</p>
+
+$ curl -i -d '{"debug_level": "Debug"}' -X POST http://10.10.10.30/api/set_log_level
+HTTP/1.1 200 OK
+Content-Type: text/plane
+Content-Length: 5
+Connection: close
+
+Debug%
+
+<p>
+The debug levels possible correspond to classical UNIX syslog levels (see the 'man 3 syslog' command):
+</p>
+
+<ul class="org-ul">
+<li>Emergency</li>
+<li>Alert</li>
+<li>Critical</li>
+<li>Error</li>
+<li>Warning</li>
+<li>Notice</li>
+<li>Informational</li>
+<li>Debug</li>
+</ul>
+</div>
+</div>
 </div>
 
 <div id="outline-container-org39ae195" class="outline-3">
@@ -1424,7 +1458,7 @@ Log entries received when a capacity test is requested:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-09-18 20:34</p>
+<p class="date">Created: 2021-09-22 20:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

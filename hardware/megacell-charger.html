@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-22 20:51 -->
+<!-- 2021-09-22 21:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Megacell Charger</title>
@@ -1309,6 +1309,7 @@ The charger exposes a log on port 8888 (described in detail in the next section)
 The request is the following:
 </p>
 
+<pre>
 $ curl -i -d '{"debug_level": "Debug"}' -X POST http://10.10.10.30/api/set_log_level
 HTTP/1.1 200 OK
 Content-Type: text/plane
@@ -1316,6 +1317,7 @@ Content-Length: 5
 Connection: close
 
 Debug%
+</pre>
 
 <p>
 The debug levels possible correspond to classical UNIX syslog levels (see the 'man 3 syslog' command):
@@ -1458,7 +1460,7 @@ Log entries received when a capacity test is requested:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-09-22 20:51</p>
+<p class="date">Created: 2021-09-22 21:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
