@@ -3,11 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<<<<<<< HEAD
-<!-- 2021-10-01 09:26 -->
-=======
-<!-- 2021-09-22 21:12 -->
->>>>>>> c0e47550cc8f750187c013372ae3459fad2dab8b
+<!-- 2021-10-01 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A Certain Magical Index</title>
@@ -283,13 +279,8 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<<<<<<< HEAD
-<p class="date">Created: 2021-10-01 09:26</p>
+<p class="date">Created: 2021-10-01 09:30</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
-=======
-<p class="date">Created: 2021-09-22 21:12</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
->>>>>>> c0e47550cc8f750187c013372ae3459fad2dab8b
 </div>
 </body>
 </html>
