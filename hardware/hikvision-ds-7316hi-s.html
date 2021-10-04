@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-13 19:53 -->
+<!-- 2021-10-04 11:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HIKVISION DS-7316HI-S</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -194,26 +181,50 @@
   /*]]>*/-->
 </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -223,10 +234,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org438a5e1">1. Symptoms</a>
+<li><a href="#orgbc82573">1. Symptoms</a>
 <ul>
-<li><a href="#org9e78f81">1.1. RS-232 interface fix</a></li>
-<li><a href="#orgaa30b00">1.2. Firmware restore</a></li>
+<li><a href="#org28959d8">1.1. RS-232 interface fix</a></li>
+<li><a href="#org9e30c98">1.2. Firmware restore</a></li>
 </ul>
 </li>
 </ul>
@@ -234,8 +245,8 @@
 </div>
 <base href="hikvision-ds-7316hi-s/"/>
 
-<div id="outline-container-org438a5e1" class="outline-2">
-<h2 id="org438a5e1"><span class="section-number-2">1</span> Symptoms</h2>
+<div id="outline-container-orgbc82573" class="outline-2">
+<h2 id="orgbc82573"><span class="section-number-2">1</span> Symptoms</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The <a href="https://www.hikvision.com/UploadFile/image/US-Technical%20Specification%20of%20DS-7304HI-S_7308HI-S_7316HI-S.pdf">HIKVISION DS-7316HI-S</a> is an NVR supporting analog CCTV cameras which I got for free. It was declared to be broken and indeed was failing to boot. The console output was providing the following hints:
@@ -261,8 +272,8 @@ HKVS #
 </div>
 </div>
 
-<div id="outline-container-org9e78f81" class="outline-3">
-<h3 id="org9e78f81"><span class="section-number-3">1.1</span> RS-232 interface fix</h3>
+<div id="outline-container-org28959d8" class="outline-3">
+<h3 id="org28959d8"><span class="section-number-3">1.1</span> RS-232 interface fix</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The bootloader is U-Boot but the console did not work. It would print the above messages but did not accept any input. After investigating this I found out that the RS-232 interface 
@@ -326,33 +337,33 @@ HKVS # fsinfo
 ### filesystem type is JFFS2
 jffs2: scanning filesystem . done.
 Compression: NONE
-	frag count: 1569
-	compressed sum: 6204344
-	uncompressed sum: 6204344
+  frag count: 1569
+  compressed sum: 6204344
+  uncompressed sum: 6204344
 Compression: ZERO
-	frag count: 0
-	compressed sum: 0
-	uncompressed sum: 0
+  frag count: 0
+  compressed sum: 0
+  uncompressed sum: 0
 Compression: RTIME
-	frag count: 0
-	compressed sum: 0
-	uncompressed sum: 0
+  frag count: 0
+  compressed sum: 0
+  uncompressed sum: 0
 Compression: RUBINMIPS
-	frag count: 0
-	compressed sum: 0
-	uncompressed sum: 0
+  frag count: 0
+  compressed sum: 0
+  uncompressed sum: 0
 Compression: COPY
-	frag count: 0
-	compressed sum: 0
-	uncompressed sum: 0
+  frag count: 0
+  compressed sum: 0
+  uncompressed sum: 0
 Compression: DYNRUBIN
-	frag count: 0
-	compressed sum: 0
-	uncompressed sum: 0
+  frag count: 0
+  compressed sum: 0
+  uncompressed sum: 0
 Compression: ZLIB
-	frag count: 352
-	compressed sum: 591484
-	uncompressed sum: 1422185
+  frag count: 352
+  compressed sum: 591484
+  uncompressed sum: 1422185
 HKVS # ls
  -rwxrwxrwx   711436 Thu Jan 01 00:00:00 1970 rootfs.img
  -rwxrwxrwx   829440 Thu Jan 01 00:00:00 1970 720.422
@@ -370,8 +381,8 @@ We can see what is wrong here, the 'bootcmd' contains instructions to load the u
 </div>
 </div>
 
-<div id="outline-container-orgaa30b00" class="outline-3">
-<h3 id="orgaa30b00"><span class="section-number-3">1.2</span> Firmware restore</h3>
+<div id="outline-container-org9e30c98" class="outline-3">
+<h3 id="org9e30c98"><span class="section-number-3">1.2</span> Firmware restore</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 I found a firmware image and a user's manual on a <a href="https://down.dipol.com.pl/Cctv/M76080/">Polish CCTV shop download site</a> (old-skool plain file server!). In order to perform the update you need to setup a TFTP server responding to the
@@ -436,36 +447,36 @@ TFTP from server 192.0.0.128; our IP address is 192.0.0.64
 Filename 'digicap.dav'.
 Load address: 0x81200000
 Loading: #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 #################################################################
-	 ####
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   #################################################################
+   ####
 done
 Bytes transferred = 10000988 (989a5c hex)
 jffs2: add update file(uImage)...(1569292B-&gt;1580004B)done.
@@ -814,10 +825,10 @@ Usage: id [OPTIONS]... [USERNAME]
 Print information for USERNAME or the current user
 
 Options:
-	-g	prints only the group ID
-	-u	prints only the user ID
-	-n	print a name instead of a number
-	-r	prints the real user ID instead of the effective ID
+  -g	prints only the group ID
+  -u	prints only the user ID
+  -n	print a name instead of a number
+  -r	prints the real user ID instead of the effective ID
 
 # id -ur   
 0
@@ -1145,8 +1156,8 @@ The repair seems to be successful as the boot splashscreen appears on the connec
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-05-13 19:53</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-10-04 11:07</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
