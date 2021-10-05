@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-04 11:07 -->
+<!-- 2021-10-05 06:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Megacell Charger</title>
@@ -264,6 +264,11 @@ for the JavaScript code in this tag.
 <p>
 This page gathers independent information about the Megacell Charger focusing primarily on the communications protocol used between the Megacell Monitor and the Megacell Charger
 with the purpose of creating custom automation.
+</p>
+
+<p>
+All of this information has been independently discovered, later to be found documented on <a href="http://manual.megacellmonitor.com:3000/en/APIspecifications">MegaCell Monitor Wiki</a>. The "wiki" here is unfortunately not editable and may disappear at
+any time so the information here is likely to stay relevant as a backup.
 </p>
 </div>
 </div>
@@ -1512,15 +1517,50 @@ insert actions" in Megacell Monitor UI:
 <tr>
 <td class="org-left">act</td>
 <td class="org-left">Start capacity test</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">mCap on charger LCD</td>
 <td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Start cap test</td>
 </tr>
 
 <tr>
 <td class="org-left">omc</td>
 <td class="org-left">Stop capacity test</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">mCap on charger LCD</td>
 <td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Stop cap test</td>
+</tr>
+
+<tr>
+<td class="org-left">asc</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">StartStoreCharge</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">osc</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">StopStoreChrage</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">dsp</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">DisposeStart</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">dps</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">DisposeStop</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
@@ -1693,7 +1733,7 @@ Log entries received when a capacity test is requested:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-10-04 11:07</p>
+<p class="date">Created: 2021-10-05 06:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
