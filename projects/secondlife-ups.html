@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-13 19:53 -->
+<!-- 2021-10-04 11:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Second Life UPS</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -194,26 +181,50 @@
   /*]]>*/-->
 </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -223,27 +234,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org09f0e10">1. Design overview</a></li>
-<li><a href="#orgc7ab9a1">2. Component layout</a></li>
-<li><a href="#org6d01d87">3. The battery</a></li>
-<li><a href="#orgff612e5">4. The output board</a></li>
-<li><a href="#org0bf7c76">5. The controller board</a></li>
-<li><a href="#org3cc7a94">6. AC power connection</a></li>
-<li><a href="#org46ee8ae">7. Final device</a></li>
+<li><a href="#orgded1be6">1. Design overview</a></li>
+<li><a href="#org0e9b0f9">2. Component layout</a></li>
+<li><a href="#org05b9fff">3. The battery</a></li>
+<li><a href="#org1c229b6">4. The output board</a></li>
+<li><a href="#orgfbdbff6">5. The controller board</a></li>
+<li><a href="#org59ff956">6. AC power connection</a></li>
+<li><a href="#org1210af7">7. Final device</a></li>
 </ul>
 </div>
 </div>
 <base href="secondlife-ups/"/>
 
-<div id="outline-container-org09f0e10" class="outline-2">
-<h2 id="org09f0e10"><span class="section-number-2">1</span> Design overview</h2>
+<div id="outline-container-orgded1be6" class="outline-2">
+<h2 id="orgded1be6"><span class="section-number-2">1</span> Design overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I have decided to build a UPS that would power my home network equipment rack using lithium-ion 18650 cells.
 </p>
 
 
-<div id="org8a84b86" class="figure">
+<div class="figure">
 <p><a href="rack.jpg"><img src="thumb-rack.jpg" alt="thumb-rack.jpg" /></a>
 </p>
 </div>
@@ -350,15 +361,15 @@ As can be seen there is a large amount of different voltages required in order t
 </div>
 </div>
 
-<div id="outline-container-orgc7ab9a1" class="outline-2">
-<h2 id="orgc7ab9a1"><span class="section-number-2">2</span> Component layout</h2>
+<div id="outline-container-org0e9b0f9" class="outline-2">
+<h2 id="org0e9b0f9"><span class="section-number-2">2</span> Component layout</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The 1U case that I used for this project is a case from a ipTime ZC-SW2405 switch:
 </p>
 
 
-<div id="org0b2452e" class="figure">
+<div class="figure">
 <p><a href="switch-case.jpg"><img src="thumb-switch-case.jpg" alt="thumb-switch-case.jpg" /></a>
 </p>
 </div>
@@ -374,7 +385,7 @@ The case size puts a limit on the size and shape of two biggest internal compone
 </p>
 
 
-<div id="org9628ec9" class="figure">
+<div class="figure">
 <p><a href="basic-layout.jpg"><img src="thumb-basic-layout.jpg" alt="thumb-basic-layout.jpg" /></a>
 </p>
 </div>
@@ -443,8 +454,8 @@ From the basic layout the following elements are COTS components:
 </div>
 </div>
 
-<div id="outline-container-org6d01d87" class="outline-2">
-<h2 id="org6d01d87"><span class="section-number-2">3</span> The battery</h2>
+<div id="outline-container-org05b9fff" class="outline-2">
+<h2 id="org05b9fff"><span class="section-number-2">3</span> The battery</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The battery for the UPS was built using 18650 Li-Ion cells recovered from hoverboard battery packs. These are cheap no-name cells with not a lot of capacity left in them (around 800 mAh) each but I figured
@@ -465,7 +476,7 @@ the rows of the cells:
 </p>
 
 
-<div id="org062faa4" class="figure">
+<div class="figure">
 <p><a href="battery-pack1.jpg"><img src="thumb-battery-pack1.jpg" alt="thumb-battery-pack1.jpg" /></a>
 </p>
 </div>
@@ -476,13 +487,13 @@ on the two pictures below:
 </p>
 
 
-<div id="org4830ebb" class="figure">
+<div class="figure">
 <p><a href="battery-pack2.jpg"><img src="thumb-battery-pack2.jpg" alt="thumb-battery-pack2.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org9aa0e01" class="figure">
+<div class="figure">
 <p><a href="battery-pack3.jpg"><img src="thumb-battery-pack3.jpg" alt="thumb-battery-pack3.jpg" /></a>
 </p>
 </div>
@@ -492,13 +503,13 @@ Next, the battery has the main leads soldered to the ends and balancing wires to
 </p>
 
 
-<div id="org46dd6f3" class="figure">
+<div class="figure">
 <p><a href="battery-pack4.jpg"><img src="thumb-battery-pack4.jpg" alt="thumb-battery-pack4.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org5813ada" class="figure">
+<div class="figure">
 <p><a href="battery-pack5.jpg"><img src="thumb-battery-pack5.jpg" alt="thumb-battery-pack5.jpg" /></a>
 </p>
 </div>
@@ -508,7 +519,7 @@ After applying insulating tape on both ends and also between the cells the batte
 </p>
 
 
-<div id="org190285d" class="figure">
+<div class="figure">
 <p><a href="battery-pack6.jpg"><img src="thumb-battery-pack6.jpg" alt="thumb-battery-pack6.jpg" /></a>
 </p>
 </div>
@@ -518,7 +529,7 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </p>
 
 
-<div id="org0ae8ecf" class="figure">
+<div class="figure">
 <p><a href="battery-pack7.jpg"><img src="thumb-battery-pack7.jpg" alt="thumb-battery-pack7.jpg" /></a>
 </p>
 </div>
@@ -526,8 +537,8 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </div>
 
 
-<div id="outline-container-orgff612e5" class="outline-2">
-<h2 id="orgff612e5"><span class="section-number-2">4</span> The output board</h2>
+<div id="outline-container-org1c229b6" class="outline-2">
+<h2 id="org1c229b6"><span class="section-number-2">4</span> The output board</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The output connectors board provides for the attachment points for all of the devices being powered by the UPS. Due to a "standard" developed in the <a href="https://hackerspace.pl">Warsaw Hackerspace</a> of using Tamiya connectors as universal
@@ -541,7 +552,7 @@ First, the baseboard was fitted and screwed in in front of the cutouts. A piece 
 </p>
 
 
-<div id="org0e1046b" class="figure">
+<div class="figure">
 <p><a href="output-board1.jpg"><img src="thumb-output-board1.jpg" alt="thumb-output-board1.jpg" /></a>
 </p>
 </div>
@@ -552,7 +563,7 @@ in a similar fashion:
 </p>
 
 
-<div id="orge280f23" class="figure">
+<div class="figure">
 <p><a href="output-board2.jpg"><img src="thumb-output-board2.jpg" alt="thumb-output-board2.jpg" /></a>
 </p>
 </div>
@@ -563,7 +574,7 @@ to 12V (yellow wires) and 5V (red wires) power rails and a common ground rail.
 </p>
 
 
-<div id="org3fc813c" class="figure">
+<div class="figure">
 <p><a href="output-board3.jpg"><img src="thumb-output-board3.jpg" alt="thumb-output-board3.jpg" /></a>
 </p>
 </div>
@@ -575,7 +586,7 @@ DC-DC converters in between. This will not be available on the front but have a 
 </p>
 
 
-<div id="org8bbbacd" class="figure">
+<div class="figure">
 <p><a href="output-board4.jpg"><img src="thumb-output-board4.jpg" alt="thumb-output-board4.jpg" /></a>
 </p>
 </div>
@@ -587,7 +598,7 @@ In the initial revision of the hardware, the 5V was supplied by an LM2596 module
 </p>
 
 
-<div id="org2706b7a" class="figure">
+<div class="figure">
 <p><a href="output-board5.jpg"><img src="thumb-output-board5.jpg" alt="thumb-output-board5.jpg" /></a>
 </p>
 </div>
@@ -600,7 +611,7 @@ supply. I knew they would come in handy some day ;)
 </p>
 
 
-<div id="org7b14f87" class="figure">
+<div class="figure">
 <p><a href="distance-screw1.jpg"><img src="thumb-distance-screw1.jpg" alt="thumb-distance-screw1.jpg" /></a>
 </p>
 </div>
@@ -610,13 +621,13 @@ The plastic distance rings fit perfectly into the M3 holes of the module and pro
 </p>
 
 
-<div id="orgd78cf3f" class="figure">
+<div class="figure">
 <p><a href="distance-screw2.jpg"><img src="thumb-distance-screw2.jpg" alt="thumb-distance-screw2.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org4e3c3e9" class="figure">
+<div class="figure">
 <p><a href="distance-screw3.jpg"><img src="thumb-distance-screw3.jpg" alt="thumb-distance-screw3.jpg" /></a>
 </p>
 </div>
@@ -624,8 +635,8 @@ The plastic distance rings fit perfectly into the M3 holes of the module and pro
 </div>
 
 
-<div id="outline-container-org0bf7c76" class="outline-2">
-<h2 id="org0bf7c76"><span class="section-number-2">5</span> The controller board</h2>
+<div id="outline-container-orgfbdbff6" class="outline-2">
+<h2 id="orgfbdbff6"><span class="section-number-2">5</span> The controller board</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Even though the entire controller board has been manually wired on a breadboard I made a schematics of the connections in <a href="https://www.kicad.org/">KiCad</a> instead of paragraphs of text describing how everything is 
@@ -633,7 +644,7 @@ connected together:
 </p>
 
 
-<div id="orgfb0d4f2" class="figure">
+<div class="figure">
 <p><object type="image/svg+xml" data="control-circuit.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -644,7 +655,7 @@ If your browser can't render SVGs o<sub>O</sub>, you can download the <a href="c
 </p>
 
 
-<div id="orgc688ae9" class="figure">
+<div class="figure">
 <p><a href="controller-board1.jpg"><img src="thumb-controller-board1.jpg" alt="thumb-controller-board1.jpg" /></a>
 </p>
 </div>
@@ -656,7 +667,7 @@ insulating tape as it was added as an afterthought and I didn't want to disassem
 </p>
 
 
-<div id="org29e5084" class="figure">
+<div class="figure">
 <p><a href="fan-power.jpg"><img src="thumb-fan-power.jpg" alt="thumb-fan-power.jpg" /></a>
 </p>
 </div>
@@ -668,30 +679,30 @@ both the charger and the loads.
 </div>
 </div>
 
-<div id="outline-container-org3cc7a94" class="outline-2">
-<h2 id="org3cc7a94"><span class="section-number-2">6</span> AC power connection</h2>
+<div id="outline-container-org59ff956" class="outline-2">
+<h2 id="org59ff956"><span class="section-number-2">6</span> AC power connection</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The AC 230V cable has been attached using an electrical pipe fitting usually found in distribution boxes. It's very practical as it's pretty sturdy and provides a good amount of strain relief for the cable:
 </p>
 
 
-<div id="org100dc49" class="figure">
+<div class="figure">
 <p><a href="ac-cable1.jpg"><img src="thumb-ac-cable1.jpg" alt="thumb-ac-cable1.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org46ee8ae" class="outline-2">
-<h2 id="org46ee8ae"><span class="section-number-2">7</span> Final device</h2>
+<div id="outline-container-org1210af7" class="outline-2">
+<h2 id="org1210af7"><span class="section-number-2">7</span> Final device</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The final result before the case is screwed on:
 </p>
 
 
-<div id="org972e539" class="figure">
+<div class="figure">
 <p><a href="final-assembly1.jpg"><img src="thumb-final-assembly1.jpg" alt="thumb-final-assembly1.jpg" /></a>
 </p>
 </div>
@@ -701,7 +712,7 @@ The front panel contains two status LEDs as well as the battery cutoff switch.
 </p>
 
 
-<div id="orgff45889" class="figure">
+<div class="figure">
 <p><a href="final-assembly2.jpg"><img src="thumb-final-assembly2.jpg" alt="thumb-final-assembly2.jpg" /></a>
 </p>
 </div>
@@ -711,7 +722,7 @@ I have also added stickers to showcase maximum current ratings allowed and label
 </p>
 
 
-<div id="org1596a1f" class="figure">
+<div class="figure">
 <p><a href="stickers1.jpg"><img src="thumb-stickers1.jpg" alt="thumb-stickers1.jpg" /></a>
 </p>
 </div>
@@ -720,8 +731,8 @@ I have also added stickers to showcase maximum current ratings allowed and label
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-05-13 19:53</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-10-04 11:07</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

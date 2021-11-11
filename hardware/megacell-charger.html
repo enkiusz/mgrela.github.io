@@ -3,7 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<<<<<<< HEAD
 <!-- 2021-11-11 23:18 -->
+=======
+<!-- 2021-10-06 18:44 -->
+>>>>>>> 2d92b9b8be1ca773768366c3d0a56892970ff836
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Megacell Charger</title>
@@ -40,7 +44,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -161,19 +165,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -194,26 +185,50 @@
   /*]]>*/-->
 </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -223,23 +238,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org22540cf">1. Introduction</a></li>
-<li><a href="#org3078ad0">2. Hardware</a></li>
-<li><a href="#orgc640c94">3. Software</a></li>
-<li><a href="#org1bb503f">4. The protocol</a>
+<li><a href="#org50e5d54">1. Introduction</a></li>
+<li><a href="#orgbe38f6b">2. Hardware</a></li>
+<li><a href="#org8d7b9f8">3. Software</a></li>
+<li><a href="#orgd1f861d">4. The protocol</a>
 <ul>
-<li><a href="#orga21a6d9">4.1. Charger presence detection and API version</a></li>
-<li><a href="#org5ae8b9b">4.2. API v0</a>
+<li><a href="#orgc349f15">4.1. Charger presence detection and API version</a></li>
+<li><a href="#org6867210">4.2. API v0</a>
 <ul>
-<li><a href="#org22388c8">4.2.1. Get charger configuration</a></li>
-<li><a href="#org4b2aa03">4.2.2. Set charger configuration</a></li>
-<li><a href="#org69becbe">4.2.3. Charger reset</a></li>
-<li><a href="#org1877f29">4.2.4. Get current cell information</a></li>
-<li><a href="#org3fc8a1b">4.2.5. Performing actions by the charger</a></li>
-<li><a href="#orge047693">4.2.6. Changing the log level</a></li>
+<li><a href="#org9282e83">4.2.1. Get charger configuration</a></li>
+<li><a href="#org98dee5f">4.2.2. Set charger configuration</a></li>
+<li><a href="#orga34279f">4.2.3. Charger reset</a></li>
+<li><a href="#orgdf58011">4.2.4. Get current cell information</a></li>
+<li><a href="#org99baffe">4.2.5. Performing actions by the charger</a></li>
+<li><a href="#orgbab49e3">4.2.6. Changing the log level</a></li>
 </ul>
 </li>
-<li><a href="#org39ae195">4.3. The debug log</a></li>
+<li><a href="#org6602ea4">4.3. The debug log</a></li>
 </ul>
 </li>
 </ul>
@@ -247,8 +262,8 @@
 </div>
 <base href="megacell-charger/"/>
 
-<div id="outline-container-org22540cf" class="outline-2">
-<h2 id="org22540cf"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org50e5d54" class="outline-2">
+<h2 id="org50e5d54"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This page gathers independent information about the Megacell Charger focusing primarily on the communications protocol used between the Megacell Monitor and the Megacell Charger
@@ -262,8 +277,8 @@ any time so the information here is likely to stay relevant as a backup.
 </div>
 </div>
 
-<div id="outline-container-org3078ad0" class="outline-2">
-<h2 id="org3078ad0"><span class="section-number-2">2</span> Hardware</h2>
+<div id="outline-container-orgbe38f6b" class="outline-2">
+<h2 id="orgbe38f6b"><span class="section-number-2">2</span> Hardware</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The <a href="https://megacellcharger.com">Megacell charger</a> is a 16-slot 18650 litihium ion cell charger with some automation capabilities and software control via 802.11 WLAN. The charger is bundled with software
@@ -272,8 +287,8 @@ which implements features useful for larger-scale lithium-ion cell refurbishment
 </div>
 </div>
 
-<div id="outline-container-orgc640c94" class="outline-2">
-<h2 id="orgc640c94"><span class="section-number-2">3</span> Software</h2>
+<div id="outline-container-org8d7b9f8" class="outline-2">
+<h2 id="org8d7b9f8"><span class="section-number-2">3</span> Software</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The charger is bundled with a software package called <a href="https://www.megacellmonitor.com/">Megacell Monitor</a> which allows for a degree of remote control, setup and automation of the charger. It can also store
@@ -282,8 +297,8 @@ the cell information in an SQL database, print labels or calculate pack layouts 
 </div>
 </div>
 
-<div id="outline-container-org1bb503f" class="outline-2">
-<h2 id="org1bb503f"><span class="section-number-2">4</span> The protocol</h2>
+<div id="outline-container-orgd1f861d" class="outline-2">
+<h2 id="orgd1f861d"><span class="section-number-2">4</span> The protocol</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The protocol is based on HTTP, the charger has to be connected to a 802.11 WLAN network and obtains it's IP address using DHCP. The following requests are understood by
@@ -291,8 +306,8 @@ the charger (assuming 10.10.10.30 is the charger IP address):
 </p>
 </div>
 
-<div id="outline-container-orga21a6d9" class="outline-3">
-<h3 id="orga21a6d9"><span class="section-number-3">4.1</span> Charger presence detection and API version</h3>
+<div id="outline-container-orgc349f15" class="outline-3">
+<h3 id="orgc349f15"><span class="section-number-3">4.1</span> Charger presence detection and API version</h3>
 <div class="outline-text-3" id="text-4-1">
 <pre>
 $ curl -i -X POST http://10.10.10.30/api/who_am_i
@@ -313,16 +328,16 @@ firmware-specific features and improve compatibility.
 </div>
 </div>
 
-<div id="outline-container-org5ae8b9b" class="outline-3">
-<h3 id="org5ae8b9b"><span class="section-number-3">4.2</span> API v0</h3>
+<div id="outline-container-org6867210" class="outline-3">
+<h3 id="org6867210"><span class="section-number-3">4.2</span> API v0</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 As the charger API has no explicit version code, the current API observed to be implemented in firmware version V4.3.0.11 has been designated as v0.
 </p>
 </div>
 
-<div id="outline-container-org22388c8" class="outline-4">
-<h4 id="org22388c8"><span class="section-number-4">4.2.1</span> Get charger configuration</h4>
+<div id="outline-container-org9282e83" class="outline-4">
+<h4 id="org9282e83"><span class="section-number-4">4.2.1</span> Get charger configuration</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <pre>
 $ curl -X POST http://10.10.10.30/api/get_config_info
@@ -537,8 +552,8 @@ the hardware or firmware in the Megacell Charger or whether they are what the de
 </div>
 </div>
 
-<div id="outline-container-org4b2aa03" class="outline-4">
-<h4 id="org4b2aa03"><span class="section-number-4">4.2.2</span> Set charger configuration</h4>
+<div id="outline-container-org98dee5f" class="outline-4">
+<h4 id="org98dee5f"><span class="section-number-4">4.2.2</span> Set charger configuration</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 A request very similar to getting charger configuration is used to set it. As an example:
@@ -640,8 +655,8 @@ $ curl -X POST http://10.10.10.30/api/get_config_info
 </div>
 </div>
 
-<div id="outline-container-org69becbe" class="outline-4">
-<h4 id="org69becbe"><span class="section-number-4">4.2.3</span> Charger reset</h4>
+<div id="outline-container-orga34279f" class="outline-4">
+<h4 id="orga34279f"><span class="section-number-4">4.2.3</span> Charger reset</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
 The Megacell Monitor UI contains a button labeled as "Reboot Chargers" which sends the following request:
@@ -663,8 +678,8 @@ Even though the response indicates a failure the charger does reboot, this can b
 </div>
 </div>
 
-<div id="outline-container-org1877f29" class="outline-4">
-<h4 id="org1877f29"><span class="section-number-4">4.2.4</span> Get current cell information</h4>
+<div id="outline-container-orgdf58011" class="outline-4">
+<h4 id="orgdf58011"><span class="section-number-4">4.2.4</span> Get current cell information</h4>
 <div class="outline-text-4" id="text-4-2-4">
 <p>
 An API request used to fetch the current state for each of the 16 charger slots is used to update the charger view in the Megacell Monitor UI. The request is as follows:
@@ -1420,8 +1435,13 @@ Educated guesses and observation have lead to the following table explaining the
 </div>
 </div>
 
+<<<<<<< HEAD
 <div id="outline-container-org3fc8a1b" class="outline-4">
 <h4 id="org3fc8a1b"><span class="section-number-4">4.2.5</span> Performing actions by the charger</h4>
+=======
+<div id="outline-container-org99baffe" class="outline-4">
+<h4 id="org99baffe"><span class="section-number-4">4.2.5</span> Performing actions by the charger</h4>
+>>>>>>> 2d92b9b8be1ca773768366c3d0a56892970ff836
 <div class="outline-text-4" id="text-4-2-5">
 <p>
 Performing actions by the charger on particular cells (for example a charge/discharge cycle or LVC) is accomplished by "setting the cell state" using the following request.
@@ -1563,8 +1583,8 @@ insert actions" in Megacell Monitor UI:
 </div>
 </div>
 
-<div id="outline-container-orge047693" class="outline-4">
-<h4 id="orge047693"><span class="section-number-4">4.2.6</span> Changing the log level</h4>
+<div id="outline-container-orgbab49e3" class="outline-4">
+<h4 id="orgbab49e3"><span class="section-number-4">4.2.6</span> Changing the log level</h4>
 <div class="outline-text-4" id="text-4-2-6">
 <p>
 The charger exposes a log on port 8888 (described in detail in the next section). An API request can be used to adjust the log level of messages which are sent to the log.
@@ -1599,8 +1619,8 @@ The debug levels possible correspond to classical UNIX syslog levels (see the 'm
 </div>
 </div>
 
-<div id="outline-container-org39ae195" class="outline-3">
-<h3 id="org39ae195"><span class="section-number-3">4.3</span> The debug log</h3>
+<div id="outline-container-org6602ea4" class="outline-3">
+<h3 id="org6602ea4"><span class="section-number-3">4.3</span> The debug log</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 The charger firmware provides the possibility to receive a debug log by connecting to the port 8888 of the IP address assigned to the charger. An example dump of messages received
@@ -1722,8 +1742,13 @@ Log entries received when a capacity test is requested:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
+<<<<<<< HEAD
 <p class="date">Created: 2021-11-11 23:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+=======
+<p class="date">Created: 2021-10-06 18:44</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+>>>>>>> 2d92b9b8be1ca773768366c3d0a56892970ff836
 </div>
 </body>
 </html>
