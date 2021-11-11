@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-04 09:44 -->
+<!-- 2021-11-11 23:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Megacell Charger</title>
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -254,6 +254,11 @@
 This page gathers independent information about the Megacell Charger focusing primarily on the communications protocol used between the Megacell Monitor and the Megacell Charger
 with the purpose of creating custom automation.
 </p>
+
+<p>
+All of this information has been independently discovered, later to be found documented on <a href="http://manual.megacellmonitor.com:3000/en/APIspecifications">MegaCell Monitor Wiki</a>. The "wiki" here is unfortunately not editable and may disappear at
+any time so the information here is likely to stay relevant as a backup.
+</p>
 </div>
 </div>
 
@@ -433,7 +438,15 @@ the hardware or firmware in the Megacell Charger or whether they are what the de
 <tr>
 <td class="org-left">FwV</td>
 <td class="org-left">Charger Settings -&gt; Firmware version</td>
-<td class="org-right">Cannot be changed in UI</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Cannot be changed in UI</td>
+</tr>
+
+<tr>
+<td class="org-left">MuL</td>
+<td class="org-left">Charger Settings -&gt; Multicast enable</td>
+<td class="org-right">0</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -441,26 +454,10 @@ the hardware or firmware in the Megacell Charger or whether they are what the de
 <tbody>
 <tr>
 <td class="org-left">ChC</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">Not presented in UI directly</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">A global "busy" flag for the charger:</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Not presented in UI directly</td>
 <td class="org-right">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">- true when charging/discharging on any slot</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">- false when charger is idle</td>
+<td class="org-left">Chip-controlled charging enable</td>
 </tr>
 </tbody>
 <tbody>
@@ -534,14 +531,6 @@ the hardware or firmware in the Megacell Charger or whether they are what the de
 <td class="org-right">250</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">MuL</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">Not presented in UI directly</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Unknown, value is always 0</td>
 </tr>
 </tbody>
 </table>
@@ -1084,6 +1073,22 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "LVC start charging"</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">- "LVC Charging"</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1188,7 +1193,7 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">- "Initiating mCap"</td>
+<td class="org-left">- "Initiating mCap" when capacity test is requested in UI</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -1196,7 +1201,7 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">- "mCap Started Charging" when capacity test is requested in UI</td>
+<td class="org-left">- "mCap Started Charging"</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -1244,7 +1249,23 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">- "Bad Cell" - State describes what was the failure</td>
+<td class="org-left">- "Bad Cell" - 'State' describes what was the failure</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "Overdischarge halt"</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -1292,7 +1313,7 @@ Educated guesses and observation have lead to the following table explaining the
 <tbody>
 <tr>
 <td class="org-left">ChC</td>
-<td class="org-left">Unknown</td>
+<td class="org-left">Chip controlled charging</td>
 <td class="org-left">boolean</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -1351,6 +1372,22 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">- "High volt drop Error" when voltage drops more than the maximum during low voltage recovery</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "Charge time exceeded" when maximum charging time during mCap is exceeded</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1370,11 +1407,18 @@ Educated guesses and observation have lead to the following table explaining the
 <td class="org-left">- "LVC recovery failed" when LVC has failed to recover the cell</td>
 <td class="org-left">&#xa0;</td>
 </tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- "!!!Emergency stop!!!"</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-
 
 <div id="outline-container-org3fc8a1b" class="outline-4">
 <h4 id="org3fc8a1b"><span class="section-number-4">4.2.5</span> Performing actions by the charger</h4>
@@ -1384,6 +1428,7 @@ Performing actions by the charger on particular cells (for example a charge/disc
 In the example below slots 0 and 1 are requested to perform LVC:
 </p>
 
+<pre>
 $ curl -i -d '{"cells": [{"CiD": 0, "CmD": "alr"},{"CiD": 1, "CmD": "alr"}]}' -X POST http://10.10.10.30/api/set_cell
 HTTP/1.1 200 OK
 Content-Type: text/plane
@@ -1391,6 +1436,7 @@ Content-Length: 8
 Connection: close
 
 Received%
+</pre>
 
 <p>
 The values of the CmD field correspond to different actions that can be sent to the charger, the following codes have been documented based on what is available in the "New cell
@@ -1460,15 +1506,50 @@ insert actions" in Megacell Monitor UI:
 <tr>
 <td class="org-left">act</td>
 <td class="org-left">Start capacity test</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">mCap on charger LCD</td>
 <td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Start cap test</td>
 </tr>
 
 <tr>
 <td class="org-left">omc</td>
 <td class="org-left">Stop capacity test</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">mCap on charger LCD</td>
 <td class="org-left">(Informational) - CellID: 0 - handle_set_cell_state: Stop cap test</td>
+</tr>
+
+<tr>
+<td class="org-left">asc</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">StartStoreCharge</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">osc</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">StopStoreChrage</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">dsp</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">DisposeStart</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">dps</td>
+<td class="org-left">Not available in the Megacell Monitor UI</td>
+<td class="org-left">DisposeStop</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
@@ -1641,7 +1722,7 @@ Log entries received when a capacity test is requested:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-10-04 09:44</p>
+<p class="date">Created: 2021-11-11 23:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
