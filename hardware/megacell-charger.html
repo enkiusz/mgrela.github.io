@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-11 23:24 -->
+<!-- 2021-12-28 21:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Megacell Charger</title>
@@ -223,23 +223,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org002fef0">1. Introduction</a></li>
-<li><a href="#org7040d50">2. Hardware</a></li>
-<li><a href="#orga4a19ac">3. Software</a></li>
-<li><a href="#org1f6dcb7">4. The protocol</a>
+<li><a href="#org6233310">1. Introduction</a></li>
+<li><a href="#org2f29900">2. Hardware</a></li>
+<li><a href="#org66a64b0">3. Software</a></li>
+<li><a href="#orgc3b3ce2">4. The protocol</a>
 <ul>
-<li><a href="#orgeec251f">4.1. Charger presence detection and API version</a></li>
-<li><a href="#orgf1c072f">4.2. API v0</a>
+<li><a href="#org54225fa">4.1. Charger presence detection and API version</a></li>
+<li><a href="#org71dcf6e">4.2. API v0</a>
 <ul>
-<li><a href="#orge1cc259">4.2.1. Get charger configuration</a></li>
-<li><a href="#orge6889f8">4.2.2. Set charger configuration</a></li>
-<li><a href="#org602f5e1">4.2.3. Charger reset</a></li>
-<li><a href="#org7dceda0">4.2.4. Get current cell information</a></li>
-<li><a href="#orgab2b853">4.2.5. Performing actions by the charger</a></li>
-<li><a href="#orgc0bfab0">4.2.6. Changing the log level</a></li>
+<li><a href="#org0021c7b">4.2.1. Get charger configuration</a></li>
+<li><a href="#org9398eeb">4.2.2. Set charger configuration</a></li>
+<li><a href="#orga312582">4.2.3. Charger reset</a></li>
+<li><a href="#org293044b">4.2.4. Get current cell information</a></li>
+<li><a href="#orga870a40">4.2.5. Performing actions by the charger</a></li>
+<li><a href="#orgb81859b">4.2.6. Changing the log level</a></li>
 </ul>
 </li>
-<li><a href="#orgc6bfc4b">4.3. The debug log</a></li>
+<li><a href="#org229f63b">4.3. The debug log</a></li>
 </ul>
 </li>
 </ul>
@@ -247,8 +247,8 @@
 </div>
 <base href="megacell-charger/"/>
 
-<div id="outline-container-org002fef0" class="outline-2">
-<h2 id="org002fef0"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org6233310" class="outline-2">
+<h2 id="org6233310"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This page gathers independent information about the Megacell Charger focusing primarily on the communications protocol used between the Megacell Monitor and the Megacell Charger
@@ -262,8 +262,8 @@ any time so the information here is likely to stay relevant as a backup.
 </div>
 </div>
 
-<div id="outline-container-org7040d50" class="outline-2">
-<h2 id="org7040d50"><span class="section-number-2">2</span> Hardware</h2>
+<div id="outline-container-org2f29900" class="outline-2">
+<h2 id="org2f29900"><span class="section-number-2">2</span> Hardware</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The <a href="https://megacellcharger.com">Megacell charger</a> is a 16-slot 18650 litihium ion cell charger with some automation capabilities and software control via 802.11 WLAN. The charger is bundled with software
@@ -272,8 +272,8 @@ which implements features useful for larger-scale lithium-ion cell refurbishment
 </div>
 </div>
 
-<div id="outline-container-orga4a19ac" class="outline-2">
-<h2 id="orga4a19ac"><span class="section-number-2">3</span> Software</h2>
+<div id="outline-container-org66a64b0" class="outline-2">
+<h2 id="org66a64b0"><span class="section-number-2">3</span> Software</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The charger is bundled with a software package called <a href="https://www.megacellmonitor.com/">Megacell Monitor</a> which allows for a degree of remote control, setup and automation of the charger. It can also store
@@ -282,8 +282,8 @@ the cell information in an SQL database, print labels or calculate pack layouts 
 </div>
 </div>
 
-<div id="outline-container-org1f6dcb7" class="outline-2">
-<h2 id="org1f6dcb7"><span class="section-number-2">4</span> The protocol</h2>
+<div id="outline-container-orgc3b3ce2" class="outline-2">
+<h2 id="orgc3b3ce2"><span class="section-number-2">4</span> The protocol</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The protocol is based on HTTP, the charger has to be connected to a 802.11 WLAN network and obtains it's IP address using DHCP. The following requests are understood by
@@ -291,8 +291,8 @@ the charger (assuming 10.10.10.30 is the charger IP address):
 </p>
 </div>
 
-<div id="outline-container-orgeec251f" class="outline-3">
-<h3 id="orgeec251f"><span class="section-number-3">4.1</span> Charger presence detection and API version</h3>
+<div id="outline-container-org54225fa" class="outline-3">
+<h3 id="org54225fa"><span class="section-number-3">4.1</span> Charger presence detection and API version</h3>
 <div class="outline-text-3" id="text-4-1">
 <pre>
 $ curl -i -X POST http://10.10.10.30/api/who_am_i
@@ -313,16 +313,16 @@ firmware-specific features and improve compatibility.
 </div>
 </div>
 
-<div id="outline-container-orgf1c072f" class="outline-3">
-<h3 id="orgf1c072f"><span class="section-number-3">4.2</span> API v0</h3>
+<div id="outline-container-org71dcf6e" class="outline-3">
+<h3 id="org71dcf6e"><span class="section-number-3">4.2</span> API v0</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 As the charger API has no explicit version code, the current API observed to be implemented in firmware version V4.3.0.11 has been designated as v0.
 </p>
 </div>
 
-<div id="outline-container-orge1cc259" class="outline-4">
-<h4 id="orge1cc259"><span class="section-number-4">4.2.1</span> Get charger configuration</h4>
+<div id="outline-container-org0021c7b" class="outline-4">
+<h4 id="org0021c7b"><span class="section-number-4">4.2.1</span> Get charger configuration</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <pre>
 $ curl -X POST http://10.10.10.30/api/get_config_info
@@ -537,8 +537,8 @@ the hardware or firmware in the Megacell Charger or whether they are what the de
 </div>
 </div>
 
-<div id="outline-container-orge6889f8" class="outline-4">
-<h4 id="orge6889f8"><span class="section-number-4">4.2.2</span> Set charger configuration</h4>
+<div id="outline-container-org9398eeb" class="outline-4">
+<h4 id="org9398eeb"><span class="section-number-4">4.2.2</span> Set charger configuration</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 A request very similar to getting charger configuration is used to set it. As an example:
@@ -640,8 +640,8 @@ $ curl -X POST http://10.10.10.30/api/get_config_info
 </div>
 </div>
 
-<div id="outline-container-org602f5e1" class="outline-4">
-<h4 id="org602f5e1"><span class="section-number-4">4.2.3</span> Charger reset</h4>
+<div id="outline-container-orga312582" class="outline-4">
+<h4 id="orga312582"><span class="section-number-4">4.2.3</span> Charger reset</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
 The Megacell Monitor UI contains a button labeled as "Reboot Chargers" which sends the following request:
@@ -663,8 +663,8 @@ Even though the response indicates a failure the charger does reboot, this can b
 </div>
 </div>
 
-<div id="outline-container-org7dceda0" class="outline-4">
-<h4 id="org7dceda0"><span class="section-number-4">4.2.4</span> Get current cell information</h4>
+<div id="outline-container-org293044b" class="outline-4">
+<h4 id="org293044b"><span class="section-number-4">4.2.4</span> Get current cell information</h4>
 <div class="outline-text-4" id="text-4-2-4">
 <p>
 An API request used to fetch the current state for each of the 16 charger slots is used to update the charger view in the Megacell Monitor UI. The request is as follows:
@@ -1420,8 +1420,8 @@ Educated guesses and observation have lead to the following table explaining the
 </div>
 </div>
 
-<div id="outline-container-orgab2b853" class="outline-4">
-<h4 id="orgab2b853"><span class="section-number-4">4.2.5</span> Performing actions by the charger</h4>
+<div id="outline-container-orga870a40" class="outline-4">
+<h4 id="orga870a40"><span class="section-number-4">4.2.5</span> Performing actions by the charger</h4>
 <div class="outline-text-4" id="text-4-2-5">
 <p>
 Performing actions by the charger on particular cells (for example a charge/discharge cycle or LVC) is accomplished by "setting the cell state" using the following request.
@@ -1563,8 +1563,8 @@ insert actions" in Megacell Monitor UI:
 </div>
 </div>
 
-<div id="outline-container-orgc0bfab0" class="outline-4">
-<h4 id="orgc0bfab0"><span class="section-number-4">4.2.6</span> Changing the log level</h4>
+<div id="outline-container-orgb81859b" class="outline-4">
+<h4 id="orgb81859b"><span class="section-number-4">4.2.6</span> Changing the log level</h4>
 <div class="outline-text-4" id="text-4-2-6">
 <p>
 The charger exposes a log on port 8888 (described in detail in the next section). An API request can be used to adjust the log level of messages which are sent to the log.
@@ -1599,8 +1599,8 @@ The debug levels possible correspond to classical UNIX syslog levels (see the 'm
 </div>
 </div>
 
-<div id="outline-container-orgc6bfc4b" class="outline-3">
-<h3 id="orgc6bfc4b"><span class="section-number-3">4.3</span> The debug log</h3>
+<div id="outline-container-org229f63b" class="outline-3">
+<h3 id="org229f63b"><span class="section-number-3">4.3</span> The debug log</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 The charger firmware provides the possibility to receive a debug log by connecting to the port 8888 of the IP address assigned to the charger. An example dump of messages received
@@ -1722,7 +1722,7 @@ Log entries received when a capacity test is requested:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-11-11 23:24</p>
+<p class="date">Created: 2021-12-28 21:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

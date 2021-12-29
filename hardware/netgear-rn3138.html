@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-11 23:24 -->
+<!-- 2021-12-28 21:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Netgear ReadyNAS RN3138</title>
@@ -223,14 +223,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb21fc75">1. Hardware</a>
+<li><a href="#orgf3fe0a0">1. Hardware</a>
 <ul>
-<li><a href="#org3e91f5b">1.1. Network traffic observed when NAS is booting</a></li>
+<li><a href="#org3214049">1.1. Network traffic observed when NAS is booting</a></li>
 </ul>
 </li>
-<li><a href="#org83c0796">2. Software update mechanism</a>
+<li><a href="#org0cfc070">2. Software update mechanism</a>
 <ul>
-<li><a href="#orgc12c38c">2.1. Booting an alternative operating system</a></li>
+<li><a href="#orgf6f4197">2.1. Booting an alternative operating system</a></li>
 </ul>
 </li>
 </ul>
@@ -238,8 +238,8 @@
 </div>
 <base href="netgear-rn3138/"/>
 
-<div id="outline-container-orgb21fc75" class="outline-2">
-<h2 id="orgb21fc75"><span class="section-number-2">1</span> Hardware</h2>
+<div id="outline-container-orgf3fe0a0" class="outline-2">
+<h2 id="orgf3fe0a0"><span class="section-number-2">1</span> Hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Netgear ReadyNAS 3138 is a 1U rack-mounted NAS server with 4 3.5'' SATA drive slots. I have recently purchased such a device in order to use it as a small home fileserver
@@ -253,8 +253,8 @@ All of the currently available information about the device has been moved to <a
 </p>
 </div>
 
-<div id="outline-container-org3e91f5b" class="outline-3">
-<h3 id="org3e91f5b"><span class="section-number-3">1.1</span> Network traffic observed when NAS is booting</h3>
+<div id="outline-container-org3214049" class="outline-3">
+<h3 id="org3214049"><span class="section-number-3">1.1</span> Network traffic observed when NAS is booting</h3>
 <div class="outline-text-3" id="text-1-1">
 <pre>
 Aug 13 19:14:50 newton dnsmasq-dhcp[2894]: 4065195709 available DHCP range: 10.2.0.8 -- 10.2.0.14
@@ -419,8 +419,8 @@ Aug 13 19:16:06 newton dnsmasq[2894]: reply d2r4ddhdzue4sy.cloudfront.net is 260
 </div>
 </div>
 
-<div id="outline-container-org83c0796" class="outline-2">
-<h2 id="org83c0796"><span class="section-number-2">2</span> Software update mechanism</h2>
+<div id="outline-container-org0cfc070" class="outline-2">
+<h2 id="org0cfc070"><span class="section-number-2">2</span> Software update mechanism</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The NAS operating system contains an automatic software update mechanism which can be triggered from the Admin UI. The below is the documentation of reverse engineering efforts for this mechanism.
@@ -635,8 +635,8 @@ from which the BIOS boots.
 </p>
 </div>
 
-<div id="outline-container-orgc12c38c" class="outline-3">
-<h3 id="orgc12c38c"><span class="section-number-3">2.1</span> Booting an alternative operating system</h3>
+<div id="outline-container-orgf6f4197" class="outline-3">
+<h3 id="orgf6f4197"><span class="section-number-3">2.1</span> Booting an alternative operating system</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The knowledge and access we gained on the serial console allows us to boot an alternative operating system on the NAS. We will use <a href="https://www.alpinelinux.org">Alpine Linux</a> x86<sub>64</sub> as a proof of concept as it's one of the smallest
@@ -1447,7 +1447,7 @@ As you can see we have successfully booted Alpine Linux as an alternative OS on 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-11-11 23:24</p>
+<p class="date">Created: 2021-12-28 21:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

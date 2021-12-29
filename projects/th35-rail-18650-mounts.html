@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-28 21:11 -->
+<!-- 2021-12-28 22:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The UFactory Uarm</title>
+<title>TH-35 (DIN rail) mounts for 18650 cell packs</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
 <style type="text/css">
@@ -218,78 +218,94 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">The UFactory Uarm</h1>
+<h1 class="title">TH-35 (DIN rail) mounts for 18650 cell packs</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org92daacc">1. Servos</a></li>
-<li><a href="#orgefcb8db">2. Documents</a>
+<li><a href="#org6196fa7">1. The rationale</a>
 <ul>
-<li><a href="#orgea6a456">2.1. From the original Support site</a></li>
-<li><a href="#orgbddfdf1">2.2. Other places</a></li>
+<li><a href="#orgef89007">1.1. Mount design</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<base href="uarm/"/>
+<base href="th35-rail-18650-mounts/"/>
 
-<p>
-The <a href="https://www.kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your">UFactory Uarm</a> is an acrylic desktop 4-axis robot arm which was funded on Kickstarter. There is some information as well as tools on the manufacturer side (<a href="http://ufactory.cc/">http://ufactory.cc/</a>), however here
-I'd like to gather some of the less obvious pieces of information that I found while playing with this device.
-</p>
-
-<p>
-<a href="uArm_Metal_Detail_Info&amp;Specifications_en.pdf">uArm_Metal_Detail_Info&amp;Specifications_en.pdf</a>
-</p>
-
-<p>
-<a href="uArm-Metal-Developer-Guide.pdf">uArm-Metal-Developer-Guide.pdf</a>
-</p>
-
-<p>
-These are both manuals for the metal version of the original UArm sold via Kickstarter. The second one (the developer guide) comes from the ufactory.cc site directly, but I decided to mirror it just in case.
-</p>
-
-<p>
-The UArm Metal is different than the one I have but it's mechanically very similar and basically has an upgraded controller board which is more integrated and not just an Arduino + shield
-sandwitch. You can find information about the servo parameters which is useful if you need to find replacements. I had to because one of my servos got damaged and I couldn't find 
-the exact servo that they used. 
-</p>
-
-<div id="outline-container-org92daacc" class="outline-2">
-<h2 id="org92daacc"><span class="section-number-2">1</span> Servos</h2>
+<div id="outline-container-org6196fa7" class="outline-2">
+<h2 id="org6196fa7"><span class="section-number-2">1</span> The rationale</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-The servos used (marked UFactory US D150A) are identical to popular TowerPro MG945 servos (TowerPro may be an OEM for those) and can be successfuly replaced with them. See photo below:
+All builders of permanent DIY power wall batteries using refurbished 18650 cells need a way to mount the power packs into a rack or onto a wall where the battery will be
+deployed. For battery packs using the commonly found <a href="https://www.aliexpress.com/item/1005003181626763.html">4x5 or other format cell spacers/holders</a> people have been using any number of ad-hoc solutions amounting to putting cell
+"blocks" on some kind of shelf or support and letting gravity do its work (for example <a href="https://www.youtube.com/watch?v=MyVK59ozYDE">here</a> or <a href="https://www.youtube.com/watch?v=qh5Bff3Ae8E">here</a>). I have initially considered the <a href="https://www.youtube.com/watch?v=GTU-w8iya0c">HBPowerwall 18650 mount</a> to mount my cells
+but further research has pointed me towards a better solution - using TH-35 (aka DIN rails) and mount the cell packs on them. There are numerous advantages to using DIN rails:
+</p>
+
+<ul class="org-ul">
+<li>they are a standard industry component which can be easily purchased instead of ordering custom-cut sheet metal like you would for the HBPowerwall mount</li>
+<li>they are very versatile with mounting equipment other than the packs themselves with a lot of typical electrical equipment mountable on a DIN rail</li>
+<li>they are easily expandable for multiple sizes or amounts of 18650 cell blocks, the HBPowerwall mount is designed for a 4x20 cell block and needs extra tricks to fit bigger
+blocks (like shown on <a href="https://www.youtube.com/watch?v=EltBFVKStEg">this example</a> with 10x20 blocks)</li>
+</ul>
+
+<p>
+the main disadvantage of using DIN rails to mount cell blocks is that the alignment of rails needs to be precise if two rails need to support a single cell block. This will be
+the case for most deployments and might require some kind of base board instead of using the wall directly. Naturally, using a bent sheet metal holder which already has the
+proper dimensions takes care of the above for us.
+</p>
+
+<p>
+While looking for existing designs for mounting 18650 cell blocks on DIN rails a number of existing solutions have been documented.
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.youtube.com/watch?v=aI3y65HWzqs">https://www.youtube.com/watch?v=aI3y65HWzqs</a></li>
+<li><a href="https://www.youtube.com/watch?v=Znbdh_Lq_w8">https://www.youtube.com/watch?v=Znbdh_Lq_w8</a></li>
+<li><a href="https://www.youtube.com/watch?v=wuQiwXhlYKo">https://www.youtube.com/watch?v=wuQiwXhlYKo</a></li>
+<li><a href="https://www.youtube.com/watch?v=yzfTqGsklB8">https://www.youtube.com/watch?v=yzfTqGsklB8</a></li>
+<li><a href="https://www.youtube.com/watch?v=kJQh48c9h5Y">https://www.youtube.com/watch?v=kJQh48c9h5Y</a></li>
+</ul>
+
+<p>
+After studying these solutions I have found a number of drawbacks with all of them:
+</p>
+
+<ul class="org-ul">
+<li>they are designed to hold relatively small cell blocks not near enough to having for example 4x20 block capacity</li>
+<li>many of them use a lot of filament in order to clip the cell holders from two sides and allow the block to "clip into" the holders</li>
+<li>some of them use the triangle-shaped cutouts in the holders which don't allow for the <a href="https://batteryhookup.com/collections/accessories/products/nickel-fuse-2p-wide-continuous-roll-by-the-foot-18650-cell-level-fusing?variant=34549080457378">Batteryhookup nickel fuse roll</a> to be used on the blocks</li>
+</ul>
+
+<p>
+The above findings have prompted me to design my own system of DIN rail mounts for 18650 cell blocks with the following features in mind:
+</p>
+
+<ul class="org-ul">
+<li>flexibility - the mounts should allow for either small or large blocks that might need to be supported by more than one parallel DIN rail</li>
+<li>price - the amount of filament used should be as small as possible</li>
+<li>unobstructed both positive and negative sides of the cell pack in order to facilitate all ways of connecting the cells to busbars</li>
+</ul>
+</div>
+
+<div id="outline-container-orgef89007" class="outline-3">
+<h3 id="orgef89007"><span class="section-number-3">1.1</span> Mount design</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The mounting bracket design has been performed in <a href="https://www.freecadweb.org/">FreeCAD</a> and can be downloaded here. The basic design can be seen below:
 </p>
 
 
-<div id="org71c3821" class="figure">
-<p><a href="uarm-servos.jpg"><img src="thumb-uarm-servos.jpg" alt="thumb-uarm-servos.jpg" /></a>
+<div id="org9119655" class="figure">
+<p><img src="hook-clip-female-dovetail.png" alt="hook-clip-female-dovetail.png" width="800" />
 </p>
 </div>
 
 <p>
-The hub has an identical size and amount of teeth so even the original acrylic arm fits perfectly:
+This part has variants for both male and female dovetails as well as only hook, only clip or both hook+clip variants:
 </p>
 
-
-<div id="orge28897f" class="figure">
-<p><a href="uarm-servos.jpg"><img src="thumb-servo-replaced.jpg" alt="thumb-servo-replaced.jpg" /></a>
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgefcb8db" class="outline-2">
-<h2 id="orgefcb8db"><span class="section-number-2">2</span> Documents</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgea6a456" class="outline-3">
-<h3 id="orgea6a456"><span class="section-number-3">2.1</span> From the original Support site</h3>
-<div class="outline-text-3" id="text-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -302,141 +318,61 @@ The hub has an identical size and amount of teeth so even the original acrylic a
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Original URI</th>
-<th scope="col" class="org-left">Mirror URI</th>
-<th scope="col" class="org-left">Notes</th>
+<th scope="col" class="org-left">Dovetail</th>
+<th scope="col" class="org-left">Variant</th>
+<th scope="col" class="org-left">Image</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><a href="http://download.ufactory.cc/docs/en/uArm-Metal-Getting-Started-Guide.pdf">http://download.ufactory.cc/docs/en/uArm-Metal-Getting-Started-Guide.pdf</a></td>
-<td class="org-left"><a href="uArm-Metal-Getting-Started-Guide.pdf">uArm-Metal-Getting-Started-Guide.pdf</a></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="http://download.ufactory.cc/docs/en/uArm-Metal-Developer-Guide.pdf">http://download.ufactory.cc/docs/en/uArm-Metal-Developer-Guide.pdf</a></td>
-<td class="org-left"><a href="uArm-Metal-Developer-Guide.pdf">uArm-Metal-Developer-Guide.pdf</a></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="http://download.ufactory.cc/docs/en/uarm_gcode_communication_protocol_v1.0_en.pdf">http://download.ufactory.cc/docs/en/uarm_gcode_communication_protocol_v1.0_en.pdf</a></td>
-<td class="org-left"><a href="uarm_gcode_communication_protocol_v1.0_en.pdf">uarm_gcode_communication_protocol_v1.0_en.pdf</a></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="http://download.ufactory.cc/docs/en/uArm-Metal-Packing-List_standard-Kit.pdf">http://download.ufactory.cc/docs/en/uArm-Metal-Packing-List_standard-Kit.pdf</a></td>
-<td class="org-left"><a href=" uArm-Metal-Packing-List_standard-Kit.pdf"> uArm-Metal-Packing-List_standard-Kit.pdf</a></td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Male</td>
+<td class="org-left">Hook</td>
+<td class="org-left"><img src="thumb-hook-male-dovetail.png" alt="thumb-hook-male-dovetail.png" /></td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">Software (Linux)</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Male</td>
+<td class="org-left">Clip</td>
+<td class="org-left"><img src="thumb-clip-male-dovetail.png" alt="thumb-clip-male-dovetail.png" /></td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left"><a href="http://download.ufactory.cc/tools/linux/pro/uclient_v2.0.zip">http://download.ufactory.cc/tools/linux/pro/uclient_v2.0.zip</a></td>
-<td class="org-left"><a href="uclient_v2.0.zip">uclient_v2.0.zip</a></td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Male</td>
+<td class="org-left">Hook and Clip</td>
+<td class="org-left"><img src="thumb-hook-clip-male-dovetail.png" alt="thumb-hook-clip-male-dovetail.png" /></td>
 </tr>
-
+</tbody>
+<tbody>
 <tr>
-<td class="org-left"><a href="http://download.ufactory.cc/tools/linux/pro/uarm_assistant_v1.0.zip">http://download.ufactory.cc/tools/linux/pro/uarm_assistant_v1.0.zip</a></td>
-<td class="org-left"><a href="uarm_assistant_v1.0.zip">uarm_assistant_v1.0.zip</a></td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Female</td>
+<td class="org-left">Hook</td>
+<td class="org-left"><img src="thumb-hook-female-dovetail.png" alt="thumb-hook-female-dovetail.png" /></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Female</td>
+<td class="org-left">Clip</td>
+<td class="org-left"><img src="thumb-clip-female-dovetail.png" alt="thumb-clip-female-dovetail.png" /></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Female</td>
+<td class="org-left">Hook and Clip</td>
+<td class="org-left"><img src="thumb-hook-clip-female-dovetail.png" alt="thumb-hook-clip-female-dovetail.png" /></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-
-<div id="outline-container-orgbddfdf1" class="outline-3">
-<h3 id="orgbddfdf1"><span class="section-number-3">2.2</span> Other places</h3>
-<div class="outline-text-3" id="text-2-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Original URI</th>
-<th scope="col" class="org-left">Mirror URI</th>
-<th scope="col" class="org-left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left"><a href="https://cdn.thingiverse.com/assets/dc/ae/c2/94/d0/Latest_greatest_uArm_Assembly_Instructions_v1.pdf">https://cdn.thingiverse.com/assets/dc/ae/c2/94/d0/Latest_greatest_uArm_Assembly_Instructions_v1.pdf</a></td>
-<td class="org-left"><a href="Latest_greatest_uArm_Assembly_Instructions_v1.pdf">Latest_greatest_uArm_Assembly_Instructions_v1.pdf</a></td>
-<td class="org-left">Assembly instructions for the original Kickstarter UArm</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="https://cdn.sparkfun.com/datasheets/Robotics/uArm_Vacuum_System_User_Guide.pdf">https://cdn.sparkfun.com/datasheets/Robotics/uArm_Vacuum_System_User_Guide.pdf</a></td>
-<td class="org-left"><a href="uArm_Vacuum_System_User_Guide.pdf">uArm_Vacuum_System_User_Guide.pdf</a></td>
-<td class="org-left">Useful information about the proper use of the vacuum pump. Applies to all UArms AFAIK.</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="https://cdn.sparkfun.com/datasheets/Robotics/uArm_Learning_Mode_Instructions_v1.0.pdf">https://cdn.sparkfun.com/datasheets/Robotics/uArm_Learning_Mode_Instructions_v1.0.pdf</a></td>
-<td class="org-left"><a href="uArm_Learning_Mode_Instructions_v1.0.pdf">uArm_Learning_Mode_Instructions_v1.0.pdf</a></td>
-<td class="org-left">Information about an autonomous movement learning &amp; repeat mode. Also has information how to start the calibration mode without the uArm Assistant software.</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="http://www.ufactory.cc/downloads/source_files/UF_uArm_libraries_beta5.zip">http://www.ufactory.cc/downloads/source_files/UF_uArm_libraries_beta5.zip</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Non working link with uArm control software sources. Looking for this&#x2026;</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="https://dl.dropboxusercontent.com/u/37860507/UF_uArmSG.zip">https://dl.dropboxusercontent.com/u/37860507/UF_uArmSG.zip</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">A mirror or rebuild of the above code.</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="https://www.thingiverse.com/thing:320004">https://www.thingiverse.com/thing:320004</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">An attempt at reverse engineering the UArm mechanics.</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="https://github.com/46bit/uarm-quickstart">https://github.com/46bit/uarm-quickstart</a></td>
-<td class="org-left"><a href="https://github.com/mgrela/uarm-quickstart">https://github.com/mgrela/uarm-quickstart</a></td>
-<td class="org-left">This looks to be like the original firmware for the robot.</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="https://github.com/uArm-Developer/UArmForArduino">https://github.com/uArm-Developer/UArmForArduino</a></td>
-<td class="org-left"><a href="https://github.com/mgrela/UArmForArduino">https://github.com/mgrela/UArmForArduino</a></td>
-<td class="org-left">The most recent source code for the UArm Metal</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-Those files that I could find I archived for your convenience so that they won't suffer the same fate like the source code from ufactory.cc which is already MIA.
-</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-12-28 21:11</p>
+<p class="date">Created: 2021-12-28 22:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
