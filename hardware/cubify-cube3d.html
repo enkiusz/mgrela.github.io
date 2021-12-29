@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-28 21:11 -->
+<!-- 2021-12-29 17:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cubify Cube 3D printer</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -194,26 +181,50 @@
   /*]]>*/-->
 </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -223,18 +234,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9f0dea0">1. Main board</a>
+<li><a href="#org4778805">1. Main board</a>
 <ul>
-<li><a href="#org6afa647">1.1. Chips</a></li>
-<li><a href="#org2976063">1.2. Connectors</a></li>
-<li><a href="#org7e385d3">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
+<li><a href="#org5e2d2e3">1.1. Chips</a></li>
+<li><a href="#org67ce170">1.2. Connectors</a></li>
+<li><a href="#org68376cf">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
 </ul>
 </li>
-<li><a href="#orgda6dcd9">2. Cartridges</a></li>
-<li><a href="#org9b2100c">3. Software</a></li>
-<li><a href="#org9834be0">4. CONN12 output while printing</a></li>
-<li><a href="#org67bdcdc">5. Firmware update</a></li>
-<li><a href="#orgc4b6e75">6. Links</a></li>
+<li><a href="#orga63a4bc">2. Cartridges</a></li>
+<li><a href="#org337f2f2">3. Software</a></li>
+<li><a href="#org4ac1fe7">4. CONN12 output while printing</a></li>
+<li><a href="#org964a09d">5. Firmware update</a></li>
+<li><a href="#org9b69d1b">6. Links</a></li>
 </ul>
 </div>
 </div>
@@ -250,12 +261,12 @@ two cartridges of filament.
 Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </p>
 
-<div id="outline-container-org9f0dea0" class="outline-2">
-<h2 id="org9f0dea0"><span class="section-number-2">1</span> Main board</h2>
+<div id="outline-container-org4778805" class="outline-2">
+<h2 id="org4778805"><span class="section-number-2">1</span> Main board</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org6afa647" class="outline-3">
-<h3 id="org6afa647"><span class="section-number-3">1.1</span> Chips</h3>
+<div id="outline-container-org5e2d2e3" class="outline-3">
+<h3 id="org5e2d2e3"><span class="section-number-3">1.1</span> Chips</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -316,8 +327,8 @@ Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </div>
 
 
-<div id="outline-container-org2976063" class="outline-3">
-<h3 id="org2976063"><span class="section-number-3">1.2</span> Connectors</h3>
+<div id="outline-container-org67ce170" class="outline-3">
+<h3 id="org67ce170"><span class="section-number-3">1.2</span> Connectors</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 There are the following connectors on the board:
@@ -333,8 +344,8 @@ There are the following connectors on the board:
 </div>
 </div>
 
-<div id="outline-container-org7e385d3" class="outline-3">
-<h3 id="org7e385d3"><span class="section-number-3">1.3</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
+<div id="outline-container-org68376cf" class="outline-3">
+<h3 id="org68376cf"><span class="section-number-3">1.3</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 I soldered two new pin headers onto the board to access the PICkit2 connector as well as the CONN12 which I expected would be the serial port. 
@@ -494,8 +505,8 @@ EXIT
 </div>
 </div>
 
-<div id="outline-container-orgda6dcd9" class="outline-2">
-<h2 id="orgda6dcd9"><span class="section-number-2">2</span> Cartridges</h2>
+<div id="outline-container-orga63a4bc" class="outline-2">
+<h2 id="orga63a4bc"><span class="section-number-2">2</span> Cartridges</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The chip inside the cartridge with filament is a DS28E01.
@@ -503,8 +514,8 @@ The chip inside the cartridge with filament is a DS28E01.
 </div>
 </div>
 
-<div id="outline-container-org9b2100c" class="outline-2">
-<h2 id="org9b2100c"><span class="section-number-2">3</span> Software</h2>
+<div id="outline-container-org337f2f2" class="outline-2">
+<h2 id="org337f2f2"><span class="section-number-2">3</span> Software</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The software needed is the older Cubify not the new Cube Print. When trying to print the new files the printer displays a message "Cannot print this file".
@@ -513,8 +524,8 @@ The software needed is the older Cubify not the new Cube Print. When trying to p
 </div>
 
 
-<div id="outline-container-org9834be0" class="outline-2">
-<h2 id="org9834be0"><span class="section-number-2">4</span> CONN12 output while printing</h2>
+<div id="outline-container-org4ac1fe7" class="outline-2">
+<h2 id="org4ac1fe7"><span class="section-number-2">4</span> CONN12 output while printing</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Besides communication from the microcontroller to the WLAN chip the CONN12 serial port serves also as a debug console. I have wired an external cable reaching out of the case
@@ -1305,8 +1316,8 @@ After print an information about firmware update is shown. This might mean that 
 </div>
 </div>
 
-<div id="outline-container-org67bdcdc" class="outline-2">
-<h2 id="org67bdcdc"><span class="section-number-2">5</span> Firmware update</h2>
+<div id="outline-container-org964a09d" class="outline-2">
+<h2 id="org964a09d"><span class="section-number-2">5</span> Firmware update</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 When the update firmware option is selected the USB port becomes active and reports as a Microchip USB HID Bootloader:
@@ -1420,8 +1431,8 @@ Reading memory&#x2026;
 </div>
 </div>
 
-<div id="outline-container-orgc4b6e75" class="outline-2">
-<h2 id="orgc4b6e75"><span class="section-number-2">6</span> Links</h2>
+<div id="outline-container-org9b69d1b" class="outline-2">
+<h2 id="org9b69d1b"><span class="section-number-2">6</span> Links</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Forum thread about teardown of cubify cube 3:
@@ -1436,8 +1447,8 @@ Firmware files are supposed to be found at: <a href="http://cubify.s3.amazonaws.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-12-28 21:11</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-12-29 17:39</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

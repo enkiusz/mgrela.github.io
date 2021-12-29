@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-28 21:11 -->
+<!-- 2021-12-29 17:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HIKVISION DS-7316HI-S</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -194,26 +181,50 @@
   /*]]>*/-->
 </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -223,10 +234,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org462cf5c">1. Symptoms</a>
+<li><a href="#orgabfac81">1. Symptoms</a>
 <ul>
-<li><a href="#org805b7bb">1.1. RS-232 interface fix</a></li>
-<li><a href="#org0c0c195">1.2. Firmware restore</a></li>
+<li><a href="#orgefb97ee">1.1. RS-232 interface fix</a></li>
+<li><a href="#org421446f">1.2. Firmware restore</a></li>
 </ul>
 </li>
 </ul>
@@ -234,8 +245,8 @@
 </div>
 <base href="hikvision-ds-7316hi-s/"/>
 
-<div id="outline-container-org462cf5c" class="outline-2">
-<h2 id="org462cf5c"><span class="section-number-2">1</span> Symptoms</h2>
+<div id="outline-container-orgabfac81" class="outline-2">
+<h2 id="orgabfac81"><span class="section-number-2">1</span> Symptoms</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The <a href="https://www.hikvision.com/UploadFile/image/US-Technical%20Specification%20of%20DS-7304HI-S_7308HI-S_7316HI-S.pdf">HIKVISION DS-7316HI-S</a> is an NVR supporting analog CCTV cameras which I got for free. It was declared to be broken and indeed was failing to boot. The console output was providing the following hints:
@@ -261,8 +272,8 @@ HKVS #
 </div>
 </div>
 
-<div id="outline-container-org805b7bb" class="outline-3">
-<h3 id="org805b7bb"><span class="section-number-3">1.1</span> RS-232 interface fix</h3>
+<div id="outline-container-orgefb97ee" class="outline-3">
+<h3 id="orgefb97ee"><span class="section-number-3">1.1</span> RS-232 interface fix</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The bootloader is U-Boot but the console did not work. It would print the above messages but did not accept any input. After investigating this I found out that the RS-232 interface 
@@ -370,8 +381,8 @@ We can see what is wrong here, the 'bootcmd' contains instructions to load the u
 </div>
 </div>
 
-<div id="outline-container-org0c0c195" class="outline-3">
-<h3 id="org0c0c195"><span class="section-number-3">1.2</span> Firmware restore</h3>
+<div id="outline-container-org421446f" class="outline-3">
+<h3 id="org421446f"><span class="section-number-3">1.2</span> Firmware restore</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 I found a firmware image and a user's manual on a <a href="https://down.dipol.com.pl/Cctv/M76080/">Polish CCTV shop download site</a> (old-skool plain file server!). In order to perform the update you need to setup a TFTP server responding to the
@@ -1145,8 +1156,8 @@ The repair seems to be successful as the boot splashscreen appears on the connec
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-12-28 21:11</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-12-29 17:39</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

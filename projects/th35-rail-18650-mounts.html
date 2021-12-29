@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-28 22:07 -->
+<!-- 2021-12-29 17:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TH-35 (DIN rail) mounts for 18650 cell packs</title>
+<title>TH-35 (DIN rail) mounting brackets for 18650 cell packs</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
 <style type="text/css">
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -194,38 +181,62 @@
   /*]]>*/-->
 </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">TH-35 (DIN rail) mounts for 18650 cell packs</h1>
+<h1 class="title">TH-35 (DIN rail) mounting brackets for 18650 cell packs</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6196fa7">1. The rationale</a>
+<li><a href="#orgb5f597d">1. The rationale</a>
 <ul>
-<li><a href="#orgef89007">1.1. Mount design</a></li>
+<li><a href="#org1255414">1.1. Mounting bracket design</a></li>
 </ul>
 </li>
 </ul>
@@ -233,12 +244,12 @@
 </div>
 <base href="th35-rail-18650-mounts/"/>
 
-<div id="outline-container-org6196fa7" class="outline-2">
-<h2 id="org6196fa7"><span class="section-number-2">1</span> The rationale</h2>
+<div id="outline-container-orgb5f597d" class="outline-2">
+<h2 id="orgb5f597d"><span class="section-number-2">1</span> The rationale</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 All builders of permanent DIY power wall batteries using refurbished 18650 cells need a way to mount the power packs into a rack or onto a wall where the battery will be
-deployed. For battery packs using the commonly found <a href="https://www.aliexpress.com/item/1005003181626763.html">4x5 or other format cell spacers/holders</a> people have been using any number of ad-hoc solutions amounting to putting cell
+deployed. For battery packs using the commonly found <a href="https://www.aliexpress.com/item/1005003181626763.html">20.2 mm pitch cell spacers/holders</a> people have been using any number of ad-hoc solutions amounting to putting cell
 "blocks" on some kind of shelf or support and letting gravity do its work (for example <a href="https://www.youtube.com/watch?v=MyVK59ozYDE">here</a> or <a href="https://www.youtube.com/watch?v=qh5Bff3Ae8E">here</a>). I have initially considered the <a href="https://www.youtube.com/watch?v=GTU-w8iya0c">HBPowerwall 18650 mount</a> to mount my cells
 but further research has pointed me towards a better solution - using TH-35 (aka DIN rails) and mount the cell packs on them. There are numerous advantages to using DIN rails:
 </p>
@@ -289,18 +300,23 @@ The above findings have prompted me to design my own system of DIN rail mounts f
 </ul>
 </div>
 
-<div id="outline-container-orgef89007" class="outline-3">
-<h3 id="orgef89007"><span class="section-number-3">1.1</span> Mount design</h3>
+<div id="outline-container-org1255414" class="outline-3">
+<h3 id="org1255414"><span class="section-number-3">1.1</span> Mounting bracket design</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-The mounting bracket design has been performed in <a href="https://www.freecadweb.org/">FreeCAD</a> and can be downloaded here. The basic design can be seen below:
+The mounting bracket design has been performed in <a href="https://www.freecadweb.org/">FreeCAD</a> and is based on <a href="https://www.thingiverse.com/thing:500504">https://www.thingiverse.com/thing:500504</a>. It can be downloaded from <a href="https://www.thingiverse.com/thing:5178220">Thingiverse</a>. The basic design can be 
+seen below:
 </p>
 
 
-<div id="org9119655" class="figure">
+<div class="figure">
 <p><img src="hook-clip-female-dovetail.png" alt="hook-clip-female-dovetail.png" width="800" />
 </p>
 </div>
+
+<p>
+The brackets are designed to mate with the dovetails with popular 20.2 mm pitch 18650 cell spacers.
+</p>
 
 <p>
 This part has variants for both male and female dovetails as well as only hook, only clip or both hook+clip variants:
@@ -320,7 +336,7 @@ This part has variants for both male and female dovetails as well as only hook, 
 <tr>
 <th scope="col" class="org-left">Dovetail</th>
 <th scope="col" class="org-left">Variant</th>
-<th scope="col" class="org-left">Image</th>
+<th scope="col" class="org-left">Bracket image</th>
 </tr>
 </thead>
 <tbody>
@@ -366,14 +382,52 @@ This part has variants for both male and female dovetails as well as only hook, 
 </tr>
 </tbody>
 </table>
+
+<p>
+How do the different mounting brackets work together? In order to understand this let's look at an example 5x16 cell block. This will be mounted on two parallel horizontal DIN rails
+using two sets of brackets. The top set of brackets will be the Hook variant and the bottom set of brackets will use the Clip variant. This arrangement will allow for the entire block
+to be secured as if it was a normal DIN-rail electrical equipment. Don't worry about the corroded junk cells, these are just to simulate the shape and mass:
+</p>
+
+
+<div class="figure">
+<p><a href="5x16-block.jpg"><img src="thumb-5x16-block.jpg" alt="thumb-5x16-block.jpg" /></a>
+</p>
+</div>
+
+<p>
+When you zoom in into the particular brackets you can see how the male and female dovetails mate with eachother:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="clip-male-mated.jpg"><img src="thumb-clip-male-mated.jpg" alt="thumb-clip-male-mated.jpg" /></a></td>
+<td class="org-left"><a href="hook-female-mated.jpg"><img src="thumb-hook-female-mated.jpg" alt="thumb-hook-female-mated.jpg" /></a></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+A video below demonstrates the brackets being attached to the two parallel DIN rails:
+</p>
+
+<iframe src="https://diode.zone/videos/embed/6Rq2LP5VaQ2e2YkXKV3K84" frameborder="0" style="min-height: 600px; min-width: 800px" sandbox="allow-same-origin allow-scripts" allowfullscreen="allowfullscreen"></iframe>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-12-28 22:07</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-12-29 17:39</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
