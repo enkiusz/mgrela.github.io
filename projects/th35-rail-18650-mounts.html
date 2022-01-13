@@ -3,7 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<<<<<<< HEAD
 <!-- 2022-01-13 21:43 -->
+=======
+<!-- 2021-12-30 11:28 -->
+>>>>>>> d37e7aed8d4b7ce0a6ab60d027e013fc017fc0fd
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TH-35 (DIN rail) mounting brackets for 18650 cell packs</title>
@@ -40,7 +44,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -161,6 +165,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -181,50 +198,26 @@
   /*]]>*/-->
 </style>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -234,9 +227,15 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
+<<<<<<< HEAD
 <li><a href="#orgaff186e">1. The rationale</a>
 <ul>
 <li><a href="#org1955ae9">1.1. Mounting bracket design</a></li>
+=======
+<li><a href="#org6196fa7">1. The rationale</a>
+<ul>
+<li><a href="#orgfea90fa">1.1. Mounting bracket design</a></li>
+>>>>>>> d37e7aed8d4b7ce0a6ab60d027e013fc017fc0fd
 </ul>
 </li>
 </ul>
@@ -244,8 +243,13 @@ for the JavaScript code in this tag.
 </div>
 <base href="th35-rail-18650-mounts/"/>
 
+<<<<<<< HEAD
 <div id="outline-container-orgaff186e" class="outline-2">
 <h2 id="orgaff186e"><span class="section-number-2">1</span> The rationale</h2>
+=======
+<div id="outline-container-org6196fa7" class="outline-2">
+<h2 id="org6196fa7"><span class="section-number-2">1</span> The rationale</h2>
+>>>>>>> d37e7aed8d4b7ce0a6ab60d027e013fc017fc0fd
 <div class="outline-text-2" id="text-1">
 <p>
 All builders of permanent DIY power wall batteries using refurbished 18650 cells need a way to mount the power packs into a rack or onto a wall where the battery will be
@@ -298,10 +302,19 @@ The above findings have prompted me to design my own system of DIN rail mounts f
 <li>price - the amount of filament used should be as small as possible</li>
 <li>unobstructed both positive and negative sides of the cell pack in order to facilitate all ways of connecting the cells to busbars</li>
 </ul>
+
+<p>
+There was an interesting discussion on the <a href="https://secondlifestorage.com/index.php?threads/mounting-18650-cell-packs-on-din-rails.11450/">Secondlifestorage.com forums</a> regarding the different advantages and disadvantages of the system described here.
+</p>
 </div>
 
+<<<<<<< HEAD
 <div id="outline-container-org1955ae9" class="outline-3">
 <h3 id="org1955ae9"><span class="section-number-3">1.1</span> Mounting bracket design</h3>
+=======
+<div id="outline-container-orgfea90fa" class="outline-3">
+<h3 id="orgfea90fa"><span class="section-number-3">1.1</span> Mounting bracket design</h3>
+>>>>>>> d37e7aed8d4b7ce0a6ab60d027e013fc017fc0fd
 <div class="outline-text-3" id="text-1-1">
 <p>
 The mounting bracket design has been performed in <a href="https://www.freecadweb.org/">FreeCAD</a> and is based on <a href="https://www.thingiverse.com/thing:500504">https://www.thingiverse.com/thing:500504</a>. It can be downloaded from <a href="https://www.thingiverse.com/thing:5178220">Thingiverse</a>. The basic design can be 
@@ -309,7 +322,7 @@ seen below:
 </p>
 
 
-<div class="figure">
+<div id="org893e82f" class="figure">
 <p><img src="hook-clip-female-dovetail.png" alt="hook-clip-female-dovetail.png" width="800" />
 </p>
 </div>
@@ -390,7 +403,7 @@ to be secured as if it was a normal DIN-rail electrical equipment. Don't worry a
 </p>
 
 
-<div class="figure">
+<div id="org2723f32" class="figure">
 <p><a href="5x16-block.jpg"><img src="thumb-5x16-block.jpg" alt="thumb-5x16-block.jpg" /></a>
 </p>
 </div>
@@ -426,8 +439,13 @@ A video below demonstrates the brackets being attached to the two parallel DIN r
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
+<<<<<<< HEAD
 <p class="date">Created: 2022-01-13 21:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+=======
+<p class="date">Created: 2021-12-30 11:28</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+>>>>>>> d37e7aed8d4b7ce0a6ab60d027e013fc017fc0fd
 </div>
 </body>
 </html>
