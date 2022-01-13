@@ -1,0 +1,28 @@
+Comment,Designator,Footprint,LCSC Part #
+100nF Unpolarized capacitor,"C1,C4,C5,C6",C_0402_1005Metric,C1525
+20pF Unpolarized capacitor,"C2,C3",C_0402_1005Metric,C1554
+4.7uF Unpolarized capacitor,C7,C_0805_2012Metric,C1779
+1uF Unpolarized capacitor,"C8,C10,C11,C12",C_0402_1005Metric,C52923
+10nF Unpolarized capacitor,C9,C_0402_1005Metric,C15195
+LED_3V3 Light emitting diode,D1,LED_0603_1608Metric,C72043
+LED_ACT Light emitting diode,D2,LED_0603_1608Metric,C2286
+SM4007PL Diode,"D3,D4",D_SOD-123,C64898
+"SWD Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)",J1,PinHeader_1x05_P2.54mm_Vertical,
+"MCU Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)",J2,PinHeader_1x05_P2.54mm_Horizontal,
+"VOLTAGES Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)",J3,PinHeader_1x05_P2.54mm_Horizontal,
+"LCD Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)",J4,PinHeader_1x05_P2.54mm_Horizontal,
+USB USB Micro Type B connector,J5,JUSHUO_ AFA07-S05FCC-00_1x05_1MP_P1mm_Horizontal,C262339
+"EXPAND Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)",J6,PinHeader_1x04_P2.54mm_Horizontal,
+"Jumper_2_Bridged Jumper, 2-pole, closed/bridged","JP1,JP2",SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm,
+510 Resistor,"R1,R2",R_0402_1005Metric,C25123
+22 Resistor,"R10,R11",R_0402_1005Metric,C25092
+4.7k Resistor,R14,R_0402_1005Metric,C25900
+10K Resistor,"R15,R17,R18",R_0402_1005Metric,C25744
+150 Resistor,R16,R_0402_1005Metric,C25082
+470R Resistor,"R19,R20,R21,R22,R23",R_0402_1005Metric,C25117
+1M Resistor,R3,R_0402_1005Metric,C26083
+47k Resistor,"R4,R5,R6,R7,R8,R9,R12,R13",R_0402_1005Metric,C25792
+TestPoint test point,"TP1,TP2",TestPoint_THTPad_D1.5mm_Drill0.7mm,
+"STM32F103C8Tx ARM Cortex-M3 MCU, 64KB flash, 20KB RAM, 72MHz, 2-3.6V, 37 GPIO, LQFP-48",U1,LQFP-48_7x7mm_P0.5mm,C8734
+"XC6206 Positive 60-250mA Low Dropout Regulator, Fixed Output, SOT-23",U2,SOT-23,C5446
+8 MHz Two pin crystal,Y1,Crystal_SMD_5032-2Pin_5.0x3.2mm,C115962

@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-14 00:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>In-situ 18650 heater cell detection</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">In-situ 18650 heater cell detection</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4b13d61">1. Introduction</a></li>
+<li><a href="#orgd95254f">2. tl;dr</a></li>
+<li><a href="#org1457ece">3. Experimental setup</a></li>
+<li><a href="#orgda45484">4. Software</a></li>
+<li><a href="#org912494c">5. Experimental runs</a></li>
+<li><a href="#orge2930bf">6. Data analysis</a>
+<ul>
+<li><a href="#org87d395d">6.1. Detecting a heater cell</a>
+<ul>
+<li><a href="#orgae2b8e1">6.1.1. Experimental run 1</a></li>
+<li><a href="#orgd48a874">6.1.2. Experimental run 2</a></li>
+<li><a href="#org85dfd51">6.1.3. Experimental run 3</a></li>
+</ul>
+</li>
+<li><a href="#orgb52f6bb">6.2. Locating the heater cell</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<base href="in-situ-18650-heater-detection/"/>
+
+<div id="outline-container-org4b13d61" class="outline-2">
+<h2 id="org4b13d61"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This is the documentation of some experiments I performed in order to ascertain whether it's possible to detect cells generating excessive heat (aka "heaters") in a diy
+18650 battery pack built using the popular <a href="https://www.aliexpress.com/item/4000017860238.html">5x4 20.2 mm pitch 18650 cell holders</a>. All of the findings should be applicable to bigger cell arrays as well.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd95254f" class="outline-2">
+<h2 id="orgd95254f"><span class="section-number-2">2</span> tl;dr</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+By using an array of LM75 temperature sensors attached to one side of a 18650 cell pack abnormal heating of a single cell to a temperature of at least 50 deg Celcius
+results in a measureable (2 deg C) temperature anomaly which may allow for heater detection before a major pack failure has chance to occur.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1457ece" class="outline-2">
+<h2 id="org1457ece"><span class="section-number-2">3</span> Experimental setup</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The experimental setup consists of a fake "pack" built out of 20 no-name 18650 cells connected (spot-welded) to a short strip of the <a href="https://batteryhookup.com/products/nickel-fuse-2p-wide-continuous-roll-by-the-foot-18650-cell-level-fusing">5P continuous nickel fuse roll</a> from
+batteryhookup. The cells were welded only on the positive side with a small heater attached to the negative side of a single cell in order to simulate a "heater" cell.
+The cells used were junk cells having 0V and no charge in them for safety. The following image illustrates the experimental setup:
+</p>
+
+
+<div class="figure">
+<p><img src="experimental-setup.png" alt="experimental-setup.png" />
+</p>
+</div>
+
+<p>
+The heater assembly consists of a 10 Ohm / 5W resistor attached to the negative side of a single cell with thermally-conductive adhesive. A MOSFET is used to regulate the current
+flowing through the resistor with PWM. An K-type thermocouple is attached to the cell next to the heater resistor in order to for a closed feedback loop to stabilise the heater
+temperature. The temperature from the thermocouple is being read using a MAX6675 breakout board. The top PCB contains five LM75 I2C temperature sensors soldered in a very simple chain:
+</p>
+
+
+<div class="figure">
+<p><img src="ZIF-20C-TEMP-heater-locations.png" alt="ZIF-20C-TEMP-heater-locations.png" />
+</p>
+</div>
+
+<p>
+The temperature sensors are labeled U1-U5 and their relative locations can be seen on the PCB silkscreen. The location of the fake heater cell is indicated with the "HEATER LOC 1"
+text. During the experimental runs the temperatures read from U1-U5 sensors are logged into a CSV file for analysis. The assembled experimental setup can be seen below:
+</p>
+
+
+<div class="figure">
+<p><a href="experimental-setup-photo.jpg"><img src="thumb-experimental-setup-photo.jpg" alt="thumb-experimental-setup-photo.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="experimental-setup-heater.jpg"><img src="thumb-experimental-setup-heater.jpg" alt="thumb-experimental-setup-heater.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgda45484" class="outline-2">
+<h2 id="orgda45484"><span class="section-number-2">4</span> Software</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The experiment is being controlled by an Arduino sketch which performs the following functions:
+</p>
+
+<ul class="org-ul">
+<li>regulates the heater temperature using a very primitive PID regulator driving a PWM output regulating current flow through the heater resistor</li>
+<li>periodically reads out all temperature readings and prints them on the serial port</li>
+</ul>
+
+<p>
+The code for the Arduino project can be <a href="cell_monitoring_experiment.ino">downloaded for reference</a>. The most critical part (the main loop) is shown below:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">loop</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">temp</span> = thermocouple.readCelsius<span style="color: #bc6ec5;">()</span>;
+
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">deltaT</span> = target_temp - temp;
+
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">pwm_drive</span> = min<span style="color: #bc6ec5;">(</span> max<span style="color: #2d9574;">(</span>deltaT * P, <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>, <span style="color: #a45bad;">1023</span><span style="color: #bc6ec5;">)</span>;
+
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">read temperatures for the ZIF-20C-TEMP board</span>
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">temp_U1</span> = U1.readTemperatureC<span style="color: #bc6ec5;">()</span>;
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">temp_U2</span> = U2.readTemperatureC<span style="color: #bc6ec5;">()</span>;
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">temp_U3</span> = U3.readTemperatureC<span style="color: #bc6ec5;">()</span>;
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">temp_U4</span> = U4.readTemperatureC<span style="color: #bc6ec5;">()</span>;
+  <span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">temp_U5</span> = U5.readTemperatureC<span style="color: #bc6ec5;">()</span>;
+
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"target_temp[degC] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>target_temp<span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"\ttemp[degC] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>temp<span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"\tpwm[%] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>map<span style="color: #2d9574;">(</span>pwm_drive, <span style="color: #a45bad;">0</span>, <span style="color: #a45bad;">1023</span>, <span style="color: #a45bad;">0</span>, <span style="color: #a45bad;">100</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"\tU1[degC] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>temp_U1<span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"\tU2[degC] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>temp_U2<span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"\tU3[degC] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>temp_U3<span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"\tU4[degC] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>temp_U4<span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"\tU5[degC] = "</span><span style="color: #bc6ec5;">)</span>;
+  Serial.print<span style="color: #bc6ec5;">(</span>temp_U5<span style="color: #bc6ec5;">)</span>;
+  Serial.println<span style="color: #bc6ec5;">()</span>;
+
+  analogWrite<span style="color: #bc6ec5;">(</span>heaterON, pwm_drive<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">For the MAX6675 to update, you must delay AT LEAST 250ms between reads!</span>
+  delay<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">300</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+
+<p>
+The data printed by the Arduino code was monitored, plotted and logged using <a href="https://github.com/mich-w/QtSerialMonitor">QtSerialMonitor</a> which I unfortunately had to build from source code myself. An example data point gathered
+in the CSV file is presented below:
+</p>
+
+<pre class="example">
+"time","target_temp[degC]","temp[degC]","pwm[%]","U1[degC]","U2[degC]","U3[degC]","U4[degC]","U5[degC]",
+2022-01-09T15:01:18.890Z,70.000000,24.750000,100.000000,22.500000,23.000000,23.000000,23.000000,22.500000,
+</pre>
+
+<p>
+The columns convey the following information:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Column name</th>
+<th scope="col" class="org-left">Value description</th>
+<th scope="col" class="org-left">Unit</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">time</td>
+<td class="org-left">timestamp</td>
+<td class="org-left">ISO-8601 UTC</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">target<sub>temp</sub>[degC]</td>
+<td class="org-left">the heater setpoint</td>
+<td class="org-left">Celcius</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">temp[degC]</td>
+<td class="org-left">the heater thermocouple temperature</td>
+<td class="org-left">Celcius</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">pwm[%]</td>
+<td class="org-left">current PWM output</td>
+<td class="org-left">%</td>
+<td class="org-left">Rescaled from 0-1023 to 0-100%</td>
+</tr>
+
+<tr>
+<td class="org-left">U1[degC]</td>
+<td class="org-left">current temperature for the U1 sensor</td>
+<td class="org-left">Celcius</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">U2[degC]</td>
+<td class="org-left">current temperature for the U2 sensor</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">U3[degC]</td>
+<td class="org-left">current temperature for the U3 sensor</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">U4[degC]</td>
+<td class="org-left">current temperature for the U4 sensor</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">U5[degC]</td>
+<td class="org-left">current temperature for the U5 sensor</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org912494c" class="outline-2">
+<h2 id="org912494c"><span class="section-number-2">5</span> Experimental runs</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+There were 3 experimental runs performed with different temperature setpoints for the heater but otherwise identical circumstances. Ambient temperature was not controlled but 
+can be seen in the initial readouts from U1-U5 before the heater power supply was switched on. Each experimental run consists of four phases:
+</p>
+
+<ul class="org-ul">
+<li>baselining - the temperatures are logged but the heater power supply is not yet switched on, used for logging baseline information from sensors</li>
+<li>warmup - the heater power supply is switched on and the heater temperature starts to rise and stabilises around the target setpoint</li>
+<li>observation - the data from the temperature sensors is logged for a few hours</li>
+<li>cooldown - the heater power supply is switched off and the cell begins to cool down, experiment is again left for a couple of hours for the temperatures to again stabilise</li>
+</ul>
+
+<p>
+The phases are not explicitly marked in the data but can be noticed when observing the relationship between pwm<code>[%]</code> and temp[degC]. When the heater power supply is switched off
+(in the baselining and cooldown phases) the temperature does not rise even though the PWM output is 100%. The summary of experimental runs with raw data linked are provided below:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Experimental run</th>
+<th scope="col" class="org-right">Heater setpoint</th>
+<th scope="col" class="org-left">Raw data</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Run 1</td>
+<td class="org-right">70</td>
+<td class="org-left"><a href="09.01.2022_15.47.18.318Z_Log.csv">09.01.2022_15.47.18.318Z_Log.csv</a></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Run 2</td>
+<td class="org-right">60</td>
+<td class="org-left"><a href="10.01.2022_14.57.09.844Z_Log.csv">10.01.2022_14.57.09.844Z_Log.csv</a></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Run 3</td>
+<td class="org-right">50</td>
+<td class="org-left"><a href="11.01.2022_10.23.06.399Z_Log.csv">11.01.2022_10.23.06.399Z_Log.csv</a></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge2930bf" class="outline-2">
+<h2 id="orge2930bf"><span class="section-number-2">6</span> Data analysis</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+The goal of the experiment is to ascertain whether an array of simple temperature sensors attached to a 18650 cell pack can successfully detect and/or locate a cell experiencing 
+abnormal heat generation during charging or discharging.
+</p>
+</div>
+
+<div id="outline-container-org87d395d" class="outline-3">
+<h3 id="org87d395d"><span class="section-number-3">6.1</span> Detecting a heater cell</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+In order to move towards this goal first some analysis was done on the raw data to check if there is any difference between the temperatures detected by particular sensors in order 
+to detect an anomaly. A Python script was developed for this purpose and ran against the gathered CSV data dumps:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python" id="org7b40018"><span style="color: #4f97d7; font-weight: bold;">import</span> pandas <span style="color: #4f97d7; font-weight: bold;">as</span> pd
+<span style="color: #4f97d7; font-weight: bold;">import</span> numpy <span style="color: #4f97d7; font-weight: bold;">as</span> np
+
+<span style="color: #7590db;">columns</span> = <span style="color: #4f97d7;">[</span> <span style="color: #2d9574;">"time"</span>,<span style="color: #2d9574;">"target_temp[degC]"</span>,<span style="color: #2d9574;">"temp[degC]"</span>,<span style="color: #2d9574;">"pwm[%]"</span>,<span style="color: #2d9574;">"U1[degC]"</span>,<span style="color: #2d9574;">"U2[degC]"</span>,<span style="color: #2d9574;">"U3[degC]"</span>,<span style="color: #2d9574;">"U4[degC]"</span>,<span style="color: #2d9574;">"U5[degC]"</span> <span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">data</span> = pd.read_csv<span style="color: #4f97d7;">(</span>csv_filename, usecols=columns<span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">data</span><span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'min_temp'</span><span style="color: #4f97d7;">]</span> = data<span style="color: #4f97d7;">[</span><span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">'U1[degC]'</span>, <span style="color: #2d9574;">'U2[degC]'</span>, <span style="color: #2d9574;">'U3[degC]'</span>, <span style="color: #2d9574;">'U4[degC]'</span>, <span style="color: #2d9574;">'U5[degC]'</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">]</span>.<span style="color: #4f97d7;">min</span><span style="color: #4f97d7;">(</span>axis=<span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">data</span><span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'max_temp'</span><span style="color: #4f97d7;">]</span> = data<span style="color: #4f97d7;">[</span><span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">'U1[degC]'</span>, <span style="color: #2d9574;">'U2[degC]'</span>, <span style="color: #2d9574;">'U3[degC]'</span>, <span style="color: #2d9574;">'U4[degC]'</span>, <span style="color: #2d9574;">'U5[degC]'</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">]</span>.<span style="color: #4f97d7;">max</span><span style="color: #4f97d7;">(</span>axis=<span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">data</span><span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'temp_anomaly'</span><span style="color: #4f97d7;">]</span> = <span style="color: #4f97d7;">abs</span><span style="color: #4f97d7;">(</span>data<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">'max_temp'</span><span style="color: #bc6ec5;">]</span> - data<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">'min_temp'</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>f<span style="color: #2d9574;">'Data from {csv_filename}:'</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>data<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Temperature anomaly:'</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>data<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">'temp_anomaly'</span><span style="color: #bc6ec5;">]</span>.describe<span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgae2b8e1" class="outline-4">
+<h4 id="orgae2b8e1"><span class="section-number-4">6.1.1</span> Experimental run 1</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<pre class="example">
+Data from in-situ-18650-heater-detection/09.01.2022_15.47.18.318Z_Log.csv:
+                           time  target_temp[degC]  ...  max_temp  temp_anomaly
+0      2022-01-09T15:01:18.890Z               70.0  ...      23.0           0.5
+1      2022-01-09T15:01:19.198Z               70.0  ...      23.0           0.5
+2      2022-01-09T15:01:19.507Z               70.0  ...      23.0           0.5
+3      2022-01-09T15:01:19.815Z               70.0  ...      23.0           0.5
+4      2022-01-09T15:01:20.123Z               70.0  ...      23.0           0.5
+...                         ...                ...  ...       ...           ...
+69266  2022-01-09T21:01:52.570Z               70.0  ...      25.5           1.0
+69267  2022-01-09T21:01:52.875Z               70.0  ...      25.5           1.0
+69268  2022-01-09T21:01:53.193Z               70.0  ...      25.5           1.0
+69269  2022-01-09T21:01:53.491Z               70.0  ...      25.5           1.0
+69270  2022-01-09T21:01:53.797Z               70.0  ...      25.5           1.0
+
+[69271 rows x 12 columns]
+Temperature anomaly:
+count    69271.000000
+mean         2.648713
+std          0.707099
+min          0.000000
+25%          2.500000
+50%          3.000000
+75%          3.000000
+max          3.500000
+Name: temp_anomaly, dtype: float64
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd48a874" class="outline-4">
+<h4 id="orgd48a874"><span class="section-number-4">6.1.2</span> Experimental run 2</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<pre class="example">
+Data from in-situ-18650-heater-detection/10.01.2022_14.57.09.844Z_Log.csv:
+                           time  target_temp[degC]  ...  max_temp  temp_anomaly
+0      2022-01-10T14:01:10.676Z               60.0  ...      23.5           0.0
+1      2022-01-10T14:01:10.982Z               60.0  ...      23.5           0.0
+2      2022-01-10T14:01:11.289Z               60.0  ...      23.5           0.0
+3      2022-01-10T14:01:11.595Z               60.0  ...      23.5           0.0
+4      2022-01-10T14:01:11.903Z               60.0  ...      23.5           0.0
+...                         ...                ...  ...       ...           ...
+42364  2022-01-10T18:01:02.073Z               60.0  ...      26.5           0.5
+42365  2022-01-10T18:01:02.379Z               60.0  ...      26.5           0.5
+42366  2022-01-10T18:01:02.691Z               60.0  ...      26.5           0.5
+42367  2022-01-10T18:01:02.996Z               60.0  ...      26.5           0.5
+42368  2022-01-10T18:01:03.301Z               60.0  ...      26.5           0.5
+
+[42369 rows x 12 columns]
+Temperature anomaly:
+count    42369.000000
+mean         1.864240
+std          0.648193
+min          0.000000
+25%          1.500000
+50%          2.000000
+75%          2.500000
+max          2.500000
+Name: temp_anomaly, dtype: float64
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org85dfd51" class="outline-4">
+<h4 id="org85dfd51"><span class="section-number-4">6.1.3</span> Experimental run 3</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<pre class="example">
+Data from in-situ-18650-heater-detection/11.01.2022_10.23.06.399Z_Log.csv:
+                           time  target_temp[degC]  ...  max_temp  temp_anomaly
+0      2022-01-11T10:01:06.960Z               50.0  ...      25.0           0.0
+1      2022-01-11T10:01:07.269Z               50.0  ...      25.0           0.0
+2      2022-01-11T10:01:07.586Z               50.0  ...      25.5           0.5
+3      2022-01-11T10:01:07.883Z               50.0  ...      25.0           0.0
+4      2022-01-11T10:01:08.188Z               50.0  ...      25.0           0.0
+...                         ...                ...  ...       ...           ...
+58714  2022-01-11T15:01:39.845Z               50.0  ...      26.0           0.5
+58715  2022-01-11T15:01:40.154Z               50.0  ...      26.0           0.5
+58716  2022-01-11T15:01:40.462Z               50.0  ...      26.0           0.5
+58717  2022-01-11T15:01:40.767Z               50.0  ...      26.0           0.5
+58718  2022-01-11T15:01:41.075Z               50.0  ...      26.0           0.5
+
+[58719 rows x 12 columns]
+Temperature anomaly:
+count    58719.000000
+mean         1.545079
+std          0.538658
+min          0.000000
+25%          1.500000
+50%          1.500000
+75%          2.000000
+max          2.000000
+Name: temp_anomaly, dtype: float64
+</pre>
+
+<p>
+As expected the observed maximum anomaly is larger when the heater setpoint is hotter:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Run</th>
+<th scope="col" class="org-right">Heater setpoint [degC]</th>
+<th scope="col" class="org-right">Maximum temperature anomaly</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Run 1</td>
+<td class="org-right">70</td>
+<td class="org-right">3.5</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Run 2</td>
+<td class="org-right">60</td>
+<td class="org-right">2.5</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Run 3</td>
+<td class="org-right">50</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb52f6bb" class="outline-3">
+<h3 id="orgb52f6bb"><span class="section-number-3">6.2</span> Locating the heater cell</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+The knowledge of the sensor board geometry and layout against the cells in the pack may allow for estimating the approximate location of a heater cell.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2022-01-14 00:00</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

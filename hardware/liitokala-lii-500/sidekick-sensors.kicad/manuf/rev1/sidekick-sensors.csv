@@ -1,0 +1,10 @@
+Comment,Designator,Footprint,LCSC Part #
+100n Unpolarized capacitor,"C1,C2,C3,C4,C5,C6,C7,C8",C_0402_1005Metric,C1525
+"BUS Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)",J1,PinHeader_1x04_P2.54mm_Vertical,
+"B4_B3 Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)",J2,PinHeader_1x03_P2.54mm_Vertical,
+"B2_B1 Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)",J3,PinHeader_1x03_P2.54mm_Vertical,
+B1 test point,TP1,TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded,
+B2 test point,TP2,TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded,
+B3 test point,TP3,TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded,
+B4 test point,TP4,TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded,
+"TMP75 Digital Temperature Sensor & Thermal Watchdog with LP on I2C and bus fault timeout, SOIC-8 and VSSOP-8","U1,U2,U3,U4",SO-8_3.9x4.9mm_P1.27mm,C30389

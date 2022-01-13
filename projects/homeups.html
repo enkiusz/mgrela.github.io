@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-29 17:39 -->
+<!-- 2022-01-13 21:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Home UPS</title>
@@ -234,25 +234,25 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd1c2289">1. Overview</a></li>
-<li><a href="#org738af13">2. HV DC side</a>
+<li><a href="#org3b4413b">1. Overview</a></li>
+<li><a href="#org383caa9">2. HV DC side</a>
 <ul>
-<li><a href="#orgfafa9f1">2.1. Battery boxes</a></li>
-<li><a href="#org6a178a2">2.2. Safety switch</a></li>
-<li><a href="#org8700e35">2.3. Backplane connector</a></li>
-<li><a href="#org5a0e59e">2.4. Controller board</a></li>
-<li><a href="#orgdec8e24">2.5. Wiring box</a></li>
+<li><a href="#org3da3695">2.1. Battery boxes</a></li>
+<li><a href="#org0ae9c39">2.2. Safety switch</a></li>
+<li><a href="#org6bdffda">2.3. Backplane connector</a></li>
+<li><a href="#org59a25c1">2.4. Controller board</a></li>
+<li><a href="#org2c67180">2.5. Wiring box</a></li>
 </ul>
 </li>
-<li><a href="#org3931c9a">3. Inverter</a></li>
-<li><a href="#org627cddc">4. AC side</a></li>
+<li><a href="#org269457f">3. Inverter</a></li>
+<li><a href="#org3c7db04">4. AC side</a></li>
 </ul>
 </div>
 </div>
 <base href="homeups/"/>
 
-<div id="outline-container-orgd1c2289" class="outline-2">
-<h2 id="orgd1c2289"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-org3b4413b" class="outline-2">
+<h2 id="org3b4413b"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A UPS which can power my entire home is built using a Schrack <a href="http://image.schrack.com/datenblaetter/h_usdd_en.pdf">GENIO Online USDD400</a> UPS connected to four customized stock battery boxes. The battery boxes are retired <a href="https://www.apc.com/shop/us/en/products/APC-Symmetra-LX-Battery-Module/P-SYBT5">APC SYBT5</a> which
@@ -261,12 +261,12 @@ originally are 120 Vdc nominal and contain 10 x 12V 9Ah sealed lead-acid batteri
 </div>
 </div>
 
-<div id="outline-container-org738af13" class="outline-2">
-<h2 id="org738af13"><span class="section-number-2">2</span> HV DC side</h2>
+<div id="outline-container-org383caa9" class="outline-2">
+<h2 id="org383caa9"><span class="section-number-2">2</span> HV DC side</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgfafa9f1" class="outline-3">
-<h3 id="orgfafa9f1"><span class="section-number-3">2.1</span> Battery boxes</h3>
+<div id="outline-container-org3da3695" class="outline-3">
+<h3 id="org3da3695"><span class="section-number-3">2.1</span> Battery boxes</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 A single SYBT5 battery box can be seen below:
@@ -305,8 +305,8 @@ well engineered internal layout and excellent quality of the internal cables and
 </div>
 </div>
 
-<div id="outline-container-org6a178a2" class="outline-3">
-<h3 id="org6a178a2"><span class="section-number-3">2.2</span> Safety switch</h3>
+<div id="outline-container-org0ae9c39" class="outline-3">
+<h3 id="org0ae9c39"><span class="section-number-3">2.2</span> Safety switch</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A single feature worth mentioning for the safety switch is that it contains two pairs of contacts - high current where the batteries are connected and control contacts. The control contacts are connected 
@@ -321,8 +321,8 @@ to the controller board to sense the state of the switch. I have left them conne
 </div>
 </div>
 
-<div id="outline-container-org8700e35" class="outline-3">
-<h3 id="org8700e35"><span class="section-number-3">2.3</span> Backplane connector</h3>
+<div id="outline-container-org6bdffda" class="outline-3">
+<h3 id="org6bdffda"><span class="section-number-3">2.3</span> Backplane connector</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 After some digging around I highly suspect that the backplane connector is an Anderson Power Products <a href="https://www.andersonpower.com/content/dam/app/ecommerce/product-pdfs/DS-PP1545.pdf">Powerpole PP15-45 Finger Proof</a> hermaphroditic connector. The jagged edge on the connector means
@@ -338,8 +338,8 @@ and just connected my own cables.
 </div>
 </div>
 
-<div id="outline-container-org5a0e59e" class="outline-3">
-<h3 id="org5a0e59e"><span class="section-number-3">2.4</span> Controller board</h3>
+<div id="outline-container-org59a25c1" class="outline-3">
+<h3 id="org59a25c1"><span class="section-number-3">2.4</span> Controller board</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 The controller board contains a beefy fuse (no wonder, the battery unit is rated for UPSes up to 14 kVA), a current sense shunt and a PIC microcontroller.
@@ -357,8 +357,8 @@ I had no use for the controller board so I just left it as it is in the case as 
 </div>
 </div>
 
-<div id="outline-container-orgdec8e24" class="outline-3">
-<h3 id="orgdec8e24"><span class="section-number-3">2.5</span> Wiring box</h3>
+<div id="outline-container-org2c67180" class="outline-3">
+<h3 id="org2c67180"><span class="section-number-3">2.5</span> Wiring box</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 I decided to wire up all 4 battery boxes in parallel and connect them to the original UPS battery input. The image below shows the junction box I used with just the screw terminals so that you can 
@@ -378,8 +378,8 @@ The 4 boards on the left are 4 current sense boards using the <a href="https://w
 </div>
 </div>
 
-<div id="outline-container-org3931c9a" class="outline-2">
-<h2 id="org3931c9a"><span class="section-number-2">3</span> Inverter</h2>
+<div id="outline-container-org269457f" class="outline-2">
+<h2 id="org269457f"><span class="section-number-2">3</span> Inverter</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The inverter is a 4 kVA single-phase inverter made by Schrack. Unfortunately, I was only able to find a manual for it in <a href="https://image.schrackcdn.com/bedienungsanleitungen/a_usdd400xxx_pl.pdf">Polish</a>. The manual contains
@@ -390,8 +390,8 @@ which allows for on-line battery replacement, this is described <a href="https:/
 </div>
 </div>
 
-<div id="outline-container-org627cddc" class="outline-2">
-<h2 id="org627cddc"><span class="section-number-2">4</span> AC side</h2>
+<div id="outline-container-org3c7db04" class="outline-2">
+<h2 id="org3c7db04"><span class="section-number-2">4</span> AC side</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 As my entire house is wired with 3-phase AC grid power I needed a way to supply all 3 phases using a single-phase inverter. Fortunately, as I do not power any equipment which actually requires proper
@@ -416,7 +416,7 @@ I have also added a <a href="http://lechacal.com/modwrt/pzem-016_pzem014_user_ma
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2021-12-29 17:39</p>
+<p class="date">Created: 2022-01-13 21:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
