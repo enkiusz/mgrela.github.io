@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-23 13:18 -->
+<!-- 2022-09-23 16:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Enecsys Gateway CG-A-AB-US-1</title>
@@ -583,7 +583,11 @@ of the Zigbee traffic encryption happens in the Zigbee module and the Microchip 
 <h2 id="org1735e1c"><span class="section-number-2">3</span> Zigbee Radio</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. 
+The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. This
+module is connected with an UART on the main MCU. The uart settings are 19200 8n1.
+</p>
+
+<p>
 When the gateway boots and initializes its radio interfaces it starts to send broadcast frames every 15 seconds:
 </p>
 
@@ -866,7 +870,7 @@ WS=9QX3BQCaxjQAAE4HIQEAAAARFDADiAMAAgAAAAAAAEUdAY4AAwAFE1
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-09-23 13:18</p>
+<p class="date">Created: 2022-09-23 16:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

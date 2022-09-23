@@ -8,8 +8,10 @@ import structlog
 import requests
 from xml.dom.minidom import parseString
 import base64
-from struct import unpack
+from struct import unpack, calcsize
 from hexdump import hexdump
+import fileinput
+from datetime import timedelta
 
 # Default logging configuration
 structlog.configure(
@@ -29,6 +31,20 @@ def format_eui64(b):
     b.reverse()
     return ':'.join([ f'{v:02x}' for v in b])
 
+
+def consume(b, formatstring):
+    datasize = calcsize(formatstring)
+
+    try:
+        unpacked = unpack(formatstring, b[0:datasize])
+        b = b[datasize:]
+    except Exception as e:
+        log.error('cannot unpack', b=b, formatstring=formatstring, datasize=datasize)
+        raise e
+
+    return (b, *unpacked)
+
+
 def parse_pkt(pkt):
     log.debug('parsing packet', pkt=pkt)
 
@@ -46,28 +62,74 @@ def parse_pkt(pkt):
     checksum = payload[-2:]
     payload = payload[:-2]
 
-    # The payload is encoded with base64
-    payload = base64.urlsafe_b64decode(payload)
+    try:
+        # The payload is encoded with base64
+        payload = base64.urlsafe_b64decode(payload)
+    except Exception as e:
+        log.error('cannot decode base64', pkt=pkt)
+        return None
 
-    log.info('extracted fields', flavor=flavor, payload=payload, kvps=kvps, checksum=checksum)
+    hexdump(payload)
+
+    # Parse fields common to both WZ ans WS flavors
+    (payload, eui64_bytes) = consume(payload, '!8s')
+    eui64 = format_eui64(eui64_bytes)
+
+    log.info('extracted fields', flavor=flavor, eui64=eui64, payload=payload, kvps=kvps, checksum=checksum)
+    hexdump(payload)
 
     if flavor == 'WZ':
-        print(pkt)
-        hexdump(payload)
-        (eui64_bytes, counter1, static1) = unpack('!8sI12x5s', payload)
-        gw_eui64 = format_eui64(eui64_bytes)
+
+        (payload, uptime, type, static1, flag1, length) = consume(payload, '!IH3sBB')
+
+        # The uptime unit is 500ms
+        uptime = timedelta(seconds=uptime * 0.5)
+
+        log.debug('type parsed', uptime=uptime, type=hex(type), static1=static1, flag1=flag1, length=length)
+
+        (payload, contents) = consume(payload, f'{length}s')
+        print("CONTENTS")
+        hexdump(contents)
+        
+        if type == 0x2100: # Bootup message
+
+            # Hypothesis for contents:
+            #
+            # hardware version?
+            # software version?
+            # country?
+            # manufacturing date?
+            # configuration?
+
+            log.info('bootup packet', gw_eui64=eui64, contents=contents)
+
+        elif type == 0x2101:  # Unknown yet
+            pass
+        else:
+            log.warn('unknown type', pkt=pkt, type=hex(type), contents=contents)
+
+        if len(payload) > 0:
+            print("UNPARSED PAYLOAD LEFT")
+            hexdump(payload)
+
+#        (counter1, static2, counter2, static3, static1) = unpack('!IH3sB6s5s', payload)
 
         # static1 is always b'\x00\x9a\xc64H
-        if static1 != b'\x00\x9a\xc64H':
-            log.warn('static1 value is not typical', pkt=pkt, static1=static1)
+        # if static1 != b'\x00\x9a\xc64H':
+        #     log.warn('static1 value is not typical', pkt=pkt, static1=static1)
 
-        log.info('payload parsed', gw_eui64=gw_eui64, counter1=counter1, static1=static1)
+        # # static2 is always b'!\x01\x00\x00\x00'
+        # if static2 != b'!\x01\x00\x00\x00':
+        #     log.warn('static2 value is not typical', pkt=pkt, static2=static2)
+
+        # if static3 != b'\nS\xa9\xc15w':
+        #     log.warn('static3 value is not typical', pkt=pkt, static3=static3)
+
+        # log.info('payload parsed', gw_eui64=gw_eui64, counter1=counter1, counter2=counter2, static1=static1, static2=static2, static3=static3)
 
     elif flavor == 'WS':
-        print(pkt)
-        hexdump(payload)
-        (eui64_bytes, counter1) = unpack('!8sI27x', payload)
-        inverter_eui64 = format_eui64(eui64_bytes)
+        (counter1) = unpack('!I27x', payload)
+        inverter_eui64 = eui64
 
         log.info('payload parsed', inverter_eui64=inverter_eui64, counter1=counter1)
 
@@ -94,21 +156,37 @@ def zigbee_packets(config):
 
     raise RuntimeError("We shouldn't have gotten here")
 
+
+def file_packets(config):
+    for pkt in fileinput.input(files=config.files, encoding='ascii'):
+        pkt = pkt.strip()
+        if len(pkt) == 0:  # skip empty lines
+            continue
+
+        if pkt[0] == '#':  # skip comments
+            continue
+
+        yield pkt
+
+
 def main(config):
 
-    for pkt in zigbee_packets(config):
+    if config.url:
+        packet_source = zigbee_packets(config)
+    elif config.files:
+        packet_source = file_packets(config)
+
+    for pkt in packet_source:
        parse_pkt(pkt)
 
-    #parse_pkt('WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689')
-    #parse_pkt('WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00')
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Poll the Enecsys Gateway for Zigbee packets')
     parser.add_argument('--loglevel', choices=LOG_LEVEL_NAMES, default='INFO', help='Change log level')
+    parser.add_argument('--url', help='Poll messages from gateway URL')
+    parser.add_argument('--file', dest='files', nargs='+', help='Read messages from file, use - for standard input')
 
-    parser.add_argument('--url', help='The gateway URL')
-    
     (args) = parser.parse_args()
     config = args
 
