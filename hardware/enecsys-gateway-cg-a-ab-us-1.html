@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-22 00:04 -->
+<!-- 2022-09-23 13:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Enecsys Gateway CG-A-AB-US-1</title>
@@ -234,17 +234,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1910105">1. Intro</a>
+<li><a href="#org1910105">1. Intro</a></li>
+<li><a href="#org35a88f0">2. Network interface</a>
 <ul>
-<li><a href="#org35a88f0">1.1. Network interface</a>
+<li><a href="#orgea0ba77">2.1. Port scans</a></li>
+<li><a href="#orgd41c2e6">2.2. The Web Interface</a>
 <ul>
-<li><a href="#orgea0ba77">1.1.1. Port scans</a></li>
-<li><a href="#orgb41cea2">1.1.2. The Web interface</a></li>
+<li><a href="#orga4b851a">2.2.1. Main user interface</a></li>
+<li><a href="#org24e85a3">2.2.2. Debug Interface</a></li>
+<li><a href="#orgef952a1">2.2.3. The MPFS upload</a></li>
 </ul>
 </li>
-<li><a href="#orgda91130">1.2. The Zigbee radio</a></li>
 </ul>
 </li>
+<li><a href="#org1735e1c">3. Zigbee Radio</a></li>
+<li><a href="#org2fb121e">4. Zigbee Messages Format</a></li>
 </ul>
 </div>
 </div>
@@ -258,19 +262,20 @@ The Enecsys Gateway is a Zigbee gateway allowing communications between the Enec
 and their DNS domains have been taken over by a UK enecsys owner who created his own monitoring system on <a href="https://enecsys-monitoring.com/">https://enecsys-monitoring.com/</a>
 </p>
 </div>
+</div>
 
-<div id="outline-container-org35a88f0" class="outline-3">
-<h3 id="org35a88f0"><span class="section-number-3">1.1</span> Network interface</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org35a88f0" class="outline-2">
+<h2 id="org35a88f0"><span class="section-number-2">2</span> Network interface</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 <a href="boot.pcapng">boot.pcapng</a>
 </p>
 </div>
 
 
-<div id="outline-container-orgea0ba77" class="outline-4">
-<h4 id="orgea0ba77"><span class="section-number-4">1.1.1</span> Port scans</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<div id="outline-container-orgea0ba77" class="outline-3">
+<h3 id="orgea0ba77"><span class="section-number-3">2.1</span> Port scans</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
 TCP port scan results for the gateway's IPv4 address:
 </p>
@@ -347,24 +352,239 @@ Nmap done: 1 IP address (1 host up) scanned in 1314.44 seconds
 </div>
 </div>
 
-<div id="outline-container-orgb41cea2" class="outline-4">
-<h4 id="orgb41cea2"><span class="section-number-4">1.1.2</span> The Web interface</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-orgd41c2e6" class="outline-3">
+<h3 id="orgd41c2e6"><span class="section-number-3">2.2</span> The Web Interface</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 The default credentials for the web interface are admin/password. You can tell that the gateway is (c) 2009 as there is no way to change the admin password ;).
+</p>
+
+<p>
+The following endpoints have been detected on the device:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Endpoint</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">/index.htm</td>
+<td class="org-left">''</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/debug.htm</td>
+<td class="org-left">Debug interface HTML layout</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/ajax.xml</td>
+<td class="org-left">Debug interface polling endpoint</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/mpfsupload</td>
+<td class="org-left">MPFS Image Upload</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orga4b851a" class="outline-4">
+<h4 id="orga4b851a"><span class="section-number-4">2.2.1</span> Main user interface</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+The main user interface has basic settings like IP address and it can be used to set the remote monitoring server hostname and port. Apart from that NTP and proxy can be configured. 
+Here is a screenshot of the main UI:
+</p>
+
+
+<div class="figure">
+<p><a href="main-ui.png"><img src="thumb-main-ui.png" alt="thumb-main-ui.png" /></a>
 </p>
 </div>
 </div>
 </div>
 
-
-
-<div id="outline-container-orgda91130" class="outline-3">
-<h3 id="orgda91130"><span class="section-number-3">1.2</span> The Zigbee radio</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org24e85a3" class="outline-4">
+<h4 id="org24e85a3"><span class="section-number-4">2.2.2</span> Debug Interface</h4>
+<div class="outline-text-4" id="text-2-2-2">
 <p>
-The inverter contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. 
-When the gateway boots and initializes its radio interfaces it starts to send broadcast "beacon" frames every 15 seconds:
+The debug interface allows us to see what messages the Zigbee Module UART sends to the main MCU. These appear to be raw decrypted contents of Zigbee frames from the inverters as well as
+some traffic generated by the Zigbee module firmware itself even when there are no inverters connected. Some of the layout of these messages has been reverse engineered in the 
+section near the end of the document. There is also a status display about the Zigbee network and monitoring server connection. The interface itself looks like this:
+</p>
+
+
+<div class="figure">
+<p><a href="debug-ui.png"><img src="thumb-debug-ui.png" alt="thumb-debug-ui.png" /></a>
+</p>
+</div>
+
+<p>
+The debug UI polls the /ajax.xml endpoint in the background in order to receive the data about the latest messages received from the Zigbee module. The endpoint returns the 
+following XML:
+</p>
+
+<p>
+#+BEGIN<sub>ajax</sub><sub>xml</sub>
+&lt;response&gt;
+&lt;zigbeeData&gt;&lt;/zigbeeData&gt;
+&lt;serverData&gt;&lt;/serverData&gt;
+&lt;connectionStatus&gt;Offline&lt;/connectionStatus&gt;
+&lt;connectionUptime&gt;-NA-&lt;/connectionUptime&gt;
+&lt;lastConnectionUptime&gt;000:00:00&lt;/lastConnectionUptime&gt;
+&lt;connectionUptimeSinceReset&gt;000:00:00&lt;/connectionUptimeSinceReset&gt;
+&lt;totalConnects&gt;0&lt;/totalConnects&gt;
+&lt;connectionDowntime&gt;000:23:21&lt;/connectionDowntime&gt;
+&lt;lastConnectionDowntime&gt;-NA-&lt;/lastConnectionDowntime&gt;
+&lt;connectionDowntimeSinceReset&gt;000:23:21&lt;/connectionDowntimeSinceReset&gt;
+&lt;timeSinceReset&gt;000:23:21&lt;/timeSinceReset&gt;
+&lt;devicesInNetwork&gt;0&lt;/devicesInNetwork&gt;
+&lt;device0&gt;&lt;/device0&gt;
+&lt;device1&gt;&lt;/device1&gt;
+&lt;device2&gt;&lt;/device2&gt;
+&lt;device3&gt;&lt;/device3&gt;
+&lt;device4&gt;&lt;/device4&gt;
+&lt;device5&gt;&lt;/device5&gt;
+&lt;device6&gt;&lt;/device6&gt;
+&lt;device7&gt;&lt;/device7&gt;
+&lt;device8&gt;&lt;/device8&gt;
+&lt;device9&gt;&lt;/device9&gt;
+&lt;device10&gt;&lt;/device10&gt;
+&lt;device11&gt;&lt;/device11&gt;
+&lt;device12&gt;&lt;/device12&gt;
+&lt;device13&gt;&lt;/device13&gt;
+&lt;device14&gt;&lt;/device14&gt;
+&lt;device15&gt;&lt;/device15&gt;
+&lt;device16&gt;&lt;/device16&gt;
+&lt;device17&gt;&lt;/device17&gt;
+&lt;device18&gt;&lt;/device18&gt;
+&lt;device19&gt;&lt;/device19&gt;
+&lt;device20&gt;&lt;/device20&gt;
+&lt;device21&gt;&lt;/device21&gt;
+&lt;device22&gt;&lt;/device22&gt;
+&lt;device23&gt;&lt;/device23&gt;
+&lt;device24&gt;&lt;/device24&gt;
+&lt;device25&gt;&lt;/device25&gt;
+&lt;device26&gt;&lt;/device26&gt;
+&lt;device27&gt;&lt;/device27&gt;
+&lt;device28&gt;&lt;/device28&gt;
+&lt;device29&gt;&lt;/device29&gt;
+&lt;device30&gt;&lt;/device30&gt;
+&lt;device31&gt;&lt;/device31&gt;
+&lt;device32&gt;&lt;/device32&gt;
+&lt;device33&gt;&lt;/device33&gt;
+&lt;device34&gt;&lt;/device34&gt;
+&lt;device35&gt;&lt;/device35&gt;
+&lt;device36&gt;&lt;/device36&gt;
+&lt;device37&gt;&lt;/device37&gt;
+&lt;device38&gt;&lt;/device38&gt;
+&lt;device39&gt;&lt;/device39&gt;
+&lt;device40&gt;&lt;/device40&gt;
+&lt;device41&gt;&lt;/device41&gt;
+&lt;device42&gt;&lt;/device42&gt;
+&lt;device43&gt;&lt;/device43&gt;
+&lt;device44&gt;&lt;/device44&gt;
+&lt;device45&gt;&lt;/device45&gt;
+&lt;device46&gt;&lt;/device46&gt;
+&lt;device47&gt;&lt;/device47&gt;
+&lt;device48&gt;&lt;/device48&gt;
+&lt;device49&gt;&lt;/device49&gt;
+&lt;device50&gt;&lt;/device50&gt;
+&lt;device51&gt;&lt;/device51&gt;
+&lt;device52&gt;&lt;/device52&gt;
+&lt;device53&gt;&lt;/device53&gt;
+&lt;device54&gt;&lt;/device54&gt;
+&lt;device55&gt;&lt;/device55&gt;
+&lt;device56&gt;&lt;/device56&gt;
+&lt;device57&gt;&lt;/device57&gt;
+&lt;device58&gt;&lt;/device58&gt;
+&lt;device59&gt;&lt;/device59&gt;
+&lt;device60&gt;&lt;/device60&gt;
+&lt;device61&gt;&lt;/device61&gt;
+&lt;device62&gt;&lt;/device62&gt;
+&lt;device63&gt;&lt;/device63&gt;
+&lt;device64&gt;&lt;/device64&gt;
+&lt;device65&gt;&lt;/device65&gt;
+&lt;device66&gt;&lt;/device66&gt;
+&lt;device67&gt;&lt;/device67&gt;
+&lt;device68&gt;&lt;/device68&gt;
+&lt;device69&gt;&lt;/device69&gt;
+&lt;device70&gt;&lt;/device70&gt;
+&lt;device71&gt;&lt;/device71&gt;
+&lt;device72&gt;&lt;/device72&gt;
+&lt;device73&gt;&lt;/device73&gt;
+&lt;device74&gt;&lt;/device74&gt;
+&lt;device75&gt;&lt;/device75&gt;
+&lt;device76&gt;&lt;/device76&gt;
+&lt;device77&gt;&lt;/device77&gt;
+&lt;device78&gt;&lt;/device78&gt;
+&lt;device79&gt;&lt;/device79&gt;
+&lt;device80&gt;&lt;/device80&gt;
+&lt;device81&gt;&lt;/device81&gt;
+&lt;device82&gt;&lt;/device82&gt;
+&lt;device83&gt;&lt;/device83&gt;
+&lt;device84&gt;&lt;/device84&gt;
+&lt;device85&gt;&lt;/device85&gt;
+&lt;device86&gt;&lt;/device86&gt;
+&lt;device87&gt;&lt;/device87&gt;
+&lt;device88&gt;&lt;/device88&gt;
+&lt;device89&gt;&lt;/device89&gt;
+&lt;device90&gt;&lt;/device90&gt;
+&lt;device91&gt;&lt;/device91&gt;
+&lt;device92&gt;&lt;/device92&gt;
+&lt;device93&gt;&lt;/device93&gt;
+&lt;device94&gt;&lt;/device94&gt;
+&lt;device95&gt;&lt;/device95&gt;
+&lt;device96&gt;&lt;/device96&gt;
+&lt;device97&gt;&lt;/device97&gt;
+&lt;device98&gt;&lt;/device98&gt;
+&lt;device99&gt;&lt;/device99&gt;
+&lt;/response&gt;
+#+END<sub>packet</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef952a1" class="outline-4">
+<h4 id="orgef952a1"><span class="section-number-4">2.2.3</span> The MPFS upload</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+The MPFS is an internal HTTP upload server enabled by default in the Microchip TCP/IP stack. This feature can be used to upload files into the internal flash and possibly even modify
+firmware. There has been at least one device where this is possible: <a href="https://vulners.com/talos/TALOS-2018-0511">https://vulners.com/talos/TALOS-2018-0511</a>. In the case of our device this won't be much use however as all
+of the Zigbee traffic encryption happens in the Zigbee module and the Microchip MCU is just a simple bridge which forwards the messages to the remote monitoring server.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1735e1c" class="outline-2">
+<h2 id="org1735e1c"><span class="section-number-2">3</span> Zigbee Radio</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. 
+When the gateway boots and initializes its radio interfaces it starts to send broadcast frames every 15 seconds:
 </p>
 
 <pre>
@@ -446,11 +666,12 @@ ZigBee Network Layer Command, Dst: Broadcast, Src: 0x0000
 
 <p>
 Some more beacons can be found in <a href="gateway-beacon.txt">gateway-beacon.txt</a>. Unfortunately the beacons are encrypted with an unknown Zigbee Network key. This key is likely preconfigured as it would make sense 
-for such a closed-loop system. Adding the typical Zigbee key used by the Home Automation Profile (0x5A 0x69 0x67 0x42 0x65 0x65 0x41 0x6C 0x6C 0x69 0x61 0x6E 0x63 0x65 0x30 0x39).
+for such a closed-loop system. Trying to decrypt the messages using the typical Zigbee key used by the Home Automation Profile 
+(0x5A 0x69 0x67 0x42 0x65 0x65 0x41 0x6C 0x6C 0x69 0x61 0x6E 0x63 0x65 0x30 0x39) does not work.
 </p>
 
 <p>
-As for the inverter, when it boots it first sends out a standard Beacon Request Zigbee packet every 77 (sic!) seconds, see traffic <a href="inveter-beacon.txt">inveter-beacon.txt</a>:
+As for the inverter, when it boots it first sends out a standard Beacon Request Zigbee packet every 77 (sic!) seconds, see traffic <a href="inverter-beacon.txt">inverter-beacon.txt</a>:
 </p>
 
 <pre>
@@ -494,12 +715,17 @@ IEEE 802.15.4 Command, Dst: Broadcast
 <p>
 After receiving an answer to the Beacon Request from the gateway the standard association process starts. This has been captured and is available in <a href="zigbee-inverter-connect.pcapng">zigbee-inverter-connect.pcapng</a> 
 and <a href="inverter-associate.txt">inverter-associate.txt</a> as a text dump. After the exchange of some data back and forth the gateway indicates that the inverter is connected by incrementing a counter on the 
-LCD. If the gateway doesn't receive any communications from the inverter for around 200 seconds it considers it disconnected and decreases the counter again.
+LCD.
 </p>
+</div>
+</div>
 
-
+<div id="outline-container-org2fb121e" class="outline-2">
+<h2 id="org2fb121e"><span class="section-number-2">4</span> Zigbee Messages Format</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-Packets captured so far:
+A number of messages have been captured so far when the device and inverter were in various operational modes. Based on the knowledge gained the development of a parser for the
+messages has been started: <a href="enecsys-watch-zigbee.py">enecsys-watch-zigbee.py</a>
 </p>
 
 
@@ -634,15 +860,13 @@ WS=9QX3BQCaxjQAAE4HIQEAAAARFDADiAMAAgAAAAAAAEUdAY4AAwAFE1
 00000000: F5 05 F7 05 00 9A C6 34  00 00 4E 07 21 01 00 00  .......4..N.!...
 00000010: 00 11 14 30 03 88 03 00  02 00 00 00 00 00 00 45  ...0...........E
 00000020: 1D 01 8E 00 03 00 05                              .......
-
 </pre>
-</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-09-22 00:04</p>
+<p class="date">Created: 2022-09-23 13:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
