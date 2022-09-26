@@ -1,0 +1,4 @@
+Vdc = 36V limit=5A
+
+AC OFF
+

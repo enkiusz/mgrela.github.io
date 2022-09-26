@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-23 16:48 -->
+<!-- 2022-09-26 18:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Enecsys Gateway CG-A-AB-US-1</title>
@@ -235,20 +235,21 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org1910105">1. Intro</a></li>
-<li><a href="#org35a88f0">2. Network interface</a>
+<li><a href="#org1735e1c">2. Zigbee Radio</a></li>
+<li><a href="#org35a88f0">3. Network interface</a>
 <ul>
-<li><a href="#orgea0ba77">2.1. Port scans</a></li>
-<li><a href="#orgd41c2e6">2.2. The Web Interface</a>
+<li><a href="#orgc552534">3.1. Device bootup</a></li>
+<li><a href="#orgea0ba77">3.2. Port scans</a></li>
+<li><a href="#orgd41c2e6">3.3. The Web Interface</a>
 <ul>
-<li><a href="#orga4b851a">2.2.1. Main user interface</a></li>
-<li><a href="#org24e85a3">2.2.2. Debug Interface</a></li>
-<li><a href="#orgef952a1">2.2.3. The MPFS upload</a></li>
+<li><a href="#orga4b851a">3.3.1. Main user interface</a></li>
+<li><a href="#org24e85a3">3.3.2. Debug Interface</a></li>
+<li><a href="#orgef952a1">3.3.3. The MPFS upload</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1735e1c">3. Zigbee Radio</a></li>
-<li><a href="#org2fb121e">4. Zigbee Messages Format</a></li>
+<li><a href="#org0ea3c4d">4. Debug Messages Format</a></li>
 </ul>
 </div>
 </div>
@@ -264,324 +265,9 @@ and their DNS domains have been taken over by a UK enecsys owner who created his
 </div>
 </div>
 
-<div id="outline-container-org35a88f0" class="outline-2">
-<h2 id="org35a88f0"><span class="section-number-2">2</span> Network interface</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-<a href="boot.pcapng">boot.pcapng</a>
-</p>
-</div>
-
-
-<div id="outline-container-orgea0ba77" class="outline-3">
-<h3 id="orgea0ba77"><span class="section-number-3">2.1</span> Port scans</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-TCP port scan results for the gateway's IPv4 address:
-</p>
-
-<pre>
-Starting Nmap 7.80 ( https://nmap.org ) at 2022-08-15 22:08 CEST
-Initiating ARP Ping Scan at 22:08
-Scanning 10.1.0.10 [1 port]
-Completed ARP Ping Scan at 22:08, 0.06s elapsed (1 total hosts)
-Initiating SYN Stealth Scan at 22:08
-Scannnnning 10.1.0.10 [65535 ports]
-Discovered open port 80/tcp on 10.1.0.10
-SYN Stealth Scan Timing: About 20.07% done; ETC: 22:11 (0:02:03 remaining)
-SYN Stealth Scan Timing: About 41.88% done; ETC: 22:11 (0:01:25 remaining)
-SYN Stealth Scan Timing: About 58.10% done; ETC: 22:11 (0:01:06 remaining)
-SYN Stealth Scan Timing: About 79.32% done; ETC: 22:11 (0:00:32 remaining)
-Completed SYN Stealth Scan at 22:11, 167.83s elapsed (65535 total ports)
-Nmap scan report for 10.1.0.10
-Host is up, received arp-response (0.0094s latency).
-Scanned at 2022-08-15 22:08:48 CEST for 168s
-Not shown: 65534 filtered ports
-Reason: 65534 no-responses
-Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
-PORT   STATE SERVICE REASON
-80/tcp open  http    syn-ack ttl 100
-MAC Address: 34:C6:9A:00:16:D4 (Enecsys)
-
-Read data files from: /usr/bin/../share/nmap
-Nmap done: 1 IP address (1 host up) scanned in 168.05 seconds
-           Raw packets sent: 131198 (5.773MB) | Rcvd: 136 (6.115KB)
-</pre>
-
-<p>
-UDP port scan results for the gateway's IPv4 address:
-</p>
-
-<pre>
-Starting Nmap 7.80 ( https://nmap.org ) at 2022-08-15 22:12 CEST
-Initiating ARP Ping Scan at 22:12
-Scanning 10.1.0.10 [1 port]
-Completed ARP Ping Scan at 22:12, 0.06s elapsed (1 total hosts)
-Initiating UDP Scan at 22:12
-Scanning 10.1.0.10 [65535 ports]
-UDP Scan Timing: About 2.24% done; ETC: 22:35 (0:22:33 remaining)
-UDP Scan Timing: About 4.75% done; ETC: 22:34 (0:21:24 remaining)
-UDP Scan Timing: About 8.86% done; ETC: 22:34 (0:20:14 remaining)
-UDP Scan Timing: About 13.66% done; ETC: 22:34 (0:19:04 remaining)
-UDP Scan Timing: About 18.69% done; ETC: 22:34 (0:17:55 remaining)
-UDP Scan Timing: About 23.71% done; ETC: 22:34 (0:16:47 remaining)
-UDP Scan Timing: About 28.74% done; ETC: 22:34 (0:15:40 remaining)
-UDP Scan Timing: About 33.76% done; ETC: 22:34 (0:14:33 remaining)
-UDP Scan Timing: About 40.70% done; ETC: 22:33 (0:13:01 remaining)
-UDP Scan Timing: About 45.72% done; ETC: 22:33 (0:11:55 remaining)
-UDP Scan Timing: About 50.75% done; ETC: 22:33 (0:10:48 remaining)
-UDP Scan Timing: About 55.77% done; ETC: 22:33 (0:09:42 remaining)
-UDP Scan Timing: About 60.80% done; ETC: 22:33 (0:08:36 remaining)
-UDP Scan Timing: About 65.82% done; ETC: 22:33 (0:07:30 remaining)
-UDP Scan Timing: About 70.85% done; ETC: 22:33 (0:06:23 remaining)
-UDP Scan Timing: About 76.11% done; ETC: 22:33 (0:05:14 remaining)
-UDP Scan Timing: About 81.13% done; ETC: 22:33 (0:04:08 remaining)
-UDP Scan Timing: About 86.16% done; ETC: 22:33 (0:03:02 remaining)
-UDP Scan Timing: About 91.19% done; ETC: 22:33 (0:01:56 remaining)
-UDP Scan Timing: About 96.21% done; ETC: 22:33 (0:00:50 remaining)
-Completed UDP Scan at 22:33, 1314.24s elapsed (65535 total ports)
-Nmap scan report for 10.1.0.10
-Host is up, received arp-response (0.0027s latency).
-All 65535 scanned ports on 10.1.0.10 are open|filtered because of 65535 no-responses
-MAC Address: 34:C6:9A:00:16:D4 (Enecsys)
-
-Read data files from: /usr/bin/../share/nmap
-Nmap done: 1 IP address (1 host up) scanned in 1314.44 seconds
-           Raw packets sent: 131071 (3.676MB) | Rcvd: 74 (4.290KB)
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgd41c2e6" class="outline-3">
-<h3 id="orgd41c2e6"><span class="section-number-3">2.2</span> The Web Interface</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-The default credentials for the web interface are admin/password. You can tell that the gateway is (c) 2009 as there is no way to change the admin password ;).
-</p>
-
-<p>
-The following endpoints have been detected on the device:
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Endpoint</th>
-<th scope="col" class="org-left">Description</th>
-<th scope="col" class="org-left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">/index.htm</td>
-<td class="org-left">''</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">/debug.htm</td>
-<td class="org-left">Debug interface HTML layout</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">/ajax.xml</td>
-<td class="org-left">Debug interface polling endpoint</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">/mpfsupload</td>
-<td class="org-left">MPFS Image Upload</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div id="outline-container-orga4b851a" class="outline-4">
-<h4 id="orga4b851a"><span class="section-number-4">2.2.1</span> Main user interface</h4>
-<div class="outline-text-4" id="text-2-2-1">
-<p>
-The main user interface has basic settings like IP address and it can be used to set the remote monitoring server hostname and port. Apart from that NTP and proxy can be configured. 
-Here is a screenshot of the main UI:
-</p>
-
-
-<div class="figure">
-<p><a href="main-ui.png"><img src="thumb-main-ui.png" alt="thumb-main-ui.png" /></a>
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org24e85a3" class="outline-4">
-<h4 id="org24e85a3"><span class="section-number-4">2.2.2</span> Debug Interface</h4>
-<div class="outline-text-4" id="text-2-2-2">
-<p>
-The debug interface allows us to see what messages the Zigbee Module UART sends to the main MCU. These appear to be raw decrypted contents of Zigbee frames from the inverters as well as
-some traffic generated by the Zigbee module firmware itself even when there are no inverters connected. Some of the layout of these messages has been reverse engineered in the 
-section near the end of the document. There is also a status display about the Zigbee network and monitoring server connection. The interface itself looks like this:
-</p>
-
-
-<div class="figure">
-<p><a href="debug-ui.png"><img src="thumb-debug-ui.png" alt="thumb-debug-ui.png" /></a>
-</p>
-</div>
-
-<p>
-The debug UI polls the /ajax.xml endpoint in the background in order to receive the data about the latest messages received from the Zigbee module. The endpoint returns the 
-following XML:
-</p>
-
-<p>
-#+BEGIN<sub>ajax</sub><sub>xml</sub>
-&lt;response&gt;
-&lt;zigbeeData&gt;&lt;/zigbeeData&gt;
-&lt;serverData&gt;&lt;/serverData&gt;
-&lt;connectionStatus&gt;Offline&lt;/connectionStatus&gt;
-&lt;connectionUptime&gt;-NA-&lt;/connectionUptime&gt;
-&lt;lastConnectionUptime&gt;000:00:00&lt;/lastConnectionUptime&gt;
-&lt;connectionUptimeSinceReset&gt;000:00:00&lt;/connectionUptimeSinceReset&gt;
-&lt;totalConnects&gt;0&lt;/totalConnects&gt;
-&lt;connectionDowntime&gt;000:23:21&lt;/connectionDowntime&gt;
-&lt;lastConnectionDowntime&gt;-NA-&lt;/lastConnectionDowntime&gt;
-&lt;connectionDowntimeSinceReset&gt;000:23:21&lt;/connectionDowntimeSinceReset&gt;
-&lt;timeSinceReset&gt;000:23:21&lt;/timeSinceReset&gt;
-&lt;devicesInNetwork&gt;0&lt;/devicesInNetwork&gt;
-&lt;device0&gt;&lt;/device0&gt;
-&lt;device1&gt;&lt;/device1&gt;
-&lt;device2&gt;&lt;/device2&gt;
-&lt;device3&gt;&lt;/device3&gt;
-&lt;device4&gt;&lt;/device4&gt;
-&lt;device5&gt;&lt;/device5&gt;
-&lt;device6&gt;&lt;/device6&gt;
-&lt;device7&gt;&lt;/device7&gt;
-&lt;device8&gt;&lt;/device8&gt;
-&lt;device9&gt;&lt;/device9&gt;
-&lt;device10&gt;&lt;/device10&gt;
-&lt;device11&gt;&lt;/device11&gt;
-&lt;device12&gt;&lt;/device12&gt;
-&lt;device13&gt;&lt;/device13&gt;
-&lt;device14&gt;&lt;/device14&gt;
-&lt;device15&gt;&lt;/device15&gt;
-&lt;device16&gt;&lt;/device16&gt;
-&lt;device17&gt;&lt;/device17&gt;
-&lt;device18&gt;&lt;/device18&gt;
-&lt;device19&gt;&lt;/device19&gt;
-&lt;device20&gt;&lt;/device20&gt;
-&lt;device21&gt;&lt;/device21&gt;
-&lt;device22&gt;&lt;/device22&gt;
-&lt;device23&gt;&lt;/device23&gt;
-&lt;device24&gt;&lt;/device24&gt;
-&lt;device25&gt;&lt;/device25&gt;
-&lt;device26&gt;&lt;/device26&gt;
-&lt;device27&gt;&lt;/device27&gt;
-&lt;device28&gt;&lt;/device28&gt;
-&lt;device29&gt;&lt;/device29&gt;
-&lt;device30&gt;&lt;/device30&gt;
-&lt;device31&gt;&lt;/device31&gt;
-&lt;device32&gt;&lt;/device32&gt;
-&lt;device33&gt;&lt;/device33&gt;
-&lt;device34&gt;&lt;/device34&gt;
-&lt;device35&gt;&lt;/device35&gt;
-&lt;device36&gt;&lt;/device36&gt;
-&lt;device37&gt;&lt;/device37&gt;
-&lt;device38&gt;&lt;/device38&gt;
-&lt;device39&gt;&lt;/device39&gt;
-&lt;device40&gt;&lt;/device40&gt;
-&lt;device41&gt;&lt;/device41&gt;
-&lt;device42&gt;&lt;/device42&gt;
-&lt;device43&gt;&lt;/device43&gt;
-&lt;device44&gt;&lt;/device44&gt;
-&lt;device45&gt;&lt;/device45&gt;
-&lt;device46&gt;&lt;/device46&gt;
-&lt;device47&gt;&lt;/device47&gt;
-&lt;device48&gt;&lt;/device48&gt;
-&lt;device49&gt;&lt;/device49&gt;
-&lt;device50&gt;&lt;/device50&gt;
-&lt;device51&gt;&lt;/device51&gt;
-&lt;device52&gt;&lt;/device52&gt;
-&lt;device53&gt;&lt;/device53&gt;
-&lt;device54&gt;&lt;/device54&gt;
-&lt;device55&gt;&lt;/device55&gt;
-&lt;device56&gt;&lt;/device56&gt;
-&lt;device57&gt;&lt;/device57&gt;
-&lt;device58&gt;&lt;/device58&gt;
-&lt;device59&gt;&lt;/device59&gt;
-&lt;device60&gt;&lt;/device60&gt;
-&lt;device61&gt;&lt;/device61&gt;
-&lt;device62&gt;&lt;/device62&gt;
-&lt;device63&gt;&lt;/device63&gt;
-&lt;device64&gt;&lt;/device64&gt;
-&lt;device65&gt;&lt;/device65&gt;
-&lt;device66&gt;&lt;/device66&gt;
-&lt;device67&gt;&lt;/device67&gt;
-&lt;device68&gt;&lt;/device68&gt;
-&lt;device69&gt;&lt;/device69&gt;
-&lt;device70&gt;&lt;/device70&gt;
-&lt;device71&gt;&lt;/device71&gt;
-&lt;device72&gt;&lt;/device72&gt;
-&lt;device73&gt;&lt;/device73&gt;
-&lt;device74&gt;&lt;/device74&gt;
-&lt;device75&gt;&lt;/device75&gt;
-&lt;device76&gt;&lt;/device76&gt;
-&lt;device77&gt;&lt;/device77&gt;
-&lt;device78&gt;&lt;/device78&gt;
-&lt;device79&gt;&lt;/device79&gt;
-&lt;device80&gt;&lt;/device80&gt;
-&lt;device81&gt;&lt;/device81&gt;
-&lt;device82&gt;&lt;/device82&gt;
-&lt;device83&gt;&lt;/device83&gt;
-&lt;device84&gt;&lt;/device84&gt;
-&lt;device85&gt;&lt;/device85&gt;
-&lt;device86&gt;&lt;/device86&gt;
-&lt;device87&gt;&lt;/device87&gt;
-&lt;device88&gt;&lt;/device88&gt;
-&lt;device89&gt;&lt;/device89&gt;
-&lt;device90&gt;&lt;/device90&gt;
-&lt;device91&gt;&lt;/device91&gt;
-&lt;device92&gt;&lt;/device92&gt;
-&lt;device93&gt;&lt;/device93&gt;
-&lt;device94&gt;&lt;/device94&gt;
-&lt;device95&gt;&lt;/device95&gt;
-&lt;device96&gt;&lt;/device96&gt;
-&lt;device97&gt;&lt;/device97&gt;
-&lt;device98&gt;&lt;/device98&gt;
-&lt;device99&gt;&lt;/device99&gt;
-&lt;/response&gt;
-#+END<sub>packet</sub>
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgef952a1" class="outline-4">
-<h4 id="orgef952a1"><span class="section-number-4">2.2.3</span> The MPFS upload</h4>
-<div class="outline-text-4" id="text-2-2-3">
-<p>
-The MPFS is an internal HTTP upload server enabled by default in the Microchip TCP/IP stack. This feature can be used to upload files into the internal flash and possibly even modify
-firmware. There has been at least one device where this is possible: <a href="https://vulners.com/talos/TALOS-2018-0511">https://vulners.com/talos/TALOS-2018-0511</a>. In the case of our device this won't be much use however as all
-of the Zigbee traffic encryption happens in the Zigbee module and the Microchip MCU is just a simple bridge which forwards the messages to the remote monitoring server.
-</p>
-</div>
-</div>
-</div>
-</div>
-
-
 <div id="outline-container-org1735e1c" class="outline-2">
-<h2 id="org1735e1c"><span class="section-number-2">3</span> Zigbee Radio</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org1735e1c"><span class="section-number-2">2</span> Zigbee Radio</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. This
 module is connected with an UART on the main MCU. The uart settings are 19200 8n1.
@@ -724,41 +410,326 @@ LCD.
 </div>
 </div>
 
-<div id="outline-container-org2fb121e" class="outline-2">
-<h2 id="org2fb121e"><span class="section-number-2">4</span> Zigbee Messages Format</h2>
-<div class="outline-text-2" id="text-4">
+
+<div id="outline-container-org35a88f0" class="outline-2">
+<h2 id="org35a88f0"><span class="section-number-2">3</span> Network interface</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgc552534" class="outline-3">
+<h3 id="orgc552534"><span class="section-number-3">3.1</span> Device bootup</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
-A number of messages have been captured so far when the device and inverter were in various operational modes. Based on the knowledge gained the development of a parser for the
-messages has been started: <a href="enecsys-watch-zigbee.py">enecsys-watch-zigbee.py</a>
+During the gateway bootup the following network traffic can be seen:
+</p>
+
+<p>
+<a href="boot.pcapng">boot.pcapng</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea0ba77" class="outline-3">
+<h3 id="orgea0ba77"><span class="section-number-3">3.2</span> Port scans</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+TCP port scan results for the gateway's IPv4 address:
+</p>
+
+<pre>
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-08-15 22:08 CEST
+Initiating ARP Ping Scan at 22:08
+Scanning 10.1.0.10 [1 port]
+Completed ARP Ping Scan at 22:08, 0.06s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 22:08
+Scannnnning 10.1.0.10 [65535 ports]
+Discovered open port 80/tcp on 10.1.0.10
+Completed SYN Stealth Scan at 22:11, 167.83s elapsed (65535 total ports)
+Nmap scan report for 10.1.0.10
+Host is up, received arp-response (0.0094s latency).
+Scanned at 2022-08-15 22:08:48 CEST for 168s
+Not shown: 65534 filtered ports
+Reason: 65534 no-responses
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE REASON
+80/tcp open  http    syn-ack ttl 100
+MAC Address: 34:C6:9A:00:16:D4 (Enecsys)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 168.05 seconds
+           Raw packets sent: 131198 (5.773MB) | Rcvd: 136 (6.115KB)
+</pre>
+
+<p>
+UDP port scan results for the gateway's IPv4 address:
+</p>
+
+<pre>
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-08-15 22:12 CEST
+Initiating ARP Ping Scan at 22:12
+Scanning 10.1.0.10 [1 port]
+Completed ARP Ping Scan at 22:12, 0.06s elapsed (1 total hosts)
+Initiating UDP Scan at 22:12
+Scanning 10.1.0.10 [65535 ports]
+Completed UDP Scan at 22:33, 1314.24s elapsed (65535 total ports)
+Nmap scan report for 10.1.0.10
+Host is up, received arp-response (0.0027s latency).
+All 65535 scanned ports on 10.1.0.10 are open|filtered because of 65535 no-responses
+MAC Address: 34:C6:9A:00:16:D4 (Enecsys)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1314.44 seconds
+           Raw packets sent: 131071 (3.676MB) | Rcvd: 74 (4.290KB)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd41c2e6" class="outline-3">
+<h3 id="orgd41c2e6"><span class="section-number-3">3.3</span> The Web Interface</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+The default credentials for the web interface are admin/password. You can tell that the gateway is (c) 2009 as there is no way to change the admin password ;).
+</p>
+
+<p>
+The following endpoints have been detected on the device:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Endpoint</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">/index.htm</td>
+<td class="org-left">''</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/debug.htm</td>
+<td class="org-left">Debug interface HTML layout</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/ajax.xml</td>
+<td class="org-left">Debug interface polling endpoint</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/mpfsupload</td>
+<td class="org-left">MPFS Image Upload</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orga4b851a" class="outline-4">
+<h4 id="orga4b851a"><span class="section-number-4">3.3.1</span> Main user interface</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+The main user interface has basic settings like IP address and it can be used to set the remote monitoring server hostname and port. Apart from that NTP and proxy can be configured. 
+Here is a screenshot of the main UI:
 </p>
 
 
+<div class="figure">
+<p><a href="main-ui.png"><img src="thumb-main-ui.png" alt="thumb-main-ui.png" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org24e85a3" class="outline-4">
+<h4 id="org24e85a3"><span class="section-number-4">3.3.2</span> Debug Interface</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+The debug interface allows us to see what messages the Zigbee Module UART sends to the main MCU. These appear to be raw decrypted contents of Zigbee frames from the inverters as well as
+some traffic generated by the Zigbee module firmware itself even when there are no inverters connected. Some of the layout of these messages has been reverse engineered in the 
+section near the end of the document. There is also a status display about the Zigbee network and monitoring server connection. The interface itself looks like this:
+</p>
+
+
+<div class="figure">
+<p><a href="debug-ui.png"><img src="thumb-debug-ui.png" alt="thumb-debug-ui.png" /></a>
+</p>
+</div>
+
+<p>
+The debug UI polls the /ajax.xml endpoint in the background in order to receive the data about the latest messages received from the Zigbee module. The endpoint returns the 
+following XML:
+</p>
+
+<div class="ajax_xml">
+<p>
+&lt;response&gt;
+&lt;zigbeeData&gt;&lt;/zigbeeData&gt;
+&lt;serverData&gt;&lt;/serverData&gt;
+&lt;connectionStatus&gt;Offline&lt;/connectionStatus&gt;
+&lt;connectionUptime&gt;-NA-&lt;/connectionUptime&gt;
+&lt;lastConnectionUptime&gt;000:00:00&lt;/lastConnectionUptime&gt;
+&lt;connectionUptimeSinceReset&gt;000:00:00&lt;/connectionUptimeSinceReset&gt;
+&lt;totalConnects&gt;0&lt;/totalConnects&gt;
+&lt;connectionDowntime&gt;000:23:21&lt;/connectionDowntime&gt;
+&lt;lastConnectionDowntime&gt;-NA-&lt;/lastConnectionDowntime&gt;
+&lt;connectionDowntimeSinceReset&gt;000:23:21&lt;/connectionDowntimeSinceReset&gt;
+&lt;timeSinceReset&gt;000:23:21&lt;/timeSinceReset&gt;
+&lt;devicesInNetwork&gt;0&lt;/devicesInNetwork&gt;
+&lt;device0&gt;&lt;/device0&gt;
+&lt;device1&gt;&lt;/device1&gt;
+&lt;device2&gt;&lt;/device2&gt;
+&lt;device3&gt;&lt;/device3&gt;
+&lt;device4&gt;&lt;/device4&gt;
+&lt;device5&gt;&lt;/device5&gt;
+&lt;device6&gt;&lt;/device6&gt;
+&lt;device7&gt;&lt;/device7&gt;
+&lt;device8&gt;&lt;/device8&gt;
+&lt;device9&gt;&lt;/device9&gt;
+&lt;device10&gt;&lt;/device10&gt;
+&lt;device11&gt;&lt;/device11&gt;
+&lt;device12&gt;&lt;/device12&gt;
+&lt;device13&gt;&lt;/device13&gt;
+&lt;device14&gt;&lt;/device14&gt;
+&lt;device15&gt;&lt;/device15&gt;
+&lt;device16&gt;&lt;/device16&gt;
+&lt;device17&gt;&lt;/device17&gt;
+&lt;device18&gt;&lt;/device18&gt;
+&lt;device19&gt;&lt;/device19&gt;
+&lt;device20&gt;&lt;/device20&gt;
+&lt;device21&gt;&lt;/device21&gt;
+&lt;device22&gt;&lt;/device22&gt;
+&lt;device23&gt;&lt;/device23&gt;
+&lt;device24&gt;&lt;/device24&gt;
+&lt;device25&gt;&lt;/device25&gt;
+&lt;device26&gt;&lt;/device26&gt;
+&lt;device27&gt;&lt;/device27&gt;
+&lt;device28&gt;&lt;/device28&gt;
+&lt;device29&gt;&lt;/device29&gt;
+&lt;device30&gt;&lt;/device30&gt;
+&lt;device31&gt;&lt;/device31&gt;
+&lt;device32&gt;&lt;/device32&gt;
+&lt;device33&gt;&lt;/device33&gt;
+&lt;device34&gt;&lt;/device34&gt;
+&lt;device35&gt;&lt;/device35&gt;
+&lt;device36&gt;&lt;/device36&gt;
+&lt;device37&gt;&lt;/device37&gt;
+&lt;device38&gt;&lt;/device38&gt;
+&lt;device39&gt;&lt;/device39&gt;
+&lt;device40&gt;&lt;/device40&gt;
+&lt;device41&gt;&lt;/device41&gt;
+&lt;device42&gt;&lt;/device42&gt;
+&lt;device43&gt;&lt;/device43&gt;
+&lt;device44&gt;&lt;/device44&gt;
+&lt;device45&gt;&lt;/device45&gt;
+&lt;device46&gt;&lt;/device46&gt;
+&lt;device47&gt;&lt;/device47&gt;
+&lt;device48&gt;&lt;/device48&gt;
+&lt;device49&gt;&lt;/device49&gt;
+&lt;device50&gt;&lt;/device50&gt;
+&lt;device51&gt;&lt;/device51&gt;
+&lt;device52&gt;&lt;/device52&gt;
+&lt;device53&gt;&lt;/device53&gt;
+&lt;device54&gt;&lt;/device54&gt;
+&lt;device55&gt;&lt;/device55&gt;
+&lt;device56&gt;&lt;/device56&gt;
+&lt;device57&gt;&lt;/device57&gt;
+&lt;device58&gt;&lt;/device58&gt;
+&lt;device59&gt;&lt;/device59&gt;
+&lt;device60&gt;&lt;/device60&gt;
+&lt;device61&gt;&lt;/device61&gt;
+&lt;device62&gt;&lt;/device62&gt;
+&lt;device63&gt;&lt;/device63&gt;
+&lt;device64&gt;&lt;/device64&gt;
+&lt;device65&gt;&lt;/device65&gt;
+&lt;device66&gt;&lt;/device66&gt;
+&lt;device67&gt;&lt;/device67&gt;
+&lt;device68&gt;&lt;/device68&gt;
+&lt;device69&gt;&lt;/device69&gt;
+&lt;device70&gt;&lt;/device70&gt;
+&lt;device71&gt;&lt;/device71&gt;
+&lt;device72&gt;&lt;/device72&gt;
+&lt;device73&gt;&lt;/device73&gt;
+&lt;device74&gt;&lt;/device74&gt;
+&lt;device75&gt;&lt;/device75&gt;
+&lt;device76&gt;&lt;/device76&gt;
+&lt;device77&gt;&lt;/device77&gt;
+&lt;device78&gt;&lt;/device78&gt;
+&lt;device79&gt;&lt;/device79&gt;
+&lt;device80&gt;&lt;/device80&gt;
+&lt;device81&gt;&lt;/device81&gt;
+&lt;device82&gt;&lt;/device82&gt;
+&lt;device83&gt;&lt;/device83&gt;
+&lt;device84&gt;&lt;/device84&gt;
+&lt;device85&gt;&lt;/device85&gt;
+&lt;device86&gt;&lt;/device86&gt;
+&lt;device87&gt;&lt;/device87&gt;
+&lt;device88&gt;&lt;/device88&gt;
+&lt;device89&gt;&lt;/device89&gt;
+&lt;device90&gt;&lt;/device90&gt;
+&lt;device91&gt;&lt;/device91&gt;
+&lt;device92&gt;&lt;/device92&gt;
+&lt;device93&gt;&lt;/device93&gt;
+&lt;device94&gt;&lt;/device94&gt;
+&lt;device95&gt;&lt;/device95&gt;
+&lt;device96&gt;&lt;/device96&gt;
+&lt;device97&gt;&lt;/device97&gt;
+&lt;device98&gt;&lt;/device98&gt;
+&lt;device99&gt;&lt;/device99&gt;
+&lt;/response&gt;
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef952a1" class="outline-4">
+<h4 id="orgef952a1"><span class="section-number-4">3.3.3</span> The MPFS upload</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<p>
+The MPFS is an internal HTTP upload server enabled by default in the Microchip TCP/IP stack. This feature can be used to upload files into the internal flash and possibly even modify
+firmware. There has been at least one device where this is possible: <a href="https://vulners.com/talos/TALOS-2018-0511">https://vulners.com/talos/TALOS-2018-0511</a>. In the case of our device this won't be much use however as all
+of the Zigbee traffic encryption happens in the Zigbee module and the Microchip MCU is just a simple bridge which forwards the messages to the remote monitoring server.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0ea3c4d" class="outline-2">
+<h2 id="org0ea3c4d"><span class="section-number-2">4</span> Debug Messages Format</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A number of debug messages have been captured so far when the device and inverter were in various operational modes. Based on simple time correlation the messages sent out from the
+debug interface seem to be plaintexts for the traffic exchanged via Zigbee. Based on the knowledge gained the development of a parser for the messages has been started:
+<a href="enecsys-watch-zigbee.py">enecsys-watch-zigbee.py</a>. Here is an example set of messages together with their hexdumps:
+</p>
+
 <pre>
-WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689 sent when inverter connects
+WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689
 00000000  a9 c1 35 77 00 9a c6 34  00 00 07 51 21 01 00 00  |..5w...4...Q!...|
 00000010  00 0f 0a 53 f5 05 f7 05  00 9a c6 34 48           |...S.......4H|
 0000001d
 
-the first 8 bytes are the gateway Zigbee MAC address (34:c6:9a:00:77:35:c1:a9)
-next we get some data and then the inverter MAC address (34:c6:9a:00:05:f7:05:f5)
-
-WZ=qcE1dwCaxjQAAAaSIQEAAAAOClOpwTV3AJrGNEg=0E,S=2000011689 these are from the gateway itself
+WZ=qcE1dwCaxjQAAAaSIQEAAAAOClOpwTV3AJrGNEg=0E,S=2000011689
 00000000  a9 c1 35 77 00 9a c6 34  00 00 06 92 21 01 00 00  |..5w...4....!...|
 00000010  00 0e 0a 53 a9 c1 35 77  00 9a c6 34 48           |...S..5w...4H|
 0000001d
-
-This one is different, we don't have the inverter MAC but something else
-
-inverter serial on barcode
-
-01 00 04 50 29 (dec)
-01 00 04 32 1d (hex)
-
-inverter serial on label
-
-00 00 61 75 77 (dex)
-00 00 3d 4b 4d (hex)
-
 
 WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00  
 00000000  f5 05 f7 05 00 9a c6 34  00 00 06 cb 21 01 00 00  |.......4....!...|
@@ -766,20 +737,13 @@ WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00
 00000020  18 01 8d 00 03 04 05                              |.......|
 00000027
 
-First 8 bytes are the MAC address of the inverter (34:c6:9a:00:05:f7:05:f5), later we have something that appears to be data from the inverter
-
-WZ=qcE1dwCaxjQAAAdRIQEAAAAPClP1BfcFAJrGNEg=60,S=2000011689
-00000000  a9 c1 35 77 00 9a c6 34  00 00 07 51 21 01 00 00  |..5w...4...Q!...|
-00000010  00 0f 0a 53 f5 05 f7 05  00 9a c6 34 48           |...S.......4H|
-0000001d
-
 WS=9QX3BQCaxjQAAAdYIQIAAAAAFDADiAEAAgAAAAAAAAAZAY0AAwAF81
 00000000  f5 05 f7 05 00 9a c6 34  00 00 07 58 21 02 00 00  |.......4...X!...|
 00000010  00 00 14 30 03 88 01 00  02 00 00 00 00 00 00 00  |...0............|
 00000020  19 01 8d 00 03 00 05                              |.......|
 00000027
 
-WS=9QX3BQCaxjQAAAdYIQIAAAAAFDADiAEAAgAAAAAAAAAZAY0AAwAF81  << these seem to come from the inverter
+WS=9QX3BQCaxjQAAAdYIQIAAAAAFDADiAEAAgAAAAAAAAAZAY0AAwAF81
 00000000  f5 05 f7 05 00 9a c6 34  00 00 07 58 21 02 00 00  |.......4...X!...|
 00000010  00 00 14 30 03 88 01 00  02 00 00 00 00 00 00 00  |...0............|
 00000020  19 01 8d 00 03 00 05                              |.......|
@@ -791,86 +755,326 @@ WS=9QX3BQCaxjQAAAe7IQEAAAACFDADiAEAAgAAAAAAADgZAY0AAwAF44
 00000020  19 01 8d 00 03 00 05                              |.......|
 00000027
 
-WS=9QX3BQCaxjQAAAkkIQEAAAAFFDADiAEAAgAAAAAAADgZAY0AAwAF8A
-00000000  f5 05 f7 05 00 9a c6 34  00 00 09 24 21 01 00 00  |.......4...$!...|
-00000010  00 05 14 30 03 88 01 00  02 00 00 00 00 00 00 38  |...0...........8|
-00000020  19 01 8d 00 03 00 05                              |.......|
-00000027
-
-WZ=qcE1dwCaxjQAAAkyIQEAAAATClP1BfcFAJrGNEg=7A,S=2000011689
-00000000  a9 c1 35 77 00 9a c6 34  00 00 09 32 21 01 00 00  |..5w...4...2!...|
-00000010  00 13 0a 53 f5 05 f7 05  00 9a c6 34 48           |...S.......4H|
-0000001d
-
-
-WZ=qcE1dwCaxjQAAAljIQEAAAAUClOpwTV3AJrGNEg=E9,S=2000011689
-00000000  a9 c1 35 77 00 9a c6 34  00 00 09 63 21 01 00 00  |..5w...4...c!...|
-00000010  00 14 0a 53 a9 c1 35 77  00 9a c6 34 48           |...S..5w...4H|
-0000001d
-
-WS=9QX3BQCaxjQAAAoUIQEAAAAHFDADiAEAAgAAAAAAADgaAY0AAwAF5B
-00000000  f5 05 f7 05 00 9a c6 34  00 00 0a 14 21 01 00 00  |.......4....!...|
-00000010  00 07 14 30 03 88 01 00  02 00 00 00 00 00 00 38  |...0...........8|
-00000020  1a 01 8d 00 03 00 05                              |.......|
-00000027
-
 WZ=qcE1dwCaxjQAAAoiIQEAAAAVClP1BfcFAJrGNEg=22,S=2000011689
 WZ=qcE1dwCaxjQAAApTIQEAAAAWClOpwTV3AJrGNEg=BD,S=2000011689
-
 WS=9QX3BQCaxjQAAAqMIQEAAAAIFDADiAEAAgAAAAAAADgaAY0AAwAF44
 WS=9QX3BQCaxjQAAAsEIQEAAAAJFDADiAEAAgAAAAAAADgaAY0AAwAF1E
-
 WZ=qcE1dwCaxjQAAAz0IQEAAAAbClP1BfcFAJrGNEg=C9,S=2000011689
 WZ=qcE1dwCaxjQAAA0lIQEAAAAcClOpwTV3AJrGNEg=BC,S=2000011689
 WS=9QX3BQCaxjQAAA3WIQEAAAAPFDADiAEAAgAAAAAAADgaAY0AAwAFCF
 WZ=qcE1dwCaxjQAAA4VIQEAAAAeClOpwTV3AJrGNEg=A0,S=2000011689
 WS=9QX3BQCaxjQAAA5OIQEAAAAQFDADiAEAAgAAAAAAADgaAY0AAwAF9D
-
-
 WS=9QX3BQCaxjQAAD2_IQEAAAB1FDADiAEAAgAAAAAAADgdAY0AAwAF46
-
-
 WZ=qcE1dwCaxjQAAD6-IQEAAACFClP1BfcFAJrGNEg=48,S=2000011689
-
-
-
-
-Vdc = 36V
-36 dec == 24 hex
-
-WS=9QX3BQCaxjQAAEs1IQEAAAALFDADiAMAAgAAAAAAADgdAY4AAwAFCB
-00000000: F5 05 F7 05 00 9A C6 34  00 00 4B 35 21 01 00 00  .......4..K5!...
-00000010: 00 0B 14 30 03 88 03 00  02 00 00 00 00 00 00 38  ...0...........8
-00000020: 1D 01 8E 00 03 00 05                              .......
-
-WS=9QX3BQCaxjQAAEuuIQEAAAAMFDADiAMAAgAAAAAAADgdAY4AAwAF2E
-00000000: F5 05 F7 05 00 9A C6 34  00 00 4B AE 21 01 00 00  .......4..K.!...
-00000010: 00 0C 14 30 03 88 03 00  02 00 00 00 00 00 00 38  ...0...........8
-00000020: 1D 01 8E 00 03 00 05   
-
-
-Vdc = 42V 
-42 dec == 2a hex
-
-WS=9QX3BQCaxjQAAE0WIQEAAAAPFDADiAMAAgAAAAAAAEUdAY4AAwAF29
-00000000: F5 05 F7 05 00 9A C6 34  00 00 4D 16 21 01 00 00  .......4..M.!...
-00000010: 00 0F 14 30 03 88 03 00  02 00 00 00 00 00 00 45  ...0...........E
-00000020: 1D 01 8E 00 03 00 05                              .......
-WS=9QX3BQCaxjQAAE2OIQEAAAAQFDADiAMAAgAAAAAAAEUdAY4AAwAFE5
-00000000: F5 05 F7 05 00 9A C6 34  00 00 4D 8E 21 01 00 00  .......4..M.!...
-00000010: 00 10 14 30 03 88 03 00  02 00 00 00 00 00 00 45  ...0...........E
-00000020: 1D 01 8E 00 03 00 05                              .......
-WS=9QX3BQCaxjQAAE4HIQEAAAARFDADiAMAAgAAAAAAAEUdAY4AAwAFE1
-00000000: F5 05 F7 05 00 9A C6 34  00 00 4E 07 21 01 00 00  .......4..N.!...
-00000010: 00 11 14 30 03 88 03 00  02 00 00 00 00 00 00 45  ...0...........E
-00000020: 1D 01 8E 00 03 00 05                              .......
 </pre>
+
+<p>
+All of the messages fall into two patterns:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Message</td>
+<td class="org-left">Flavor</td>
+<td class="org-left">Contents</td>
+<td class="org-left">Checksum</td>
+<td class="org-left">Key-value pairs</td>
+<td class="org-left">Notes</td>
+</tr>
+
+<tr>
+<td class="org-left">WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689</td>
+<td class="org-left">WZ</td>
+<td class="org-left">qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=</td>
+<td class="org-left">AE</td>
+<td class="org-left">S=2000011689</td>
+<td class="org-left">2000011689 is the serial number of the Zigbee module inside the gateway</td>
+</tr>
+
+<tr>
+<td class="org-left">WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00</td>
+<td class="org-left">WS</td>
+<td class="org-left">9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF</td>
+<td class="org-left">00</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The first characters consitute what was named the "flavor" of a message. The flavor determines the syntax of the next parts as well as the message source. After the flavor come the
+messages contents (encoded with URL-safe base64), two hexadecimal digits which I assume is a checksum of some kind and after the comma key-value pairs. There was only one
+key-value pair seen so far and that is 'S' which contains the serial number of the Zigbee module contained within the gateway that is generating the message.
+</p>
+
+<p>
+Based on many observations I have deduced that the WZ messages are generated by the gateway itself as they are present even when there are no inverters connected. The schema used to
+calculate what I assume to be the checksum has not been reverse-engineered yet. The meaning of the key-value pairs is obvious at this point. Further information is revealed after
+decoding the base64-encoded payloads. The structure inside is similar for both flavors and a number of common fields are used to encode the source of the message, type, etc. See below:
+</p>
+
+<pre>
+WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689
+00000000  a9 c1 35 77 00 9a c6 34  00 00 07 51 21 01 00 00  |..5w...4...Q!...|
+00000010  00 0f 0a 53 f5 05 f7 05  00 9a c6 34 48           |...S.......4H|
+0000001d
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Data</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a9 c1 35 77 00 9a c6 34</td>
+<td class="org-left">EUI64 of the source</td>
+<td class="org-left">Bytes are inverted, gateway EUI64 is 34:c6:9a:00:77:35:c1:a9</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 07 51</td>
+<td class="org-left">uptime</td>
+<td class="org-left">Unit is 500ms</td>
+</tr>
+
+<tr>
+<td class="org-left">21 01</td>
+<td class="org-left">type</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 00 0f</td>
+<td class="org-left">counter</td>
+<td class="org-left">Sequence number</td>
+</tr>
+
+<tr>
+<td class="org-left">0a</td>
+<td class="org-left">content length</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">53 f5 05 f7 05  00 9a c6 34 48</td>
+<td class="org-left">content</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Similar for a WS flavored message:
+</p>
+
+<pre>
+WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00  
+00000000  f5 05 f7 05 00 9a c6 34  00 00 06 cb 21 01 00 00  |.......4....!...|
+00000010  00 00 14 30 03 88 01 00  02 00 00 00 00 00 00 00  |...0............|
+00000020  18 01 8d 00 03 04 05                              |.......|
+00000027
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Data</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">f5 05 f7 05 00 9a c6 34</td>
+<td class="org-left">EUI64 of the source</td>
+<td class="org-left">Bytes are inverted, inverter EUI64 is 34:c6:9a:00:05:f7:05:f5</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 06 cb</td>
+<td class="org-left">uptime</td>
+<td class="org-left">Unit is 500ms</td>
+</tr>
+
+<tr>
+<td class="org-left">21 01</td>
+<td class="org-left">type</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 00 00</td>
+<td class="org-left">counter</td>
+<td class="org-left">Sequence number</td>
+</tr>
+
+<tr>
+<td class="org-left">14</td>
+<td class="org-left">content length</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">30 03 88 01 00 02 00 00 00 00 00 00 00 18 01 8d 00 03 04 05</td>
+<td class="org-left">content</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Most of the interesting information is present in the 'content' section of every message, thus far the messages have been documented in the parser script mentioned above. To quickly
+summarize:
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Flavor</th>
+<th scope="col" class="org-right">Type</th>
+<th scope="col" class="org-left">Desciption</th>
+<th scope="col" class="org-left">Example messages</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">WZ</td>
+<td class="org-right">0x2100</td>
+<td class="org-left">Bootup</td>
+<td class="org-left">WZ=qcE1dwCaxjQAAAAAIQAAAAAAA1BSAg==96,S=2000011689</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">WZ=qcE1dwCaxjQAAAAAIQAAAAABGU4SAGS13J5ge-wZ4QAAAAAAAAAAAAAAAAA=DF,S=2000011689</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WZ</td>
+<td class="org-right">0x2101</td>
+<td class="org-left">Connectivity report</td>
+<td class="org-left">WZ=qcE1dwCaxjQAABDnIQEAAAASClOpwTV3AJrGNEg=9A,S=2000011689</td>
+<td class="org-left">Sends the EUI64 of other Zigbee devices on the network</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">WZ=qcE1dwCaxjQAAAdRIQEAAAAPClP1BfcFAJrGNEg=60,S=2000011689</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WS</td>
+<td class="org-right">0x2100</td>
+<td class="org-left">Bootup</td>
+<td class="org-left">WS=9QX3BQCaxjQAAAB4IQAAAAABPXIBAwX3BfVXU0ktMDAwMDMAAAAAAAAAADwAAAAAMDEtMDItMTIgMDI6MjH_<sub>wAAAAAAAAAAAAAAAAAAAAA</sub>=29</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WS</td>
+<td class="org-right">0x2101</td>
+<td class="org-left">Power measurement</td>
+<td class="org-left">WS=9QX3BQCaxjQAAE4HIQEAAAARFDADiAMAAgAAAAAAAEUdAY4AAwAFE1</td>
+<td class="org-left">Contains DC and AC power, AC frequency, efficiency as well as AC voltage (inverter idle)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WS</td>
+<td class="org-right">0x2102</td>
+<td class="org-left">Power measurement</td>
+<td class="org-left">WS=9QX3BQCaxjQAAAdYIQIAAAAAFDADiAEAAgAAAAAAAAAZAY0AAwAF81</td>
+<td class="org-left">Contains DC and AC power, AC frequency, efficiency as well as AC voltage (inverter online)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The 0x2101 and 0x2102 WS messages seem to contain identical data and look to be related to the state of the inverter itself. For example, the 0x2101 messages are sent always, 
+even when the inverter is connected only to the DC side. However the exact difference is not clear at this point.
+</p>
+
+<p>
+Based on a screenshot found for a gateway software that is being sold on eBay (<a href="https://www.ebay.com/itm/283656242209">https://www.ebay.com/itm/283656242209</a>) it looks like there are additional items reported
+by the inverter which have not yet been located:
+</p>
+
+<ul class="org-ul">
+<li>serial number</li>
+<li>lifetime kWh</li>
+<li>DC amps</li>
+<li>temperature</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-09-23 16:48</p>
+<p class="date">Created: 2022-09-26 18:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
