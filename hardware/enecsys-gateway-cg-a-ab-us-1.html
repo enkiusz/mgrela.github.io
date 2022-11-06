@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-26 18:24 -->
+<!-- 2022-11-05 14:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Enecsys Gateway CG-A-AB-US-1</title>
@@ -234,29 +234,29 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1910105">1. Intro</a></li>
-<li><a href="#org1735e1c">2. Zigbee Radio</a></li>
-<li><a href="#org35a88f0">3. Network interface</a>
+<li><a href="#orgbee50d0">1. Intro</a></li>
+<li><a href="#org12a9514">2. Zigbee Radio</a></li>
+<li><a href="#org194d1ad">3. Network interface</a>
 <ul>
-<li><a href="#orgc552534">3.1. Device bootup</a></li>
-<li><a href="#orgea0ba77">3.2. Port scans</a></li>
-<li><a href="#orgd41c2e6">3.3. The Web Interface</a>
+<li><a href="#orgf1675fe">3.1. Device bootup</a></li>
+<li><a href="#org3ccf3de">3.2. Port scans</a></li>
+<li><a href="#orgf378f04">3.3. The Web Interface</a>
 <ul>
-<li><a href="#orga4b851a">3.3.1. Main user interface</a></li>
-<li><a href="#org24e85a3">3.3.2. Debug Interface</a></li>
-<li><a href="#orgef952a1">3.3.3. The MPFS upload</a></li>
+<li><a href="#org95b4edc">3.3.1. Main user interface</a></li>
+<li><a href="#org86bb1bc">3.3.2. Debug Interface</a></li>
+<li><a href="#org735c020">3.3.3. The MPFS upload</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org0ea3c4d">4. Debug Messages Format</a></li>
+<li><a href="#org507a821">4. Debug Messages Format</a></li>
 </ul>
 </div>
 </div>
 <base href="enecsys-gateway-cg-a-ab-us-1/"/>
 
-<div id="outline-container-org1910105" class="outline-2">
-<h2 id="org1910105"><span class="section-number-2">1</span> Intro</h2>
+<div id="outline-container-orgbee50d0" class="outline-2">
+<h2 id="orgbee50d0"><span class="section-number-2">1</span> Intro</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Enecsys Gateway is a Zigbee gateway allowing communications between the Enecsys microinverters and their monitoring backend. The Enecsys company is unfortunately <a href="https://businessbankruptcies.com/cases/enecsys-llc">defunct since 2015</a>
@@ -265,8 +265,8 @@ and their DNS domains have been taken over by a UK enecsys owner who created his
 </div>
 </div>
 
-<div id="outline-container-org1735e1c" class="outline-2">
-<h2 id="org1735e1c"><span class="section-number-2">2</span> Zigbee Radio</h2>
+<div id="outline-container-org12a9514" class="outline-2">
+<h2 id="org12a9514"><span class="section-number-2">2</span> Zigbee Radio</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. This
@@ -411,12 +411,12 @@ LCD.
 </div>
 
 
-<div id="outline-container-org35a88f0" class="outline-2">
-<h2 id="org35a88f0"><span class="section-number-2">3</span> Network interface</h2>
+<div id="outline-container-org194d1ad" class="outline-2">
+<h2 id="org194d1ad"><span class="section-number-2">3</span> Network interface</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgc552534" class="outline-3">
-<h3 id="orgc552534"><span class="section-number-3">3.1</span> Device bootup</h3>
+<div id="outline-container-orgf1675fe" class="outline-3">
+<h3 id="orgf1675fe"><span class="section-number-3">3.1</span> Device bootup</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 During the gateway bootup the following network traffic can be seen:
@@ -428,8 +428,8 @@ During the gateway bootup the following network traffic can be seen:
 </div>
 </div>
 
-<div id="outline-container-orgea0ba77" class="outline-3">
-<h3 id="orgea0ba77"><span class="section-number-3">3.2</span> Port scans</h3>
+<div id="outline-container-org3ccf3de" class="outline-3">
+<h3 id="org3ccf3de"><span class="section-number-3">3.2</span> Port scans</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 TCP port scan results for the gateway's IPv4 address:
@@ -483,8 +483,8 @@ Nmap done: 1 IP address (1 host up) scanned in 1314.44 seconds
 </div>
 </div>
 
-<div id="outline-container-orgd41c2e6" class="outline-3">
-<h3 id="orgd41c2e6"><span class="section-number-3">3.3</span> The Web Interface</h3>
+<div id="outline-container-orgf378f04" class="outline-3">
+<h3 id="orgf378f04"><span class="section-number-3">3.3</span> The Web Interface</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 The default credentials for the web interface are admin/password. You can tell that the gateway is (c) 2009 as there is no way to change the admin password ;).
@@ -539,8 +539,8 @@ The following endpoints have been detected on the device:
 </table>
 </div>
 
-<div id="outline-container-orga4b851a" class="outline-4">
-<h4 id="orga4b851a"><span class="section-number-4">3.3.1</span> Main user interface</h4>
+<div id="outline-container-org95b4edc" class="outline-4">
+<h4 id="org95b4edc"><span class="section-number-4">3.3.1</span> Main user interface</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 The main user interface has basic settings like IP address and it can be used to set the remote monitoring server hostname and port. Apart from that NTP and proxy can be configured. 
@@ -555,8 +555,8 @@ Here is a screenshot of the main UI:
 </div>
 </div>
 
-<div id="outline-container-org24e85a3" class="outline-4">
-<h4 id="org24e85a3"><span class="section-number-4">3.3.2</span> Debug Interface</h4>
+<div id="outline-container-org86bb1bc" class="outline-4">
+<h4 id="org86bb1bc"><span class="section-number-4">3.3.2</span> Debug Interface</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 The debug interface allows us to see what messages the Zigbee Module UART sends to the main MCU. These appear to be raw decrypted contents of Zigbee frames from the inverters as well as
@@ -697,8 +697,8 @@ following XML:
 </div>
 </div>
 
-<div id="outline-container-orgef952a1" class="outline-4">
-<h4 id="orgef952a1"><span class="section-number-4">3.3.3</span> The MPFS upload</h4>
+<div id="outline-container-org735c020" class="outline-4">
+<h4 id="org735c020"><span class="section-number-4">3.3.3</span> The MPFS upload</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 The MPFS is an internal HTTP upload server enabled by default in the Microchip TCP/IP stack. This feature can be used to upload files into the internal flash and possibly even modify
@@ -711,8 +711,8 @@ of the Zigbee traffic encryption happens in the Zigbee module and the Microchip 
 </div>
 
 
-<div id="outline-container-org0ea3c4d" class="outline-2">
-<h2 id="org0ea3c4d"><span class="section-number-2">4</span> Debug Messages Format</h2>
+<div id="outline-container-org507a821" class="outline-2">
+<h2 id="org507a821"><span class="section-number-2">4</span> Debug Messages Format</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A number of debug messages have been captured so far when the device and inverter were in various operational modes. Based on simple time correlation the messages sent out from the
@@ -1074,7 +1074,7 @@ by the inverter which have not yet been located:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-09-26 18:24</p>
+<p class="date">Created: 2022-11-05 14:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-13 21:43 -->
+<!-- 2022-11-05 14:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Second Life UPS</title>
@@ -234,20 +234,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc0901b6">1. Design overview</a></li>
-<li><a href="#orgd1524ae">2. Component layout</a></li>
-<li><a href="#org9f166d2">3. The battery</a></li>
-<li><a href="#org28a5d29">4. The output board</a></li>
-<li><a href="#orgb0f24da">5. The controller board</a></li>
-<li><a href="#orga305621">6. AC power connection</a></li>
-<li><a href="#org6e3d33b">7. Final device</a></li>
+<li><a href="#org8967b44">1. Design overview</a></li>
+<li><a href="#org0e7b895">2. Component layout</a></li>
+<li><a href="#org9b535a6">3. The battery</a></li>
+<li><a href="#org3751655">4. The output board</a></li>
+<li><a href="#orgde62f86">5. The controller board</a></li>
+<li><a href="#org5ad0cc3">6. AC power connection</a></li>
+<li><a href="#org27b9e4e">7. Final device</a></li>
 </ul>
 </div>
 </div>
 <base href="secondlife-ups/"/>
 
-<div id="outline-container-orgc0901b6" class="outline-2">
-<h2 id="orgc0901b6"><span class="section-number-2">1</span> Design overview</h2>
+<div id="outline-container-org8967b44" class="outline-2">
+<h2 id="org8967b44"><span class="section-number-2">1</span> Design overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I have decided to build a UPS that would power my home network equipment rack using lithium-ion 18650 cells.
@@ -361,8 +361,8 @@ As can be seen there is a large amount of different voltages required in order t
 </div>
 </div>
 
-<div id="outline-container-orgd1524ae" class="outline-2">
-<h2 id="orgd1524ae"><span class="section-number-2">2</span> Component layout</h2>
+<div id="outline-container-org0e7b895" class="outline-2">
+<h2 id="org0e7b895"><span class="section-number-2">2</span> Component layout</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The 1U case that I used for this project is a case from a ipTime ZC-SW2405 switch:
@@ -454,8 +454,8 @@ From the basic layout the following elements are COTS components:
 </div>
 </div>
 
-<div id="outline-container-org9f166d2" class="outline-2">
-<h2 id="org9f166d2"><span class="section-number-2">3</span> The battery</h2>
+<div id="outline-container-org9b535a6" class="outline-2">
+<h2 id="org9b535a6"><span class="section-number-2">3</span> The battery</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The battery for the UPS was built using 18650 Li-Ion cells recovered from hoverboard battery packs. These are cheap no-name cells with not a lot of capacity left in them (around 800 mAh) each but I figured
@@ -537,8 +537,8 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </div>
 
 
-<div id="outline-container-org28a5d29" class="outline-2">
-<h2 id="org28a5d29"><span class="section-number-2">4</span> The output board</h2>
+<div id="outline-container-org3751655" class="outline-2">
+<h2 id="org3751655"><span class="section-number-2">4</span> The output board</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The output connectors board provides for the attachment points for all of the devices being powered by the UPS. Due to a "standard" developed in the <a href="https://hackerspace.pl">Warsaw Hackerspace</a> of using Tamiya connectors as universal
@@ -635,8 +635,8 @@ The plastic distance rings fit perfectly into the M3 holes of the module and pro
 </div>
 
 
-<div id="outline-container-orgb0f24da" class="outline-2">
-<h2 id="orgb0f24da"><span class="section-number-2">5</span> The controller board</h2>
+<div id="outline-container-orgde62f86" class="outline-2">
+<h2 id="orgde62f86"><span class="section-number-2">5</span> The controller board</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Even though the entire controller board has been manually wired on a breadboard I made a schematics of the connections in <a href="https://www.kicad.org/">KiCad</a> instead of paragraphs of text describing how everything is 
@@ -679,8 +679,8 @@ both the charger and the loads.
 </div>
 </div>
 
-<div id="outline-container-orga305621" class="outline-2">
-<h2 id="orga305621"><span class="section-number-2">6</span> AC power connection</h2>
+<div id="outline-container-org5ad0cc3" class="outline-2">
+<h2 id="org5ad0cc3"><span class="section-number-2">6</span> AC power connection</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The AC 230V cable has been attached using an electrical pipe fitting usually found in distribution boxes. It's very practical as it's pretty sturdy and provides a good amount of strain relief for the cable:
@@ -694,8 +694,8 @@ The AC 230V cable has been attached using an electrical pipe fitting usually fou
 </div>
 </div>
 
-<div id="outline-container-org6e3d33b" class="outline-2">
-<h2 id="org6e3d33b"><span class="section-number-2">7</span> Final device</h2>
+<div id="outline-container-org27b9e4e" class="outline-2">
+<h2 id="org27b9e4e"><span class="section-number-2">7</span> Final device</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The final result before the case is screwed on:
@@ -731,7 +731,7 @@ I have also added stickers to showcase maximum current ratings allowed and label
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-01-13 21:43</p>
+<p class="date">Created: 2022-11-05 14:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

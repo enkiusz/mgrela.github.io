@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-13 21:43 -->
+<!-- 2022-11-06 13:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Netgear ReadyNAS RN3138</title>
@@ -234,23 +234,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9138c0d">1. Hardware</a>
+<li><a href="#org50612f8">1. Hardware</a>
 <ul>
-<li><a href="#org0dc952f">1.1. Network traffic observed when NAS is booting</a></li>
+<li><a href="#org6cc6198">1.1. Network traffic observed when NAS is booting</a></li>
 </ul>
 </li>
-<li><a href="#org161eb22">2. Software update mechanism</a>
+<li><a href="#orgc8935cf">2. Software update mechanism</a>
 <ul>
-<li><a href="#org7cacd0f">2.1. Booting an alternative operating system</a></li>
+<li><a href="#org4d1ee8b">2.1. Booting an alternative operating system</a></li>
+</ul>
+</li>
+<li><a href="#org92525d3">3. Mods</a>
+<ul>
+<li><a href="#org371a65b">3.1. Additional hard disks</a></li>
+<li><a href="#org43c4995">3.2. Internal USB storage connector</a></li>
+<li><a href="#org5ac3319">3.3. Voltage, temperature and fan speed monitoring</a></li>
+<li><a href="#org26add0d">3.4. Chassis buttons and LEDs</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<base href="netgear-rn3138/"/>
 
-<div id="outline-container-org9138c0d" class="outline-2">
-<h2 id="org9138c0d"><span class="section-number-2">1</span> Hardware</h2>
+<div id="outline-container-org50612f8" class="outline-2">
+<h2 id="org50612f8"><span class="section-number-2">1</span> Hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Netgear ReadyNAS 3138 is a 1U rack-mounted NAS server with 4 3.5'' SATA drive slots. I have recently purchased such a device in order to use it as a small home fileserver
@@ -264,8 +271,8 @@ All of the currently available information about the device has been moved to <a
 </p>
 </div>
 
-<div id="outline-container-org0dc952f" class="outline-3">
-<h3 id="org0dc952f"><span class="section-number-3">1.1</span> Network traffic observed when NAS is booting</h3>
+<div id="outline-container-org6cc6198" class="outline-3">
+<h3 id="org6cc6198"><span class="section-number-3">1.1</span> Network traffic observed when NAS is booting</h3>
 <div class="outline-text-3" id="text-1-1">
 <pre>
 Aug 13 19:14:50 newton dnsmasq-dhcp[2894]: 4065195709 available DHCP range: 10.2.0.8 -- 10.2.0.14
@@ -430,8 +437,8 @@ Aug 13 19:16:06 newton dnsmasq[2894]: reply d2r4ddhdzue4sy.cloudfront.net is 260
 </div>
 </div>
 
-<div id="outline-container-org161eb22" class="outline-2">
-<h2 id="org161eb22"><span class="section-number-2">2</span> Software update mechanism</h2>
+<div id="outline-container-orgc8935cf" class="outline-2">
+<h2 id="orgc8935cf"><span class="section-number-2">2</span> Software update mechanism</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The NAS operating system contains an automatic software update mechanism which can be triggered from the Admin UI. The below is the documentation of reverse engineering efforts for this mechanism.
@@ -646,8 +653,8 @@ from which the BIOS boots.
 </p>
 </div>
 
-<div id="outline-container-org7cacd0f" class="outline-3">
-<h3 id="org7cacd0f"><span class="section-number-3">2.1</span> Booting an alternative operating system</h3>
+<div id="outline-container-org4d1ee8b" class="outline-3">
+<h3 id="org4d1ee8b"><span class="section-number-3">2.1</span> Booting an alternative operating system</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The knowledge and access we gained on the serial console allows us to boot an alternative operating system on the NAS. We will use <a href="https://www.alpinelinux.org">Alpine Linux</a> x86<sub>64</sub> as a proof of concept as it's one of the smallest
@@ -1455,10 +1462,165 @@ As you can see we have successfully booted Alpine Linux as an alternative OS on 
 </div>
 </div>
 </div>
+<div id="outline-container-org92525d3" class="outline-2">
+<h2 id="org92525d3"><span class="section-number-2">3</span> Mods</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org371a65b" class="outline-3">
+<h3 id="org371a65b"><span class="section-number-3">3.1</span> Additional hard disks</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+The NAS enclosure contains place for 3 additional 2.5'' drives inside, the mainboard has 2 unused SATA connectors. The power supply also has 2 unused SATA power plugs. 
+This setup is perfect for including ZFS L2ARC SSD drives or extra drives for the operating system. A setup like this is visible below:
+</p>
+
+
+<div class="figure">
+<p><a href="netgear-rn3138/netgear-rn3138-additional-2-SFF-drives.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-additional-2-SFF-drives.jpg" alt="thumb-netgear-rn3138-additional-2-SFF-drives.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org43c4995" class="outline-3">
+<h3 id="org43c4995"><span class="section-number-3">3.2</span> Internal USB storage connector</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The NAS is designed to boot from an internal USB storage device plugged directly into the mainboard using a 2mm pitch 9 pin male header. The pinout of this header is 
+identical to the <a href="https://pinoutguide.com/Motherboard/usb_2_1_header_pinout.shtml">USB2.0 9-pin</a> header found on many mainboards, with only port 1 wired. The header also uses a less standard 2mm pitch instead of the typical IDC ("dupont")
+2.54mm pitch.
+</p>
+
+
+<div class="figure">
+<p><a href="netgear-rn3138/netgear-rn3138-J13-pinout.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-J13-pinout.jpg" alt="thumb-netgear-rn3138-J13-pinout.jpg" /></a>
+</p>
+</div>
+
+<p>
+Based on this a simple breakout board can be built to provide a USB-A socket to plug in a different USB storage device. This can be used to quickly swap out different operating systems
+or boot arrangements when maintaining or fixing the device. What you need to keep in mind however is that the connector has a 2mm pitch not the typical 2.54mm. This makes it tricky to 
+use a pre-made perfboard but it's still possible to stick in a 2mm female header forming what is termed a "hedgehog pattern" by electronics professionals 😉.
+</p>
+
+
+<div class="figure">
+<p><a href="netgear-rn3138/netgear-rn3138-2mm-pitch-in-breadboard.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-2mm-pitch-in-breadboard.jpg" alt="thumb-netgear-rn3138-2mm-pitch-in-breadboard.jpg" /></a>
+</p>
+</div>
+
+<p>
+After some drilling, n USB-A connector and jumper wire the following result can be obtained:
+</p>
+
+
+<div class="figure">
+<p><a href="netgear-rn3138/netgear-rn3138-internal-usb-breakout.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-internal-usb-breakout.jpg" alt="thumb-netgear-rn3138-internal-usb-breakout.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5ac3319" class="outline-3">
+<h3 id="org5ac3319"><span class="section-number-3">3.3</span> Voltage, temperature and fan speed monitoring</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+The voltage rails, chassis fans and chassis temperature sensor seem to be monitored in the IT8732F chip on board. The BIOS Setup Utility can report the following readings:
+</p>
+
+<pre>
+       Aptio Setup Utility - Copyright (C) 2013 American Megatrends, Inc.       
+          Advanced                                                              
+┌────────────────────────────────────────────────────┬─────────────────────────┐
+│  Pc Health Status                                  │                         │
+│                                                    │                         │
+│  System temperature3     : +30 ℃                   │                         │
+│  Fan1 Speed              : 5487 RPM                │                         │
+│  Fan2 Speed              : 5769 RPM                │                         │
+│  Fan3 Speed              : 5672 RPM                │                         │
+│  CPUVCORE                : +0.991 V                │                         │
+│  DDR15V_M                : +1.504 V                │                         │
+│  +3V3_SoC                : +3.286 V                │                         │
+│  +5V                     : +4.997 V                │─────────────────────────│
+│  +12V                    : +11.942 V               │→←: Select Screen        │
+│                                                    │↑↓: Select Item          │
+│                                                    │Enter: Select            │
+│                                                    │+/-: Change Opt.         │
+│                                                    │F1: General Help         │
+│                                                    │F2: Previous Values      │
+│                                                    │F3: Optimized Defaults   │
+│                                                    │F4: Save & Exit          │
+│                                                    │ESC: Exit                │
+└────────────────────────────────────────────────────┴─────────────────────────┘
+        Version 2.16.1243. Copyright (C) 2013 American Megatrends, Inc.        
+                                                                             AB
+</pre>
+
+<p>
+When the it87 module is loaded into the linux kernel these stats are represented by files under /sys/class/hwmon/hwmon1. The fan and temperature inputs are pretty easy to figure out
+however the voltage rail to IT87 input mapping is currently unknown.
+</p>
+
+<p>
+The IT87 chip provides PWM outputs for fan speed control. These are driven a bit differently than what <a href="https://github.com/lm-sensors/lm-sensors/blob/master/prog/pwm/pwmconfig">pwmconfig</a> and <a href="https://github.com/lm-sensors/lm-sensors/blob/master/prog/pwm/fancontrol">fancontrol</a> assume. This is likely due to the fan driving circuitry
+granting us the following quirks:
+</p>
+
+<ul class="org-ul">
+<li>the pwm&lt;n&gt;<sub>enable</sub> file does not enable or disable just the PWM like pwmconfig assumes but enables or disables the fan entirely</li>
+<li>the pwm&lt;n&gt; values are inverted, writing 0 spins up the fan to maximum speed, writing 255 stops the fan entirely</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org26add0d" class="outline-3">
+<h3 id="org26add0d"><span class="section-number-3">3.4</span> Chassis buttons and LEDs</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+The chassis contains a number of status indicator LEDs as well as "Unit Identification" and "Reset" buttons. These are used by the original firmware in order to execute factory reset,
+recovery and other special actions. There are also two leds per disk on the chassis. The dmesg of the original firmware hints that all of this can be driven using GPIOs or other
+device-specific kernel code:
+</p>
+
+<pre>
+[    7.012752] readynas_io_init: initializing ReadyNAS I/O.
+[    7.012756] procfs_init: initializing ReadyNAS procfs.
+[    7.012776] pwr_button_state_iniu: initializing ReadyNAS PWR button state hendler for rn313x.
+[    7.012800] button_init: initializing ReadyNAS button set.
+[    7.012804] __button_init: button 'uid7 gpio_it87:55 (POLL)
+[    7.012873] __button_init: button 'reset' gpio_it87:21n (IRQ)
+[    7.013013] rn_button 'reset' IRQ#45
+[    7.015061] input: rn_button as /devices/virtual/input/input2
+[    7.015150] readynas_io_init: initialization successfully completed.
+[    7.015258] readynas_lcd_init: installing ReadyNAS LCD driver.
+[    7.015366] readynas_led_init: installing ReadyNAS LED driver.
+[    7.017734] register_led: registering LED "readynas:green:pwr"
+[    7.017874] register_led: registering LED "readynas:red:err"
+[    7.017974] register_led: registering LED "readynas:blue:uid"
+[    7.018133] register_led: registering LED ".readynas::sata1_pwr"
+[    7.018168] register_led: registering LED ".readynas::sata2_pwr"
+[    7.018201] register_led: registering LED ".readynas::sata3_pwr"
+[    7.018237] register_led: registering LED ".readynas::sata4_pwr"
+[    7.018272] register_led: registering LED "readynas:green:sata1"
+[    7.018303] register_led: registering LED "readynas:green:sata2"
+[    7.018337] register_led: registering LED "readynas:green:sata3"
+[    7.018369] register_led: registering LED "readynas:green:sata4"
+[    7.018401] register_led: registering LED "readynas:red:sata1"
+[    7.018437] register_led: registering LED "readynas:red:sata2"
+[    7.018471] register_led: registering LED "readynas:red:sata3"
+[    7.018506] register_led: registering LED "readynas:red:sata4"
+</pre>
+
+<p>
+The kernel code responsible for the handling of these has not been located yet.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-01-13 21:43</p>
+<p class="date">Created: 2022-11-06 13:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-14 00:00 -->
+<!-- 2022-11-05 14:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>In-situ 18650 heater cell detection</title>
@@ -234,21 +234,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4b13d61">1. Introduction</a></li>
-<li><a href="#orgd95254f">2. tl;dr</a></li>
-<li><a href="#org1457ece">3. Experimental setup</a></li>
-<li><a href="#orgda45484">4. Software</a></li>
-<li><a href="#org912494c">5. Experimental runs</a></li>
-<li><a href="#orge2930bf">6. Data analysis</a>
+<li><a href="#org555ca52">1. Introduction</a></li>
+<li><a href="#org3cbaacd">2. tl;dr</a></li>
+<li><a href="#orge511542">3. Experimental setup</a></li>
+<li><a href="#org13852ea">4. Software</a></li>
+<li><a href="#org3c3d236">5. Experimental runs</a></li>
+<li><a href="#orgdfeaaf3">6. Data analysis</a>
 <ul>
-<li><a href="#org87d395d">6.1. Detecting a heater cell</a>
+<li><a href="#org8911d64">6.1. Detecting a heater cell</a>
 <ul>
-<li><a href="#orgae2b8e1">6.1.1. Experimental run 1</a></li>
-<li><a href="#orgd48a874">6.1.2. Experimental run 2</a></li>
-<li><a href="#org85dfd51">6.1.3. Experimental run 3</a></li>
+<li><a href="#org9d24491">6.1.1. Experimental run 1</a></li>
+<li><a href="#orgc5801a6">6.1.2. Experimental run 2</a></li>
+<li><a href="#org2d37bb3">6.1.3. Experimental run 3</a></li>
 </ul>
 </li>
-<li><a href="#orgb52f6bb">6.2. Locating the heater cell</a></li>
+<li><a href="#org1b0affc">6.2. Locating the heater cell</a></li>
 </ul>
 </li>
 </ul>
@@ -256,8 +256,8 @@ for the JavaScript code in this tag.
 </div>
 <base href="in-situ-18650-heater-detection/"/>
 
-<div id="outline-container-org4b13d61" class="outline-2">
-<h2 id="org4b13d61"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org555ca52" class="outline-2">
+<h2 id="org555ca52"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is the documentation of some experiments I performed in order to ascertain whether it's possible to detect cells generating excessive heat (aka "heaters") in a diy
@@ -266,8 +266,8 @@ This is the documentation of some experiments I performed in order to ascertain 
 </div>
 </div>
 
-<div id="outline-container-orgd95254f" class="outline-2">
-<h2 id="orgd95254f"><span class="section-number-2">2</span> tl;dr</h2>
+<div id="outline-container-org3cbaacd" class="outline-2">
+<h2 id="org3cbaacd"><span class="section-number-2">2</span> tl;dr</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 By using an array of LM75 temperature sensors attached to one side of a 18650 cell pack abnormal heating of a single cell to a temperature of at least 50 deg Celcius
@@ -276,8 +276,8 @@ results in a measureable (2 deg C) temperature anomaly which may allow for heate
 </div>
 </div>
 
-<div id="outline-container-org1457ece" class="outline-2">
-<h2 id="org1457ece"><span class="section-number-2">3</span> Experimental setup</h2>
+<div id="outline-container-orge511542" class="outline-2">
+<h2 id="orge511542"><span class="section-number-2">3</span> Experimental setup</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The experimental setup consists of a fake "pack" built out of 20 no-name 18650 cells connected (spot-welded) to a short strip of the <a href="https://batteryhookup.com/products/nickel-fuse-2p-wide-continuous-roll-by-the-foot-18650-cell-level-fusing">5P continuous nickel fuse roll</a> from
@@ -322,8 +322,8 @@ text. During the experimental runs the temperatures read from U1-U5 sensors are 
 </div>
 </div>
 
-<div id="outline-container-orgda45484" class="outline-2">
-<h2 id="orgda45484"><span class="section-number-2">4</span> Software</h2>
+<div id="outline-container-org13852ea" class="outline-2">
+<h2 id="org13852ea"><span class="section-number-2">4</span> Software</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The experiment is being controlled by an Arduino sketch which performs the following functions:
@@ -480,8 +480,8 @@ The columns convey the following information:
 </div>
 </div>
 
-<div id="outline-container-org912494c" class="outline-2">
-<h2 id="org912494c"><span class="section-number-2">5</span> Experimental runs</h2>
+<div id="outline-container-org3c3d236" class="outline-2">
+<h2 id="org3c3d236"><span class="section-number-2">5</span> Experimental runs</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 There were 3 experimental runs performed with different temperature setpoints for the heater but otherwise identical circumstances. Ambient temperature was not controlled but 
@@ -546,8 +546,8 @@ The phases are not explicitly marked in the data but can be noticed when observi
 </div>
 </div>
 
-<div id="outline-container-orge2930bf" class="outline-2">
-<h2 id="orge2930bf"><span class="section-number-2">6</span> Data analysis</h2>
+<div id="outline-container-orgdfeaaf3" class="outline-2">
+<h2 id="orgdfeaaf3"><span class="section-number-2">6</span> Data analysis</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The goal of the experiment is to ascertain whether an array of simple temperature sensors attached to a 18650 cell pack can successfully detect and/or locate a cell experiencing 
@@ -555,8 +555,8 @@ abnormal heat generation during charging or discharging.
 </p>
 </div>
 
-<div id="outline-container-org87d395d" class="outline-3">
-<h3 id="org87d395d"><span class="section-number-3">6.1</span> Detecting a heater cell</h3>
+<div id="outline-container-org8911d64" class="outline-3">
+<h3 id="org8911d64"><span class="section-number-3">6.1</span> Detecting a heater cell</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 In order to move towards this goal first some analysis was done on the raw data to check if there is any difference between the temperatures detected by particular sensors in order 
@@ -564,7 +564,7 @@ to detect an anomaly. A Python script was developed for this purpose and ran aga
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org7b40018"><span style="color: #4f97d7; font-weight: bold;">import</span> pandas <span style="color: #4f97d7; font-weight: bold;">as</span> pd
+<pre class="src src-python" id="org4b939be"><span style="color: #4f97d7; font-weight: bold;">import</span> pandas <span style="color: #4f97d7; font-weight: bold;">as</span> pd
 <span style="color: #4f97d7; font-weight: bold;">import</span> numpy <span style="color: #4f97d7; font-weight: bold;">as</span> np
 
 <span style="color: #7590db;">columns</span> = <span style="color: #4f97d7;">[</span> <span style="color: #2d9574;">"time"</span>,<span style="color: #2d9574;">"target_temp[degC]"</span>,<span style="color: #2d9574;">"temp[degC]"</span>,<span style="color: #2d9574;">"pwm[%]"</span>,<span style="color: #2d9574;">"U1[degC]"</span>,<span style="color: #2d9574;">"U2[degC]"</span>,<span style="color: #2d9574;">"U3[degC]"</span>,<span style="color: #2d9574;">"U4[degC]"</span>,<span style="color: #2d9574;">"U5[degC]"</span> <span style="color: #4f97d7;">]</span>
@@ -581,8 +581,8 @@ to detect an anomaly. A Python script was developed for this purpose and ran aga
 </div>
 </div>
 
-<div id="outline-container-orgae2b8e1" class="outline-4">
-<h4 id="orgae2b8e1"><span class="section-number-4">6.1.1</span> Experimental run 1</h4>
+<div id="outline-container-org9d24491" class="outline-4">
+<h4 id="org9d24491"><span class="section-number-4">6.1.1</span> Experimental run 1</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <pre class="example">
 Data from in-situ-18650-heater-detection/09.01.2022_15.47.18.318Z_Log.csv:
@@ -614,8 +614,8 @@ Name: temp_anomaly, dtype: float64
 </div>
 </div>
 
-<div id="outline-container-orgd48a874" class="outline-4">
-<h4 id="orgd48a874"><span class="section-number-4">6.1.2</span> Experimental run 2</h4>
+<div id="outline-container-orgc5801a6" class="outline-4">
+<h4 id="orgc5801a6"><span class="section-number-4">6.1.2</span> Experimental run 2</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <pre class="example">
 Data from in-situ-18650-heater-detection/10.01.2022_14.57.09.844Z_Log.csv:
@@ -647,8 +647,8 @@ Name: temp_anomaly, dtype: float64
 </div>
 </div>
 
-<div id="outline-container-org85dfd51" class="outline-4">
-<h4 id="org85dfd51"><span class="section-number-4">6.1.3</span> Experimental run 3</h4>
+<div id="outline-container-org2d37bb3" class="outline-4">
+<h4 id="org2d37bb3"><span class="section-number-4">6.1.3</span> Experimental run 3</h4>
 <div class="outline-text-4" id="text-6-1-3">
 <pre class="example">
 Data from in-situ-18650-heater-detection/11.01.2022_10.23.06.399Z_Log.csv:
@@ -729,8 +729,8 @@ As expected the observed maximum anomaly is larger when the heater setpoint is h
 </div>
 </div>
 
-<div id="outline-container-orgb52f6bb" class="outline-3">
-<h3 id="orgb52f6bb"><span class="section-number-3">6.2</span> Locating the heater cell</h3>
+<div id="outline-container-org1b0affc" class="outline-3">
+<h3 id="org1b0affc"><span class="section-number-3">6.2</span> Locating the heater cell</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 The knowledge of the sensor board geometry and layout against the cells in the pack may allow for estimating the approximate location of a heater cell.
@@ -741,7 +741,7 @@ The knowledge of the sensor board geometry and layout against the cells in the p
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-01-14 00:00</p>
+<p class="date">Created: 2022-11-05 14:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
