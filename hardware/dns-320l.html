@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 14:24 -->
+<!-- 2022-12-10 17:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>DNS-320L NAS</title>
@@ -239,8 +239,9 @@ for the JavaScript code in this tag.
 <ul>
 <li>
 <ul>
-<li><a href="#orgd3950f7">2.0.1. Weltrend WT69P3</a></li>
-<li><a href="#org6627816">2.0.2. JP2 connector</a></li>
+<li><a href="#org67f38de">2.0.1. JP1 connector</a></li>
+<li><a href="#orgd3950f7">2.0.2. Weltrend WT69P3</a></li>
+<li><a href="#org6627816">2.0.3. JP2 connector</a></li>
 </ul>
 </li>
 </ul>
@@ -533,9 +534,69 @@ The board contains four LEDs with the following purpose:
 </table>
 </div>
 
-<div id="outline-container-orgd3950f7" class="outline-4">
-<h4 id="orgd3950f7"><span class="section-number-4">2.0.1</span> Weltrend WT69P3</h4>
+<div id="outline-container-org67f38de" class="outline-4">
+<h4 id="org67f38de"><span class="section-number-4">2.0.1</span> JP1 connector</h4>
 <div class="outline-text-4" id="text-2-0-1">
+<p>
+The JP1 connector is the bootloader and device operating system console. It runs at 3.3V logic levels with baudrate of 115200 bps, 8 bits, no parity and 1 stop bit. 
+The pinout is the following:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Pin number</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">RXD</td>
+<td class="org-left">Square pad, Device &lt;&#x2013; Host</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">N/C</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">3.3V</td>
+<td class="org-left">source</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">GND</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">TXD</td>
+<td class="org-left">Device &#x2013;&gt; Host</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd3950f7" class="outline-4">
+<h4 id="orgd3950f7"><span class="section-number-4">2.0.2</span> Weltrend WT69P3</h4>
+<div class="outline-text-4" id="text-2-0-2">
 <p>
 The WT69P3 is a systems management MCU which controls the power to the board, provides an RTC for time keeping and controls the fan. The MCU is connected via a RS232 link with the
 main CPU and in the original firmare a daemon in the system communicates with it. The communications protocol has been reverse-engineered and there exist at least two
@@ -545,8 +606,8 @@ independent open-source implementations of the manamgement daemon - <a href="htt
 </div>
 
 <div id="outline-container-org6627816" class="outline-4">
-<h4 id="org6627816"><span class="section-number-4">2.0.2</span> JP2 connector</h4>
-<div class="outline-text-4" id="text-2-0-2">
+<h4 id="org6627816"><span class="section-number-4">2.0.3</span> JP2 connector</h4>
+<div class="outline-text-4" id="text-2-0-3">
 <p>
 This connector seems to terminate an I2C bus. Both lines have pullups to +3.3 V and the Weltrend chip's ISP protocol is I2C according to <a href="http://www.weltrend.com/en-global/support/detail/69/125/89#">information from the manufacturer</a>.
 Unfortunately the programmer software published uses a custom WLINK-I2C adapter with a <a href="http://www.weltrend.com.tw/en-global/product/detail/66/83/259">WT6563</a> microcontroller. Unfortunately I was not able to find any place selling this 
@@ -1798,7 +1859,7 @@ This is a list of references I used when working on the NAS. A lot has been done
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-11-05 14:24</p>
+<p class="date">Created: 2022-12-10 17:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
