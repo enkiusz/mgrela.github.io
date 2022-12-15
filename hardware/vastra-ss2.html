@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-12-15 00:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vastra SS2 Smart</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Vastra SS2 Smart</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgef1411f">1. Hardware</a>
+<ul>
+<li><a href="#org14935ba">1.1. Boards</a></li>
+<li><a href="#orge7fd40f">1.2. CON Board (Controller)</a>
+<ul>
+<li><a href="#org3d752dc">1.2.1. WR3 Wireless module</a></li>
+<li><a href="#org967a614">1.2.2. J4 UART interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org42a86f8">2. Application</a></li>
+</ul>
+</div>
+</div>
+<base href="vastra-ss2/"/>
+
+<div id="outline-container-orgef1411f" class="outline-2">
+<h2 id="orgef1411f"><span class="section-number-2">1</span> Hardware</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org14935ba" class="outline-3">
+<h3 id="org14935ba"><span class="section-number-3">1.1</span> Boards</h3>
+<div class="outline-text-3" id="text-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Board ID</th>
+<th scope="col" class="org-left">Silkscreen</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">PSU1</td>
+<td class="org-left">SW3A-POWER V1.3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">USB</td>
+<td class="org-left">SW3A-USB V1.3</td>
+<td class="org-left">Not used in SS2 model (no USB ports)</td>
+</tr>
+
+<tr>
+<td class="org-left">CON</td>
+<td class="org-left">SW3A-Control V1.3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge7fd40f" class="outline-3">
+<h3 id="orge7fd40f"><span class="section-number-3">1.2</span> CON Board (Controller)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Notable parts
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Designation</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Part identification</th>
+<th scope="col" class="org-left">Datasheet</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">U7</td>
+<td class="org-left">Wireless module</td>
+<td class="org-left">P/N: WR3, Model: 2.22.33.00348</td>
+<td class="org-left">See below</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">U3, U4, U5</td>
+<td class="org-left">Likely an ADC</td>
+<td class="org-left">BL 0937</td>
+<td class="org-left">Might be AD7991</td>
+<td class="org-left">one per AC socket</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1926AYH</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">D7991OOV</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">U6</td>
+<td class="org-left">8051 microcontroller</td>
+<td class="org-left">STC 8F</td>
+<td class="org-left"><a href="https://www.stcmicro.com/stc/stc8f2k64s2.html">https://www.stcmicro.com/stc/stc8f2k64s2.html</a></td>
+<td class="org-left">Current and power measurements</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2K32S2E</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">A743634</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">J4</td>
+<td class="org-left">UART connection</td>
+<td class="org-left">2.54mm 4P header</td>
+<td class="org-left">9600 bits/s, 8 bits, no parity, 1 stop bit</td>
+<td class="org-left">labels are from the perspective of the host, for example line labeled RXD is where the device <b>transmits</b> data, non-isolated from mains AC!!!</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">J3</td>
+<td class="org-left">Power input</td>
+<td class="org-left">JST XH 4 pin male</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Label says 5V but it's 3.3V in reality</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-org3d752dc" class="outline-4">
+<h4 id="org3d752dc"><span class="section-number-4">1.2.1</span> WR3 Wireless module</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+The WR3 Wireless module is based on the Realtek RTL8710BN chip.
+</p>
+
+<p>
+Some people have attempted to replace this module with an ESP-12 to improve compatibility.
+</p>
+
+<p>
+<a href="https://blakadder.com/replace-tuya-esp12/">https://blakadder.com/replace-tuya-esp12/</a>
+</p>
+
+
+<p>
+Original information on Tuya's site about the module
+<a href="https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?id=K9g3ainzbj9z1">https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?id=K9g3ainzbj9z1</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org967a614" class="outline-4">
+<h4 id="org967a614"><span class="section-number-4">1.2.2</span> J4 UART interface</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+The J4 UART interface seems to be transmitting periodic data about the AC mains voltage as well as the current draw and total energy for all sockets. This information is fed straight
+to the mobile application.
+</p>
+
+<pre>
+Type [C-a] [C-h] to see available commands
+Terminal ready
+226.0     0mA   0.0    0.00     0mA   4.4    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   162mA  20.5    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   100mA  10.9    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   100mA  10.6    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   103mA  11.5    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00    98mA  10.9    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   105mA  11.6    0.00     0mA   0.0    0.00 
+^^^^^     ^^^   ^^^    ^^^^
+|         |     |      |
+|         |     |      total energy (kWh)
+|         |     Power (W)
+|         Current 
+Voltage
+          ------------------  --------------------    ------------------
+          Socket 1            Socket 2                Socket 3
+</pre>
+
+<p>
+The power measurement seems off because 226 V * 0.105 A = 23.730 W not 11.6 W like the device indicates (last line for Socket 2).
+</p>
+
+<p>
+The UART does not serve any other purpose, there is no traffic observed when the individual sockets are switched on or off. This looks to be controlled by a different 
+set of GPIO pins from the WR3 module.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org42a86f8" class="outline-2">
+<h2 id="org42a86f8"><span class="section-number-2">2</span> Application</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The device's controlling application can be downloaded from the Google Play store under the name "Vastra Smart Devices" and package id pl.vastra.android.smartdevices.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2022-12-15 00:46</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
