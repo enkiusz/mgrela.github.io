@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 14:24 -->
+<!-- 2022-12-20 14:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Enecsys Gateway CG-A-AB-US-1</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,86 +191,39 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Enecsys Gateway CG-A-AB-US-1</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbee50d0">1. Intro</a></li>
-<li><a href="#org12a9514">2. Zigbee Radio</a></li>
-<li><a href="#org194d1ad">3. Network interface</a>
+<li><a href="#orgdeaa4e9">1. Intro</a></li>
+<li><a href="#orgb55d549">2. Zigbee Radio</a></li>
+<li><a href="#org245ad38">3. Network interface</a>
 <ul>
-<li><a href="#orgf1675fe">3.1. Device bootup</a></li>
-<li><a href="#org3ccf3de">3.2. Port scans</a></li>
-<li><a href="#orgf378f04">3.3. The Web Interface</a>
+<li><a href="#org35ca03b">3.1. Device bootup</a></li>
+<li><a href="#org1a67078">3.2. Port scans</a></li>
+<li><a href="#org2d6a9f0">3.3. The Web Interface</a>
 <ul>
-<li><a href="#org95b4edc">3.3.1. Main user interface</a></li>
-<li><a href="#org86bb1bc">3.3.2. Debug Interface</a></li>
-<li><a href="#org735c020">3.3.3. The MPFS upload</a></li>
+<li><a href="#orgb9a836c">3.3.1. Main user interface</a></li>
+<li><a href="#org1474c1d">3.3.2. Debug Interface</a></li>
+<li><a href="#orgb46f568">3.3.3. The MPFS upload</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org507a821">4. Debug Messages Format</a></li>
+<li><a href="#org22bee03">4. Debug Messages Format</a></li>
 </ul>
 </div>
 </div>
 <base href="enecsys-gateway-cg-a-ab-us-1/"/>
 
-<div id="outline-container-orgbee50d0" class="outline-2">
-<h2 id="orgbee50d0"><span class="section-number-2">1</span> Intro</h2>
+<div id="outline-container-orgdeaa4e9" class="outline-2">
+<h2 id="orgdeaa4e9"><span class="section-number-2">1.</span> Intro</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Enecsys Gateway is a Zigbee gateway allowing communications between the Enecsys microinverters and their monitoring backend. The Enecsys company is unfortunately <a href="https://businessbankruptcies.com/cases/enecsys-llc">defunct since 2015</a>
@@ -265,8 +232,8 @@ and their DNS domains have been taken over by a UK enecsys owner who created his
 </div>
 </div>
 
-<div id="outline-container-org12a9514" class="outline-2">
-<h2 id="org12a9514"><span class="section-number-2">2</span> Zigbee Radio</h2>
+<div id="outline-container-orgb55d549" class="outline-2">
+<h2 id="orgb55d549"><span class="section-number-2">2.</span> Zigbee Radio</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. This
@@ -411,12 +378,12 @@ LCD.
 </div>
 
 
-<div id="outline-container-org194d1ad" class="outline-2">
-<h2 id="org194d1ad"><span class="section-number-2">3</span> Network interface</h2>
+<div id="outline-container-org245ad38" class="outline-2">
+<h2 id="org245ad38"><span class="section-number-2">3.</span> Network interface</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf1675fe" class="outline-3">
-<h3 id="orgf1675fe"><span class="section-number-3">3.1</span> Device bootup</h3>
+<div id="outline-container-org35ca03b" class="outline-3">
+<h3 id="org35ca03b"><span class="section-number-3">3.1.</span> Device bootup</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 During the gateway bootup the following network traffic can be seen:
@@ -428,8 +395,8 @@ During the gateway bootup the following network traffic can be seen:
 </div>
 </div>
 
-<div id="outline-container-org3ccf3de" class="outline-3">
-<h3 id="org3ccf3de"><span class="section-number-3">3.2</span> Port scans</h3>
+<div id="outline-container-org1a67078" class="outline-3">
+<h3 id="org1a67078"><span class="section-number-3">3.2.</span> Port scans</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 TCP port scan results for the gateway's IPv4 address:
@@ -483,8 +450,8 @@ Nmap done: 1 IP address (1 host up) scanned in 1314.44 seconds
 </div>
 </div>
 
-<div id="outline-container-orgf378f04" class="outline-3">
-<h3 id="orgf378f04"><span class="section-number-3">3.3</span> The Web Interface</h3>
+<div id="outline-container-org2d6a9f0" class="outline-3">
+<h3 id="org2d6a9f0"><span class="section-number-3">3.3.</span> The Web Interface</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 The default credentials for the web interface are admin/password. You can tell that the gateway is (c) 2009 as there is no way to change the admin password ;).
@@ -539,8 +506,8 @@ The following endpoints have been detected on the device:
 </table>
 </div>
 
-<div id="outline-container-org95b4edc" class="outline-4">
-<h4 id="org95b4edc"><span class="section-number-4">3.3.1</span> Main user interface</h4>
+<div id="outline-container-orgb9a836c" class="outline-4">
+<h4 id="orgb9a836c"><span class="section-number-4">3.3.1.</span> Main user interface</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 The main user interface has basic settings like IP address and it can be used to set the remote monitoring server hostname and port. Apart from that NTP and proxy can be configured. 
@@ -548,15 +515,15 @@ Here is a screenshot of the main UI:
 </p>
 
 
-<div class="figure">
+<div id="org1e1e925" class="figure">
 <p><a href="main-ui.png"><img src="thumb-main-ui.png" alt="thumb-main-ui.png" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org86bb1bc" class="outline-4">
-<h4 id="org86bb1bc"><span class="section-number-4">3.3.2</span> Debug Interface</h4>
+<div id="outline-container-org1474c1d" class="outline-4">
+<h4 id="org1474c1d"><span class="section-number-4">3.3.2.</span> Debug Interface</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 The debug interface allows us to see what messages the Zigbee Module UART sends to the main MCU. These appear to be raw decrypted contents of Zigbee frames from the inverters as well as
@@ -565,7 +532,7 @@ section near the end of the document. There is also a status display about the Z
 </p>
 
 
-<div class="figure">
+<div id="orge007be1" class="figure">
 <p><a href="debug-ui.png"><img src="thumb-debug-ui.png" alt="thumb-debug-ui.png" /></a>
 </p>
 </div>
@@ -575,7 +542,7 @@ The debug UI polls the /ajax.xml endpoint in the background in order to receive 
 following XML:
 </p>
 
-<div class="ajax_xml">
+<div class="ajax_xml" id="org7e274ad">
 <p>
 &lt;response&gt;
 &lt;zigbeeData&gt;&lt;/zigbeeData&gt;
@@ -697,8 +664,8 @@ following XML:
 </div>
 </div>
 
-<div id="outline-container-org735c020" class="outline-4">
-<h4 id="org735c020"><span class="section-number-4">3.3.3</span> The MPFS upload</h4>
+<div id="outline-container-orgb46f568" class="outline-4">
+<h4 id="orgb46f568"><span class="section-number-4">3.3.3.</span> The MPFS upload</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 The MPFS is an internal HTTP upload server enabled by default in the Microchip TCP/IP stack. This feature can be used to upload files into the internal flash and possibly even modify
@@ -711,8 +678,8 @@ of the Zigbee traffic encryption happens in the Zigbee module and the Microchip 
 </div>
 
 
-<div id="outline-container-org507a821" class="outline-2">
-<h2 id="org507a821"><span class="section-number-2">4</span> Debug Messages Format</h2>
+<div id="outline-container-org22bee03" class="outline-2">
+<h2 id="org22bee03"><span class="section-number-2">4.</span> Debug Messages Format</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A number of debug messages have been captured so far when the device and inverter were in various operational modes. Based on simple time correlation the messages sent out from the
@@ -1074,8 +1041,8 @@ by the inverter which have not yet been located:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-11-05 14:24</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2022-12-20 14:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

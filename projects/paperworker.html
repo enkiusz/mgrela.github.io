@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 14:24 -->
+<!-- 2022-12-20 14:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Paperworker</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,73 +191,26 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Paperworker</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3052737">1. Rationale</a></li>
-<li><a href="#orgdae6054">2. Hardware</a></li>
-<li><a href="#org85d15f1">3. Software</a></li>
+<li><a href="#org1c5fa1e">1. Rationale</a></li>
+<li><a href="#orgc3a966d">2. Hardware</a></li>
+<li><a href="#orgf44d47d">3. Software</a></li>
 </ul>
 </div>
 </div>
 <base href="paperworker/"/>
 
-<div id="outline-container-org3052737" class="outline-2">
-<h2 id="org3052737"><span class="section-number-2">1</span> Rationale</h2>
+<div id="outline-container-org1c5fa1e" class="outline-2">
+<h2 id="org1c5fa1e"><span class="section-number-2">1.</span> Rationale</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The paperworker project is a simple and cheap paper document scanning solution to handle all of my incoming paperwork. I generally feed all of the incoming papers into the machine 
@@ -252,21 +219,21 @@ and then just pick up the small amount of paper documents that I actually want t
 </div>
 </div>
 
-<div id="outline-container-orgdae6054" class="outline-2">
-<h2 id="orgdae6054"><span class="section-number-2">2</span> Hardware</h2>
+<div id="outline-container-orgc3a966d" class="outline-2">
+<h2 id="orgc3a966d"><span class="section-number-2">2.</span> Hardware</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First, a photo of the completed device:
 </p>
 
 
-<div class="figure">
+<div id="org718b6d2" class="figure">
 <p><img src="finished-front.jpg" alt="finished-front.jpg" />
 </p>
 </div>
 
 
-<div class="figure">
+<div id="orgc80855d" class="figure">
 <p><img src="finished-back.jpg" alt="finished-back.jpg" />
 </p>
 </div>
@@ -281,7 +248,7 @@ Now for the building steps. First we dive into a garbage pile in our workshop an
 </p>
 
 
-<div class="figure">
+<div id="org2992438" class="figure">
 <p><img src="base-board.jpg" alt="base-board.jpg" />
 </p>
 </div>
@@ -291,7 +258,7 @@ First we take care of the box, by using a boxcutter make it into shape, it shoul
 </p>
 
 
-<div class="figure">
+<div id="org9da7cd6" class="figure">
 <p><img src="box-after.jpg" alt="box-after.jpg" />
 </p>
 </div>
@@ -308,7 +275,7 @@ This is a bad idea, find a file and file it down instead :)
 </p>
 
 
-<div class="figure">
+<div id="org34c2817" class="figure">
 <p><img src="corner-brackets-scanner.jpg" alt="corner-brackets-scanner.jpg" />
 </p>
 </div>
@@ -319,7 +286,7 @@ decided to grind down a slot in one of the brackets to make room for the USB plu
 </p>
 
 
-<div class="figure">
+<div id="org3e05b06" class="figure">
 <p><img src="hole-for-usb-plug.jpg" alt="hole-for-usb-plug.jpg" />
 </p>
 </div>
@@ -329,7 +296,7 @@ Now tape all four corner brackets and see how they fit on the board with the box
 </p>
 
 
-<div class="figure">
+<div id="org69b74aa" class="figure">
 <p><img src="taped-corner-brackets.jpg" alt="taped-corner-brackets.jpg" />
 </p>
 </div>
@@ -340,7 +307,7 @@ everything will fit pretty well while still allowing for adjustments with a bit 
 </p>
 
 
-<div class="figure">
+<div id="orgafe310e" class="figure">
 <p><img src="mounted-scanner.jpg" alt="mounted-scanner.jpg" />
 </p>
 </div>
@@ -350,7 +317,7 @@ The basic parts of our device are almost there:
 </p>
 
 
-<div class="figure">
+<div id="org64284c0" class="figure">
 <p><img src="basic-parts-upright.jpg" alt="basic-parts-upright.jpg" />
 </p>
 </div>
@@ -360,7 +327,7 @@ Now we need to make a board by using another piece of chipboard as well as 4 cor
 </p>
 
 
-<div class="figure">
+<div id="org207c9f0" class="figure">
 <p><img src="base-with-main-board.jpg" alt="base-with-main-board.jpg" />
 </p>
 </div>
@@ -371,7 +338,7 @@ corner bracket to mount it on the back of the main board:
 </p>
 
 
-<div class="figure">
+<div id="orged2effe" class="figure">
 <p><img src="kektop-mounting-bracket.jpg" alt="kektop-mounting-bracket.jpg" />
 </p>
 </div>
@@ -381,7 +348,7 @@ Mount the kektop as close to the base as possible to offset the weight of the sc
 </p>
 
 
-<div class="figure">
+<div id="org7c62a9f" class="figure">
 <p><img src="kektop-mounted.jpg" alt="kektop-mounted.jpg" />
 </p>
 </div>
@@ -392,13 +359,13 @@ make everything fit:
 </p>
 
 
-<div class="figure">
+<div id="org4573e5b" class="figure">
 <p><img src="power-supply.jpg" alt="power-supply.jpg" />
 </p>
 </div>
 
 
-<div class="figure">
+<div id="org34df843" class="figure">
 <p><img src="power-supply-mounted.jpg" alt="power-supply-mounted.jpg" />
 </p>
 </div>
@@ -409,7 +376,7 @@ Now for the mounting of the cardboard box. We will use flat hard disk magnets to
 </p>
 
 
-<div class="figure">
+<div id="orgae8ac0a" class="figure">
 <p><img src="magnets-board.jpg" alt="magnets-board.jpg" />
 </p>
 </div>
@@ -419,7 +386,7 @@ Now after putting the box on top of them we glue the 3 other magnets so that the
 </p>
 
 
-<div class="figure">
+<div id="orga2ff8be" class="figure">
 <p><img src="magnets-box.jpg" alt="magnets-box.jpg" />
 </p>
 </div>
@@ -427,8 +394,8 @@ Now after putting the box on top of them we glue the 3 other magnets so that the
 </div>
 
 
-<div id="outline-container-org85d15f1" class="outline-2">
-<h2 id="org85d15f1"><span class="section-number-2">3</span> Software</h2>
+<div id="outline-container-orgf44d47d" class="outline-2">
+<h2 id="orgf44d47d"><span class="section-number-2">3.</span> Software</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 I use <a href="https://github.com/Flameeyes/unpaper/">unpaper</a> to process the incoming scan bitmaps. It cleans up all of the scans, removes spurious rotations and does other tricks to make the scanned images easier to handle.
@@ -438,8 +405,8 @@ I use <a href="https://github.com/Flameeyes/unpaper/">unpaper</a> to process the
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-11-05 14:24</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2022-12-20 14:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

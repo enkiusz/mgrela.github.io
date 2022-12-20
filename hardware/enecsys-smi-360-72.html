@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 14:24 -->
+<!-- 2022-12-20 14:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Enecsys SMI-360-72 Microinverter</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,73 +191,26 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Enecsys SMI-360-72 Microinverter</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga9e3bbf">1. Intro</a></li>
-<li><a href="#org1b2b542">2. Zigbee Radio</a></li>
-<li><a href="#orge087cc5">3. Random links</a></li>
+<li><a href="#orgea9239f">1. Intro</a></li>
+<li><a href="#org16d6412">2. Zigbee Radio</a></li>
+<li><a href="#org93032d3">3. Random links</a></li>
 </ul>
 </div>
 </div>
 <base href="enecsys-smi-360-72-microinverter/"/>
 
-<div id="outline-container-orga9e3bbf" class="outline-2">
-<h2 id="orga9e3bbf"><span class="section-number-2">1</span> Intro</h2>
+<div id="outline-container-orgea9239f" class="outline-2">
+<h2 id="orgea9239f"><span class="section-number-2">1.</span> Intro</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is a page describing my notes about the Enecsys SMI-360-72 microinverter with main focus on reverse-engineering the 802.15.4 (Zigbee) communications protocol used for 
@@ -252,8 +219,8 @@ monitoring of the microinverter parameters by a Enecsys Gateway device documente
 </div>
 </div>
 
-<div id="outline-container-org1b2b542" class="outline-2">
-<h2 id="org1b2b542"><span class="section-number-2">2</span> Zigbee Radio</h2>
+<div id="outline-container-org16d6412" class="outline-2">
+<h2 id="org16d6412"><span class="section-number-2">2.</span> Zigbee Radio</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The inverter contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. This module is based on now <a href="https://www.silabs.com/documents/public/pcns/2112141160-End-of-Life-Notification-for-EM250-and-EM260-IC-Products.pdf">end-of-life</a> EM250 chip sold by Silicon Labs. It's been built by a company 
@@ -278,8 +245,8 @@ confirmed on the Digi (maker of XBee) <a href="https://www.digi.com/support/foru
 </div>
 </div>
 
-<div id="outline-container-orge087cc5" class="outline-2">
-<h2 id="orge087cc5"><span class="section-number-2">3</span> Random links</h2>
+<div id="outline-container-org93032d3" class="outline-2">
+<h2 id="org93032d3"><span class="section-number-2">3.</span> Random links</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 A random thread on Microchip's forum describing how you can enter the Ember bootloader from the AT command (default firmware) by entering 
@@ -302,7 +269,7 @@ B
 
 <p>
 The documentation for the EM250 development kit. Contains instructions on hardware setup and xIDE installation:
-<a href="https://www.mouser.com/catalog/specsheets/silicon%20laboratories_108.pdf">https://www.mouser.com/catalog/specsheets/silicon laboratories_108.pdf</a>
+<a href="https://www.mouser.com/catalog/specsheets/silicon%20laboratories_108.pdf">https://www.mouser.com/catalog/specsheets/silicon%20laboratories_108.pdf</a>
 </p>
 
 
@@ -316,8 +283,8 @@ pricey (300 USD) but I suppose all of this expensive Imaginary Property needed t
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-11-05 14:24</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2022-12-20 14:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

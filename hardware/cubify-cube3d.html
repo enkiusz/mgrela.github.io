@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 14:24 -->
+<!-- 2022-12-20 14:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cubify Cube 3D printer</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,75 +191,28 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Cubify Cube 3D printer</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org86deba0">1. Main board</a>
+<li><a href="#orgddbda47">1. Main board</a>
 <ul>
-<li><a href="#org3839531">1.1. Chips</a></li>
-<li><a href="#orgb057e9c">1.2. Connectors</a></li>
-<li><a href="#org965a9aa">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
+<li><a href="#orgf9dce8d">1.1. Chips</a></li>
+<li><a href="#orgc3a082e">1.2. Connectors</a></li>
+<li><a href="#orgb852552">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
 </ul>
 </li>
-<li><a href="#org0a540b8">2. Cartridges</a></li>
-<li><a href="#org09b0905">3. Software</a></li>
-<li><a href="#orgbbdcb88">4. CONN12 output while printing</a></li>
-<li><a href="#orgdac105c">5. Firmware update</a></li>
-<li><a href="#orga5c9672">6. Links</a></li>
+<li><a href="#orgb22a70b">2. Cartridges</a></li>
+<li><a href="#org373e32b">3. Software</a></li>
+<li><a href="#org9d6a056">4. CONN12 output while printing</a></li>
+<li><a href="#org966480f">5. Firmware update</a></li>
+<li><a href="#org90738e0">6. Links</a></li>
 </ul>
 </div>
 </div>
@@ -261,12 +228,12 @@ two cartridges of filament.
 Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </p>
 
-<div id="outline-container-org86deba0" class="outline-2">
-<h2 id="org86deba0"><span class="section-number-2">1</span> Main board</h2>
+<div id="outline-container-orgddbda47" class="outline-2">
+<h2 id="orgddbda47"><span class="section-number-2">1.</span> Main board</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org3839531" class="outline-3">
-<h3 id="org3839531"><span class="section-number-3">1.1</span> Chips</h3>
+<div id="outline-container-orgf9dce8d" class="outline-3">
+<h3 id="orgf9dce8d"><span class="section-number-3">1.1.</span> Chips</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -327,8 +294,8 @@ Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </div>
 
 
-<div id="outline-container-orgb057e9c" class="outline-3">
-<h3 id="orgb057e9c"><span class="section-number-3">1.2</span> Connectors</h3>
+<div id="outline-container-orgc3a082e" class="outline-3">
+<h3 id="orgc3a082e"><span class="section-number-3">1.2.</span> Connectors</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 There are the following connectors on the board:
@@ -344,8 +311,8 @@ There are the following connectors on the board:
 </div>
 </div>
 
-<div id="outline-container-org965a9aa" class="outline-3">
-<h3 id="org965a9aa"><span class="section-number-3">1.3</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
+<div id="outline-container-orgb852552" class="outline-3">
+<h3 id="orgb852552"><span class="section-number-3">1.3.</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 I soldered two new pin headers onto the board to access the PICkit2 connector as well as the CONN12 which I expected would be the serial port. 
@@ -505,8 +472,8 @@ EXIT
 </div>
 </div>
 
-<div id="outline-container-org0a540b8" class="outline-2">
-<h2 id="org0a540b8"><span class="section-number-2">2</span> Cartridges</h2>
+<div id="outline-container-orgb22a70b" class="outline-2">
+<h2 id="orgb22a70b"><span class="section-number-2">2.</span> Cartridges</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The chip inside the cartridge with filament is a DS28E01.
@@ -514,8 +481,8 @@ The chip inside the cartridge with filament is a DS28E01.
 </div>
 </div>
 
-<div id="outline-container-org09b0905" class="outline-2">
-<h2 id="org09b0905"><span class="section-number-2">3</span> Software</h2>
+<div id="outline-container-org373e32b" class="outline-2">
+<h2 id="org373e32b"><span class="section-number-2">3.</span> Software</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The software needed is the older Cubify not the new Cube Print. When trying to print the new files the printer displays a message "Cannot print this file".
@@ -524,8 +491,8 @@ The software needed is the older Cubify not the new Cube Print. When trying to p
 </div>
 
 
-<div id="outline-container-orgbbdcb88" class="outline-2">
-<h2 id="orgbbdcb88"><span class="section-number-2">4</span> CONN12 output while printing</h2>
+<div id="outline-container-org9d6a056" class="outline-2">
+<h2 id="org9d6a056"><span class="section-number-2">4.</span> CONN12 output while printing</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Besides communication from the microcontroller to the WLAN chip the CONN12 serial port serves also as a debug console. I have wired an external cable reaching out of the case
@@ -1316,8 +1283,8 @@ After print an information about firmware update is shown. This might mean that 
 </div>
 </div>
 
-<div id="outline-container-orgdac105c" class="outline-2">
-<h2 id="orgdac105c"><span class="section-number-2">5</span> Firmware update</h2>
+<div id="outline-container-org966480f" class="outline-2">
+<h2 id="org966480f"><span class="section-number-2">5.</span> Firmware update</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 When the update firmware option is selected the USB port becomes active and reports as a Microchip USB HID Bootloader:
@@ -1431,8 +1398,8 @@ Reading memory&#x2026;
 </div>
 </div>
 
-<div id="outline-container-orga5c9672" class="outline-2">
-<h2 id="orga5c9672"><span class="section-number-2">6</span> Links</h2>
+<div id="outline-container-org90738e0" class="outline-2">
+<h2 id="org90738e0"><span class="section-number-2">6.</span> Links</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Forum thread about teardown of cubify cube 3:
@@ -1447,8 +1414,8 @@ Firmware files are supposed to be found at: <a href="http://cubify.s3.amazonaws.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-11-05 14:24</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2022-12-20 14:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

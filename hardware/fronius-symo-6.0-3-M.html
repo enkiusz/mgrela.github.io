@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 14:24 -->
+<!-- 2022-12-20 14:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fronius Symo 6.0-3-M inverter</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,77 +191,30 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Fronius Symo 6.0-3-M inverter</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org21c24ba">1. Interfaces</a>
+<li><a href="#org9ebe462">1. Interfaces</a>
 <ul>
-<li><a href="#org6213362">1.1. DATCOM</a></li>
-<li><a href="#org7055a75">1.2. The Datamanager card</a>
+<li><a href="#orge692655">1.1. DATCOM</a></li>
+<li><a href="#org5e65ac0">1.2. The Datamanager card</a>
 <ul>
-<li><a href="#org15eb0cf">1.2.1. Ethernet</a></li>
-<li><a href="#org6bd6498">1.2.2. WLAN</a></li>
-<li><a href="#org582f88e">1.2.3. USB</a></li>
+<li><a href="#org3bbd4df">1.2.1. Ethernet</a></li>
+<li><a href="#org6271d24">1.2.2. WLAN</a></li>
+<li><a href="#orgcc791ae">1.2.3. USB</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org353edea">2. Other</a></li>
-<li><a href="#orgbd134f3">3. References</a></li>
+<li><a href="#orgf0125e5">2. Other</a></li>
+<li><a href="#org0f0c73b">3. References</a></li>
 </ul>
 </div>
 </div>
@@ -258,16 +225,16 @@ The <a href="https://www.fronius.com/en-gb/uk/photovoltaics/products/all-product
 information I was able to gather on this device, some easy, some other a bit harder to find.
 </p>
 
-<div id="outline-container-org21c24ba" class="outline-2">
-<h2 id="org21c24ba"><span class="section-number-2">1</span> Interfaces</h2>
+<div id="outline-container-org9ebe462" class="outline-2">
+<h2 id="org9ebe462"><span class="section-number-2">1.</span> Interfaces</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Aside the obvious DC and AC inputs the inverter has a number of interfaces for monitoring and integration to different systems.
 </p>
 </div>
 
-<div id="outline-container-org6213362" class="outline-3">
-<h3 id="org6213362"><span class="section-number-3">1.1</span> DATCOM</h3>
+<div id="outline-container-orge692655" class="outline-3">
+<h3 id="orge692655"><span class="section-number-3">1.1.</span> DATCOM</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The DATCOM bus is RS-485 based and documented in <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,0968.pdf">Fronius DATCOM Detail</a>.
@@ -275,8 +242,8 @@ The DATCOM bus is RS-485 based and documented in <a href="https://www.fronius.co
 </div>
 </div>
 
-<div id="outline-container-org7055a75" class="outline-3">
-<h3 id="org7055a75"><span class="section-number-3">1.2</span> The Datamanager card</h3>
+<div id="outline-container-org5e65ac0" class="outline-3">
+<h3 id="org5e65ac0"><span class="section-number-3">1.2.</span> The Datamanager card</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The Datamanager card is an optional datalogger and interface card installed in the inverter which allows for it to connect to the internet and 
@@ -289,12 +256,12 @@ There also exists a different model of the Datamanager card with a PN 4,240,034,
 </p>
 
 <p>
-Some information about the card's capabilities (albeit for an older model) is provided on the Fronius site as document ref  <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0426,0169,EA.pdf">42,0426,0169</a>.
+Some information about the card's capabilities (albeit for an older model) is provided on the Fronius site as document ref  <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0426%2C0169%2CEA.pdf">42,0426,0169</a>.
 </p>
 </div>
 
-<div id="outline-container-org15eb0cf" class="outline-4">
-<h4 id="org15eb0cf"><span class="section-number-4">1.2.1</span> Ethernet</h4>
+<div id="outline-container-org3bbd4df" class="outline-4">
+<h4 id="org3bbd4df"><span class="section-number-4">1.2.1.</span> Ethernet</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 The card has an ordinary 100MBit RJ-45 socket.
@@ -302,12 +269,12 @@ The card has an ordinary 100MBit RJ-45 socket.
 </div>
 </div>
 
-<div id="outline-container-org6bd6498" class="outline-4">
-<h4 id="org6bd6498"><span class="section-number-4">1.2.2</span> WLAN</h4>
+<div id="outline-container-org6271d24" class="outline-4">
+<h4 id="org6271d24"><span class="section-number-4">1.2.2.</span> WLAN</h4>
 <div class="outline-text-4" id="text-1-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgf553766"></a>Fronius Solar JSON API<br />
+<li><a id="org179466e"></a>Fronius Solar JSON API<br />
 <div class="outline-text-5" id="text-1-2-2-1">
 <p>
 The Datamanager card exposes a JSON API which is used by the inverter management page to which you can browse on port 80 of the Datamanager card's IP.
@@ -315,12 +282,12 @@ There are two versions of the API which provide slightly different features:
 </p>
 
 <ul class="org-ul">
-<li>V0 (<a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2011.pdf">documentation</a>)</li>
-<li>V1 (<a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2012.pdf">documentation</a>)</li>
+<li>V0 (<a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2011.pdf">documentation</a>)</li>
+<li>V1 (<a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2012.pdf">documentation</a>)</li>
 </ul>
 
 <p>
-The different APIs are supported based on the software version on the inverter as described in <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2020.pdf">Fronius Solar API Compatibility</a>.
+The different APIs are supported based on the software version on the inverter as described in <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2020.pdf">Fronius Solar API Compatibility</a>.
 Fortunately Fronius seems to be well-organized in that regard and all of the docs have identifiers which are easily found with a simple web search.
 </p>
 
@@ -335,17 +302,17 @@ There are also python modules to wrap the JSON requests in an API, for example <
 </div>
 </li>
 
-<li><a id="org3c56496"></a>MODBUS<br />
+<li><a id="org0651860"></a>MODBUS<br />
 <div class="outline-text-5" id="text-1-2-2-2">
 <p>
 The Datamanager card implements a MODBUS interface via RS485 and via TCP over the LAN. The interface is named "SunSpec" and it may be compatible with 
 the specs from <a href="http://sunspec.org/interoperability-specifications/">http://sunspec.org/interoperability-specifications/</a> but I have not verified that. Fronius provides docs for the MODBUS intefrace on 
-their own site also under the IDs of <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2049.pdf">42,0410,2049</a> and <a href="https://fronius.com/~/downloads/Solar%20Energy/User%20Information/42,0410,2108.pdf">42,0410,2108</a> where stuff is described. 
+their own site also under the IDs of <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2049.pdf">42,0410,2049</a> and <a href="https://fronius.com/~/downloads/Solar%20Energy/User%20Information/42,0410,2108.pdf">42,0410,2108</a> where stuff is described. 
 </p>
 </div>
 </li>
 
-<li><a id="org1b801a9"></a>Fronius Push Service<br />
+<li><a id="orge28a2bb"></a>Fronius Push Service<br />
 <div class="outline-text-5" id="text-1-2-2-3">
 <p>
 The Datamanager card can also upload logs to an FTP server and this is called a Push Service. It's documented on the Fronius site when you search 
@@ -356,8 +323,8 @@ for Push Service and find a <a href="https://www.fronius.com/~/downloads/Solar%2
 </ol>
 </div>
 
-<div id="outline-container-org582f88e" class="outline-4">
-<h4 id="org582f88e"><span class="section-number-4">1.2.3</span> USB</h4>
+<div id="outline-container-orgcc791ae" class="outline-4">
+<h4 id="orgcc791ae"><span class="section-number-4">1.2.3.</span> USB</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 The inverter also has a USB port used for firmware update. This process has been already documented by others for example on <a href="https://www.youtube.com/watch?v=y7abDHGdV5E">Youtube</a>.
@@ -370,8 +337,8 @@ I have managed to download the currently available firmware files and they appea
 </div>
 </div>
 </div>
-<div id="outline-container-org353edea" class="outline-2">
-<h2 id="org353edea"><span class="section-number-2">2</span> Other</h2>
+<div id="outline-container-orgf0125e5" class="outline-2">
+<h2 id="orgf0125e5"><span class="section-number-2">2.</span> Other</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I found some references to using MODBUS for Fronius inverter monitoring in the EU <a href="https://cordis.europa.eu/project/id/731285">SHAR-Q project paper</a>.
@@ -379,8 +346,8 @@ I found some references to using MODBUS for Fronius inverter monitoring in the E
 </div>
 </div>
 
-<div id="outline-container-orgbd134f3" class="outline-2">
-<h2 id="orgbd134f3"><span class="section-number-2">3</span> References</h2>
+<div id="outline-container-org0f0c73b" class="outline-2">
+<h2 id="org0f0c73b"><span class="section-number-2">3.</span> References</h2>
 <div class="outline-text-2" id="text-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -406,63 +373,63 @@ I found some references to using MODBUS for Fronius inverter monitoring in the E
 <tr>
 <td class="org-left">42,0410,2011</td>
 <td class="org-left">Fronius Solar API V0</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2011.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/42,0410,2011.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2011.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2011.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">42,0410,2012</td>
 <td class="org-left">Fronius Solar API V1</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2012.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/42,0410,2012.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2012.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2012.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">42,0410,2049</td>
 <td class="org-left">Fronius Datamanager Modbus TCP &amp; RTU</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2049.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/42,0410,2049.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2049.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2049.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">SETTING UP THE LOCAL FTP SERVER</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/SE_OI_Setting_up_the%20local_FTP_server_EN.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/SE_OI_Setting_up_the local_FTP_server_EN.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/SE_OI_Setting_up_the%20local_FTP_server_EN.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/SE_OI_Setting_up_the%20local_FTP_server_EN.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">42,0426,0169</td>
 <td class="org-left">Fronius Datamanager</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0426,0169,EA.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/42,0426,0169,EA.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0426%2C0169%2CEA.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0426%2C0169%2CEA.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">42,0410,2108</td>
 <td class="org-left">Fronius Datamanager 2.0 Modbus RTU Quickstart Guide</td>
-<td class="org-left"><a href="https://fronius.com/~/downloads/Solar%20Energy/User%20Information/42,0410,2108.pdf">https://fronius.com/~/downloads/Solar Energy/User Information/42,0410,2108.pdf</a></td>
+<td class="org-left"><a href="https://fronius.com/~/downloads/Solar%20Energy/User%20Information/42,0410,2108.pdf">https://fronius.com/~/downloads/Solar%20Energy/User%20Information/42,0410,2108.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">42,0426,0191,EA</td>
 <td class="org-left">Fronius Datamanager 2.0 / Fronius Datamanager Box 2.0</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0426,0191,EA.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/42,0426,0191,EA.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0426,0191,EA.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0426,0191,EA.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">42,0410,2020</td>
 <td class="org-left">Fronius Solar API Compatibility</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,2020.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/42,0410,2020.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2020.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42%2C0410%2C2020.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">42,0410,0968</td>
 <td class="org-left">Fronius DATCOM Detail</td>
-<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,0968.pdf">https://www.fronius.com/~/downloads/Solar Energy/Operating Instructions/42,0410,0968.pdf</a></td>
+<td class="org-left"><a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,0968.pdf">https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,0968.pdf</a></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -488,8 +455,8 @@ I found some references to using MODBUS for Fronius inverter monitoring in the E
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-11-05 14:24</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2022-12-20 14:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 14:24 -->
+<!-- 2022-12-20 14:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WH-SP-WS01 Wind speed sensor (anemometer)</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,85 +191,38 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">WH-SP-WS01 Wind speed sensor (anemometer)</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf6d6775">1. Hardware</a></li>
-<li><a href="#org3e8675f">2. Calibration</a>
+<li><a href="#orgedd42d5">1. Hardware</a></li>
+<li><a href="#orgebb60de">2. Calibration</a>
 <ul>
-<li><a href="#org930137e">2.1. Aliexpress</a></li>
-<li><a href="#org8033934">2.2. Weather Sensor Assembly p/n 80422 (Instructables)</a></li>
+<li><a href="#org2fd1822">2.1. Aliexpress</a></li>
+<li><a href="#orgd25bd87">2.2. Weather Sensor Assembly p/n 80422 (Instructables)</a></li>
 </ul>
 </li>
-<li><a href="#org5e47024">3. References</a></li>
+<li><a href="#org64f7334">3. References</a></li>
 </ul>
 </div>
 </div>
 <base href="wh-sp-ws01/"/>
 
-<div id="outline-container-orgf6d6775" class="outline-2">
-<h2 id="orgf6d6775"><span class="section-number-2">1</span> Hardware</h2>
+<div id="outline-container-orgedd42d5" class="outline-2">
+<h2 id="orgedd42d5"><span class="section-number-2">1.</span> Hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is an anemometer for a very popular weather station sold on aliexpress (<a href="https://www.aliexpress.com/item/4001089508787.html">https://www.aliexpress.com/item/4001089508787.html</a>)
 </p>
 
 
-<div class="figure">
+<div id="org8caf4dc" class="figure">
 <p><a href="anemometer.jpg"><img src="thumb-anemometer.jpg" alt="thumb-anemometer.jpg" /></a>
 </p>
 </div>
@@ -265,7 +232,7 @@ The box is labeled that the anemometer is a wind speed sensor for WH2081 which i
 </p>
 
 
-<div class="figure">
+<div id="org8028507" class="figure">
 <p><a href="box1.jpg"><img src="thumb-box1.jpg" alt="thumb-box1.jpg" /></a>
 </p>
 </div>
@@ -275,7 +242,7 @@ A different label on the back of the box:
 </p>
 
 
-<div class="figure">
+<div id="org2a7ca31" class="figure">
 <p><a href="box2.jpg"><img src="thumb-box2.jpg" alt="thumb-box2.jpg" /></a>
 </p>
 </div>
@@ -285,19 +252,19 @@ It has an RJ-11 connector with a short cable:
 </p>
 
 
-<div class="figure">
+<div id="org6ace6d2" class="figure">
 <p><a href="cable.jpg"><img src="thumb-cable.jpg" alt="thumb-cable.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3e8675f" class="outline-2">
-<h2 id="org3e8675f"><span class="section-number-2">2</span> Calibration</h2>
+<div id="outline-container-orgebb60de" class="outline-2">
+<h2 id="orgebb60de"><span class="section-number-2">2.</span> Calibration</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org930137e" class="outline-3">
-<h3 id="org930137e"><span class="section-number-3">2.1</span> Aliexpress</h3>
+<div id="outline-container-org2fd1822" class="outline-3">
+<h3 id="org2fd1822"><span class="section-number-3">2.1.</span> Aliexpress</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The way in which pulses from the anemometer can be converted into wind speed has been documented in one of the aliexpress offers <a href="https://www.aliexpress.com/item/4000352147677.html">https://www.aliexpress.com/item/4000352147677.html</a>
@@ -326,15 +293,15 @@ There is also a connection schematic on the same site:
 </p>
 
 
-<div class="figure">
+<div id="org98a053f" class="figure">
 <p><img src="conn.png" alt="conn.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8033934" class="outline-3">
-<h3 id="org8033934"><span class="section-number-3">2.2</span> Weather Sensor Assembly p/n 80422 (Instructables)</h3>
+<div id="outline-container-orgd25bd87" class="outline-3">
+<h3 id="orgd25bd87"><span class="section-number-3">2.2.</span> Weather Sensor Assembly p/n 80422 (Instructables)</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 I have also found a weather station build description on <a href="https://www.instructables.com/LoRaWAN-Automatic-Weather-Station/">Instructables LoRaWAN Automatic Weather Station</a>. There the WH-SP-WS01 aneomometer sensor is referenced as one of the parts
@@ -346,8 +313,8 @@ anemometer needs to be calibrated properly before any real meawsurements can be 
 </div>
 </div>
 
-<div id="outline-container-org5e47024" class="outline-2">
-<h2 id="org5e47024"><span class="section-number-2">3</span> References</h2>
+<div id="outline-container-org64f7334" class="outline-2">
+<h2 id="org64f7334"><span class="section-number-2">3.</span> References</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://www.instructables.com/LoRaWAN-Automatic-Weather-Station/">An Instructables weather station build using this sensor</a></li>
@@ -358,8 +325,8 @@ anemometer needs to be calibrated properly before any real meawsurements can be 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-11-05 14:24</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2022-12-20 14:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
