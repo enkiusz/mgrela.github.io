@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-20 14:11 -->
+<!-- 2023-01-07 16:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Second Life UPS</title>
+<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,9 +31,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,22 +40,22 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -162,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -191,37 +177,84 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <h1 class="title">Second Life UPS</h1>
-<div id="table-of-contents" role="doc-toc">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#org97c0630">1. Design overview</a></li>
-<li><a href="#org4375368">2. Component layout</a></li>
-<li><a href="#org009805e">3. The battery</a></li>
-<li><a href="#orge1fdd2b">4. The output board</a></li>
-<li><a href="#org7a9c0a0">5. The controller board</a></li>
-<li><a href="#org4598cad">6. AC power connection</a></li>
-<li><a href="#org1efc1dc">7. Final device</a></li>
+<li><a href="#org2ffa6cc">1. Design overview</a></li>
+<li><a href="#org579a300">2. Component layout</a></li>
+<li><a href="#org7ef01e0">3. The battery</a></li>
+<li><a href="#org5d63cc8">4. The output board</a></li>
+<li><a href="#org0cd857f">5. The controller board</a></li>
+<li><a href="#org134fc50">6. AC power connection</a></li>
+<li><a href="#orgf3e7534">7. Final device</a></li>
 </ul>
 </div>
 </div>
 <base href="secondlife-ups/"/>
 
-<div id="outline-container-org97c0630" class="outline-2">
-<h2 id="org97c0630"><span class="section-number-2">1.</span> Design overview</h2>
+<div id="outline-container-org2ffa6cc" class="outline-2">
+<h2 id="org2ffa6cc"><span class="section-number-2">1</span> Design overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I have decided to build a UPS that would power my home network equipment rack using lithium-ion 18650 cells.
 </p>
 
 
-<div id="org00f435e" class="figure">
+<div class="figure">
 <p><a href="rack.jpg"><img src="thumb-rack.jpg" alt="thumb-rack.jpg" /></a>
 </p>
 </div>
@@ -328,15 +361,15 @@ As can be seen there is a large amount of different voltages required in order t
 </div>
 </div>
 
-<div id="outline-container-org4375368" class="outline-2">
-<h2 id="org4375368"><span class="section-number-2">2.</span> Component layout</h2>
+<div id="outline-container-org579a300" class="outline-2">
+<h2 id="org579a300"><span class="section-number-2">2</span> Component layout</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The 1U case that I used for this project is a case from a ipTime ZC-SW2405 switch:
 </p>
 
 
-<div id="org22b59d9" class="figure">
+<div class="figure">
 <p><a href="switch-case.jpg"><img src="thumb-switch-case.jpg" alt="thumb-switch-case.jpg" /></a>
 </p>
 </div>
@@ -352,7 +385,7 @@ The case size puts a limit on the size and shape of two biggest internal compone
 </p>
 
 
-<div id="orga3a8873" class="figure">
+<div class="figure">
 <p><a href="basic-layout.jpg"><img src="thumb-basic-layout.jpg" alt="thumb-basic-layout.jpg" /></a>
 </p>
 </div>
@@ -421,8 +454,8 @@ From the basic layout the following elements are COTS components:
 </div>
 </div>
 
-<div id="outline-container-org009805e" class="outline-2">
-<h2 id="org009805e"><span class="section-number-2">3.</span> The battery</h2>
+<div id="outline-container-org7ef01e0" class="outline-2">
+<h2 id="org7ef01e0"><span class="section-number-2">3</span> The battery</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The battery for the UPS was built using 18650 Li-Ion cells recovered from hoverboard battery packs. These are cheap no-name cells with not a lot of capacity left in them (around 800 mAh) each but I figured
@@ -443,7 +476,7 @@ the rows of the cells:
 </p>
 
 
-<div id="orgdc1aa20" class="figure">
+<div class="figure">
 <p><a href="battery-pack1.jpg"><img src="thumb-battery-pack1.jpg" alt="thumb-battery-pack1.jpg" /></a>
 </p>
 </div>
@@ -454,13 +487,13 @@ on the two pictures below:
 </p>
 
 
-<div id="org7c730d5" class="figure">
+<div class="figure">
 <p><a href="battery-pack2.jpg"><img src="thumb-battery-pack2.jpg" alt="thumb-battery-pack2.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org6b2fb67" class="figure">
+<div class="figure">
 <p><a href="battery-pack3.jpg"><img src="thumb-battery-pack3.jpg" alt="thumb-battery-pack3.jpg" /></a>
 </p>
 </div>
@@ -470,13 +503,13 @@ Next, the battery has the main leads soldered to the ends and balancing wires to
 </p>
 
 
-<div id="org4673e52" class="figure">
+<div class="figure">
 <p><a href="battery-pack4.jpg"><img src="thumb-battery-pack4.jpg" alt="thumb-battery-pack4.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org44d450b" class="figure">
+<div class="figure">
 <p><a href="battery-pack5.jpg"><img src="thumb-battery-pack5.jpg" alt="thumb-battery-pack5.jpg" /></a>
 </p>
 </div>
@@ -486,7 +519,7 @@ After applying insulating tape on both ends and also between the cells the batte
 </p>
 
 
-<div id="org4bf182d" class="figure">
+<div class="figure">
 <p><a href="battery-pack6.jpg"><img src="thumb-battery-pack6.jpg" alt="thumb-battery-pack6.jpg" /></a>
 </p>
 </div>
@@ -496,7 +529,7 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </p>
 
 
-<div id="org1289c84" class="figure">
+<div class="figure">
 <p><a href="battery-pack7.jpg"><img src="thumb-battery-pack7.jpg" alt="thumb-battery-pack7.jpg" /></a>
 </p>
 </div>
@@ -504,8 +537,8 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </div>
 
 
-<div id="outline-container-orge1fdd2b" class="outline-2">
-<h2 id="orge1fdd2b"><span class="section-number-2">4.</span> The output board</h2>
+<div id="outline-container-org5d63cc8" class="outline-2">
+<h2 id="org5d63cc8"><span class="section-number-2">4</span> The output board</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The output connectors board provides for the attachment points for all of the devices being powered by the UPS. Due to a "standard" developed in the <a href="https://hackerspace.pl">Warsaw Hackerspace</a> of using Tamiya connectors as universal
@@ -519,7 +552,7 @@ First, the baseboard was fitted and screwed in in front of the cutouts. A piece 
 </p>
 
 
-<div id="org6ff8345" class="figure">
+<div class="figure">
 <p><a href="output-board1.jpg"><img src="thumb-output-board1.jpg" alt="thumb-output-board1.jpg" /></a>
 </p>
 </div>
@@ -530,7 +563,7 @@ in a similar fashion:
 </p>
 
 
-<div id="orgee93ede" class="figure">
+<div class="figure">
 <p><a href="output-board2.jpg"><img src="thumb-output-board2.jpg" alt="thumb-output-board2.jpg" /></a>
 </p>
 </div>
@@ -541,7 +574,7 @@ to 12V (yellow wires) and 5V (red wires) power rails and a common ground rail.
 </p>
 
 
-<div id="org7189cc3" class="figure">
+<div class="figure">
 <p><a href="output-board3.jpg"><img src="thumb-output-board3.jpg" alt="thumb-output-board3.jpg" /></a>
 </p>
 </div>
@@ -553,7 +586,7 @@ DC-DC converters in between. This will not be available on the front but have a 
 </p>
 
 
-<div id="org6a8cc90" class="figure">
+<div class="figure">
 <p><a href="output-board4.jpg"><img src="thumb-output-board4.jpg" alt="thumb-output-board4.jpg" /></a>
 </p>
 </div>
@@ -565,7 +598,7 @@ In the initial revision of the hardware, the 5V was supplied by an LM2596 module
 </p>
 
 
-<div id="org268b82b" class="figure">
+<div class="figure">
 <p><a href="output-board5.jpg"><img src="thumb-output-board5.jpg" alt="thumb-output-board5.jpg" /></a>
 </p>
 </div>
@@ -578,7 +611,7 @@ supply. I knew they would come in handy some day ;)
 </p>
 
 
-<div id="orgf24ccd0" class="figure">
+<div class="figure">
 <p><a href="distance-screw1.jpg"><img src="thumb-distance-screw1.jpg" alt="thumb-distance-screw1.jpg" /></a>
 </p>
 </div>
@@ -588,13 +621,13 @@ The plastic distance rings fit perfectly into the M3 holes of the module and pro
 </p>
 
 
-<div id="org42bf103" class="figure">
+<div class="figure">
 <p><a href="distance-screw2.jpg"><img src="thumb-distance-screw2.jpg" alt="thumb-distance-screw2.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org6d50f35" class="figure">
+<div class="figure">
 <p><a href="distance-screw3.jpg"><img src="thumb-distance-screw3.jpg" alt="thumb-distance-screw3.jpg" /></a>
 </p>
 </div>
@@ -602,8 +635,8 @@ The plastic distance rings fit perfectly into the M3 holes of the module and pro
 </div>
 
 
-<div id="outline-container-org7a9c0a0" class="outline-2">
-<h2 id="org7a9c0a0"><span class="section-number-2">5.</span> The controller board</h2>
+<div id="outline-container-org0cd857f" class="outline-2">
+<h2 id="org0cd857f"><span class="section-number-2">5</span> The controller board</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Even though the entire controller board has been manually wired on a breadboard I made a schematics of the connections in <a href="https://www.kicad.org/">KiCad</a> instead of paragraphs of text describing how everything is 
@@ -611,8 +644,9 @@ connected together:
 </p>
 
 
-<div id="org07e053b" class="figure">
-<p><img src="control-circuit.svg" alt="control-circuit.svg" class="org-svg" />
+<div class="figure">
+<p><object type="image/svg+xml" data="control-circuit.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 
@@ -621,7 +655,7 @@ If your browser can't render SVGs o<sub>O</sub>, you can download the <a href="c
 </p>
 
 
-<div id="org023ae91" class="figure">
+<div class="figure">
 <p><a href="controller-board1.jpg"><img src="thumb-controller-board1.jpg" alt="thumb-controller-board1.jpg" /></a>
 </p>
 </div>
@@ -633,7 +667,7 @@ insulating tape as it was added as an afterthought and I didn't want to disassem
 </p>
 
 
-<div id="orgd915812" class="figure">
+<div class="figure">
 <p><a href="fan-power.jpg"><img src="thumb-fan-power.jpg" alt="thumb-fan-power.jpg" /></a>
 </p>
 </div>
@@ -645,30 +679,30 @@ both the charger and the loads.
 </div>
 </div>
 
-<div id="outline-container-org4598cad" class="outline-2">
-<h2 id="org4598cad"><span class="section-number-2">6.</span> AC power connection</h2>
+<div id="outline-container-org134fc50" class="outline-2">
+<h2 id="org134fc50"><span class="section-number-2">6</span> AC power connection</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The AC 230V cable has been attached using an electrical pipe fitting usually found in distribution boxes. It's very practical as it's pretty sturdy and provides a good amount of strain relief for the cable:
 </p>
 
 
-<div id="org88e22fd" class="figure">
+<div class="figure">
 <p><a href="ac-cable1.jpg"><img src="thumb-ac-cable1.jpg" alt="thumb-ac-cable1.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1efc1dc" class="outline-2">
-<h2 id="org1efc1dc"><span class="section-number-2">7.</span> Final device</h2>
+<div id="outline-container-orgf3e7534" class="outline-2">
+<h2 id="orgf3e7534"><span class="section-number-2">7</span> Final device</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The final result before the case is screwed on:
 </p>
 
 
-<div id="orgd82fa3f" class="figure">
+<div class="figure">
 <p><a href="final-assembly1.jpg"><img src="thumb-final-assembly1.jpg" alt="thumb-final-assembly1.jpg" /></a>
 </p>
 </div>
@@ -678,7 +712,7 @@ The front panel contains two status LEDs as well as the battery cutoff switch.
 </p>
 
 
-<div id="orgdfa6111" class="figure">
+<div class="figure">
 <p><a href="final-assembly2.jpg"><img src="thumb-final-assembly2.jpg" alt="thumb-final-assembly2.jpg" /></a>
 </p>
 </div>
@@ -688,7 +722,7 @@ I have also added stickers to showcase maximum current ratings allowed and label
 </p>
 
 
-<div id="orgb384e45" class="figure">
+<div class="figure">
 <p><a href="stickers1.jpg"><img src="thumb-stickers1.jpg" alt="thumb-stickers1.jpg" /></a>
 </p>
 </div>
@@ -697,8 +731,8 @@ I have also added stickers to showcase maximum current ratings allowed and label
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-12-20 14:11</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2023-01-07 16:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

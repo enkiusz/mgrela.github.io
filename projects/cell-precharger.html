@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-20 14:12 -->
+<!-- 2023-01-07 16:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A Lithium-Ion Cell Precharger</title>
+<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,9 +31,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,22 +40,22 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -162,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -191,31 +177,78 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <h1 class="title">A Lithium-Ion Cell Precharger</h1>
-<div id="table-of-contents" role="doc-toc">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#org7bf0e29">1. The rationale</a></li>
-<li><a href="#orgadbfae5">2. The problem, "solution" and solution</a></li>
-<li><a href="#orgeb7c9b5">3. The design goals</a></li>
-<li><a href="#org9570384">4. Breadboard version and testing</a></li>
-<li><a href="#orgf533134">5. Testing the initial circuit</a></li>
-<li><a href="#org6ca1218">6. Manufacturing</a></li>
-<li><a href="#orgb46f175">7. The rig assembly</a></li>
-<li><a href="#org3cde548">8. Closing thoughts</a></li>
+<li><a href="#orga9c55ed">1. The rationale</a></li>
+<li><a href="#org5211e91">2. The problem, "solution" and solution</a></li>
+<li><a href="#orgada26c6">3. The design goals</a></li>
+<li><a href="#orgcf01db3">4. Breadboard version and testing</a></li>
+<li><a href="#orgbe18d33">5. Testing the initial circuit</a></li>
+<li><a href="#org622bd7d">6. Manufacturing</a></li>
+<li><a href="#org3bb0388">7. The rig assembly</a></li>
+<li><a href="#org2147ad2">8. Closing thoughts</a></li>
 </ul>
 </div>
 </div>
 <base href="cell-precharger/"/>
 
-<div id="outline-container-org7bf0e29" class="outline-2">
-<h2 id="org7bf0e29"><span class="section-number-2">1.</span> The rationale</h2>
+<div id="outline-container-orga9c55ed" class="outline-2">
+<h2 id="orga9c55ed"><span class="section-number-2">1</span> The rationale</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 When working with refurbished Lithium-Ion cells, in particular with attempting to recycle cells from used battery packs you will discover many cells in these packs who are very deeply 
@@ -240,8 +273,8 @@ not totally dead.
 </div>
 
 
-<div id="outline-container-orgadbfae5" class="outline-2">
-<h2 id="orgadbfae5"><span class="section-number-2">2.</span> The problem, "solution" and solution</h2>
+<div id="outline-container-org5211e91" class="outline-2">
+<h2 id="org5211e91"><span class="section-number-2">2</span> The problem, "solution" and solution</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The basic practical issue with deeply discharged cells is that all ordinary chargers have a threshold voltage of a cell which the charger will accept. This voltage is typically around 2.5 or 2.75 V. 
@@ -272,8 +305,8 @@ with a LED so you can connect each precharger to their own cell holder and build
 </div>
 </div>
 
-<div id="outline-container-orgeb7c9b5" class="outline-2">
-<h2 id="orgeb7c9b5"><span class="section-number-2">3.</span> The design goals</h2>
+<div id="outline-container-orgada26c6" class="outline-2">
+<h2 id="orgada26c6"><span class="section-number-2">3</span> The design goals</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The design considerations I have laid out for this circuit are the following:
@@ -289,15 +322,15 @@ The design considerations I have laid out for this circuit are the following:
 </div>
 </div>
 
-<div id="outline-container-org9570384" class="outline-2">
-<h2 id="org9570384"><span class="section-number-2">4.</span> Breadboard version and testing</h2>
+<div id="outline-container-orgcf01db3" class="outline-2">
+<h2 id="orgcf01db3"><span class="section-number-2">4</span> Breadboard version and testing</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The first design built on a breadboard was designed to be the following:
 </p>
 
 
-<div id="org263675a" class="figure">
+<div class="figure">
 <p><a href="prototype-circuit.jpg"><img src="thumb-prototype-circuit.jpg" alt="thumb-prototype-circuit.jpg" /></a>
 </p>
 </div>
@@ -328,15 +361,15 @@ will light up the LED when the voltage on the lower resistor (equal to U<sub>c</
 </div>
 </div>
 
-<div id="outline-container-orgf533134" class="outline-2">
-<h2 id="orgf533134"><span class="section-number-2">5.</span> Testing the initial circuit</h2>
+<div id="outline-container-orgbe18d33" class="outline-2">
+<h2 id="orgbe18d33"><span class="section-number-2">5</span> Testing the initial circuit</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The circuit has been assembled on a breadboard with a voltmeter and ampmeter connected to the cell cage to monitor charging current and cell voltage.
 </p>
 
 
-<div id="org7c1b3a0" class="figure">
+<div class="figure">
 <p><a href="prototype-breadboard.jpg"><img src="thumb-prototype-breadboard.jpg" alt="thumb-prototype-breadboard.jpg" /></a>
 </p>
 </div>
@@ -352,7 +385,7 @@ A voltmeter and current meter are connected to the cell monitoring voltage and c
 </p>
 
 
-<div id="org83f7389" class="figure">
+<div class="figure">
 <p><a href="testcell-initial-state.jpg"><img src="thumb-testcell-initial-state.jpg" alt="thumb-testcell-initial-state.jpg" /></a>
 </p>
 </div>
@@ -362,7 +395,7 @@ The current slowly drops as the cell voltage rises towards 2.5 V, the state afte
 </p>
 
 
-<div id="org530256b" class="figure">
+<div class="figure">
 <p><a href="testcell-after-10min.jpg"><img src="thumb-testcell-after-10min.jpg" alt="thumb-testcell-after-10min.jpg" /></a>
 </p>
 </div>
@@ -372,7 +405,7 @@ When the target voltage is reached the indicator LED lights up and the current i
 </p>
 
 
-<div id="org0249733" class="figure">
+<div class="figure">
 <p><a href="testcell-precharge-finished.jpg"><img src="thumb-testcell-precharge-finished.jpg" alt="thumb-testcell-precharge-finished.jpg" /></a>
 </p>
 </div>
@@ -382,7 +415,7 @@ The cell is now ready to be charged back up using an ordinary charger:
 </p>
 
 
-<div id="orga55c141" class="figure">
+<div class="figure">
 <p><a href="testcell-final-charge.jpg"><img src="thumb-testcell-final-charge.jpg" alt="thumb-testcell-final-charge.jpg" /></a>
 </p>
 </div>
@@ -394,8 +427,8 @@ You should monitor the cell temperature during this phase as heating may occur i
 </div>
 
 
-<div id="outline-container-org6ca1218" class="outline-2">
-<h2 id="org6ca1218"><span class="section-number-2">6.</span> Manufacturing</h2>
+<div id="outline-container-org622bd7d" class="outline-2">
+<h2 id="org622bd7d"><span class="section-number-2">6</span> Manufacturing</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 As I plan to build a rig for pre-charging around 20 cells at once I tought it might make sense to make a small order from JLCPCB saving work on PCB manufacturing and soldering. This way 
@@ -403,7 +436,7 @@ you can also more easily replicate this project and build the pre-charger yourse
 </p>
 
 
-<div id="org556e5ba" class="figure">
+<div class="figure">
 <p><img src="manuf-schematic-rev1.png" alt="manuf-schematic-rev1.png" />
 </p>
 </div>
@@ -419,7 +452,7 @@ The design is a very small 22 mm x 18 mm dual layer PCB with two M2 mounting hol
 </p>
 
 
-<div id="org66e99db" class="figure">
+<div class="figure">
 <p><img src="manuf-pcb-rev1.png" alt="manuf-pcb-rev1.png" />
 </p>
 </div>
@@ -430,8 +463,8 @@ The <a href="cell-precharger.zip">Kicad project</a> can also be downloaded.
 </div>
 </div>
 
-<div id="outline-container-orgb46f175" class="outline-2">
-<h2 id="orgb46f175"><span class="section-number-2">7.</span> The rig assembly</h2>
+<div id="outline-container-org3bb0388" class="outline-2">
+<h2 id="org3bb0388"><span class="section-number-2">7</span> The rig assembly</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The ordered modules were assembled on a piece of board with each module connected to an individual 18650 socket. All of the modules are powered with an LM2596 step-down module which allows for
@@ -439,7 +472,7 @@ more input voltage agility for the device.
 </p>
 
 
-<div id="org29f8c68" class="figure">
+<div class="figure">
 <p><a href="rig-v1.jpg"><img src="thumb-rig-v1.jpg" alt="thumb-rig-v1.jpg" /></a>
 </p>
 </div>
@@ -456,8 +489,8 @@ But for now the rig works as intended.
 </div>
 </div>
 
-<div id="outline-container-org3cde548" class="outline-2">
-<h2 id="org3cde548"><span class="section-number-2">8.</span> Closing thoughts</h2>
+<div id="outline-container-org2147ad2" class="outline-2">
+<h2 id="org2147ad2"><span class="section-number-2">8</span> Closing thoughts</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 There is <a href="https://www.nature.com/articles/srep30248.pdf">research</a> showing that the internal shorts do not develop when discharging lithium-ion cells until they are at -12% SoC. That is when they have been discharged to "negative voltage".
@@ -467,8 +500,8 @@ There is <a href="https://www.nature.com/articles/srep30248.pdf">research</a> sh
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2022-12-20 14:12</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2023-01-07 16:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
