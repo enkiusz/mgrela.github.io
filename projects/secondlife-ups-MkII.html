@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-19 17:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Second Life UPS Mark II</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Second Life UPS Mark II</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org66f2155">1. Introduction</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org649567f">1.0.1. More battery capacity</a></li>
+<li><a href="#org6a2b974">1.0.2. More power</a></li>
+<li><a href="#org25e62e6">1.0.3. Capacity planning for power buses</a></li>
+<li><a href="#orgf91210c">1.0.4. Ideal Diode circuit</a></li>
+<li><a href="#orgabfa737">1.0.5. Battery pack</a></li>
+<li><a href="#org6ce1627">1.0.6. Modularity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org65c7d21">2. Overall schematics</a></li>
+<li><a href="#org7ad0173">3. Bill of Materials</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org66f2155" class="outline-2">
+<h2 id="org66f2155"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The Secondlife UPS Mark II was envisioned as a successor to the first <a href="secondlife-ups.html">secondlife-ups.html</a> model with the general changes as below
+</p>
+
+<ul class="org-ul">
+<li>increased battery capacity</li>
+<li>increased power budget</li>
+<li>circuit simplification</li>
+<li>modularity</li>
+<li>improved load connectors</li>
+<li>various other usability improvements (for example moving the fuses to the front of the enclosure)</li>
+<li>better documentation</li>
+</ul>
+
+<p>
+The basic premise is to provide a UPS which instead of 230V AC can provide typical low voltages suitable for powering of sensors, routers, 802.11 access points modems, switches, embedded systems (like a Raspberry Pi) and other small devices. It's design is focused around a few stabilised voltage buses providing 12V and 5V respectively as well as a "direct" rail (labelled later as V<sub>rail</sub>) which is connected directly to the battery or AC power supply. The peculiarity of this bus is that the voltage on it has a significant swing - from 11.2 V when operating on an almost depleted battery towards 24V when operating on AC power.
+</p>
+</div>
+
+<div id="outline-container-org649567f" class="outline-4">
+<h4 id="org649567f"><span class="section-number-4">1.0.1</span> More battery capacity</h4>
+<div class="outline-text-4" id="text-1-0-1">
+<p>
+In order to provide more power as well as longer runtime, the UPS will use a recycled broken <a href="https://wikidevi.wi-cat.ru/Netgear_GS748T_v4">Netgear GS748T</a> switch.
+</p>
+
+<p>
+The new battery pack is 4S24P.
+</p>
+
+<p>
+Battery capacity is 300 Wh, 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6a2b974" class="outline-4">
+<h4 id="org6a2b974"><span class="section-number-4">1.0.2</span> More power</h4>
+<div class="outline-text-4" id="text-1-0-2">
+<p>
+The list of equipment in my home rack has changed, some equipment has been replaced, there is some new equipment as well. Some of the new equipment will be powered by wide input range DC-DC converters so they can be powered directly from the battery rail (V<sub>rail</sub>). I measured the amount of current draw during normal operation and came up with the following estimates:
+</p>
+
+<p>
+As the voltage on the V<sub>batt</sub> bus is not constant and changes from 11.2V when operating on a discharged battery and 24V when operating on AC its more useful to specify it's performance in terms of power not current.
+</p>
+
+<table id="orgd52a4c7" border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
+<caption class="t-above"><span class="table-number">Table 1:</span> Devices connected to the UPS</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Device</th>
+<th scope="col" class="org-right">12V Current [A] (measured)</th>
+<th scope="col" class="org-right">12V Current [A] (max)</th>
+<th scope="col" class="org-right">5V Current [A] (max)</th>
+<th scope="col" class="org-left">V<sub>rail</sub> power [W] (measured)</th>
+<th scope="col" class="org-right">V<sub>rail</sub> power [W] (max)</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">New Router</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">5</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">Axiomtek NA342</td>
+</tr>
+
+<tr>
+<td class="org-left">New GPON Modem</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">0.5</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Core Ethernet switch</td>
+<td class="org-right">1.33</td>
+<td class="org-right">4</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Planet GSD-800S switch</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">21</td>
+<td class="org-left">PoE injected</td>
+</tr>
+
+<tr>
+<td class="org-left">Ubiquity Unify AC Lite AP</td>
+<td class="org-right">0.16</td>
+<td class="org-right">0.54</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">Via boost converter and PoE injected, rated at 6.5 W (see <a href="https://dl.ui.com/datasheets/unifi/UniFi_AC_APs_DS.pdf">datasheet</a>), passive 24V PoE Mode B (230V/0.02A)</td>
+</tr>
+
+<tr>
+<td class="org-left">Raspberry Pi</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">2.1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Gate magnetic lock</td>
+<td class="org-right">0.25</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://wikidevi.wi-cat.ru/Netgear_ReadyNAS_3138">Network Attached Storage</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">40</td>
+<td class="org-right">100</td>
+<td class="org-left">Built-in ATX power supply is 180W but real power draw has not exceeded 100W</td>
+</tr>
+
+<tr>
+<td class="org-left">Network Video Recorder</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">40</td>
+<td class="org-left">Boost converter to 48V</td>
+</tr>
+
+<tr>
+<td class="org-left">Security Cameras (total)</td>
+<td class="org-right">0.75</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Total</td>
+<td class="org-right">2.49</td>
+<td class="org-right">10.04</td>
+<td class="org-right">2.1</td>
+<td class="org-left">40</td>
+<td class="org-right">161</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org25e62e6" class="outline-4">
+<h4 id="org25e62e6"><span class="section-number-4">1.0.3</span> Capacity planning for power buses</h4>
+<div class="outline-text-4" id="text-1-0-3">
+<p>
+We take into account an efficiency of 0.8 for the buck converters and assume that the lowest voltage seen by the system will be 11.2V which corresponds to the BMS cutoff voltage of 2.8V per cell.
+</p>
+
+<table id="org4dd7209" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> Maximum current and power values for each bus</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Bus</th>
+<th scope="col" class="org-right">Voltage [V]</th>
+<th scope="col" class="org-right">Max current [A]</th>
+<th scope="col" class="org-right">Max power [W]</th>
+<th scope="col" class="org-right">V<sub>rail</sub> load on batt power [A]</th>
+<th scope="col" class="org-right">V<sub>rail</sub> load on AC power [A]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">12 V</td>
+<td class="org-right">12</td>
+<td class="org-right">10.04</td>
+<td class="org-right">120.48</td>
+<td class="org-right">13.446429</td>
+<td class="org-right">5.02</td>
+</tr>
+
+<tr>
+<td class="org-left">5 V</td>
+<td class="org-right">5</td>
+<td class="org-right">2.1</td>
+<td class="org-right">10.5</td>
+<td class="org-right">1.171875</td>
+<td class="org-right">0.4375</td>
+</tr>
+
+<tr>
+<td class="org-left">Direct</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">161</td>
+<td class="org-right">14.375</td>
+<td class="org-right">6.7083333</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Total</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">291.98</td>
+<td class="org-right">28.993304</td>
+<td class="org-right">5.50125</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The above calculations allow us to select proper fuses for the different buses. It can also be seen that an AC power supply with at least 300W is needed to power the loads with some room needed to charge the battery. For this reason a 400W power supply has been selected (see summary in BOM).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf91210c" class="outline-4">
+<h4 id="orgf91210c"><span class="section-number-4">1.0.4</span> Ideal Diode circuit</h4>
+<div class="outline-text-4" id="text-1-0-4">
+<p>
+Instead of the previously used relay-based power path switching scheme a solid-state power switch based on MOSFETs driven by the LTC4416 PowerPath controller will be used.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgabfa737" class="outline-4">
+<h4 id="orgabfa737"><span class="section-number-4">1.0.5</span> Battery pack</h4>
+</div>
+
+<div id="outline-container-org6ce1627" class="outline-4">
+<h4 id="org6ce1627"><span class="section-number-4">1.0.6</span> Modularity</h4>
+<div class="outline-text-4" id="text-1-0-6">
+</div>
+<ol class="org-ol">
+<li><a id="org7fe7049"></a>Fanout boards and fuse boards<br /></li>
+
+<li><a id="org0ff3dad"></a>Improved load connectors<br /></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org65c7d21" class="outline-2">
+<h2 id="org65c7d21"><span class="section-number-2">2</span> Overall schematics</h2>
+<div class="outline-text-2" id="text-2">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="secondlife-ups-MkII/hw.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7ad0173" class="outline-2">
+<h2 id="org7ad0173"><span class="section-number-2">3</span> Bill of Materials</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Shipping costs and taxes are not included.</li>
+<li>All prices are in EUR.</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> Bill of Materials</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Item</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Unit</th>
+<th scope="col" class="org-right">Amount</th>
+<th scope="col" class="org-right">Price per unit [EUR]</th>
+<th scope="col" class="org-right">Line total [EUR]</th>
+<th scope="col" class="org-left">Purchase date</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Battery cells</td>
+<td class="org-left">Various</td>
+<td class="org-left">Li-Ion 3.6V 18650 Cells</td>
+<td class="org-left">pcs</td>
+<td class="org-right">48</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">N/A</td>
+<td class="org-left">From existing stock</td>
+</tr>
+
+<tr>
+<td class="org-left">AC Power supply</td>
+<td class="org-left"><a href="https://www.aliexpress.com/item/32950139524.html">Coleen CB-400W-24V</a></td>
+<td class="org-left">AC 230V, 24V/16.6A</td>
+<td class="org-left">pcs</td>
+<td class="org-right">1</td>
+<td class="org-right">19.9</td>
+<td class="org-right">19.9</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-04-07 pią&gt;</span></span></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Main battery switch</td>
+<td class="org-left"><a href="https://www.tme.eu/pl/katalog/przelaczniki-typu-rocker_100054/?art=R13133L01BBRL2">R13133L01BBRL2</a></td>
+<td class="org-left">ROCKER; SPST; Poz: 2; ON-OFF; 30A/24VDC; czarny; LED; 12VDC; -20÷85°C</td>
+<td class="org-left">pcs</td>
+<td class="org-right">1</td>
+<td class="org-right">2.19</td>
+<td class="org-right">2.19</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-04-07 pią&gt;</span></span></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Main fuse socket</td>
+<td class="org-left"><a href="https://www.tme.eu/pl/katalog/gniazda-bezpiecznikowe-na-panel_113040/?art=PMG-KB-01-Q2S">PMG-KB-01-Q2S</a></td>
+<td class="org-left">Gniazdo; 10,3x38,1mm; 30A; na panel; Otw: Ø22,4mm; UL94V-1; 600VAC</td>
+<td class="org-left">pcs</td>
+<td class="org-right">1</td>
+<td class="org-right">8.77</td>
+<td class="org-right">8.77</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-04-07 pią&gt;</span></span></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">12V Buck Converter</td>
+<td class="org-left"><a href="https://www.aliexpress.com/item/1005002603980974.html">DN121</a></td>
+<td class="org-left">VOLTAGE REGULATOR 24V to 12V 10A DC/DC Converter Step Down Voltage Transformer Buck Regulator Voltage for Solar for LED</td>
+<td class="org-left">pcs</td>
+<td class="org-right">1</td>
+<td class="org-right">8.62</td>
+<td class="org-right">8.62</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-03-15 śro&gt;</span></span></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">CC/CV Charger</td>
+<td class="org-left"><a href="https://www.aliexpress.com/item/1005004153906058.html">XL4015</a></td>
+<td class="org-left">Efficient Adjustable 5A DC-DC Buck Module Constant Current Voltage Regulator Step Down Converter Charging Board 5V 12V 24V</td>
+<td class="org-left">pcs</td>
+<td class="org-right">1</td>
+<td class="org-right">2.31</td>
+<td class="org-right">2.31</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-03-15 śro&gt;</span></span></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Pluggable terminal blocks (sockets)</td>
+<td class="org-left"><a href="https://www.tme.eu/Document/83e7173fe653a2d0e44585e87978945b/opr014R8.pdf">15EDGVC-3.5-02P-14-00A(H)</a></td>
+<td class="org-left">Pluggable terminal block; 3.5mm; ways: 2; straight; socket; male</td>
+<td class="org-left">pcs</td>
+<td class="org-right">16</td>
+<td class="org-right">0.19</td>
+<td class="org-right">3.04</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-04-07 pią&gt;</span></span></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Pluggable terminal blocks (plugs)</td>
+<td class="org-left"><a href="https://www.tme.eu/Document/580c900c7460c0af0ff973aec46ec4f5/15edgk.pdf">15EDGK-3.5-02P-14-00AH</a></td>
+<td class="org-left">Pluggable terminal block; 3.5mm; ways: 2; straight; plug; female</td>
+<td class="org-left">pcs</td>
+<td class="org-right">20</td>
+<td class="org-right">0.42</td>
+<td class="org-right">8.4</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-04-07 pią&gt;</span></span></td>
+<td class="org-left">4 spare units</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Total</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">56.63</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-04-19 17:16</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
