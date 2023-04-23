@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-19 17:16 -->
+<!-- 2023-04-23 11:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Second Life UPS Mark II</title>
@@ -272,7 +272,10 @@ The Secondlife UPS Mark II was envisioned as a successor to the first <a href="s
 </ul>
 
 <p>
-The basic premise is to provide a UPS which instead of 230V AC can provide typical low voltages suitable for powering of sensors, routers, 802.11 access points modems, switches, embedded systems (like a Raspberry Pi) and other small devices. It's design is focused around a few stabilised voltage buses providing 12V and 5V respectively as well as a "direct" rail (labelled later as V<sub>rail</sub>) which is connected directly to the battery or AC power supply. The peculiarity of this bus is that the voltage on it has a significant swing - from 11.2 V when operating on an almost depleted battery towards 24V when operating on AC power.
+The basic premise is to provide a UPS which instead of 230V AC can provide typical low voltages suitable for powering of sensors, routers, 802.11 access points
+modems, switches, embedded systems (like a Raspberry Pi) and other small devices. It's design is focused around a few stabilised voltage buses providing 12V and
+5V respectively as well as a "direct" rail (labelled later as V<sub>rail</sub>) which is connected directly to the battery or AC power supply. The peculiarity of this bus
+is that the voltage on it has a significant swing - from 11.2 V when operating on an almost depleted battery towards 24V when operating on AC power.
 </p>
 </div>
 
@@ -297,11 +300,10 @@ Battery capacity is 300 Wh,
 <h4 id="org6a2b974"><span class="section-number-4">1.0.2</span> More power</h4>
 <div class="outline-text-4" id="text-1-0-2">
 <p>
-The list of equipment in my home rack has changed, some equipment has been replaced, there is some new equipment as well. Some of the new equipment will be powered by wide input range DC-DC converters so they can be powered directly from the battery rail (V<sub>rail</sub>). I measured the amount of current draw during normal operation and came up with the following estimates:
-</p>
-
-<p>
-As the voltage on the V<sub>batt</sub> bus is not constant and changes from 11.2V when operating on a discharged battery and 24V when operating on AC its more useful to specify it's performance in terms of power not current.
+The list of equipment in my home rack has changed, some equipment has been fsgfsdafsd replaced, there is some new equipment as well. Some of the new equipment
+will be powered by wide input range DC-DC converters so they can be powered directly from the battery rail (V<sub>rail</sub>). I measured the amount of current draw
+during normal operation and came up with the following estimates. As the voltage on the V<sub>rail</sub> bus is not constant and changes from 11.2V when operating on a
+discharged battery and 24V when operating on AC its more useful to specify it's performance in terms of power not current.
 </p>
 
 <table id="orgd52a4c7" border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
@@ -453,7 +455,8 @@ As the voltage on the V<sub>batt</sub> bus is not constant and changes from 11.2
 <h4 id="org25e62e6"><span class="section-number-4">1.0.3</span> Capacity planning for power buses</h4>
 <div class="outline-text-4" id="text-1-0-3">
 <p>
-We take into account an efficiency of 0.8 for the buck converters and assume that the lowest voltage seen by the system will be 11.2V which corresponds to the BMS cutoff voltage of 2.8V per cell.
+We take into account an efficiency of 0.8 for the buck converters and assume that the lowest voltage seen by the system will be 11.2V which corresponds to the
+BMS cutoff voltage of 2.8V per cell.
 </p>
 
 <table id="org4dd7209" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -523,7 +526,8 @@ We take into account an efficiency of 0.8 for the buck converters and assume tha
 </table>
 
 <p>
-The above calculations allow us to select proper fuses for the different buses. It can also be seen that an AC power supply with at least 300W is needed to power the loads with some room needed to charge the battery. For this reason a 400W power supply has been selected (see summary in BOM).
+The above calculations allow us to select proper fuses for the different buses. It can also be seen that an AC power supply with at least 300W is needed to
+power the loads with some room needed to charge the battery. For this reason a 400W power supply has been selected (see summary in BOM).
 </p>
 </div>
 </div>
@@ -726,7 +730,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-04-19 17:16</p>
+<p class="date">Created: 2023-04-23 11:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
