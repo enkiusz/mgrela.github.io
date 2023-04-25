@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-25 15:29 -->
+<!-- 2023-04-25 19:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Toyota Corolla</title>
@@ -237,6 +237,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgf467ffc">1. Device CD-Text support results</a>
 <ul>
 <li><a href="#orge22a3d0">1.1. DIY development wire harness</a></li>
+<li><a href="#orgece23a3">1.2. Radio LAN diagnostics mode enter</a></li>
 </ul>
 </li>
 </ul>
@@ -372,6 +373,16 @@ In the interest of full disclosure there is also the <a href="fuel-corolla.dat">
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
+
+<tr>
+<td class="org-left"><a href="cqts7471a.pdf">Service Manual</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
 <tr>
@@ -380,7 +391,7 @@ In the interest of full disclosure there is also the <a href="fuel-corolla.dat">
 <td class="org-left">CD Changer</td>
 <td class="org-left">Front: TM0461</td>
 <td class="org-left">R4 connector</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">No owned</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -451,7 +462,7 @@ In the interest of full disclosure there is also the <a href="fuel-corolla.dat">
 <td class="org-left">CD Changer</td>
 <td class="org-left">Front: TM0461</td>
 <td class="org-left">R4 connector</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Not owned</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -780,11 +791,213 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
+<div id="outline-container-orgece23a3" class="outline-3">
+<h3 id="orgece23a3"><span class="section-number-3">1.2</span> Radio LAN diagnostics mode enter</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+To enter the LAN diagnostics mode the following steps need to be taken:
+</p>
+
+<ul class="org-ul">
+<li>Turn off the audio system and turn the IG switch to ACC. While pressing the preset switches ”1” and ”6” at the same time, press ”CD” 3 times.</li>
+<li>Reference: Beep sound is given 3 times and the system enters the service check mode. It may take about 40 sec. to complete th check.</li>
+</ul>
+
+<p>
+Refer to the DIAGNOSTICS (05-599) chapter for the AUDIO SYSTEM <a href="precheck.pdf">Repair Manual</a> for a detailed description.
+</p>
+
+<p>
+In the service check mode, the system check and the diagnosis memory check are performed, and the check results are displayed in ascending order of the
+device codes. (physical address)
+</p>
+
+<p>
+In the CQ-TS7471LC radio that I have without any external devices connected apart from the power supply the following codes are reported as "GOOD":
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Physical address</th>
+<th scope="col" class="org-left">Physical label</th>
+<th scope="col" class="org-left">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P160</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+
+<tr>
+<td class="org-left">P190</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+When the TM0461 CD Changer is connected an additional code appears:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Physical address</th>
+<th scope="col" class="org-left">Physical label</th>
+<th scope="col" class="org-left">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P160</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+
+<tr>
+<td class="org-left">P190</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+
+<tr>
+<td class="org-left">P360</td>
+<td class="org-left">CD-CH1</td>
+<td class="org-left">GOOD</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+When an Aliexpress-sourced APPS2Car CD Changer emulator is connected the codes reported now are:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Physical address</th>
+<th scope="col" class="org-left">Physical label</th>
+<th scope="col" class="org-left">Condition</th>
+<th scope="col" class="org-left">DTC Codes</th>
+<th scope="col" class="org-left">DTC Interpreted</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P160</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">CHEC</td>
+<td class="org-left">1L-01 1D-FF 1P-240 1N-00 1C-04</td>
+<td class="org-left">Logical address 01 (communications ctrl)</td>
+<td class="org-left">This is only assumed as the repair manual documents a different LCD display format</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DTC code FF</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Physical address P240</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Connection check number 00</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Count 04</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">P190</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">P240</td>
+<td class="org-left">CD-CH2</td>
+<td class="org-left">NCON</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+According to the radio repair manual the NCON condition means that the connected component has not responded to the "Diagnosis Mode ON Request" which is likely for a cheap
+non-brand emulator.
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-04-25 15:29</p>
+<p class="date">Created: 2023-04-25 19:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
