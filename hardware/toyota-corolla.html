@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-25 19:58 -->
+<!-- 2023-05-03 19:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Toyota Corolla</title>
@@ -234,14 +234,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf467ffc">1. Device CD-Text support results</a>
+<li><a href="#orgf467ffc">0.1. Device CD-Text support results</a>
 <ul>
-<li><a href="#orge22a3d0">1.1. DIY development wire harness</a></li>
-<li><a href="#orgece23a3">1.2. Radio LAN diagnostics mode enter</a></li>
+<li><a href="#orge22a3d0">0.1.1. DIY development wire harness</a></li>
+<li><a href="#orgece23a3">0.1.2. Radio LAN diagnostics mode enter</a></li>
 </ul>
 </li>
+<li><a href="#org4c0e4c1">0.2. AVC-LAN packet library</a></li>
 </ul>
-</div>
+</li>
+<li><a href="#orgeb6b850">1. Reference</a></div>
 </div>
 <base href="toyota-corolla/"/>
 
@@ -271,9 +273,9 @@ Also there is an MPG chart more useful for US-based viewers:
 In the interest of full disclosure there is also the <a href="fuel-corolla.dat">input data</a> and <a href="fuel-corolla-public.gnuplot">gnuplot script</a> to generate the charts.
 </p>
 
-<div id="outline-container-orgf467ffc" class="outline-2">
-<h2 id="orgf467ffc"><span class="section-number-2">1</span> Device CD-Text support results</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgf467ffc" class="outline-3">
+<h3 id="orgf467ffc"><span class="section-number-3">0.1</span> Device CD-Text support results</h3>
+<div class="outline-text-3" id="text-0-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -780,9 +782,9 @@ This attachment is also mentioned for Toyota RAV4
 </p>
 </div>
 
-<div id="outline-container-orge22a3d0" class="outline-3">
-<h3 id="orge22a3d0"><span class="section-number-3">1.1</span> DIY development wire harness</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orge22a3d0" class="outline-4">
+<h4 id="orge22a3d0"><span class="section-number-4">0.1.1</span> DIY development wire harness</h4>
+<div class="outline-text-4" id="text-0-1-1">
 
 <div class="figure">
 <p><object type="image/svg+xml" data="diy-iebus-harness.svg" class="org-svg">
@@ -791,16 +793,16 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
-<div id="outline-container-orgece23a3" class="outline-3">
-<h3 id="orgece23a3"><span class="section-number-3">1.2</span> Radio LAN diagnostics mode enter</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgece23a3" class="outline-4">
+<h4 id="orgece23a3"><span class="section-number-4">0.1.2</span> Radio LAN diagnostics mode enter</h4>
+<div class="outline-text-4" id="text-0-1-2">
 <p>
 To enter the LAN diagnostics mode the following steps need to be taken:
 </p>
 
 <ul class="org-ul">
 <li>Turn off the audio system and turn the IG switch to ACC. While pressing the preset switches ”1” and ”6” at the same time, press ”CD” 3 times.</li>
-<li>Reference: Beep sound is given 3 times and the system enters the service check mode. It may take about 40 sec. to complete th check.</li>
+<li>Reference: Beep sound is given 3 times and the system enters the service check mode. It may take about 40 sec. to complete the check.</li>
 </ul>
 
 <p>
@@ -994,10 +996,249 @@ non-brand emulator.
 </div>
 </div>
 </div>
+
+<div id="outline-container-org4c0e4c1" class="outline-3">
+<h3 id="org4c0e4c1"><span class="section-number-3">0.2</span> AVC-LAN packet library</h3>
+<div class="outline-text-3" id="text-0-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Raw packet</th>
+<th scope="col" class="org-left">Decoded headers</th>
+<th scope="col" class="org-left">Information fields</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Examples</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ANNOUNCE</td>
+<td class="org-left">01 00 160 fff 0f 03 12 01 46</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):12(COMMUNICATION) -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 46</td>
+<td class="org-left">constant 46</td>
+<td class="org-left">Sent every 10s by device 0x160</td>
+<td class="org-left">see above</td>
+<td class="org-left">"any device is use" in SOFTSERVICE</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">REPORT REQ</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 09</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):12(COMMUNICATION) -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 20 09</td>
+<td class="org-left">0x20 xx, where xx is a sequence number</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 01</td>
+<td class="org-left">Sent to broadcast</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 02</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 0b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">REPORT RESP</td>
+<td class="org-left">01 01 240 160 0f 06 00 01 12 30 0b 00</td>
+<td class="org-left">UNI 240(CD<sub>CH2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):12(COMMUNICATION) 15(WRITE<sub>DATA</sub>) 30 0b 00</td>
+<td class="org-left">0x30 xx, where xx is a sequence number (matches the previously sent out REPORT packet</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 190 160 0f 06 00 01 12 30 0c 00</td>
+<td class="org-left">Unicast response</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 240 160 0f 06 00 01 12 30 0a 00</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 240 160 0f 06 00 01 12 30 05 00</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">BEEP</td>
+<td class="org-left">01 01 160 190 0f 05 00 25 29 60 83</td>
+<td class="org-left">UNI 160(AUDIO<sub>HU1</sub>):25(CMD<sub>SW</sub>) -&gt; 190(AUDIO<sub>HU2</sub>):29(BEEP<sub>SPEAKERS</sub>) 15(WRITE<sub>DATA</sub>) 60 83</td>
+<td class="org-left">0x60 xx, where xx is the duration of the beep</td>
+<td class="org-left">Audible beep in speakers</td>
+<td class="org-left">01 01 160 190 0f 05 00 25 29 60 01</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PING</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 0a</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):00() -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 0a</td>
+<td class="org-left">constant 0x0a</td>
+<td class="org-left">Sent to broadcast when a scan is started in LAN diagnostic mode</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 0a</td>
+<td class="org-left">Seen in LAN diag mode, can be unicast or broadcast</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 160 240 0f 04 00 00 01 0a</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PING RESP</td>
+<td class="org-left">01 01 190 160 0f 05 00 01 00 1a 01</td>
+<td class="org-left">UNI 190(AUDIO<sub>HU2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):00() 15(WRITE<sub>DATA</sub>) 1a 01</td>
+<td class="org-left">constant</td>
+<td class="org-left">This seems to be a reply to the PING request</td>
+<td class="org-left">01 01 190 160 0f 05 00 01 00 1a 01</td>
+<td class="org-left">Seen in LAN diag mode, device reported as NCON in LAN diagnostics when no reply</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">STATE REQ?</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 0c</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):00() -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 0c</td>
+<td class="org-left">constant</td>
+<td class="org-left">Unknown, a different kind of ping?</td>
+<td class="org-left">see above</td>
+<td class="org-left">Seen in LAN diag mode, Sent to broadcast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">STATE RESP?</td>
+<td class="org-left">01 01 190 160 0f 05 00 01 00 1c 00</td>
+<td class="org-left">UNI 190(AUDIO<sub>HU2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):00() 15(WRITE<sub>DATA</sub>) 1c 00</td>
+<td class="org-left">constant</td>
+<td class="org-left">Seems to be a response to STATE?</td>
+<td class="org-left">01 01 360 160 0f 05 00 01 00 1c 00</td>
+<td class="org-left">Unicast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">END SCAN</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 08</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):00() -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 08</td>
+<td class="org-left">constant</td>
+<td class="org-left">Seems to indicate end of LAN diagnostic scan</td>
+<td class="org-left">see above</td>
+<td class="org-left">Seen in LAN diag mode when scan ends, sent to broadcast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">END SCAN OK</td>
+<td class="org-left">01 01 190 160 0f 04 00 01 00 18</td>
+<td class="org-left">UNI 190(AUDIO<sub>HU2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):00() 15(WRITE<sub>DATA</sub>) 18</td>
+<td class="org-left">constant</td>
+<td class="org-left">A response to END SCAN</td>
+<td class="org-left">01 01 360 160 0f 04 00 01 00 18</td>
+<td class="org-left">Seen in LAN diag mode, unicast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PLUG</td>
+<td class="org-left">01 00 360 1ff 0f 04 01 11 13 63</td>
+<td class="org-left">BRO 360(CD<sub>CH1</sub>):01(COMM<sub>CTRL</sub>) -&gt; 1ff(GROUP1):11() 15(WRITE<sub>DATA</sub>) 13 63</td>
+<td class="org-left">constant</td>
+<td class="org-left">Sent by the CD changer when plugged into the bus</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Multicast to group 1FF</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PLUG ACK</td>
+<td class="org-left">01 01 160 360 0f 04 00 25 63 e0</td>
+<td class="org-left">UNI 160(AUDIO<sub>HU1</sub>):25(CMD<sub>SW</sub>) -&gt; 360(CD<sub>CH1</sub>):63(CD<sub>CHANGER</sub>) 15(WRITE<sub>DATA</sub>) e0</td>
+<td class="org-left">constant</td>
+<td class="org-left">Seems to be an acknowledgement of the PLUG message</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Unicast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">TRACK NAME</td>
+<td class="org-left">01 01 190 160 0f 18 00 62 25 fd 01 02 c0 01 4c 6f 73 74 20 69 6e 20 74 68 65 20 50 69 70 65</td>
+<td class="org-left">PKT UNI 190(AUDIO<sub>HU2</sub>):62(CD) -&gt; 160(AUDIO<sub>HU1</sub>):25(CMD<sub>SW</sub>) 15(WRITE<sub>DATA</sub>) fd 01 02 c0 01 4c 6f 73 74 20 69 6e 20 74 68 65 20 50 69 70 65</td>
+<td class="org-left">track name -&gt; "Lost in the Pipe"</td>
+<td class="org-left">Sends track name from CD-Text</td>
+<td class="org-left">01 01 190 160 0f 18 00 62 25 fd 01 03 c0 01 4f 75 74 20 6f 66 20 41 6e 67 65 72 20 61 6e 64</td>
+<td class="org-left">Unicast</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgeb6b850" class="outline-2">
+<h2 id="orgeb6b850"><span class="section-number-2">1</span> Reference</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+A single other reference for the packet format.
+<a href="http://softservice.com.pl/corolla/avc/avclan.php">SOFTSERVICE</a>
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-04-25 19:58</p>
+<p class="date">Created: 2023-05-03 19:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
