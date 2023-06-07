@@ -247,7 +247,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "avclan-sniffer.kicad_pro",
+    "filename": "avclan-interface.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -313,7 +313,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "./avclan-sniffer.svg",
+    "plot_directory": "",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
@@ -324,7 +324,7 @@
   },
   "sheets": [
     [
-      "b030a34a-0a55-43f2-ab13-858681821282",
+      "ea6f46e6-544b-4be6-9a39-3cf5dc2ce481",
       ""
     ]
   ],
