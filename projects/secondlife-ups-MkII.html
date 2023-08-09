@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-09 17:59 -->
+<!-- 2023-08-09 21:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Second Life UPS Mark II</title>
@@ -237,6 +237,7 @@
 <li><a href="#org721bda9">3.5.4. Attaching voltage sense wires</a></li>
 <li><a href="#org69606c8">3.5.5. Final assembly</a></li>
 <li><a href="#orgc5ac3d6">3.5.6. Attaching thermal fuses</a></li>
+<li><a href="#org8fb91c5">3.5.7. Battery Management System</a></li>
 </ul>
 </li>
 </ul>
@@ -358,7 +359,7 @@ changes from 11.2V when operating on a discharged battery and 24V when operating
 <td class="org-right">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="https://halny.com/portfolio/hl-1ge">HALNY HL-1GE</a></td>
 </tr>
 
 <tr>
@@ -566,9 +567,11 @@ An AC power supply with at least 300W is needed to power the loads with some roo
 Instead of the previously used relay-based power path switching scheme a solid-state power switch based on MOSFETs driven by the LTC4416 PowerPath controller will be used.
 </p>
 
-<p>
-@@@ &#x2013; ideal diode circuit &#x2013;
+
+<div id="org49ee85b" class="figure">
+<p><a href="secondlife-ups-MkII/ideal-diode.svg"><img src="secondlife-ups-MkII/ideal-diode.png" alt="ideal-diode.png" /></a>
 </p>
+</div>
 </div>
 </div>
 
@@ -608,7 +611,7 @@ As an example in the Secondlife UPS described in this document the following mod
 </ul>
 
 
-<div id="org437b4b1" class="figure">
+<div id="orgebfffad" class="figure">
 <p><a href="secondlife-ups-MkII/assembled-front-panel.jpg"><img src="secondlife-ups-MkII/thumb-assembled-front-panel.jpg" alt="thumb-assembled-front-panel.jpg" /></a>
 </p>
 </div>
@@ -628,10 +631,11 @@ each specific module which can be screwed on to improve the aesthetics.
 The overall schematics of the UPS. Some modules (for example the ideal diode circuit or the BMS) are drawn on a conceptual level only.
 </p>
 
-<p>
-@@@ update @@@
-<img src="secondlife-ups-MkII/hw.svg" alt="hw.svg" class="org-svg" />
+
+<div id="org8e6db43" class="figure">
+<p><a href="secondlife-ups-MkII/hw.svg"><img src="secondlife-ups-MkII/hw.png" alt="hw.png" /></a>
 </p>
+</div>
 </div>
 </div>
 
@@ -647,7 +651,7 @@ As the initial step all of the parts need to be placed in the enclosure to check
 </p>
 
 
-<div id="orgbcc14d2" class="figure">
+<div id="orgba73098" class="figure">
 <p><a href="secondlife-ups-MkII/initial-placement.jpg"><img src="secondlife-ups-MkII/thumb-initial-placement.jpg" alt="thumb-initial-placement.jpg" /></a>
 </p>
 </div>
@@ -675,7 +679,7 @@ After placing the batteries, AC power supply, DC-DC converters, BMS and other co
 </p>
 
 
-<div id="org82edb1e" class="figure">
+<div id="org9e2664d" class="figure">
 <p><a href="secondlife-ups-MkII/studs-removed.jpg"><img src="secondlife-ups-MkII/thumb-studs-removed.jpg" alt="thumb-studs-removed.jpg" /></a>
 </p>
 </div>
@@ -713,7 +717,7 @@ Plan for some clearance between elements.
 </p>
 
 
-<div id="org82f8011" class="figure">
+<div id="org93e633f" class="figure">
 <p><a href="secondlife-ups-MkII/layout.jpg"><img src="secondlife-ups-MkII/thumb-layout.jpg" alt="thumb-layout.jpg" /></a>
 </p>
 </div>
@@ -739,13 +743,13 @@ The module PCBs can be placed inside or outside the front panel assembly dependi
 </p>
 
 
-<div id="org7b5f048" class="figure">
+<div id="org2d5c755" class="figure">
 <p><a href="secondlife-ups-MkII/mount-inside.jpg"><img src="secondlife-ups-MkII/thumb-mount-inside.jpg" alt="thumb-mount-inside.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org950e2ee" class="figure">
+<div id="org9b945e2" class="figure">
 <p><a href="secondlife-ups-MkII/mount-outside.jpg"><img src="secondlife-ups-MkII/thumb-mount-outside.jpg" alt="thumb-mount-outside.jpg" /></a>
 </p>
 </div>
@@ -767,7 +771,7 @@ pretty large, care needs to be taken to drill the main mounting hole exactly on 
 </p>
 
 
-<div id="org8523f8f" class="figure">
+<div id="org75c18d8" class="figure">
 <p><a href="secondlife-ups-MkII/fuse-socket-marked.jpg"><img src="secondlife-ups-MkII/thumb-fuse-socket-marked.jpg" alt="thumb-fuse-socket-marked.jpg" /></a> 
 </p>
 </div>
@@ -778,13 +782,13 @@ was struggling a bit but you can do it with some patience.
 </p>
 
 
-<div id="org501d75c" class="figure">
+<div id="org232ae96" class="figure">
 <p><a href="secondlife-ups-MkII/fuse-socket-mounted1.jpg"><img src="secondlife-ups-MkII/thumb-fuse-socket-mounted1.jpg" alt="thumb-fuse-socket-mounted1.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org8642984" class="figure">
+<div id="org2953c9b" class="figure">
 <p><a href="secondlife-ups-MkII/fuse-socket-mounted2.jpg"><img src="secondlife-ups-MkII/thumb-fuse-socket-mounted2.jpg" alt="thumb-fuse-socket-mounted2.jpg" /></a>
 </p>
 </div>
@@ -800,7 +804,7 @@ The BMS, ideal diode circuit and DC-DC converters are mounted on a baseplate mad
 </p>
 
 
-<div id="orgd3b7fd2" class="figure">
+<div id="orgebd3850" class="figure">
 <p><a href="secondlife-ups-MkII/circuit-baseboard.jpg"><img src="secondlife-ups-MkII/thumb-circuit-baseboard.jpg" alt="thumb-circuit-baseboard.jpg" /></a>
 </p>
 </div>
@@ -810,7 +814,7 @@ All of the other modules can be then mounted either with either screws or double
 </p>
 
 
-<div id="org4608275" class="figure">
+<div id="org0eaa703" class="figure">
 <p><a href="secondlife-ups-MkII/circuit-mounted-modules.jpg"><img src="secondlife-ups-MkII/thumb-circuit-mounted-modules.jpg" alt="thumb-circuit-mounted-modules.jpg" /></a>
 </p>
 </div>
@@ -929,7 +933,7 @@ with a long slot cut alongside their length. The design for such a jig can be fo
 </p>
 
 
-<div id="orge922220" class="figure">
+<div id="orgb5a1edf" class="figure">
 <p><img src="secondlife-ups-MkII/welding-jig.svg" alt="welding-jig.svg" class="org-svg" />
 </p>
 </div>
@@ -940,7 +944,7 @@ This is recommended as the welded nickel strips cannot be used as the only mecha
 </p>
 
 
-<div id="orgd9af504" class="figure">
+<div id="org7bc83bf" class="figure">
 <p><a href="secondlife-ups-MkII/cells-inside-jig.jpg"><img src="secondlife-ups-MkII/thumb-cells-inside-jig.jpg" alt="thumb-cells-inside-jig.jpg" /></a>
 </p>
 </div>
@@ -950,7 +954,7 @@ Nickel strips are secured to the cells using small neodymium magnets to not move
 </p>
 
 
-<div id="org884c9ff" class="figure">
+<div id="org058b04b" class="figure">
 <p><a href="secondlife-ups-MkII/cell-tacking-magnets.jpg"><img src="secondlife-ups-MkII/thumb-cell-tacking-magnets.jpg" alt="thumb-cell-tacking-magnets.jpg" /></a>
 </p>
 </div>
@@ -961,7 +965,7 @@ The effect of welding both 0.1mm and 0.12mm thickness strips that connect the ce
 </p>
 
 
-<div id="org991f596" class="figure">
+<div id="org80e1a60" class="figure">
 <p><a href="secondlife-ups-MkII/cells-welded-first-side.jpg"><img src="secondlife-ups-MkII/thumb-cells-welded-first-side.jpg" alt="thumb-cells-welded-first-side.jpg" /></a>
 </p>
 </div>
@@ -972,7 +976,7 @@ which connects together 5 cheap "Li-Ion charger" modules based around the popula
 </p>
 
 
-<div id="org5c98d81" class="figure">
+<div id="org77d3916" class="figure">
 <p><a href="secondlife-ups-MkII/cells-equalized.jpg"><img src="secondlife-ups-MkII/thumb-cells-equalized.jpg" alt="thumb-cells-equalized.jpg" /></a>
 </p>
 </div>
@@ -983,13 +987,13 @@ and soldered to 4mm² wires.
 </p>
 
 
-<div id="orgd0d91d0" class="figure">
+<div id="org2a83a89" class="figure">
 <p><a href="secondlife-ups-MkII/terminal-current-collectors.jpg"><img src="secondlife-ups-MkII/thumb-terminal-current-collectors.jpg" alt="thumb-terminal-current-collectors.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org2708133" class="figure">
+<div id="org280dba9" class="figure">
 <p><a href="secondlife-ups-MkII/terminal-wire-soldered.jpg"><img src="secondlife-ups-MkII/thumb-terminal-wire-soldered.jpg" alt="thumb-terminal-wire-soldered.jpg" /></a>
 </p>
 </div>
@@ -1001,19 +1005,19 @@ these steps can be found below:
 </p>
 
 
-<div id="org3e83ca5" class="figure">
+<div id="orge7d27ee" class="figure">
 <p><a href="secondlife-ups-MkII/blocks-inside-jig.jpg"><img src="secondlife-ups-MkII/thumb-blocks-inside-jig.jpg" alt="thumb-blocks-inside-jig.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org9c39eea" class="figure">
+<div id="org88ab68a" class="figure">
 <p><a href="secondlife-ups-MkII/interblock-nickel-strips.jpg"><img src="secondlife-ups-MkII/thumb-interblock-nickel-strips.jpg" alt="thumb-interblock-nickel-strips.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org7509816" class="figure">
+<div id="org41b9ec1" class="figure">
 <p><a href="secondlife-ups-MkII/interblock-nickel-strips-welded.jpg"><img src="secondlife-ups-MkII/thumb-interblock-nickel-strips-welded.jpg" alt="thumb-interblock-nickel-strips-welded.jpg" /></a>
 </p>
 </div>
@@ -1040,7 +1044,7 @@ The voltage sense wires are soldered to allow the BMS to measure the voltage for
 </p>
 
 
-<div id="org6c91da1" class="figure">
+<div id="org39e53b0" class="figure">
 <p><a href="secondlife-ups-MkII/voltage-sense-wires.jpg"><img src="secondlife-ups-MkII/thumb-voltage-sense-wires.jpg" alt="thumb-voltage-sense-wires.jpg" /></a>
 </p>
 </div>
@@ -1055,7 +1059,7 @@ The final assembly involves isolating and securing all exposed nickel strips and
 </p>
 
 
-<div id="org1e4cbd5" class="figure">
+<div id="org187bf54" class="figure">
 <p><a href="secondlife-ups-MkII/blocks-isolation.jpg"><img src="secondlife-ups-MkII/thumb-blocks-isolation.jpg" alt="thumb-blocks-isolation.jpg" /></a>
 </p>
 </div>
@@ -1065,7 +1069,7 @@ After this the pack is bent into a flat shape:
 </p>
 
 
-<div id="org3d3591d" class="figure">
+<div id="orgfae7dd9" class="figure">
 <p><a href="secondlife-ups-MkII/flattened-battery-pack.jpg"><img src="secondlife-ups-MkII/thumb-flattened-battery-pack.jpg" alt="thumb-flattened-battery-pack.jpg" /></a>
 </p>
 </div>
@@ -1075,7 +1079,7 @@ This allows the pack to be slided into the enclosure:
 </p>
 
 
-<div id="org7432b37" class="figure">
+<div id="orgfcb6afe" class="figure">
 <p><a href="secondlife-ups-MkII/battery-pack-inserted.jpg"><img src="secondlife-ups-MkII/thumb-battery-pack-inserted.jpg" alt="thumb-battery-pack-inserted.jpg" /></a>
 </p>
 </div>
@@ -1091,10 +1095,22 @@ the battery cells using a thermally conductive glue. Magnets are used to secure 
 </p>
 
 
-<div id="org1624582" class="figure">
+<div id="org5b3c96b" class="figure">
 <p><a href="secondlife-ups-MkII/thermal-fuses.jpg"><img src="secondlife-ups-MkII/thumb-thermal-fuses.jpg" alt="thumb-thermal-fuses.jpg" /></a>
 </p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org8fb91c5" class="outline-4">
+<h4 id="org8fb91c5"><span class="section-number-4">3.5.7.</span> Battery Management System</h4>
+<div class="outline-text-4" id="text-3-5-7">
+<p>
+The BMS used with the battery pack is a <a href="https://www.aliexpress.com/item/1005002066419577.html">EGBO Store 4S/100A</a> based on the <a href="https://pdf1.alldatasheet.com/datasheet-pdf/view/1253599/ETC1/BM3451.html">BM3451</a> made by BYD. Apart from ordinary battery protection from overvoltage, undervoltage,
+overcurrent, etc. it can detect the disconnection of sense wires and shut the pack down in such an instance. This feature is used to both connect thermal fuses
+to the battery as well as a "Battery cutoff" switch on the front panel. Both of these work by breaking the connection of one of the voltage sense wires causing
+the BMS to stop charging or discharging the battery.
+</p>
 </div>
 </div>
 </div>
@@ -1108,7 +1124,7 @@ The final UPS assembled before the chassis being closed:
 </p>
 
 
-<div id="orgbfee004" class="figure">
+<div id="orgce8315a" class="figure">
 <p><a href="secondlife-ups-MkII/final-assembly.jpg"><img src="secondlife-ups-MkII/thumb-final-assembly.jpg" alt="thumb-final-assembly.jpg" /></a>
 </p>
 </div>
@@ -1232,6 +1248,18 @@ The final UPS assembled before the chassis being closed:
 </tr>
 
 <tr>
+<td class="org-left">5V Buck Converter</td>
+<td class="org-left"><a href="https://pl.aliexpress.com/item/1005004778421166.html">LM2596 Step Down Module</a></td>
+<td class="org-left">LM2596 Step Down Module DC to DC Adjustable Buck</td>
+<td class="org-left">pcs</td>
+<td class="org-right">1</td>
+<td class="org-right">3.00</td>
+<td class="org-right">3.</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2023-03-15 śro&gt;</span></span></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
 <td class="org-left">CC/CV Charger</td>
 <td class="org-left"><a href="https://www.aliexpress.com/item/1005004153906058.html">XL4015</a></td>
 <td class="org-left">Efficient Adjustable 5A DC-DC Buck Module Constant Current Voltage Regulator Step Down Converter Charging Board 5V 12V 24V</td>
@@ -1287,7 +1315,7 @@ The final UPS assembled before the chassis being closed:
 <td class="org-left">&#xa0;</td>
 <td class="org-right">&#xa0;</td>
 <td class="org-right">&#xa0;</td>
-<td class="org-right">64.18</td>
+<td class="org-right">67.18</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1298,7 +1326,7 @@ The final UPS assembled before the chassis being closed:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-08-09 17:59</p>
+<p class="date">Created: 2023-08-09 21:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
