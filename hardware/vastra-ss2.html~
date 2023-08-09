@@ -1,0 +1,1861 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-07 16:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vastra SS2 Smart Power Strip</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Vastra SS2 Smart Power Strip</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3da4cb2">1. Hardware</a>
+<ul>
+<li><a href="#orgbfa9b51">1.1. Boards</a></li>
+<li><a href="#orgbd6bd95">1.2. CON Board (Controller)</a>
+<ul>
+<li><a href="#org101604f">1.2.1. WR3 Wireless module</a></li>
+<li><a href="#org6a7e97f">1.2.2. J2 Button board</a></li>
+<li><a href="#org1dfd45e">1.2.3. J4 UART interface</a></li>
+<li><a href="#orgd92ab27">1.2.4. Tuya Serial Connection</a></li>
+<li><a href="#org06e910c">1.2.5. Extra hacking connector</a></li>
+<li><a href="#org402dc15">1.2.6. Log UART interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9fb8bc7">2. Application</a>
+<ul>
+<li><a href="#org88eab8e">2.1. Tuya Protocol Integration data</a>
+<ul>
+<li><a href="#org15b26cf">2.1.1. Product info</a></li>
+<li><a href="#org2d09c29">2.1.2. Product mode</a></li>
+<li><a href="#org885ee17">2.1.3. Tuya Data Points</a></li>
+</ul>
+</li>
+<li><a href="#org84544dd">2.2. Tuya Integration Manual</a></li>
+</ul>
+</li>
+<li><a href="#orgd160a2b">3. References</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3da4cb2" class="outline-2">
+<h2 id="org3da4cb2"><span class="section-number-2">1</span> Hardware</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The hardware inside consists of (apart from the ordinary Schuko sockets) several PCBs connected together with JST XH and pin header connectors.
+</p>
+</div>
+
+<div id="outline-container-orgbfa9b51" class="outline-3">
+<h3 id="orgbfa9b51"><span class="section-number-3">1.1</span> Boards</h3>
+<div class="outline-text-3" id="text-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Board ID</th>
+<th scope="col" class="org-left">Silkscreen</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">PSU1</td>
+<td class="org-left">SW3A-POWER V1.3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">USB</td>
+<td class="org-left">SW3A-USB V1.3</td>
+<td class="org-left">Not used in SS2 model (no USB ports)</td>
+</tr>
+
+<tr>
+<td class="org-left">CON</td>
+<td class="org-left">SW3A-Control V1.3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">BUTTON</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Button and LED</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Some photos of the boards:
+</p>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/internals.jpg"><img src="vastra-ss2/thumb-internals.jpg" alt="thumb-internals.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/SW3A-POWER.jpg"><img src="vastra-ss2/thumb-SW3A-POWER.jpg" alt="thumb-SW3A-POWER.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/SW3A-Control-WR3.jpg"><img src="vastra-ss2/thumb-SW3A-Control-WR3.jpg" alt="thumb-SW3A-Control-WR3.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/SW3A-Control-MCU.jpg"><img src="vastra-ss2/thumb-SW3A-Control-MCU.jpg" alt="thumb-SW3A-Control-MCU.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/SW3A-Control-ADC.jpg"><img src="vastra-ss2/thumb-SW3A-Control-ADC.jpg" alt="thumb-SW3A-Control-ADC.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbd6bd95" class="outline-3">
+<h3 id="orgbd6bd95"><span class="section-number-3">1.2</span> CON Board (Controller)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Notable parts are 3 ADCs, a MCU and a Tuya WR3 wireless module. Summary below:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Designation</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Part identification</th>
+<th scope="col" class="org-left">Datasheet</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">U7</td>
+<td class="org-left">Wireless module</td>
+<td class="org-left">P/N: WR3, Model: 2.22.33.00348</td>
+<td class="org-left">See below</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">U3, U4, U5</td>
+<td class="org-left">Likely an ADC</td>
+<td class="org-left">BL 0937</td>
+<td class="org-left">Might be AD7991</td>
+<td class="org-left">one per AC socket</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1926AYH</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">D7991OOV</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">U6</td>
+<td class="org-left">8051 microcontroller</td>
+<td class="org-left">STC8F2K32S2E</td>
+<td class="org-left"><a href="https://www.stcmicro.com/stc/stc8f2k64s2.html">https://www.stcmicro.com/stc/stc8f2k64s2.html</a></td>
+<td class="org-left">QFN32 package, measures current and controls</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">A743634</td>
+<td class="org-left"><a href="vastra-ss2/STC8F-en.pdf">Datasheet (mirror)</a></td>
+<td class="org-left">relays</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">J2</td>
+<td class="org-left">Button &amp; Status LED</td>
+<td class="org-left">JST XH 4 pin male</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">J4</td>
+<td class="org-left">UART connection</td>
+<td class="org-left">2.54mm 4P header</td>
+<td class="org-left">9600 bits/s, 8 bits, no parity, 1 stop bit</td>
+<td class="org-left">Labels are from the perspective of the host,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">for example line labeled RXD is where the device</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><b>transmits</b> data, non-isolated from mains AC!!!</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">J3</td>
+<td class="org-left">Power input</td>
+<td class="org-left">JST XH 4 pin male</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Label says 5V but it's 3.3V in reality</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-org101604f" class="outline-4">
+<h4 id="org101604f"><span class="section-number-4">1.2.1</span> WR3 Wireless module</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+The WR3 Wireless module is based on the Realtek RTL8710BN chip.
+</p>
+
+<p>
+Some people have attempted to replace this module with an ESP-12 to improve compatibility.
+</p>
+
+<p>
+<a href="https://blakadder.com/replace-tuya-esp12/">https://blakadder.com/replace-tuya-esp12/</a>
+</p>
+
+<p>
+Original information on Tuya's site about the module
+<a href="https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?id=K9g3ainzbj9z1">https://developer.tuya.com/en/docs/iot/wr3-module-datasheet?id=K9g3ainzbj9z1</a>
+</p>
+
+<p>
+The connections of the WR3 module can be traced to be as follows:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Pin number</th>
+<th scope="col" class="org-left">Sybol</th>
+<th scope="col" class="org-left">Pin description</th>
+<th scope="col" class="org-left">Connection</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">NC</td>
+<td class="org-left">Pulled up and not connected, to be compatible with other modules</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">GPIOA<sub>22</sub></td>
+<td class="org-left">GPIOA<sub>22</sub>, hardware PWM, Pin 31 of the IC</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">CHIP<sub>EN</sub></td>
+<td class="org-left">When software disables the function, connection by a user fails</td>
+<td class="org-left">pull-up to 3.3V</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">GPIOA<sub>19</sub></td>
+<td class="org-left">GPIOA<sub>19</sub>, a universal I/O port, Pin 30 of the IC</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">GPIOA<sub>14</sub></td>
+<td class="org-left">GPIOA<sub>14</sub>, hardware PWM, Pin 13 of the IC</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">GPIOA<sub>15</sub></td>
+<td class="org-left">GPIOA<sub>15</sub>, hardware PWM, Pin 14 of the IC</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">GPIOA<sub>0</sub></td>
+<td class="org-left">GPIOA<sub>0</sub>, which cannot be pulled high when powered on, and</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">which is configurable after the level is pulled to be high, hardware PWM, Pin 16 of the IC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">VD33</td>
+<td class="org-left">Power supply pin (3.3V)</td>
+<td class="org-left">3.3V power</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">GND</td>
+<td class="org-left">Power supply reference ground</td>
+<td class="org-left">Ground</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">ADC</td>
+<td class="org-left">ADC port, the maximum input voltage is 5V</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">11</td>
+<td class="org-left">GPIOA<sub>29</sub></td>
+<td class="org-left">UART<sub>Log</sub><sub>RXD</sub> (used to print the internal information of the module),</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">which can be configured as a universal GPIO.</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The module has been pulled up. The pin cannot be triggered at high level</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">12</td>
+<td class="org-left">GPIOA<sub>30</sub></td>
+<td class="org-left">UART<sub>Log</sub><sub>TXD</sub> (used to print the internal information of the module), which can be configured as a universal GPIO</td>
+<td class="org-left">No solder pad</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-left">GPIOA<sub>5</sub></td>
+<td class="org-left">GPIOA<sub>5</sub>, hardware PWM, Pin 28 of IC</td>
+<td class="org-left">J2.K2 (button)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-left">GPIOA<sub>12</sub></td>
+<td class="org-left">GPIOA<sub>12</sub>, hardware PWM, Pin 17 of IC</td>
+<td class="org-left">J2.D2 (LED)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-left">RXD</td>
+<td class="org-left">UART0<sub>RXD</sub> (user-side serial interface)</td>
+<td class="org-left">U6.2(TXD2/P1.1) (via 100Ω resistor R37)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-left">TXD</td>
+<td class="org-left">UART0<sub>TXD</sub> (user-side serial interface)</td>
+<td class="org-left">U6.1(RXD2/P1.0) (via 100Ω resistor R36)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6a7e97f" class="outline-4">
+<h4 id="org6a7e97f"><span class="section-number-4">1.2.2</span> J2 Button board</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Pin label</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">GND</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">VCC</td>
+<td class="org-left">3.3V</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">K2</td>
+<td class="org-left">Button</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">D2</td>
+<td class="org-left">Blue LED</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org1dfd45e" class="outline-4">
+<h4 id="org1dfd45e"><span class="section-number-4">1.2.3</span> J4 UART interface</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+The J4 UART interface is connected to the main STC8F UART which can be used for programming the chip. During operation it sends out periodic data 
+about the AC mains voltage as well as the current draw and total energy for all sockets. It's likely designed to perform calibration in the factory.
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Pin number</th>
+<th scope="col" class="org-left">Pin label</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Connection</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">GND</td>
+<td class="org-left">Ground</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">VCC</td>
+<td class="org-left">3.3V</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">TXD</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">U6.13(P3.0/RxD/INT4)</td>
+<td class="org-left">Can be used for ISP (In System Programming)</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">RXD</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">U6.14(P3.1/TxD)</td>
+<td class="org-left">Can be used for ISP (In System Programming)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The output printed can be interpreted in the following way:
+</p>
+
+<pre>
+Type [C-a] [C-h] to see available commands
+Terminal ready
+226.0     0mA   0.0    0.00     0mA   4.4    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   162mA  20.5    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   100mA  10.9    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   100mA  10.6    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   103mA  11.5    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00    98mA  10.9    0.00     0mA   0.0    0.00 
+226.0     0mA   0.0    0.00   105mA  11.6    0.00     0mA   0.0    0.00 
+^^^^^     ^^^   ^^^    ^^^^
+|         |     |      |
+|         |     |      total energy (kWh)
+|         |     Power (W)
+|         Current 
+Voltage
+          ------------------  --------------------    ------------------
+          Socket 1            Socket 2                Socket 3
+</pre>
+
+<p>
+The power measurement seems off because 226 V * 0.105 A = 23.730 W not 11.6 W like the device indicates (last line for Socket 2).
+</p>
+
+<p>
+The UART does not serve any other purpose, there is no traffic observed when the individual sockets are switched on or off. This looks to be controlled by a different 
+set of GPIO pins from the WR3 module.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd92ab27" class="outline-4">
+<h4 id="orgd92ab27"><span class="section-number-4">1.2.4</span> Tuya Serial Connection</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+The U6 microcontroller and the U7 Tuya WLAN module are connected with a serial port which uses the TuyaMCU protocol documented here: <a href="https://tasmota.github.io/docs/TuyaMCU/">https://tasmota.github.io/docs/TuyaMCU/</a>
+and on the Tuya site: <a href="https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb">https://developer.tuya.com/en/docs/iot/tuya-cloud-universal-serial-port-access-protocol?id=K9hhi0xxtn9cb</a> 
+</p>
+
+<p>
+As the TuyaMCU protocol is mostly half-duplex both lines of communication can be sniffed by bridging the TXD and RXD lines with diodes like shown below:
+</p>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="vastra-ss2/uart-connection.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<p>
+In order to interpret the intercepted data a <a href="https://gist.github.com/enkiusz/2359d46a6c54e05118d05ff67cff5ccf">simple sniffer</a> was created, the data intercepted looks like below:
+</p>
+
+<pre>
+$ ./tuyamcu-sniffer.py /dev/ttyUSB0
+2022-12-19 15:51.55 [info     ] opening serial port            url=/dev/ttyUSB0
+2022-12-19 15:51.59 [info     ] frame                          fullpacket=b'55aa00000000ff' payload=b'' proto_ver=<MCUFrameProtoVer.MCU_RX_VER: 0> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:51.59 [info     ] frame                          fullpacket=b'55aa030000010104' payload=b'01' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:52.03 [info     ] frame                          fullpacket=b'55aa03070005010100010112' payload=b'0101000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.03 [info     ] frame                          fullpacket=b'55aa03070005020100010113' payload=b'0201000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.03 [info     ] frame                          fullpacket=b'55aa03070005030100010114' payload=b'0301000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.13 [info     ] frame                          fullpacket=b'55aa0307000814020004000008b0e3' payload=b'14020004000008b0' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa0307000868020004000008b037' payload=b'68020004000008b0' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa0307000870020004000008b03f' payload=b'70020004000008b0' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa03070008660200040000009916' payload=b'6602000400000099' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa0307000867020004000001007f' payload=b'6702000400000100' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa03070005010100010112' payload=b'0101000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa03070005020100010113' payload=b'0201000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa03070005030100010114' payload=b'0301000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa00000000ff' payload=b'' proto_ver=<MCUFrameProtoVer.MCU_RX_VER: 0> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:52.14 [info     ] frame                          fullpacket=b'55aa030000010104' payload=b'01' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:52.24 [info     ] frame                          fullpacket=b'55aa0307000866020004000000920f' payload=b'6602000400000092' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.24 [info     ] frame                          fullpacket=b'55aa0307000867020004000000f270' payload=b'67020004000000f2' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.24 [info     ] frame                          fullpacket=b'55aa03070005010100010112' payload=b'0101000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.24 [info     ] frame                          fullpacket=b'55aa03070005020100010113' payload=b'0201000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.24 [info     ] frame                          fullpacket=b'55aa03070005030100010114' payload=b'0301000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.29 [info     ] frame                          fullpacket=b'55aa00000000ff' payload=b'' proto_ver=<MCUFrameProtoVer.MCU_RX_VER: 0> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:52.29 [info     ] frame                          fullpacket=b'55aa030000010104' payload=b'01' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:52.34 [info     ] frame                          fullpacket=b'55aa0307000866020004000000910e' payload=b'6602000400000091' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.34 [info     ] frame                          fullpacket=b'55aa0307000867020004000000ee6c' payload=b'67020004000000ee' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.34 [info     ] frame                          fullpacket=b'55aa03070005010100010112' payload=b'0101000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.34 [info     ] frame                          fullpacket=b'55aa03070005020100010113' payload=b'0201000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.34 [info     ] frame                          fullpacket=b'55aa03070005030100010114' payload=b'0301000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.44 [info     ] frame                          fullpacket=b'55aa00000000ff' payload=b'' proto_ver=<MCUFrameProtoVer.MCU_RX_VER: 0> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:52.44 [info     ] frame                          fullpacket=b'55aa030000010104' payload=b'01' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.HEAT_BEAT_CMD: 0>
+2022-12-19 15:52.45 [info     ] frame                          fullpacket=b'55aa03070008660200040000008f0c' payload=b'660200040000008f' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.45 [info     ] frame                          fullpacket=b'55aa0307000867020004000000ef6d' payload=b'67020004000000ef' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.45 [info     ] frame                          fullpacket=b'55aa03070005010100010112' payload=b'0101000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+2022-12-19 15:52.45 [info     ] frame                          fullpacket=b'55aa03070005020100010113' payload=b'0201000101' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.STATE_UPLOAD_CMD: 7>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org06e910c" class="outline-4">
+<h4 id="org06e910c"><span class="section-number-4">1.2.5</span> Extra hacking connector</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+In order to simplify hacking an extra connector has been added to the device wired into all of the relevant pins of the WR3 WLAN module:
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Pin number</th>
+<th scope="col" class="org-left">Pin label</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Connection</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">GND</td>
+<td class="org-left">Ground</td>
+<td class="org-left">U7.9(GND)</td>
+<td class="org-left">Black heatshrink</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UART<sub>Log</sub><sub>RXD</sub></td>
+<td class="org-left">U7.11(GPIOA<sub>29</sub>)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UART<sub>Log</sub><sub>TXD</sub></td>
+<td class="org-left">U7.12(GPIOA<sub>30</sub>)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Button</td>
+<td class="org-left">U7.13(GPIOA<sub>5</sub>), J2.K2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">LED</td>
+<td class="org-left">U7.14(GPIOA<sub>12</sub>), J2.D2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">MCU<sub>TXD</sub></td>
+<td class="org-left">U7.15(RXD), U6.2(TXD2/P1.1)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">MCU<sub>RXD</sub></td>
+<td class="org-left">U7.16(TXD), U6.1(RXD2/P1.0)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org402dc15" class="outline-4">
+<h4 id="org402dc15"><span class="section-number-4">1.2.6</span> Log UART interface</h4>
+<div class="outline-text-4" id="text-1-2-6">
+<p>
+The UART<sub>Log</sub><sub>RXD</sub> and UART<sub>Log</sub><sub>TXD</sub> form an UART interface to the Tuya WR3 module. The port settings are 115200 bits/s, 8n1, the interface is 3.3V TTL logic levels.
+When the device boots without WiFi network connection and without cloud connection the following output can be seen:
+</p>
+
+<pre>
+picocom v3.1
+
+port is        : /dev/ttyUSB1
+flowcontrol    : none
+baudrate is    : 115200
+parity is      : none
+databits are   : 8
+stopbits are   : 1
+escape is      : C-a
+local echo is  : no
+noinit is      : no
+noreset is     : no
+hangup is      : no
+nolock is      : no
+send_cmd is    : sz -vv
+receive_cmd is : rz -vv -E
+imap is        : 
+omap is        : 
+emap is        : crcrlf,delbs,
+logfile is     : none
+initstring     : none
+exit_after is  : not set
+exit is        : no
+
+Type [C-a] [C-h] to see available commands
+Terminal ready
+ROM:[V0.1]
+FLASHRATE:4
+BOOT TYPE:0 XTAL:40000000
+IMG1 DATA[1168:10002000]
+IMG1 ENTRY[8000541:100021ef]
+IMG1 ENTER
+CHIPID[000000ff]
+read_mode idx:0, flash_speed idx:0
+calibration_result:[1:9:9][5:d] 
+calibration_result:[2:13:7][1:d] 
+calibration_result:[3:1:1][1:1] 
+calibration_ok:[2:13:7] 
+FLASH CALIB[NEW OK]
+OTA2 ADDR[80d0000]
+OTAx SELE[fffffffc]
+OTA1 USE
+IMG2 DATA[0x809e060:6540:0x10005000]
+IMG2 SIGN[RTKWin(10005008)]
+IMG2 ENTRY[0x10005000:0x800b1a5]
+===== Enter Image 2 ====
+System_Init1
+OSC8M: 8386568 
+boot reason: 0 
+System_Init2
+
+11111111111111111111111111
+interface 0 is initializ[01-ed
+interfa01 18:12:15 ce 1 is iniTUYA Debug][tialized
+
+Initializi.c:22] < TUYng WIFI ...A IOT SDK V:
+LDO M2.0.0 BS:30.ode, BD_Inf04_PT:2.2_LAo: 0 
+N:3.3_CAD:1.0.2_CD:1.0.0 >
+< tuya_
+LDO Modeiot_lib BUI, BD_Info: 0LD AT:2019_ 
+06_21_14_56_08 BY tuya_iot_team AT 8710_2M >
+IOT DEFS < WIFI_GW:1 DEBUG:1 KV_FILE:0 SHUTDOWN_MODE:0 LITTLE_END:1 TLS_MODE:3 ENABLE_LOCAL_LINKAGE:0 ENABLE_CLOUD_OPERATION:0 ENABLE_SUBDEVICE:0 ENABLE_ENGINEER_TO_NORMAL:0 OPERATING_SYSTEM:2 ENABLE_SYS_RPC:0 TY_SECURITY_CHIP:0 RELIABLE_TRANSFER:RELIABLE_TRANSFER ENABLE_LAN_ENCRYPTION:1 ENABLE_SIGMESH:0 >
+
+[01-01 18:12:15 TUYA Debug][tuya_device.c:23] rtlbn_tls_common_9600:1.0.3
+[01-01 18:12:15 TUYA Notice][simple_flash.c:428] key_addr: 0x1eb000   block_sz 4096
+[01-01 18:12:15 TUYA Notice][simple_flash.c:496] get key:
+0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 
+
+WIFI initialized
+
+init_thread(55), Available heap 0x9ea0[01-01 18:12:15 TUYA Notice][tuya_uart.c:125] 1   9600
+[01-01 18:12:15 TUYA Notice][tuya_main.c:368] mf_init succ
+[01-01 18:12:15 TUYA Notice][uart_common.c:2956] uart baud rate:9600----firmware key:kXXXXXXXptn
+[01-01 18:12:15 TUYA Notice][tuya_uart.c:125] 0   9600
+[01-01 18:12:15 TUYA Notice][uart_common.c:3047] uart_task_init ok
+[01-01 18:12:15 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:12:17 TUYA Notice][uart_common.c:3151] cfg_mode:0   firmware_key kXXXXXXXptn
+
+[01-01 18:12:17 TUYA Notice][tuya_iot_wifi_api.c:193] wifi mcu init. pid:qXXXXXXXXw firmwarekey:kXXXXXXXXn v1:1.0.3 v2:1.0.1
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2600] serial_no:6XXXXXXXXXXd
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2631] gw_cntl.gw_wsm.stat:1
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2634] gw_cntl.gw_wsm.nc_tp:1
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2635] gw_cntl.gw_wsm.md:0
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2667] gw_cntl.gw_if.abi:0 input:0
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2668] gw_cntl.gw_if.product_key:qXXXXXXXXXXXXw, input:qXXXXXXXXXXXw
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2669] gw_cntl.gw_if.tp:1, input:1
+[01-01 18:12:17 TUYA Notice][gw_intf.c:2671] gw_cntl.gw_if.firmware_key:kXXXXXXXXXXXn, input:kXXXXXXXXXXn
+
+LDO Mode, BD_Info: 0 
+[01-01 18:12:17 TUYA Notice][tuya_gpio.c:225] id 5 {0x1000312c}
+
+LwIP_DHCP: dhcp stop.
+Deinitializing WIFI ...
+WIFI deinitialized
+Initializing WIFI ...
+LDO Mode, BD_Info: 0 
+
+LDO Mode, BD_Info: 0 
+
+WIFI initialized
+[01-01 18:12:18 TUYA Notice][uart_common.c:2872] wifi status is :1
+[01-01 18:12:18 TUYA Notice][uart_common.c:468] send jump_pack
+
+LwIP_DHCP: dhcp stop.
+Deinitializing WIFI ...
+WIFI deinitialized
+Initializing WIFI ...
+LDO Mode, BD_Info: 0 
+
+LDO Mode, BD_Info: 0 
+
+WIFI initialized
+[01-01 18:12:33 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:12:45 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:00 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:15 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:30 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:45 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:14:00 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:14:15 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:14:30 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:14:46 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:15:01 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:15:16 TUYA Notice][uart_common.c:468] send jump_pack
+</pre>
+
+<p>
+When the pairing is initiated in the Android application the following output is logged:
+</p>
+
+<pre>
+[01-01 18:17:46 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:18:01 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:18:15 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:18:30 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:18:33 TUYA Notice][gw_intf.c:492] stop smt cfg mthd:0
+
+LwIP_DHCP: dhcp stop.
+Deinitializing WIFI ...
+WIFI deinitialized
+Initializing WIFI ...
+LDO Mode, BD_Info: 0 
+
+LDO Mode, BD_Info: 0 
+
+WIFI initialized
+[01-01 18:18:34 TUYA Notice][uart_common.c:2872] wifi status is :5
+
+RTL8195A[Driver]: set ssid [XXXXXXXXXXXXXX] 
+
+RTL8195A[Driver]: start auth to 00:0e:2e:ba:dd:16
+
+RTL8195A[Driver]: auth success, start assoc
+
+RTL8195A[Driver]: association success(res=3)
+wlan1: 1 DL RSVD page success! DLBcnCount:01, poll:00000001
+
+RTL8195A[Driver]: set pairwise key to hw: alg:4(WEP40-1 WEP104-5 TKIP-2 AES-4)
+
+RTL8195A[Driver]: set group key to hw: alg:4(WEP40-1 WEP104-5 TKIP-2 AES-4) keyid:1
+
+Interface 0 IP address : 10.1.0.13[01-01 18:18:38 TUYA Notice][uart_common.c:2872] wifi status is :6
+[12-15 16:20:13 TUYA Err][smart_frame.c:2060] mqtt async send fail -916
+[12-15 16:20:13 TUYA Err][uart_common.c:2216] sf_obj_dp_report op_ret:-916,out:{"20":2224}
+[12-15 16:20:13 TUYA Err][smart_frame.c:2060] mqtt async send fail -916
+[12-15 16:20:13 TUYA Err][uart_common.c:2216] sf_obj_dp_report op_ret:-916,out:{"104":2224}
+[12-15 16:20:13 TUYA Err][smart_frame.c:2060] mqtt async send fail -916
+[12-15 16:20:13 TUYA Err][uart_common.c:2216] sf_obj_dp_report op_ret:-916,out:{"1":false}
+[12-15 16:20:13 TUYA Notice][mqtt_client.c:1075] mqtt get serve ip success
+[12-15 16:20:13 TUYA Notice][mqtt_client.c:1100] mqtt socket create success. begin to connect
+[12-15 16:20:13 TUYA Notice][mqtt_client.c:1115] mqtt socket connect success. begin to subscribe
+[12-15 16:20:13 TUYA Notice][mqtt_client.c:878] mqtt subscribe success
+[12-15 16:20:13 TUYA Notice][uart_common.c:2872] wifi status is :7
+[12-15 16:20:14 TUYA Notice][wifi_hwl.c:747] ssid XXXXXXXXXX,passwd:XXXXXXXXXXXXX,sec_type:4194308,chan:11
+[12-15 16:20:14 TUYA Notice][gw_intf.c:761] get ap info: ssid:XXXXXXXXXXx,passwd:XXXXXXXXXXXX,chan:11,sec_tp:400004
+[12-15 16:20:14 TUYA Notice][gw_intf.c:762] local ap info: ssid:XXXXXXXXXXX,passwd:XXXXXXXXXXX,chan:11,sec_tp:400004
+[12-15 16:20:17 TUYA Notice][uart_common.c:468] send jump_pack
+[12-15 16:20:29 TUYA Err][smart_frame.c:1234] dp id 19 Skip
+[12-15 16:20:29 TUYA Err][smart_frame.c:1234] dp id 103 Skip
+[12-15 16:20:29 TUYA Err][smart_frame.c:1234] dp id 111 Skip
+[12-15 16:20:29 TUYA Err][smart_frame.c:1234] dp id 112 Skip
+[12-15 16:20:32 TUYA Err][smart_frame.c:1234] dp id 19 Skip
+[12-15 16:20:32 TUYA Err][smart_frame.c:1234] dp id 103 Skip
+[12-15 16:20:32 TUYA Err][smart_frame.c:1234] dp id 111 Skip
+[12-15 16:20:32 TUYA Err][smart_frame.c:1234] dp id 112 Skip
+[12-15 16:20:32 TUYA Notice][app_agent.c:1163] find error socket 3
+[12-15 16:20:32 TUYA Err][app_agent.c:1440] ret:-1 send_len:75 errno:-100
+[12-15 16:20:32 TUYA Err][app_agent.c:1976] __mlp_gw_tcp_send op_ret:-909
+[12-15 16:20:32 TUYA Err][app_agent.c:1386] the socket 3 is fault
+[12-15 16:20:34 TUYA Notice][uart_common.c:468] send jump_pack
+[12-15 16:20:48 TUYA Notice][uart_common.c:468] send jump_pack
+[12-15 16:21:03 TUYA Notice][uart_common.c:468] send jump_pack
+[12-15 16:21:18 TUYA Notice][uart_common.c:468] send jump_pack
+[12-15 16:21:33 TUYA Notice][uart_common.c:468] send jump_pack
+</pre>
+
+<p>
+When the device is in the connected state pressing and holding the button resets all of the settings and reboots the WiFi module:
+</p>
+
+<pre>
+[12-15 16:24:04 TUYA Notice][uart_common.c:468] send jump_pack
+[12-15 16:24:19 TUYA Notice][uart_common.c:468] send jump_pack
+[12-15 16:24:26 TUYA Notice][tuya_key.c:441] get key interrupt
+ROM:[V0.1]
+FLASHRATE:4
+BOOT TYPE:0 XTAL:40000000
+IMG1 DATA[1168:10002000]
+IMG1 ENTRY[8000541:100021ef]
+IMG1 ENTER
+CHIPID[000000ff]
+read_mode idx:0, flash_speed idx:0
+calibration_result:[1:9:9][5:d] 
+calibration_result:[2:13:7][1:d] 
+calibration_result:[3:1:1][1:1] 
+calibration_ok:[2:13:7] 
+FLASH CALIB[NEW OK]
+OTA2 ADDR[80d0000]
+OTAx SELE[fffffffc]
+OTA1 USE
+IMG2 DATA[0x809e060:6540:0x10005000]
+IMG2 SIGN[RTKWin(10005008)]
+IMG2 ENTRY[0x10005000:0x800b1a5]
+===== Enter Image 2 ====
+System_Init1
+OSC8M: 8386568 
+boot reason: 7a05 
+System_Init2
+
+11111111111111111111111111
+interface 0 is initializ[01-ed
+interfa01 18:12:15 ce 1 is iniTUYA Debug][tialized
+
+Initializi.c:22] < TUYng WIFI ...A IOT SDK V:
+LDO M2.0.0 BS:30.ode, BD_Inf04_PT:2.2_LAo: 0 
+N:3.3_CAD:1.0.2_CD:1.0.0 >
+< tuya_
+LDO Modeiot_lib BUI, BD_Info: 0LD AT:2019_ 
+06_21_14_56_08 BY tuya_iot_team AT 8710_2M >
+IOT DEFS < WIFI_GW:1 DEBUG:1 KV_FILE:0 SHUTDOWN_MODE:0 LITTLE_END:1 TLS_MODE:3 ENABLE_LOCAL_LINKAGE:0 ENABLE_CLOUD_OPERATION:0 ENABLE_SUBDEVICE:0 ENABLE_ENGINEER_TO_NORMAL:0 OPERATING_SYSTEM:2 ENABLE_SYS_RPC:0 TY_SECURITY_CHIP:0 RELIABLE_TRANSFER:RELIABLE_TRANSFER ENABLE_LAN_ENCRYPTION:1 ENABLE_SIGMESH:0 >
+
+[01-01 18:12:15 TUYA Debug][tuya_device.c:23] rtlbn_tls_common_9600:1.0.3
+[01-01 18:12:15 TUYA Notice][simple_flash.c:428] key_addr: 0x1eb000   block_sz 4096
+[01-01 18:12:15 TUYA Notice][simple_flash.c:496] get key:
+0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 0xXX 
+
+WIFI initialized
+
+init_thread(55), Available heap 0x9ea0[01-01 18:12:15 TUYA Notice][tuya_uart.c:125] 1   9600
+[01-01 18:12:15 TUYA Err][mf_test.c:450] ty_cJSON_Parse error
+[01-01 18:12:15 TUYA Err][mf_test.c:450] ty_cJSON_Parse error
+[01-01 18:12:15 TUYA Notice][mf_test.c:237] len=5,in=6,out=0,cmd=7
+[01-01 18:12:15 TUYA Err][mf_test.c:450] ty_cJSON_Parse error
+[01-01 18:12:15 TUYA Notice][tuya_main.c:368] mf_init succ
+[01-01 18:12:15 TUYA Notice][uart_common.c:2956] uart baud rate:9600----firmware key:kXXXXXXXXXXXXXXn
+[01-01 18:12:15 TUYA Notice][tuya_uart.c:125] 0   9600
+[01-01 18:12:15 TUYA Notice][uart_common.c:3047] uart_task_init ok
+[01-01 18:12:15 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:12:18 TUYA Notice][uart_common.c:3151] cfg_mode:0   firmware_key kXXXXXXXXXXXXXXXn
+
+[01-01 18:12:18 TUYA Notice][tuya_iot_wifi_api.c:193] wifi mcu init. pid:qXXXXXXXXXXXw firmwarekey:kXXXXXXXXXXXXXn v1:1.0.3 v2:1.0.1
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2600] serial_no:6XXXXXXXXXXXXXd
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2631] gw_cntl.gw_wsm.stat:1
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2634] gw_cntl.gw_wsm.nc_tp:1
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2635] gw_cntl.gw_wsm.md:0
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2667] gw_cntl.gw_if.abi:0 input:0
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2668] gw_cntl.gw_if.product_key:qXXXXXXXXXXXXXXw, input:qXXXXXXXXXXXXXw
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2669] gw_cntl.gw_if.tp:1, input:1
+[01-01 18:12:18 TUYA Notice][gw_intf.c:2671] gw_cntl.gw_if.firmware_key:kXXXXXXXXXXXXXXn, input:kXXXXXXXXXXXXXXn
+
+LDO Mode, BD_Info: 0 
+[01-01 18:12:18 TUYA Notice][tuya_gpio.c:225] id 5 {0x1000312c}
+
+LwIP_DHCP: dhcp stop.
+Deinitializing WIFI ...
+WIFI deinitialized
+Initializing WIFI ...
+LDO Mode, BD_Info: 0 
+
+LDO Mode, BD_Info: 0 
+
+WIFI initialized
+[01-01 18:12:18 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:12:19 TUYA Notice][uart_common.c:2872] wifi status is :1
+
+LwIP_DHCP: dhcp stop.
+Deinitializing WIFI ...
+WIFI deinitialized
+Initializing WIFI ...
+LDO Mode, BD_Info: 0 
+
+LDO Mode, BD_Info: 0 
+
+WIFI initialized
+[01-01 18:12:33 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:12:44 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:12:59 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:14 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:29 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:44 TUYA Notice][uart_common.c:468] send jump_pack
+[01-01 18:13:59 TUYA Notice][uart_common.c:468] send jump_pack
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9fb8bc7" class="outline-2">
+<h2 id="org9fb8bc7"><span class="section-number-2">2</span> Application</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The device's controlling application can be downloaded from the Google Play store under the name "Vastra Smart Devices" and package id <a href="pl.vastra.android.smartdevices.zip">pl.vastra.android.smartdevices</a>. This application
+is built based on the Tuya SDKs and it' also possible to use the non-branded "Tuya Smart" application from Tuya to provision and control the device.
+</p>
+</div>
+
+<div id="outline-container-org88eab8e" class="outline-3">
+<h3 id="org88eab8e"><span class="section-number-3">2.1</span> Tuya Protocol Integration data</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The device supports both AP and EZ provisioning modes, however the "Vastra Smart Devices" application seems to only implement the EZ mode (can be recognized by the fast blinking 
+pattern when in pairing mode). Unfortunately both modes are insecure and leak the WLAN credentials when provisioning. Please look into References for an article and example
+code to sniff the WLAN credentials off the air for EZ mode.
+</p>
+</div>
+
+<div id="outline-container-org15b26cf" class="outline-4">
+<h4 id="org15b26cf"><span class="section-number-4">2.1.1</span> Product info</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<pre>
+2022-12-19 15:31.10 [info     ] frame                          fullpacket=b'55aa0301002a7b2270223a227176656e6b6c78667377736769756177222c2276223a22312e302e31222c226d223a307dd9' payload=b'7b2270223a227176656e6b6c78667377736769756177222c2276223a22312e302e31222c226d223a307d' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.PRODUCT_INFO_CMD: 1>
+➜  ~ python3
+Python 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from binascii import unhexlify
+>>> print(unhexlify(b'7b2270223a227176656e6b6c78667377736769756177222c2276223a22312e302e31222c226d223a307d'))
+b'{"p":"qvenklxfswsgiuaw","v":"1.0.1","m":0}'
+>>> 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2d09c29" class="outline-4">
+<h4 id="org2d09c29"><span class="section-number-4">2.1.2</span> Product mode</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<pre>
+2022-12-19 15:31.10 [info     ] frame                          fullpacket=b'55aa0002000001' payload=b'' proto_ver=<MCUFrameProtoVer.MCU_RX_VER: 0> type=<MCUFrameType.WORK_MODE_CMD: 2>
+2022-12-19 15:31.10 [info     ] frame                          fullpacket=b'55aa030200020c0517' payload=b'0c05' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.WORK_MODE_CMD: 2>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org885ee17" class="outline-4">
+<h4 id="org885ee17"><span class="section-number-4">2.1.3</span> Tuya Data Points</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">dpId (hex)</th>
+<th scope="col" class="org-left">Identifier</th>
+<th scope="col" class="org-left">Data Type</th>
+<th scope="col" class="org-left">Direction</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-right">Example value (raw)</th>
+<th scope="col" class="org-left">Example value (interpreted)</th>
+<th scope="col" class="org-left">Example packet</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">01</td>
+<td class="org-left">switch<sub>1</sub></td>
+<td class="org-left">Boolean</td>
+<td class="org-left">Control &amp; Report</td>
+<td class="org-left">Socket 1 power on/off</td>
+<td class="org-right">01</td>
+<td class="org-left">true</td>
+<td class="org-left">55aa03070005010100010112</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">02</td>
+<td class="org-left">switch<sub>2</sub></td>
+<td class="org-left">Boolean</td>
+<td class="org-left">Control &amp; Report</td>
+<td class="org-left">Socket 2 power on/off</td>
+<td class="org-right">01</td>
+<td class="org-left">true</td>
+<td class="org-left">55aa03070005020100010113</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">03</td>
+<td class="org-left">switch<sub>3</sub></td>
+<td class="org-left">Boolean</td>
+<td class="org-left">Control &amp; Report</td>
+<td class="org-left">Socket 3 power on/off</td>
+<td class="org-right">01</td>
+<td class="org-left">true</td>
+<td class="org-left">55aa03070005030100010114</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">14</td>
+<td class="org-left">voltage<sub>1</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 1 voltage</td>
+<td class="org-right">000008b0</td>
+<td class="org-left">222.4 V</td>
+<td class="org-left">55aa0307000814020004000008b0e3</td>
+<td class="org-left">Unit is 0.1 V</td>
+</tr>
+
+<tr>
+<td class="org-right">68</td>
+<td class="org-left">voltage<sub>2</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 2 voltage</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">55aa0307000868020004000008b037</td>
+<td class="org-left">Unit is 0.1 V</td>
+</tr>
+
+<tr>
+<td class="org-right">70</td>
+<td class="org-left">voltage<sub>3</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 3 voltage</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">55aa0307000870020004000008b03f</td>
+<td class="org-left">Unit is 0.1 V</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">12</td>
+<td class="org-left">current<sub>1</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 1 current</td>
+<td class="org-right">0000004c</td>
+<td class="org-left">76 mA</td>
+<td class="org-left">55aa03070008120200040000004c75</td>
+<td class="org-left">Unit is 0.1 A</td>
+</tr>
+
+<tr>
+<td class="org-right">66</td>
+<td class="org-left">current<sub>2</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 2 current</td>
+<td class="org-right">00000099</td>
+<td class="org-left">153 mA</td>
+<td class="org-left">55aa03070008660200040000009916</td>
+<td class="org-left">Unit is 0.1 A</td>
+</tr>
+
+<tr>
+<td class="org-right">6e</td>
+<td class="org-left">current<sub>3</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 3 current</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">55aa030700086e0200040000000085</td>
+<td class="org-left">Unit is 0.1 A</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">13</td>
+<td class="org-left">power<sub>1</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 1 power</td>
+<td class="org-right">0000004c</td>
+<td class="org-left">10.7 W</td>
+<td class="org-left">55aa03070008120200040000004c75</td>
+<td class="org-left">Unit is 0.1 W</td>
+</tr>
+
+<tr>
+<td class="org-right">67</td>
+<td class="org-left">power<sub>2</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 2 power</td>
+<td class="org-right">00000100</td>
+<td class="org-left">25.6 W</td>
+<td class="org-left">55aa0307000867020004000001007f</td>
+<td class="org-left">Unit is 0.1 W</td>
+</tr>
+
+<tr>
+<td class="org-right">6f</td>
+<td class="org-left">power<sub>3</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 3 power</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">55aa030700086f0200040000000086</td>
+<td class="org-left">Unit is 0.1 W</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">11</td>
+<td class="org-left">energy<sub>1</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 1 energy</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">55aa03070008110200040000000028</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">65</td>
+<td class="org-left">energy<sub>2</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 2 energy</td>
+<td class="org-right">0000001e</td>
+<td class="org-left">0.030 kWh</td>
+<td class="org-left">55aa03070008650200040000001e9a</td>
+<td class="org-left">Unit is 0.001 kWh</td>
+</tr>
+
+<tr>
+<td class="org-right">6d</td>
+<td class="org-left">energy<sub>3</sub></td>
+<td class="org-left">Integer</td>
+<td class="org-left">Report</td>
+<td class="org-left">Socket 3 energy</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">55aa030700086d0200040000000084</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84544dd" class="outline-3">
+<h3 id="org84544dd"><span class="section-number-3">2.2</span> Tuya Integration Manual</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The below is a short howto on controlling the power strip without using the official app but instead integrating it manually with the Tuya cloud. A similar guide can be also
+found <a href="https://github.com/codetheweb/tuyapi/blob/master/docs/SETUP.md">in the tuyapi project</a>. You own Python code can be integrated with the Tuya cloud using their OpenAPI REST API, the following short example will be referenced:
+</p>
+
+<code>
+import logging
+from env import ENDPOINT, ACCESS_ID, ACCESS_KEY, USERNAME, PASSWORD, DEVICE_ID
+from tuya_iot import (
+    TuyaOpenAPI,
+    AuthType,
+    TUYA_LOGGER
+)
+import time
+
+TUYA_LOGGER.setLevel(logging.DEBUG)
+
+openapi = TuyaOpenAPI(ENDPOINT, ACCESS_ID, ACCESS_KEY, AuthType.CUSTOM)
+
+openapi.connect(USERNAME, PASSWORD)
+
+openapi.get(f'/v1.0/iot-03/devices/{DEVICE_ID}/functions')
+
+state = True
+while True:
+
+    commands = [ dict(code='switch_1', value=state) ]
+    openapi.post(f'/v1.0/iot-03/devices/{DEVICE_ID}/commands', dict(commands=commands))
+    state = not state
+
+    time.sleep(5)
+</code>
+
+<ol class="org-ol">
+<li>Install the pypi package for the toolkit from <a href="https://github.com/tuya/tuya-iot-python-sdk">https://github.com/tuya/tuya-iot-python-sdk</a>: python3 -m pip install tuya-iot-py-sdk</li>
+<li>Create an account on iot.tuya.com.</li>
+<li>Create a Cloud Project, set both Industry and Development Method to "Smart Home". Select all Data Centers just to be sure. Take note of the ACCESS<sub>ID</sub> and ACCESS<sub>KEY</sub> values and put them inside
+an env.py file alongside the example Python code. The configuration values are imported from it as you can see.</li>
+</ol>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/tuya-iot-project.png"><img src="vastra-ss2/tuya-iot-project-thumb.png" alt="tuya-iot-project-thumb.png" /></a>
+</p>
+</div>
+
+<ol class="org-ol">
+<li>Install the "Tuya Smart" Android application and add the device there.</li>
+<li>Based on the country where your "Tuya Smart" Android app is located select the proper data center in the Devices section of your project. For example, an Android application
+used on a mobile phone in Poland will be using the "Central Europe Data Center". This can be selected on the right of the Devices panel:</li>
+</ol>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/tuya-select-dc.png"><img src="vastra-ss2/thumb-tuya-select-dc.png" alt="thumb-tuya-select-dc.png" /></a>
+</p>
+</div>
+
+<p>
+For the mapping between countries and data centers servicing them you can look here:
+</p>
+
+<p>
+<a href="https://developer.tuya.com/en/docs/iot/oem-app-data-center-distributed?id=Kafi0ku9l07qb">https://developer.tuya.com/en/docs/iot/oem-app-data-center-distributed?id=Kafi0ku9l07qb</a>
+</p>
+
+<ol class="org-ol">
+<li>Link the "Tuya Smart" application with your iot.tuya.com account by going to "Your Account" in Tuya mobile app and selecting the QR code scanning button near the top right of the screen. The
+QR code you need to scan can be found in the "Link Tuya App Account" section of your project like shown below:</li>
+</ol>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/tuya-link-app.png"><img src="vastra-ss2/thumb-tuya-link-app.png" alt="thumb-tuya-link-app.png" /></a>
+</p>
+</div>
+
+<p>
+Select "Automatic Link (Recommended)" - this will cause all devices that are added to the Tuya Smart application will be automatically registered in your project.
+Select "Read/Write" for Device Permission if you want to control the device (like switch outputs on/off).
+</p>
+
+<p>
+There should be an indication that devices were sucessfully linked to your project. If the count of devices is 0 on this dialog it most likely means that you have not selected the proper Data Center.
+</p>
+
+
+<div class="figure">
+<p><img src="vastra-ss2/tuya-device-notification.png" alt="tuya-device-notification.png" />
+</p>
+</div>
+
+<ol class="org-ol">
+<li>You device should now appear on the "All Devices" tab of your project. Take note of the "Device ID" field and put it into env.py created earlier.</li>
+</ol>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/tuya-devices-view.png"><img src="vastra-ss2/thumb-tuya-devices-view.png" alt="thumb-tuya-devices-view.png" /></a>
+</p>
+</div>
+
+<ol class="org-ol">
+<li>Create a user in the Users tab. The username and password for this user should be stored as the USERNAME and PASSWORD variables in env.py</li>
+
+<li>Go to "Service API" in your project and add authorization for the "IoT Core" API:</li>
+</ol>
+
+
+<div class="figure">
+<p><a href="vastra-ss2/tuya-service-api-authorizations.png"><img src="vastra-ss2/thumb-tuya-service-api-authorizations.png" alt="thumb-tuya-service-api-authorizations.png" /></a>
+</p>
+</div>
+
+<ol class="org-ol">
+<li>Our code should now work and toggle the socket 1 on and off every 5 seconds:</li>
+</ol>
+
+<pre>
+$ python3 device.py
+[2022-12-20 17:30:04,884] [tuya-openapi] Request: method = POST,                 url = https://openapi.tuyaeu.com/v1.0/iot-03/users/login,                params = None,                body = {'username': 'acct-tuyauser@fsck.pl', 'password': '***'},                t = 1671553804884
+[2022-12-20 17:30:05,445] [tuya-openapi] Response: {
+  "result": {
+    "access_token": "***",
+    "expire": 7200,
+    "refresh_token": "***",
+    "uid": "***"
+  },
+  "success": true,
+  "t": 1671553805320,
+  "tid": "8f3d5ae7808311edbff6521277a1eee7"
+}
+[2022-12-20 17:30:05,446] [tuya-openapi] Request: method = GET,                 url = https://openapi.tuyaeu.com/v1.0/iot-03/devices/bfb05d3703a99a4680wz6p/functions,                params = None,                body = None,                t = 1671553805446
+[2022-12-20 17:30:05,511] [tuya-openapi] Response: {
+  "result": {
+    "category": "pc",
+    "functions": [
+      {
+        "code": "switch_1",
+        "desc": "switch 1",
+        "name": "switch 1",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "switch_2",
+        "desc": "switch 2",
+        "name": "switch 2",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "switch_3",
+        "desc": "switch 3",
+        "name": "switch 3",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "countdown_1",
+        "desc": "countdown 1",
+        "name": "countdown 1",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":86400,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "countdown_2",
+        "desc": "countdown 2",
+        "name": "countdown 2",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":86400,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "countdown_3",
+        "desc": "countdown 3",
+        "name": "countdown 3",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":86400,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "switch",
+        "desc": "switch",
+        "name": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ]
+  },
+  "success": true,
+  "t": 1671553805460,
+  "tid": "8f756d80808311edbff6521277a1eee7"
+}
+[2022-12-20 17:30:05,512] [tuya-openapi] Request: method = POST,                 url = https://openapi.tuyaeu.com/v1.0/iot-03/devices/bfb05d3703a99a4680wz6p/commands,                params = None,                body = {'commands': [{'code': 'switch_1', 'value': True}]},                t = 1671553805512
+[2022-12-20 17:30:05,603] [tuya-openapi] Response: {
+  "result": true,
+  "success": true,
+  "t": 1671553805551,
+  "tid": "8f7f6f3f808311edbe0bee4d76ea34cc"
+}
+[2022-12-20 17:30:10,609] [tuya-openapi] Request: method = POST,                 url = https://openapi.tuyaeu.com/v1.0/iot-03/devices/bfb05d3703a99a4680wz6p/commands,                params = None,                body = {'commands': [{'code': 'switch_1', 'value': False}]},                t = 1671553810609
+[2022-12-20 17:30:10,702] [tuya-openapi] Response: {
+  "result": true,
+  "success": true,
+  "t": 1671553810650,
+  "tid": "92896dce808311edbff6521277a1eee7"
+}
+^C
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd160a2b" class="outline-2">
+<h2 id="orgd160a2b"><span class="section-number-2">3</span> References</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Tuya cloud integration instruction
+<a href="https://github.com/codetheweb/tuyapi/blob/master/docs/SETUP.md">https://github.com/codetheweb/tuyapi/blob/master/docs/SETUP.md</a>
+</p>
+
+<p>
+Description of the differences between AP and EZ pairing modes from a user perspective
+<a href="https://support.tuya.com/en/help/_detail/K9hut3w10nby8">https://support.tuya.com/en/help/_detail/K9hut3w10nby8</a>
+</p>
+
+<p>
+The Tuya organization on Github provides example a lot of example code
+<a href="https://github.com/tuya/">https://github.com/tuya/</a>
+</p>
+
+<p>
+An alternative firmware for the Tuya devices based on the ESP chips provides a lot of documentation for the 
+TuyaMCU protocol.
+<a href="https://tasmota.github.io/docs/TuyaMCU/#anatomy-of-tuya-protocol">https://tasmota.github.io/docs/TuyaMCU/#anatomy-of-tuya-protocol</a>
+</p>
+
+<p>
+Code to sniff the wireless network credentials being transmitted to a Tuya device when using EZ mode
+<a href="https://www.elttam.com/blog/ez-mode-pairing/#content">https://www.elttam.com/blog/ez-mode-pairing/#content</a>
+<a href="https://raw.githubusercontent.com/elttam/advisories/master/tuya-ez-mode/live-extract.py">https://raw.githubusercontent.com/elttam/advisories/master/tuya-ez-mode/live-extract.py</a>
+</p>
+
+<p>
+A collection of projects related to reverse-enginnering Tuya devices. Not in any way affiliated with Tuya Inc.
+<a href="https://github.com/TuyaAPI">https://github.com/TuyaAPI</a>
+</p>
+
+<p>
+ESPTouch is the original protocol used as the "EZ Mode" pairing protocol for Tuya devices
+<a href="https://github.com/EspressifApp/EsptouchForAndroid">https://github.com/EspressifApp/EsptouchForAndroid</a>
+</p>
+
+<p>
+Some description of the semantics behind TuyaMCU messages (mirrored)
+<a href="protocol_CurtainM_20190926.pdf">protocol_CurtainM_20190926.pdf</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-01-07 16:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

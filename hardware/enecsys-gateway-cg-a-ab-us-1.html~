@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-07 16:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Enecsys Gateway CG-A-AB-US-1</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Enecsys Gateway CG-A-AB-US-1</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4130d07">1. Intro</a></li>
+<li><a href="#org16c4d99">2. Zigbee Radio</a></li>
+<li><a href="#org82e195e">3. Network interface</a>
+<ul>
+<li><a href="#org1eb0424">3.1. Device bootup</a></li>
+<li><a href="#orgaf31f26">3.2. Port scans</a></li>
+<li><a href="#orgd4232e8">3.3. The Web Interface</a>
+<ul>
+<li><a href="#org8742f49">3.3.1. Main user interface</a></li>
+<li><a href="#org3b195c7">3.3.2. Debug Interface</a></li>
+<li><a href="#orgec825d8">3.3.3. The MPFS upload</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org092b4ef">4. Debug Messages Format</a></li>
+</ul>
+</div>
+</div>
+<base href="enecsys-gateway-cg-a-ab-us-1/"/>
+
+<div id="outline-container-org4130d07" class="outline-2">
+<h2 id="org4130d07"><span class="section-number-2">1</span> Intro</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The Enecsys Gateway is a Zigbee gateway allowing communications between the Enecsys microinverters and their monitoring backend. The Enecsys company is unfortunately <a href="https://businessbankruptcies.com/cases/enecsys-llc">defunct since 2015</a>
+and their DNS domains have been taken over by a UK enecsys owner who created his own monitoring system on <a href="https://enecsys-monitoring.com/">https://enecsys-monitoring.com/</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org16c4d99" class="outline-2">
+<h2 id="org16c4d99"><span class="section-number-2">2</span> Zigbee Radio</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. This
+module is connected with an UART on the main MCU. The uart settings are 19200 8n1.
+</p>
+
+<p>
+When the gateway boots and initializes its radio interfaces it starts to send broadcast frames every 15 seconds:
+</p>
+
+<pre>
+No.     Time           Source                Destination           Protocol Length Info
+      1 0.000000       0x0000                Broadcast             ZigBee   47     Command, Dst: Broadcast, Src: 0x0000
+
+Frame 1: 47 bytes on wire (376 bits), 47 bytes captured (376 bits) on interface -, id 0
+    Interface id: 0 (-)
+    Encapsulation type: IEEE 802.15.4 Wireless PAN (104)
+    Arrival Time: Sep 21, 2022 20:43:42.000000000 CEST
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1663785822.000000000 seconds
+    [Time delta from previous captured frame: 0.000000000 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 0.000000000 seconds]
+    Frame Number: 1
+    Frame Length: 47 bytes (376 bits)
+    Capture Length: 47 bytes (376 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: wpan:zbee_nwk:data]
+IEEE 802.15.4 Data, Dst: Broadcast, Src: 0x0000
+    Frame Control Field: 0x8841, Frame Type: Data, PAN ID Compression, Destination Addressing Mode: Short/16-bit, Frame Version: IEEE Std 802.15.4-2003, Source Addressing Mode: Short/16-bit
+    Sequence Number: 227
+    Destination PAN: 0x0064
+    Destination: 0xffff
+    Source: 0x0000
+    [Extended Source: Enecsys_00:77:35:c1:a9 (34:c6:9a:00:77:35:c1:a9)]
+    [Origin: 1]
+    FCS: 0xd8bc (Correct)
+ZigBee Network Layer Command, Dst: Broadcast, Src: 0x0000
+    Frame Control Field: 0x1209, Frame Type: Command, Discover Route: Suppress, Security, Extended Source Command
+    Destination: 0xfffc
+    Source: 0x0000
+    Radius: 1
+    Sequence Number: 23
+    Extended Source: Enecsys_00:77:35:c1:a9 (34:c6:9a:00:77:35:c1:a9)
+    ZigBee Security Header
+    Data (2 bytes)
+
+0000  9c 39                                             .9
+
+Frame 2: 47 bytes on wire (376 bits), 47 bytes captured (376 bits) on interface -, id 0
+    Interface id: 0 (-)
+    Encapsulation type: IEEE 802.15.4 Wireless PAN (104)
+    Arrival Time: Sep 21, 2022 20:43:58.070981000 CEST
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1663785838.070981000 seconds
+    [Time delta from previous captured frame: 16.070981000 seconds]
+    [Time delta from previous displayed frame: 16.070981000 seconds]
+    [Time since reference or first frame: 16.070981000 seconds]
+    Frame Number: 2
+    Frame Length: 47 bytes (376 bits)
+    Capture Length: 47 bytes (376 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: wpan:zbee_nwk:data]
+IEEE 802.15.4 Data, Dst: Broadcast, Src: 0x0000
+    Frame Control Field: 0x8841, Frame Type: Data, PAN ID Compression, Destination Addressing Mode: Short/16-bit, Frame Version: IEEE Std 802.15.4-2003, Source Addressing Mode: Short/16-bit
+    Sequence Number: 228
+    Destination PAN: 0x0064
+    Destination: 0xffff
+    Source: 0x0000
+    [Extended Source: Enecsys_00:77:35:c1:a9 (34:c6:9a:00:77:35:c1:a9)]
+    [Origin: 1]
+    FCS: 0x6a0b (Correct)
+ZigBee Network Layer Command, Dst: Broadcast, Src: 0x0000
+    Frame Control Field: 0x1209, Frame Type: Command, Discover Route: Suppress, Security, Extended Source Command
+    Destination: 0xfffc
+    Source: 0x0000
+    Radius: 1
+    Sequence Number: 24
+    Extended Source: Enecsys_00:77:35:c1:a9 (34:c6:9a:00:77:35:c1:a9)
+    ZigBee Security Header
+    Data (2 bytes)
+
+0000  37 38                                             78
+</pre>
+
+<p>
+Some more beacons can be found in <a href="gateway-beacon.txt">gateway-beacon.txt</a>. Unfortunately the beacons are encrypted with an unknown Zigbee Network key. This key is likely preconfigured as it would make sense 
+for such a closed-loop system. Trying to decrypt the messages using the typical Zigbee key used by the Home Automation Profile 
+(0x5A 0x69 0x67 0x42 0x65 0x65 0x41 0x6C 0x6C 0x69 0x61 0x6E 0x63 0x65 0x30 0x39) does not work.
+</p>
+
+<p>
+As for the inverter, when it boots it first sends out a standard Beacon Request Zigbee packet every 77 (sic!) seconds, see traffic <a href="inverter-beacon.txt">inverter-beacon.txt</a>:
+</p>
+
+<pre>
+No.     Time           Source                Destination           Protocol Length Info
+      1 0.000000                             Broadcast             IEEE 802.15.4 10     Beacon Request
+
+Frame 1: 10 bytes on wire (80 bits), 10 bytes captured (80 bits) on interface -, id 0
+IEEE 802.15.4 Command, Dst: Broadcast
+    Frame Control Field: 0x0803, Frame Type: Command, Destination Addressing Mode: Short/16-bit, Frame Version: IEEE Std 802.15.4-2003, Source Addressing Mode: None
+    Sequence Number: 81
+    Destination PAN: 0xffff
+    Destination: 0xffff
+    Command Identifier: Beacon Request (0x07)
+    FCS: 0x6d72 (Correct)
+
+No.     Time           Source                Destination           Protocol Length Info
+      2 77.003990                            Broadcast             IEEE 802.15.4 10     Beacon Request
+
+Frame 2: 10 bytes on wire (80 bits), 10 bytes captured (80 bits) on interface -, id 0
+IEEE 802.15.4 Command, Dst: Broadcast
+    Frame Control Field: 0x0803, Frame Type: Command, Destination Addressing Mode: Short/16-bit, Frame Version: IEEE Std 802.15.4-2003, Source Addressing Mode: None
+    Sequence Number: 97
+    Destination PAN: 0xffff
+    Destination: 0xffff
+    Command Identifier: Beacon Request (0x07)
+    FCS: 0xaaa2 (Correct)
+
+No.     Time           Source                Destination           Protocol Length Info
+      3 154.014790                           Broadcast             IEEE 802.15.4 10     Beacon Request
+
+Frame 3: 10 bytes on wire (80 bits), 10 bytes captured (80 bits) on interface -, id 0
+IEEE 802.15.4 Command, Dst: Broadcast
+    Frame Control Field: 0x0803, Frame Type: Command, Destination Addressing Mode: Short/16-bit, Frame Version: IEEE Std 802.15.4-2003, Source Addressing Mode: None
+    Sequence Number: 113
+    Destination PAN: 0xffff
+    Destination: 0xffff
+    Command Identifier: Beacon Request (0x07)
+    FCS: 0xe812 (Correct)
+</pre>
+
+<p>
+After receiving an answer to the Beacon Request from the gateway the standard association process starts. This has been captured and is available in <a href="zigbee-inverter-connect.pcapng">zigbee-inverter-connect.pcapng</a> 
+and <a href="inverter-associate.txt">inverter-associate.txt</a> as a text dump. After the exchange of some data back and forth the gateway indicates that the inverter is connected by incrementing a counter on the 
+LCD.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org82e195e" class="outline-2">
+<h2 id="org82e195e"><span class="section-number-2">3</span> Network interface</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org1eb0424" class="outline-3">
+<h3 id="org1eb0424"><span class="section-number-3">3.1</span> Device bootup</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+During the gateway bootup the following network traffic can be seen:
+</p>
+
+<p>
+<a href="boot.pcapng">boot.pcapng</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf31f26" class="outline-3">
+<h3 id="orgaf31f26"><span class="section-number-3">3.2</span> Port scans</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+TCP port scan results for the gateway's IPv4 address:
+</p>
+
+<pre>
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-08-15 22:08 CEST
+Initiating ARP Ping Scan at 22:08
+Scanning 10.1.0.10 [1 port]
+Completed ARP Ping Scan at 22:08, 0.06s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 22:08
+Scannnnning 10.1.0.10 [65535 ports]
+Discovered open port 80/tcp on 10.1.0.10
+Completed SYN Stealth Scan at 22:11, 167.83s elapsed (65535 total ports)
+Nmap scan report for 10.1.0.10
+Host is up, received arp-response (0.0094s latency).
+Scanned at 2022-08-15 22:08:48 CEST for 168s
+Not shown: 65534 filtered ports
+Reason: 65534 no-responses
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE REASON
+80/tcp open  http    syn-ack ttl 100
+MAC Address: 34:C6:9A:00:16:D4 (Enecsys)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 168.05 seconds
+           Raw packets sent: 131198 (5.773MB) | Rcvd: 136 (6.115KB)
+</pre>
+
+<p>
+UDP port scan results for the gateway's IPv4 address:
+</p>
+
+<pre>
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-08-15 22:12 CEST
+Initiating ARP Ping Scan at 22:12
+Scanning 10.1.0.10 [1 port]
+Completed ARP Ping Scan at 22:12, 0.06s elapsed (1 total hosts)
+Initiating UDP Scan at 22:12
+Scanning 10.1.0.10 [65535 ports]
+Completed UDP Scan at 22:33, 1314.24s elapsed (65535 total ports)
+Nmap scan report for 10.1.0.10
+Host is up, received arp-response (0.0027s latency).
+All 65535 scanned ports on 10.1.0.10 are open|filtered because of 65535 no-responses
+MAC Address: 34:C6:9A:00:16:D4 (Enecsys)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1314.44 seconds
+           Raw packets sent: 131071 (3.676MB) | Rcvd: 74 (4.290KB)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd4232e8" class="outline-3">
+<h3 id="orgd4232e8"><span class="section-number-3">3.3</span> The Web Interface</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+The default credentials for the web interface are admin/password. You can tell that the gateway is (c) 2009 as there is no way to change the admin password ;).
+</p>
+
+<p>
+The following endpoints have been detected on the device:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Endpoint</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">/index.htm</td>
+<td class="org-left">''</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/debug.htm</td>
+<td class="org-left">Debug interface HTML layout</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/ajax.xml</td>
+<td class="org-left">Debug interface polling endpoint</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/mpfsupload</td>
+<td class="org-left">MPFS Image Upload</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org8742f49" class="outline-4">
+<h4 id="org8742f49"><span class="section-number-4">3.3.1</span> Main user interface</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+The main user interface has basic settings like IP address and it can be used to set the remote monitoring server hostname and port. Apart from that NTP and proxy can be configured. 
+Here is a screenshot of the main UI:
+</p>
+
+
+<div class="figure">
+<p><a href="main-ui.png"><img src="thumb-main-ui.png" alt="thumb-main-ui.png" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b195c7" class="outline-4">
+<h4 id="org3b195c7"><span class="section-number-4">3.3.2</span> Debug Interface</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+The debug interface allows us to see what messages the Zigbee Module UART sends to the main MCU. These appear to be raw decrypted contents of Zigbee frames from the inverters as well as
+some traffic generated by the Zigbee module firmware itself even when there are no inverters connected. Some of the layout of these messages has been reverse engineered in the 
+section near the end of the document. There is also a status display about the Zigbee network and monitoring server connection. The interface itself looks like this:
+</p>
+
+
+<div class="figure">
+<p><a href="debug-ui.png"><img src="thumb-debug-ui.png" alt="thumb-debug-ui.png" /></a>
+</p>
+</div>
+
+<p>
+The debug UI polls the /ajax.xml endpoint in the background in order to receive the data about the latest messages received from the Zigbee module. The endpoint returns the 
+following XML:
+</p>
+
+<div class="ajax_xml">
+<p>
+&lt;response&gt;
+&lt;zigbeeData&gt;&lt;/zigbeeData&gt;
+&lt;serverData&gt;&lt;/serverData&gt;
+&lt;connectionStatus&gt;Offline&lt;/connectionStatus&gt;
+&lt;connectionUptime&gt;-NA-&lt;/connectionUptime&gt;
+&lt;lastConnectionUptime&gt;000:00:00&lt;/lastConnectionUptime&gt;
+&lt;connectionUptimeSinceReset&gt;000:00:00&lt;/connectionUptimeSinceReset&gt;
+&lt;totalConnects&gt;0&lt;/totalConnects&gt;
+&lt;connectionDowntime&gt;000:23:21&lt;/connectionDowntime&gt;
+&lt;lastConnectionDowntime&gt;-NA-&lt;/lastConnectionDowntime&gt;
+&lt;connectionDowntimeSinceReset&gt;000:23:21&lt;/connectionDowntimeSinceReset&gt;
+&lt;timeSinceReset&gt;000:23:21&lt;/timeSinceReset&gt;
+&lt;devicesInNetwork&gt;0&lt;/devicesInNetwork&gt;
+&lt;device0&gt;&lt;/device0&gt;
+&lt;device1&gt;&lt;/device1&gt;
+&lt;device2&gt;&lt;/device2&gt;
+&lt;device3&gt;&lt;/device3&gt;
+&lt;device4&gt;&lt;/device4&gt;
+&lt;device5&gt;&lt;/device5&gt;
+&lt;device6&gt;&lt;/device6&gt;
+&lt;device7&gt;&lt;/device7&gt;
+&lt;device8&gt;&lt;/device8&gt;
+&lt;device9&gt;&lt;/device9&gt;
+&lt;device10&gt;&lt;/device10&gt;
+&lt;device11&gt;&lt;/device11&gt;
+&lt;device12&gt;&lt;/device12&gt;
+&lt;device13&gt;&lt;/device13&gt;
+&lt;device14&gt;&lt;/device14&gt;
+&lt;device15&gt;&lt;/device15&gt;
+&lt;device16&gt;&lt;/device16&gt;
+&lt;device17&gt;&lt;/device17&gt;
+&lt;device18&gt;&lt;/device18&gt;
+&lt;device19&gt;&lt;/device19&gt;
+&lt;device20&gt;&lt;/device20&gt;
+&lt;device21&gt;&lt;/device21&gt;
+&lt;device22&gt;&lt;/device22&gt;
+&lt;device23&gt;&lt;/device23&gt;
+&lt;device24&gt;&lt;/device24&gt;
+&lt;device25&gt;&lt;/device25&gt;
+&lt;device26&gt;&lt;/device26&gt;
+&lt;device27&gt;&lt;/device27&gt;
+&lt;device28&gt;&lt;/device28&gt;
+&lt;device29&gt;&lt;/device29&gt;
+&lt;device30&gt;&lt;/device30&gt;
+&lt;device31&gt;&lt;/device31&gt;
+&lt;device32&gt;&lt;/device32&gt;
+&lt;device33&gt;&lt;/device33&gt;
+&lt;device34&gt;&lt;/device34&gt;
+&lt;device35&gt;&lt;/device35&gt;
+&lt;device36&gt;&lt;/device36&gt;
+&lt;device37&gt;&lt;/device37&gt;
+&lt;device38&gt;&lt;/device38&gt;
+&lt;device39&gt;&lt;/device39&gt;
+&lt;device40&gt;&lt;/device40&gt;
+&lt;device41&gt;&lt;/device41&gt;
+&lt;device42&gt;&lt;/device42&gt;
+&lt;device43&gt;&lt;/device43&gt;
+&lt;device44&gt;&lt;/device44&gt;
+&lt;device45&gt;&lt;/device45&gt;
+&lt;device46&gt;&lt;/device46&gt;
+&lt;device47&gt;&lt;/device47&gt;
+&lt;device48&gt;&lt;/device48&gt;
+&lt;device49&gt;&lt;/device49&gt;
+&lt;device50&gt;&lt;/device50&gt;
+&lt;device51&gt;&lt;/device51&gt;
+&lt;device52&gt;&lt;/device52&gt;
+&lt;device53&gt;&lt;/device53&gt;
+&lt;device54&gt;&lt;/device54&gt;
+&lt;device55&gt;&lt;/device55&gt;
+&lt;device56&gt;&lt;/device56&gt;
+&lt;device57&gt;&lt;/device57&gt;
+&lt;device58&gt;&lt;/device58&gt;
+&lt;device59&gt;&lt;/device59&gt;
+&lt;device60&gt;&lt;/device60&gt;
+&lt;device61&gt;&lt;/device61&gt;
+&lt;device62&gt;&lt;/device62&gt;
+&lt;device63&gt;&lt;/device63&gt;
+&lt;device64&gt;&lt;/device64&gt;
+&lt;device65&gt;&lt;/device65&gt;
+&lt;device66&gt;&lt;/device66&gt;
+&lt;device67&gt;&lt;/device67&gt;
+&lt;device68&gt;&lt;/device68&gt;
+&lt;device69&gt;&lt;/device69&gt;
+&lt;device70&gt;&lt;/device70&gt;
+&lt;device71&gt;&lt;/device71&gt;
+&lt;device72&gt;&lt;/device72&gt;
+&lt;device73&gt;&lt;/device73&gt;
+&lt;device74&gt;&lt;/device74&gt;
+&lt;device75&gt;&lt;/device75&gt;
+&lt;device76&gt;&lt;/device76&gt;
+&lt;device77&gt;&lt;/device77&gt;
+&lt;device78&gt;&lt;/device78&gt;
+&lt;device79&gt;&lt;/device79&gt;
+&lt;device80&gt;&lt;/device80&gt;
+&lt;device81&gt;&lt;/device81&gt;
+&lt;device82&gt;&lt;/device82&gt;
+&lt;device83&gt;&lt;/device83&gt;
+&lt;device84&gt;&lt;/device84&gt;
+&lt;device85&gt;&lt;/device85&gt;
+&lt;device86&gt;&lt;/device86&gt;
+&lt;device87&gt;&lt;/device87&gt;
+&lt;device88&gt;&lt;/device88&gt;
+&lt;device89&gt;&lt;/device89&gt;
+&lt;device90&gt;&lt;/device90&gt;
+&lt;device91&gt;&lt;/device91&gt;
+&lt;device92&gt;&lt;/device92&gt;
+&lt;device93&gt;&lt;/device93&gt;
+&lt;device94&gt;&lt;/device94&gt;
+&lt;device95&gt;&lt;/device95&gt;
+&lt;device96&gt;&lt;/device96&gt;
+&lt;device97&gt;&lt;/device97&gt;
+&lt;device98&gt;&lt;/device98&gt;
+&lt;device99&gt;&lt;/device99&gt;
+&lt;/response&gt;
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec825d8" class="outline-4">
+<h4 id="orgec825d8"><span class="section-number-4">3.3.3</span> The MPFS upload</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<p>
+The MPFS is an internal HTTP upload server enabled by default in the Microchip TCP/IP stack. This feature can be used to upload files into the internal flash and possibly even modify
+firmware. There has been at least one device where this is possible: <a href="https://vulners.com/talos/TALOS-2018-0511">https://vulners.com/talos/TALOS-2018-0511</a>. In the case of our device this won't be much use however as all
+of the Zigbee traffic encryption happens in the Zigbee module and the Microchip MCU is just a simple bridge which forwards the messages to the remote monitoring server.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org092b4ef" class="outline-2">
+<h2 id="org092b4ef"><span class="section-number-2">4</span> Debug Messages Format</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A number of debug messages have been captured so far when the device and inverter were in various operational modes. Based on simple time correlation the messages sent out from the
+debug interface seem to be plaintexts for the traffic exchanged via Zigbee. Based on the knowledge gained the development of a parser for the messages has been started:
+<a href="enecsys-watch-zigbee.py">enecsys-watch-zigbee.py</a>. Here is an example set of messages together with their hexdumps:
+</p>
+
+<pre>
+WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689
+00000000  a9 c1 35 77 00 9a c6 34  00 00 07 51 21 01 00 00  |..5w...4...Q!...|
+00000010  00 0f 0a 53 f5 05 f7 05  00 9a c6 34 48           |...S.......4H|
+0000001d
+
+WZ=qcE1dwCaxjQAAAaSIQEAAAAOClOpwTV3AJrGNEg=0E,S=2000011689
+00000000  a9 c1 35 77 00 9a c6 34  00 00 06 92 21 01 00 00  |..5w...4....!...|
+00000010  00 0e 0a 53 a9 c1 35 77  00 9a c6 34 48           |...S..5w...4H|
+0000001d
+
+WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00  
+00000000  f5 05 f7 05 00 9a c6 34  00 00 06 cb 21 01 00 00  |.......4....!...|
+00000010  00 00 14 30 03 88 01 00  02 00 00 00 00 00 00 00  |...0............|
+00000020  18 01 8d 00 03 04 05                              |.......|
+00000027
+
+WS=9QX3BQCaxjQAAAdYIQIAAAAAFDADiAEAAgAAAAAAAAAZAY0AAwAF81
+00000000  f5 05 f7 05 00 9a c6 34  00 00 07 58 21 02 00 00  |.......4...X!...|
+00000010  00 00 14 30 03 88 01 00  02 00 00 00 00 00 00 00  |...0............|
+00000020  19 01 8d 00 03 00 05                              |.......|
+00000027
+
+WS=9QX3BQCaxjQAAAdYIQIAAAAAFDADiAEAAgAAAAAAAAAZAY0AAwAF81
+00000000  f5 05 f7 05 00 9a c6 34  00 00 07 58 21 02 00 00  |.......4...X!...|
+00000010  00 00 14 30 03 88 01 00  02 00 00 00 00 00 00 00  |...0............|
+00000020  19 01 8d 00 03 00 05                              |.......|
+00000027
+
+WS=9QX3BQCaxjQAAAe7IQEAAAACFDADiAEAAgAAAAAAADgZAY0AAwAF44
+00000000  f5 05 f7 05 00 9a c6 34  00 00 07 bb 21 01 00 00  |.......4....!...|
+00000010  00 02 14 30 03 88 01 00  02 00 00 00 00 00 00 38  |...0...........8|
+00000020  19 01 8d 00 03 00 05                              |.......|
+00000027
+
+WZ=qcE1dwCaxjQAAAoiIQEAAAAVClP1BfcFAJrGNEg=22,S=2000011689
+WZ=qcE1dwCaxjQAAApTIQEAAAAWClOpwTV3AJrGNEg=BD,S=2000011689
+WS=9QX3BQCaxjQAAAqMIQEAAAAIFDADiAEAAgAAAAAAADgaAY0AAwAF44
+WS=9QX3BQCaxjQAAAsEIQEAAAAJFDADiAEAAgAAAAAAADgaAY0AAwAF1E
+WZ=qcE1dwCaxjQAAAz0IQEAAAAbClP1BfcFAJrGNEg=C9,S=2000011689
+WZ=qcE1dwCaxjQAAA0lIQEAAAAcClOpwTV3AJrGNEg=BC,S=2000011689
+WS=9QX3BQCaxjQAAA3WIQEAAAAPFDADiAEAAgAAAAAAADgaAY0AAwAFCF
+WZ=qcE1dwCaxjQAAA4VIQEAAAAeClOpwTV3AJrGNEg=A0,S=2000011689
+WS=9QX3BQCaxjQAAA5OIQEAAAAQFDADiAEAAgAAAAAAADgaAY0AAwAF9D
+WS=9QX3BQCaxjQAAD2_IQEAAAB1FDADiAEAAgAAAAAAADgdAY0AAwAF46
+WZ=qcE1dwCaxjQAAD6-IQEAAACFClP1BfcFAJrGNEg=48,S=2000011689
+</pre>
+
+<p>
+All of the messages fall into two patterns:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Message</td>
+<td class="org-left">Flavor</td>
+<td class="org-left">Contents</td>
+<td class="org-left">Checksum</td>
+<td class="org-left">Key-value pairs</td>
+<td class="org-left">Notes</td>
+</tr>
+
+<tr>
+<td class="org-left">WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689</td>
+<td class="org-left">WZ</td>
+<td class="org-left">qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=</td>
+<td class="org-left">AE</td>
+<td class="org-left">S=2000011689</td>
+<td class="org-left">2000011689 is the serial number of the Zigbee module inside the gateway</td>
+</tr>
+
+<tr>
+<td class="org-left">WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00</td>
+<td class="org-left">WS</td>
+<td class="org-left">9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF</td>
+<td class="org-left">00</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The first characters consitute what was named the "flavor" of a message. The flavor determines the syntax of the next parts as well as the message source. After the flavor come the
+messages contents (encoded with URL-safe base64), two hexadecimal digits which I assume is a checksum of some kind and after the comma key-value pairs. There was only one
+key-value pair seen so far and that is 'S' which contains the serial number of the Zigbee module contained within the gateway that is generating the message.
+</p>
+
+<p>
+Based on many observations I have deduced that the WZ messages are generated by the gateway itself as they are present even when there are no inverters connected. The schema used to
+calculate what I assume to be the checksum has not been reverse-engineered yet. The meaning of the key-value pairs is obvious at this point. Further information is revealed after
+decoding the base64-encoded payloads. The structure inside is similar for both flavors and a number of common fields are used to encode the source of the message, type, etc. See below:
+</p>
+
+<pre>
+WZ=qcE1dwCaxjQAAAZhIQEAAAAMClP1BfcFAJrGNEg=AE,S=2000011689
+00000000  a9 c1 35 77 00 9a c6 34  00 00 07 51 21 01 00 00  |..5w...4...Q!...|
+00000010  00 0f 0a 53 f5 05 f7 05  00 9a c6 34 48           |...S.......4H|
+0000001d
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Data</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a9 c1 35 77 00 9a c6 34</td>
+<td class="org-left">EUI64 of the source</td>
+<td class="org-left">Bytes are inverted, gateway EUI64 is 34:c6:9a:00:77:35:c1:a9</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 07 51</td>
+<td class="org-left">uptime</td>
+<td class="org-left">Unit is 500ms</td>
+</tr>
+
+<tr>
+<td class="org-left">21 01</td>
+<td class="org-left">type</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 00 0f</td>
+<td class="org-left">counter</td>
+<td class="org-left">Sequence number</td>
+</tr>
+
+<tr>
+<td class="org-left">0a</td>
+<td class="org-left">content length</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">53 f5 05 f7 05  00 9a c6 34 48</td>
+<td class="org-left">content</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Similar for a WS flavored message:
+</p>
+
+<pre>
+WS=9QX3BQCaxjQAAAbLIQEAAAAAFDADiAEAAgAAAAAAAAAYAY0AAwQF00  
+00000000  f5 05 f7 05 00 9a c6 34  00 00 06 cb 21 01 00 00  |.......4....!...|
+00000010  00 00 14 30 03 88 01 00  02 00 00 00 00 00 00 00  |...0............|
+00000020  18 01 8d 00 03 04 05                              |.......|
+00000027
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Data</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">f5 05 f7 05 00 9a c6 34</td>
+<td class="org-left">EUI64 of the source</td>
+<td class="org-left">Bytes are inverted, inverter EUI64 is 34:c6:9a:00:05:f7:05:f5</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 06 cb</td>
+<td class="org-left">uptime</td>
+<td class="org-left">Unit is 500ms</td>
+</tr>
+
+<tr>
+<td class="org-left">21 01</td>
+<td class="org-left">type</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">00 00 00 00</td>
+<td class="org-left">counter</td>
+<td class="org-left">Sequence number</td>
+</tr>
+
+<tr>
+<td class="org-left">14</td>
+<td class="org-left">content length</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">30 03 88 01 00 02 00 00 00 00 00 00 00 18 01 8d 00 03 04 05</td>
+<td class="org-left">content</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Most of the interesting information is present in the 'content' section of every message, thus far the messages have been documented in the parser script mentioned above. To quickly
+summarize:
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Flavor</th>
+<th scope="col" class="org-right">Type</th>
+<th scope="col" class="org-left">Desciption</th>
+<th scope="col" class="org-left">Example messages</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">WZ</td>
+<td class="org-right">0x2100</td>
+<td class="org-left">Bootup</td>
+<td class="org-left">WZ=qcE1dwCaxjQAAAAAIQAAAAAAA1BSAg==96,S=2000011689</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">WZ=qcE1dwCaxjQAAAAAIQAAAAABGU4SAGS13J5ge-wZ4QAAAAAAAAAAAAAAAAA=DF,S=2000011689</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WZ</td>
+<td class="org-right">0x2101</td>
+<td class="org-left">Connectivity report</td>
+<td class="org-left">WZ=qcE1dwCaxjQAABDnIQEAAAASClOpwTV3AJrGNEg=9A,S=2000011689</td>
+<td class="org-left">Sends the EUI64 of other Zigbee devices on the network</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">WZ=qcE1dwCaxjQAAAdRIQEAAAAPClP1BfcFAJrGNEg=60,S=2000011689</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WS</td>
+<td class="org-right">0x2100</td>
+<td class="org-left">Bootup</td>
+<td class="org-left">WS=9QX3BQCaxjQAAAB4IQAAAAABPXIBAwX3BfVXU0ktMDAwMDMAAAAAAAAAADwAAAAAMDEtMDItMTIgMDI6MjH_<sub>wAAAAAAAAAAAAAAAAAAAAA</sub>=29</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WS</td>
+<td class="org-right">0x2101</td>
+<td class="org-left">Power measurement</td>
+<td class="org-left">WS=9QX3BQCaxjQAAE4HIQEAAAARFDADiAMAAgAAAAAAAEUdAY4AAwAFE1</td>
+<td class="org-left">Contains DC and AC power, AC frequency, efficiency as well as AC voltage (inverter idle)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WS</td>
+<td class="org-right">0x2102</td>
+<td class="org-left">Power measurement</td>
+<td class="org-left">WS=9QX3BQCaxjQAAAdYIQIAAAAAFDADiAEAAgAAAAAAAAAZAY0AAwAF81</td>
+<td class="org-left">Contains DC and AC power, AC frequency, efficiency as well as AC voltage (inverter online)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The 0x2101 and 0x2102 WS messages seem to contain identical data and look to be related to the state of the inverter itself. For example, the 0x2101 messages are sent always, 
+even when the inverter is connected only to the DC side. However the exact difference is not clear at this point.
+</p>
+
+<p>
+Based on a screenshot found for a gateway software that is being sold on eBay (<a href="https://www.ebay.com/itm/283656242209">https://www.ebay.com/itm/283656242209</a>) it looks like there are additional items reported
+by the inverter which have not yet been located:
+</p>
+
+<ul class="org-ul">
+<li>serial number</li>
+<li>lifetime kWh</li>
+<li>DC amps</li>
+<li>temperature</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-01-07 16:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

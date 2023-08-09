@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-07 16:53 -->
+<!-- 2023-07-21 17:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>IBOX FMT2BT Car FM transmitter</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,72 +191,25 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">IBOX FMT2BT Car FM transmitter</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org91377d6">1. The device</a></li>
-<li><a href="#org89b0128">2. The internals</a></li>
+<li><a href="#org0ff133b">1. The device</a></li>
+<li><a href="#orge78faf6">2. The internals</a></li>
 </ul>
 </div>
 </div>
 <base href="ibox-fmt2bt/"/>
 
-<div id="outline-container-org91377d6" class="outline-2">
-<h2 id="org91377d6"><span class="section-number-2">1</span> The device</h2>
+<div id="outline-container-org0ff133b" class="outline-2">
+<h2 id="org0ff133b"><span class="section-number-2">1.</span> The device</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is a "cup-shaped" car FM transmitter that supports:
@@ -260,15 +227,15 @@ available in many electronics stores in Poland.
 </p>
 
 
-<div class="figure">
+<div id="orge73fd9c" class="figure">
 <p><a href="device.jpg"><img src="thumb-device.jpg" alt="thumb-device.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org89b0128" class="outline-2">
-<h2 id="org89b0128"><span class="section-number-2">2</span> The internals</h2>
+<div id="outline-container-orge78faf6" class="outline-2">
+<h2 id="orge78faf6"><span class="section-number-2">2.</span> The internals</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The internals consist of only 1 PCB with all of the connectors and buttons. There is a vertically mounted 5 V power supply which has been unsoldered to make better view of the board.
@@ -276,19 +243,19 @@ The board has "AD-BT-A23 V1.0" and "2016.11.21" silkscreened on it. The PCB phot
 </p>
 
 
-<div class="figure">
+<div id="orge19ac4b" class="figure">
 <p><a href="pcb1.jpg"><img src="thumb-pcb1.jpg" alt="thumb-pcb1.jpg" /></a>
 </p>
 </div>
 
 
-<div class="figure">
+<div id="org9b8165d" class="figure">
 <p><a href="pcb2.jpg"><img src="thumb-pcb2.jpg" alt="thumb-pcb2.jpg" /></a>
 </p>
 </div>
 
 
-<div class="figure">
+<div id="org409c29d" class="figure">
 <p><a href="pcb3.jpg"><img src="thumb-pcb3.jpg" alt="thumb-pcb3.jpg" /></a>
 </p>
 </div>
@@ -435,7 +402,7 @@ I found some AC6921A chips on aliexpress <a href="http://aliexpress.com/i/400114
 </p>
 
 
-<div class="figure">
+<div id="orgdc7e78d" class="figure">
 <p><img src="AC6921A-pinout.png" alt="AC6921A-pinout.png" />
 </p>
 </div>
@@ -445,7 +412,7 @@ As well as AC6901 chips <a href="http://aliexpress.com/i/10000054405573.html">ht
 </p>
 
 
-<div class="figure">
+<div id="orgc81d437" class="figure">
 <p><img src="AC6901A-pinout.png" alt="AC6901A-pinout.png" />
 </p>
 </div>
@@ -455,7 +422,7 @@ I tried to match both of these chips to what I was seeing on the board but unfor
 </p>
 
 
-<div class="figure">
+<div id="org990e322" class="figure">
 <p><img src="AC1749-pinout.png" alt="AC1749-pinout.png" />
 </p>
 </div>
@@ -496,8 +463,8 @@ A development board for the 690X chip, this one unfortunately doesn't come with 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-01-07 16:53</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2023-07-21 17:43</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

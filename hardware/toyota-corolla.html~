@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-06-07 10:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Toyota Corolla</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Toyota Corolla</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf467ffc">0.1. Device CD-Text support results</a></li>
+<li><a href="#org1baf0f3">0.2. Replacement connectors for Toyota units</a>
+<ul>
+<li><a href="#orge22a3d0">0.2.1. DIY development wire harness</a></li>
+<li><a href="#orgece23a3">0.2.2. Radio LAN diagnostics mode enter</a></li>
+</ul>
+</li>
+<li><a href="#org4c0e4c1">0.3. AVC-LAN packet library</a></li>
+</ul>
+</li>
+<li><a href="#orgeb6b850">1. Reference</a></div>
+</div>
+<base href="toyota-corolla/"/>
+
+<p>
+It's my car. It currently hosts the <a href="../../projects/whitestar/">whitestar</a> equipment. It's a 2006 Toyota Corolla with a 1.4L Diesel engine. I have been collecting fuel consumption
+data for a while now and I have compiled a chart to summarize the fuel economy of the car as a variable of the average speed for each trip. This allows to
+easily distinguish between in-city and highway driving.
+</p>
+
+
+<div class="figure">
+<p><img src="fuel-corolla-public-metric.png" alt="fuel-corolla-public-metric.png" />
+</p>
+</div>
+
+<p>
+Also there is an MPG chart more useful for US-based viewers:
+</p>
+
+
+<div class="figure">
+<p><img src="fuel-corolla-public-mpg.png" alt="fuel-corolla-public-mpg.png" />
+</p>
+</div>
+
+<p>
+In the interest of full disclosure there is also the <a href="fuel-corolla.dat">input data</a> and <a href="fuel-corolla-public.gnuplot">gnuplot script</a> to generate the charts.
+</p>
+
+<div id="outline-container-orgf467ffc" class="outline-3">
+<h3 id="orgf467ffc"><span class="section-number-3">0.1</span> Device CD-Text support results</h3>
+<div class="outline-text-3" id="text-0-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Head unit identification</th>
+<th scope="col" class="org-left">AVC-LAN Connector on head unit side</th>
+<th scope="col" class="org-left">Accessory type</th>
+<th scope="col" class="org-left">Accessory identification</th>
+<th scope="col" class="org-left">AVC-LAN Connector on accessory side</th>
+<th scope="col" class="org-left">Result</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">OE no. 86120-02380</td>
+<td class="org-left"><a href="https://pinoutguide.com/Car-Stereo-Toyota-Lexus/Toyota_W58814_Head_Unit_pinout.shtml">CN702 12P</a></td>
+<td class="org-left">CD Changer</td>
+<td class="org-left">Front: TM0461</td>
+<td class="org-left">R4 connector</td>
+<td class="org-left">OK</td>
+<td class="org-left">CD-Text not supported</td>
+</tr>
+
+<tr>
+<td class="org-left">Ref no. CQ-TS7471LC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Type: 74833</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ID no. W58814</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">OE no. 08601-00910</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Type: W58814</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ref no. CX-CS0721F</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Toyota code: e13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Toyota code: e13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Datecode: 022018</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Datecode: 020209</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Manufacturer: Panasonic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Manufacturer: Panasonic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="cqts7471a.pdf">Service Manual</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">OE no. 86120-12880</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Ref no. CQ-TS7471A</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Type: W58814</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Toyota code: e13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Datecode: 022018</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Manufacturer: Matsushita Electric</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Serial no. 73707</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Label no. YEFM01663A</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CD Changer</td>
+<td class="org-left">Front: TM0461</td>
+<td class="org-left">R4 connector</td>
+<td class="org-left">No owned</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Type: 74833</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">OE no. 08601-00911</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ref no. CX-CS0722FC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Toyota code: e13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Datecode: 020209</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Manufacturer: Panasonic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CD Changer</td>
+<td class="org-left">Front: TM0461</td>
+<td class="org-left">R4 connector</td>
+<td class="org-left">Not owned</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Type: 74833</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">OE no. 08601-00912</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ref no. CX-CS0723FC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Toyota code: e13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Datecode: 020209</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Manufacturer: Panasonic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CD Changer emulator</td>
+<td class="org-left">APPS2Car</td>
+<td class="org-left">No connector</td>
+<td class="org-left">OK</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="https://www.wiki-tech.com">https://www.wiki-tech.com</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org1baf0f3" class="outline-3">
+<h3 id="org1baf0f3"><span class="section-number-3">0.2</span> Replacement connectors for Toyota units</h3>
+<div class="outline-text-3" id="text-0-2">
+<p>
+The connectors on the back of a Toyota head unit can be replaced with the following replacement connector types.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Unit</th>
+<th scope="col" class="org-left">Toyota Connector Reference</th>
+<th scope="col" class="org-left">Replacement connector</th>
+<th scope="col" class="org-left">Replacement connector description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">W58814</td>
+<td class="org-left"><a href="https://pinoutguide.com/Car-Stereo-Toyota-Lexus/Toyota_W58814_Head_Unit_pinout.shtml">CN702 12P</a></td>
+<td class="org-left"><a href="https://www.te.com/usa-en/product-1318774-1.html">TE 1318774-1</a></td>
+<td class="org-left">Housing for Female Terminals, Wire-to-Board / Wire-to-Device / Wire-to-Wire, 12 Position, .087 in [2.2 mm] Centerline, TH/.025 Connector System</td>
+</tr>
+
+<tr>
+<td class="org-left">W58814</td>
+<td class="org-left"><a href="https://pinoutguide.com/Car-Stereo-Toyota-Lexus/Toyota_W58814_Head_Unit_pinout.shtml">CN703 20P</a></td>
+<td class="org-left">TBD</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">W58814</td>
+<td class="org-left"><a href="https://pinoutguide.com/Car-Stereo-Toyota-Lexus/Toyota_W58814_Head_Unit_pinout.shtml">CN704 8P</a></td>
+<td class="org-left"><a href="https://www.te.com/usa-en/product-1376352-1.html">TE 1376352-1</a></td>
+<td class="org-left">Housing for Female Terminals, Wire-to-Wire / Wire-to-Device / Wire-to-Board, 8 Position, .087 in [2.2 mm] Centerline, TH/.025 Connector System</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+<a href="https://www.priuswiki.de/index.php?title=Audiosystem&amp;oldid=13774">Prius wiki article about Prius audio system mentioning support for CD-Text</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Accessory type</th>
+<th scope="col" class="org-left">Accessory identification</th>
+<th scope="col" class="org-left">Offer</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">CD Changer</td>
+<td class="org-left">Front: TM0561</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Prius, <a href="https://servicemanuals.us/panasonic/car-audio/cx-cs0820fa.html">Service manual</a></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Type: 74835</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">OE no. 08601-00907</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ref no. CX-CS0820FA</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Manufacturer: Panasonic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CD Changer</td>
+<td class="org-left">Front: TF0411</td>
+<td class="org-left"><a href="https://allegro.pl/oferta/toyota-prius-01-zmieniarka-cd-08601-00893-12747197680">allegro</a></td>
+<td class="org-left">Prius</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Type: 34245</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">OE no. 08601-00893</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ref no. 113001-56310151</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Toyota code: e13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Datecode: 020319</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Manufacturer: Fujitsu</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CD Changer</td>
+<td class="org-left">Front: TF0411</td>
+<td class="org-left"><a href="https://allegro.pl/oferta/zmieniarka-odtwarzacz-cd-toyota-prius-08601-00906-11618050560">allegro</a></td>
+<td class="org-left">Prius, weird as labels do not match the above</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Type: 34245</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">OE no. 08601-00906</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ref no. 113001-56310151</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Toyota code: e13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Datecode: 020319</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Manufacturer: Fujitsu</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">iPod interface</td>
+<td class="org-left">OE no. PZ473-00261-A0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<a href="https://adoc.pub/yaris-5dv-hatchback.html">CD-Text from iPod in Yaris 5dv hatchback</a>
+</p>
+
+<p>
+Attachment code for an official iPod connector to Toyota Yaris from the above site is PZ473-00261-A0
+</p>
+
+<p>
+This attachment is also mentioned for Toyota RAV4
+</p>
+
+<p>
+<a href="https://manualzz.com/doc/5191320/tarif-accessoires-rav4-2005">https://manualzz.com/doc/5191320/tarif-accessoires-rav4-2005</a>
+</p>
+
+<p>
+<a href="46fe114aefafac38d14de01a67f2cadeb1bfbd6abc9e518f01891ce4c8f49ae0.pdf">A summary of audio options for Toyota</a> containing various front codes and the description of the accessories.
+</p>
+</div>
+
+<div id="outline-container-orge22a3d0" class="outline-4">
+<h4 id="orge22a3d0"><span class="section-number-4">0.2.1</span> DIY development wire harness</h4>
+<div class="outline-text-4" id="text-0-2-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="diy-iebus-harness.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgece23a3" class="outline-4">
+<h4 id="orgece23a3"><span class="section-number-4">0.2.2</span> Radio LAN diagnostics mode enter</h4>
+<div class="outline-text-4" id="text-0-2-2">
+<p>
+To enter the LAN diagnostics mode the following steps need to be taken:
+</p>
+
+<ul class="org-ul">
+<li>Turn off the audio system and turn the IG switch to ACC. While pressing the preset switches ”1” and ”6” at the same time, press ”CD” 3 times.</li>
+<li>Reference: Beep sound is given 3 times and the system enters the service check mode. It may take about 40 sec. to complete the check.</li>
+</ul>
+
+<p>
+Refer to the DIAGNOSTICS (05-599) chapter for the AUDIO SYSTEM <a href="precheck.pdf">Repair Manual</a> for a detailed description.
+</p>
+
+<p>
+In the service check mode, the system check and the diagnosis memory check are performed, and the check results are displayed in ascending order of the
+device codes. (physical address)
+</p>
+
+<p>
+In the CQ-TS7471LC radio that I have without any external devices connected apart from the power supply the following codes are reported as "GOOD":
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Physical address</th>
+<th scope="col" class="org-left">Physical label</th>
+<th scope="col" class="org-left">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P160</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+
+<tr>
+<td class="org-left">P190</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+When the TM0461 CD Changer is connected an additional code appears:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Physical address</th>
+<th scope="col" class="org-left">Physical label</th>
+<th scope="col" class="org-left">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P160</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+
+<tr>
+<td class="org-left">P190</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+</tr>
+
+<tr>
+<td class="org-left">P360</td>
+<td class="org-left">CD-CH1</td>
+<td class="org-left">GOOD</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+When an Aliexpress-sourced APPS2Car CD Changer emulator is connected the codes reported now are:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Physical address</th>
+<th scope="col" class="org-left">Physical label</th>
+<th scope="col" class="org-left">Condition</th>
+<th scope="col" class="org-left">DTC Codes</th>
+<th scope="col" class="org-left">DTC Interpreted</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P160</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">CHEC</td>
+<td class="org-left">1L-01 1D-FF 1P-240 1N-00 1C-04</td>
+<td class="org-left">Logical address 01 (communications ctrl)</td>
+<td class="org-left">This is only assumed as the repair manual documents a different LCD display format</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DTC code FF</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Physical address P240</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Connection check number 00</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Count 04</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">P190</td>
+<td class="org-left">AUDIO H/U</td>
+<td class="org-left">GOOD</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">P240</td>
+<td class="org-left">CD-CH2</td>
+<td class="org-left">NCON</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+According to the radio repair manual the NCON condition means that the connected component has not responded to the "Diagnosis Mode ON Request" which is likely for a cheap
+non-brand emulator.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c0e4c1" class="outline-3">
+<h3 id="org4c0e4c1"><span class="section-number-3">0.3</span> AVC-LAN packet library</h3>
+<div class="outline-text-3" id="text-0-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Raw packet</th>
+<th scope="col" class="org-left">Decoded headers</th>
+<th scope="col" class="org-left">Information fields</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Examples</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ANNOUNCE</td>
+<td class="org-left">01 00 160 fff 0f 03 12 01 46</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):12(COMMUNICATION) -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 46</td>
+<td class="org-left">constant 46</td>
+<td class="org-left">Sent every 10s by device 0x160</td>
+<td class="org-left">see above</td>
+<td class="org-left">"any device is use" in SOFTSERVICE</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">REPORT REQ</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 09</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):12(COMMUNICATION) -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 20 09</td>
+<td class="org-left">0x20 xx, where xx is a sequence number</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 01</td>
+<td class="org-left">Sent to broadcast</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 02</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 00 160 fff 0f 04 12 01 20 0b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">REPORT RESP</td>
+<td class="org-left">01 01 240 160 0f 06 00 01 12 30 0b 00</td>
+<td class="org-left">UNI 240(CD<sub>CH2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):12(COMMUNICATION) 15(WRITE<sub>DATA</sub>) 30 0b 00</td>
+<td class="org-left">0x30 xx, where xx is a sequence number (matches the previously sent out REPORT packet</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 190 160 0f 06 00 01 12 30 0c 00</td>
+<td class="org-left">Unicast response</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 240 160 0f 06 00 01 12 30 0a 00</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 240 160 0f 06 00 01 12 30 05 00</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">BEEP</td>
+<td class="org-left">01 01 160 190 0f 05 00 25 29 60 83</td>
+<td class="org-left">UNI 160(AUDIO<sub>HU1</sub>):25(CMD<sub>SW</sub>) -&gt; 190(AUDIO<sub>HU2</sub>):29(BEEP<sub>SPEAKERS</sub>) 15(WRITE<sub>DATA</sub>) 60 83</td>
+<td class="org-left">0x60 xx, where xx is the duration of the beep</td>
+<td class="org-left">Audible beep in speakers</td>
+<td class="org-left">01 01 160 190 0f 05 00 25 29 60 01</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PING</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 0a</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):00() -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 0a</td>
+<td class="org-left">constant 0x0a</td>
+<td class="org-left">Sent to broadcast when a scan is started in LAN diagnostic mode</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 0a</td>
+<td class="org-left">Seen in LAN diag mode, can be unicast or broadcast</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">01 01 160 240 0f 04 00 00 01 0a</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PING RESP</td>
+<td class="org-left">01 01 190 160 0f 05 00 01 00 1a 01</td>
+<td class="org-left">UNI 190(AUDIO<sub>HU2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):00() 15(WRITE<sub>DATA</sub>) 1a 01</td>
+<td class="org-left">constant</td>
+<td class="org-left">This seems to be a reply to the PING request</td>
+<td class="org-left">01 01 190 160 0f 05 00 01 00 1a 01</td>
+<td class="org-left">Seen in LAN diag mode, device reported as NCON in LAN diagnostics when no reply</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">STATE REQ?</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 0c</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):00() -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 0c</td>
+<td class="org-left">constant</td>
+<td class="org-left">Unknown, a different kind of ping?</td>
+<td class="org-left">see above</td>
+<td class="org-left">Seen in LAN diag mode, Sent to broadcast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">STATE RESP?</td>
+<td class="org-left">01 01 190 160 0f 05 00 01 00 1c 00</td>
+<td class="org-left">UNI 190(AUDIO<sub>HU2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):00() 15(WRITE<sub>DATA</sub>) 1c 00</td>
+<td class="org-left">constant</td>
+<td class="org-left">Seems to be a response to STATE?</td>
+<td class="org-left">01 01 360 160 0f 05 00 01 00 1c 00</td>
+<td class="org-left">Unicast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">END SCAN</td>
+<td class="org-left">01 00 160 fff 0f 03 00 01 08</td>
+<td class="org-left">BRO 160(AUDIO<sub>HU1</sub>):00() -&gt; fff(BROADCAST):01(COMM<sub>CTRL</sub>) 15(WRITE<sub>DATA</sub>) 08</td>
+<td class="org-left">constant</td>
+<td class="org-left">Seems to indicate end of LAN diagnostic scan</td>
+<td class="org-left">see above</td>
+<td class="org-left">Seen in LAN diag mode when scan ends, sent to broadcast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">END SCAN OK</td>
+<td class="org-left">01 01 190 160 0f 04 00 01 00 18</td>
+<td class="org-left">UNI 190(AUDIO<sub>HU2</sub>):01(COMM<sub>CTRL</sub>) -&gt; 160(AUDIO<sub>HU1</sub>):00() 15(WRITE<sub>DATA</sub>) 18</td>
+<td class="org-left">constant</td>
+<td class="org-left">A response to END SCAN</td>
+<td class="org-left">01 01 360 160 0f 04 00 01 00 18</td>
+<td class="org-left">Seen in LAN diag mode, unicast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PLUG</td>
+<td class="org-left">01 00 360 1ff 0f 04 01 11 13 63</td>
+<td class="org-left">BRO 360(CD<sub>CH1</sub>):01(COMM<sub>CTRL</sub>) -&gt; 1ff(GROUP1):11() 15(WRITE<sub>DATA</sub>) 13 63</td>
+<td class="org-left">constant</td>
+<td class="org-left">Sent by the CD changer when plugged into the bus</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Multicast to group 1FF</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">PLUG ACK</td>
+<td class="org-left">01 01 160 360 0f 04 00 25 63 e0</td>
+<td class="org-left">UNI 160(AUDIO<sub>HU1</sub>):25(CMD<sub>SW</sub>) -&gt; 360(CD<sub>CH1</sub>):63(CD<sub>CHANGER</sub>) 15(WRITE<sub>DATA</sub>) e0</td>
+<td class="org-left">constant</td>
+<td class="org-left">Seems to be an acknowledgement of the PLUG message</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Unicast</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">TRACK NAME</td>
+<td class="org-left">01 01 190 160 0f 18 00 62 25 fd 01 02 c0 01 4c 6f 73 74 20 69 6e 20 74 68 65 20 50 69 70 65</td>
+<td class="org-left">PKT UNI 190(AUDIO<sub>HU2</sub>):62(CD) -&gt; 160(AUDIO<sub>HU1</sub>):25(CMD<sub>SW</sub>) 15(WRITE<sub>DATA</sub>) fd 01 02 c0 01 4c 6f 73 74 20 69 6e 20 74 68 65 20 50 69 70 65</td>
+<td class="org-left">track name -&gt; "Lost in the Pipe"</td>
+<td class="org-left">Sends track name from CD-Text</td>
+<td class="org-left">01 01 190 160 0f 18 00 62 25 fd 01 03 c0 01 4f 75 74 20 6f 66 20 41 6e 67 65 72 20 61 6e 64</td>
+<td class="org-left">Unicast</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgeb6b850" class="outline-2">
+<h2 id="orgeb6b850"><span class="section-number-2">1</span> Reference</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+A single other reference for the packet format.
+<a href="http://softservice.com.pl/corolla/avc/avclan.php">SOFTSERVICE</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-06-07 10:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

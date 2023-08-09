@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-07 16:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fred the Ripper</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Fred the Ripper</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5cdcea4">1. Rationale</a>
+<ul>
+<li><a href="#org1550d2f">1.1. Hardware</a>
+<ul>
+<li><a href="#org81211fc">1.1.1. Overview</a></li>
+<li><a href="#org18cb7b7">1.1.2. The power supplies</a></li>
+<li><a href="#org42c0b31">1.1.3. The disc trays</a></li>
+<li><a href="#org25fcaf4">1.1.4. The arm</a></li>
+<li><a href="#org19a1c29">1.1.5. The drive subsystem</a></li>
+<li><a href="#org6fabc91">1.1.6. The vision subsystem</a></li>
+<li><a href="#orga54c46b">1.1.7. The controller</a></li>
+<li><a href="#orge12ff92">1.1.8. The debugcam</a></li>
+</ul>
+</li>
+<li><a href="#org7222a2b">1.2. Software</a></li>
+<li><a href="#orgc45a3c7">1.3. Tests</a>
+<ul>
+<li><a href="#org3c3cd15">1.3.1. "Production" runs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<base href="fred-the-ripper/"/>
+
+<p>
+Fred the Ripper (FtR) is a CD-ripping (or recording if you want) robot based largely on the acrylic <a href="https://www.kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your">"kickstarter"</a> version of the UFactory's Uarm 4-axis desktop robot.
+I added a few parts and other tricks to make a robot that can pretty robustly chew through a box of CDs archiving them complete with cover photos. To summarize 
+the current fatures are:
+</p>
+
+<ul class="org-ul">
+<li>archives Audio-CDs and Data CDs, as well as other data discs (like DVDs with ISO filesystem on them)</li>
+<li>uses a camera to make photos of the cover of the disc to make your archive more easily searchable</li>
+<li>can detect and correct a certain amount of problems in it's own operation</li>
+<li>generates metadata for each archived disc</li>
+<li>has sensors to detect that there are no more discs to archive to automatically stop</li>
+<li>detects discs that failed to archive and puts them away on a special tray to be manually checked. All information and logs from the failed operation is retained</li>
+</ul>
+
+
+<div id="outline-container-org5cdcea4" class="outline-2">
+<h2 id="org5cdcea4"><span class="section-number-2">1</span> Rationale</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The reason for this project was to learn how to use the UArm, OpenCV and flex my diy muscles while making something that will be actually useful. The usefullness part
+is me getting rid of two boxes full of old Audio CDs, archives and god-knows-what CD-R discs. 
+</p>
+</div>
+
+<div id="outline-container-org1550d2f" class="outline-3">
+<h3 id="org1550d2f"><span class="section-number-3">1.1</span> Hardware</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org81211fc" class="outline-4">
+<h4 id="org81211fc"><span class="section-number-4">1.1.1</span> Overview</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+The robot consists of 5 subsystems:
+</p>
+
+<ul class="org-ul">
+<li>the power supplies</li>
+<li>the arm (and connected sensors)</li>
+<li>the vision subsystem</li>
+<li>the drive subsystem</li>
+<li>the controller + display</li>
+<li>the debugcam</li>
+</ul>
+
+<p>
+these will be described in detail in the following chapters. An overview of the subsystem connections is shown on the diagram below:
+</p>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="block-schematics.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="overview1.jpg"><img src="thumb-overview1.jpg" alt="thumb-overview1.jpg" /></a></td>
+<td class="org-left"><a href="overview2.jpg"><img src="thumb-overview2.jpg" alt="thumb-overview2.jpg" /></a></td>
+<td class="org-left"><a href="overview3.jpg"><img src="thumb-overview3.jpg" alt="thumb-overview3.jpg" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org18cb7b7" class="outline-4">
+<h4 id="org18cb7b7"><span class="section-number-4">1.1.2</span> The power supplies</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+The supplies are a small <a href="https://microdream.co.uk/delta-electronics-dps-111ab-a-146-6w-psu-power-supply.html">Newton Power Ltd DPS-111AB</a> 146W ATX power supply together with an <a href="https://www.instructables.com/id/The-Introduction-of-XL6009-Step-up-Power-Module-DC/">XL6009</a> step up DC-DC converter to provide 19V for the controller PC. A stable 5V supply with a high current
+capability (the UArm peak working current is 3.5A according to the datasheet!) is critical for this project, therefore I settled with a quite overpowered ATX supply after many attempts with smaller
+ones. It's pretty annoying when your arm, camera, etc. do random resets when the voltage dips too low.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42c0b31" class="outline-4">
+<h4 id="org42c0b31"><span class="section-number-4">1.1.3</span> The disc trays</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+The robot has three disc trays:
+</p>
+<ul class="org-ul">
+<li>the "SOURCE" tray from which discs are picked up. This tray also contains one of the disc presence sensors (the working one).</li>
+<li>the "DONE" tray to which discs which have been successfuly ripped are dropped</li>
+<li>the "FAIL" tray to which discs which haven't been successfuly ripped are dropped</li>
+</ul>
+
+<p>
+As a protip it's good to make the job of picking up discs easier by cutting two slots in the "DONE" and "FAIL" trays:
+</p>
+
+<p>
+<a href="done-tray-slot.jpg"><img src="thumb-done-tray-slot.jpg" alt="thumb-done-tray-slot.jpg" /></a> <a href="failed-tray-slot.jpg"><img src="thumb-failed-tray-slot.jpg" alt="thumb-failed-tray-slot.jpg" /></a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org25fcaf4" class="outline-4">
+<h4 id="org25fcaf4"><span class="section-number-4">1.1.4</span> The arm</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+The UArm I used was perfect for the task as it had a vacuum pump and suction cup which made it possible to easily grab and manipulate big flat items :). Because the arm is the only place where I have 
+digital output GPIOs and ADC inputs available, this is where I decided to connect the disc presence sensor circuits. These allow the robot to know if there are any more discs to archive or if the destination
+tray is full. This task is achieved thanks to <a href="https://www.vishay.com/docs/83752/tcrt1000.pdf">TCRT1000</a> reflective optical sensors and as CDs are pretty reflective this works rather well :). The connection schematics for a single sensor are show below:
+</p>
+
+
+<div class="figure">
+<p><a href="disc-presence-sensor.png"><img src="thumb-disc-presence-sensor.png" alt="thumb-disc-presence-sensor.png" /></a>
+</p>
+</div>
+
+<p>
+In the above circuit the ADC voltage across the 180k resistor will be proportional to the current flowing through the phototransistor and thus the amount of light reflected. The disc detection is simple: 
+little light reflected means there is no disc in the tray, a lot of light reflected means there is a disc present. Unfortunately the simple approach doesn't work beacuse of current generated in the 
+phototransistor due to ambient light. Depending on the conditions this can easily cause false positives in disc detection. In order to combat this we need to take two measurements - one with the IR 
+LED on and the other with the LED off to measure the ambient amount of light. By subtracting these two values we get a useful signal which can detect the disc reliably.
+</p>
+
+<p>
+Also, due to some quirks of the firmware that I didn't have time to resolve I couldn't use one of the 2 spare servo connectors on the controller shield in the UArm. Each servo controller header has a
+digital output used to provide the PWM signal and an analog input to read the servo's position so I figured that it would be trivial to use the digital output to drive the LED on/off and the analog
+ADC input to read the phototransistor current. This was not the case however and the spare servo headers were not working properly, the analog input was constantly pulled up to Vcc. 
+Therefore I had to disconnect the analog feedback from the servo used to rotate the suction cup head assembly and use it's analog input together with the spare digital output. 
+I left the head rotation servo power and control intact so the servo would lock in place and not freely rotate.
+</p>
+
+<p>
+The initial idea was to have two sensors, one for detecting if the source tray contains any discs and the other to halt the archival operation when the "Done" tray is almost full. Unfortunately, due to the
+ADC problems described above I could connect only one of the sensors. I chose the sensor in the source tray as it will be filled much more often due to it's smaller size.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org19a1c29" class="outline-4">
+<h4 id="org19a1c29"><span class="section-number-4">1.1.5</span> The drive subsystem</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+The drive subsystem uses an <a href="https://www.cnet.com/products/sony-optiarc-ad-5260s-dvdrw-r-dl-drive-serial-ata-internal/specs/">Sony Optiarc DVD RW AD-5260S</a> drive connected with a <a href="http://www.jmicron.com/PDF/brief/jm20337.pdf">JMicron JM20337</a> SATA&lt;-&gt;USB bridge to the controller PC. The type of drive used is the limiting factor when it comes to
+the types of discs that can be archive using FtR. It can't read Bluerays for example. One pesky bug that I found in the JM20337 bridge is that it takes it a while (usually around 30 seconds)
+to realize that the drive is connected and power has been detected. I'm not sure if this is something caused by the logic in the bridge itself or is the drive sluggish to bring up it's SATA link for example.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6fabc91" class="outline-4">
+<h4 id="org6fabc91"><span class="section-number-4">1.1.6</span> The vision subsystem</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+The vision subsystem is used to make photos of archived discs in order to obtain the cover photo of every disc encountered. This greatly helps in later identification of a particular disc. The camera is a 
+Canon DIGITAL IXUS 70 (also known as Canon Powershot SD1000) and supports the alternative <a href="http://chdk.wikia.com/wiki/CHDK">CHDK</a> firmware. The CHDK firmware allows to transfer a photo directly via PTP to the controller PC, something that 
+is not easily possible with the stock firmware. Kudos to CHDK! 
+</p>
+
+<p>
+The camera is situated above the robot working surface, the holder was built using an old Soviet desk lamp, some wood and a camera-compatible screw that I found laying around. 
+</p>
+
+
+<div class="figure">
+<p><a href="camera-holder.jpg"><img src="thumb-camera-holder.jpg" alt="thumb-camera-holder.jpg" /></a>
+</p>
+</div>
+
+<p>
+The fact that a stock lamp is used greatly helps with disassembly and transportation of the robot. 
+</p>
+
+<p>
+Even though the place in which the user needs to attach the vision subsystem to the base board is clearly marked, the robot uses a simple automatic calibration procedure to detect where exactly the camera
+is pointing at. To achieve this a pair of <a href="https://docs.opencv.org/3.1.0/d5/dae/tutorial_aruco_detection.html">ARuCO</a> markers was printed and put on the working plane. One is situated on where the center of the disc is located when the drive tray opens, the other one is on
+the edge of the tray. Both are used to calculate the position of the disc cover on the image as well as it's diameter. 
+</p>
+
+<p>
+There are two tricky things about the camera. First is the power supply. When you try to power the camera from the USB port it automatically switches to playback mode and can't be used to acquire photos. 
+Because of this I had to build a "fake battery" which was providing USB 5V power directly from the USB port:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="fake-battery1.jpg"><img src="thumb-fake-battery1.jpg" alt="thumb-fake-battery1.jpg" /></a></td>
+<td class="org-left"><a href="fake-battery2.jpg"><img src="thumb-fake-battery2.jpg" alt="thumb-fake-battery2.jpg" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga54c46b" class="outline-4">
+<h4 id="orga54c46b"><span class="section-number-4">1.1.7</span> The controller</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<p>
+The Ftr uses a kektop (<a href="http://www.ntt.pl/index.php?c=1279">NTT HOME W 300P</a> net-top style PC) with an Intel Atom 230 CPU (1.6 GHz), 1 GB of RAM and a small 16GB internal SSD. It's currently running Debian.
+</p>
+
+<p>
+The controller has a LCD4USB off of Aliexpress connected to it in order to display various status and debugging information. This display is driven by lcd4linux where it's supported out-of-the-box 
+by the 'LCD4USB' driver.
+</p>
+
+
+<div class="figure">
+<p><a href="lcd-display.jpg"><img src="thumb-lcd-display.jpg" alt="thumb-lcd-display.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge12ff92" class="outline-4">
+<h4 id="orge12ff92"><span class="section-number-4">1.1.8</span> The debugcam</h4>
+<div class="outline-text-4" id="text-1-1-8">
+<p>
+The debugcam is a simple webcam recording every rip operation for debugging of mechanical faults. The resolution and frame rates are quite low (320x240 and 10 FPS) but it's enough to figure out what
+happened when you find a disk next to the drive in a place it's not supposed to be. Its launched as a separate unit by using systemd-run so that the logs can be easily gathered using journalctl.
+</p>
+
+
+<div class="figure">
+<p><a href="debugcam.jpg"><img src="thumb-debugcam.jpg" alt="thumb-debugcam.jpg" /></a>
+</p>
+</div>
+
+<p>
+An example video from the debugcam:
+</p>
+
+<p>
+<a href="https://vimeo.com/257405811">https://vimeo.com/257405811</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7222a2b" class="outline-3">
+<h3 id="org7222a2b"><span class="section-number-3">1.2</span> Software</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The software is currently written in Python and can be downloaded from <a href="https://github.com/mgrela/fred-the-ripper">github repository</a>:
+</p>
+
+<p>
+The code structure is based around the 'brain.py' script together with a bunch of external python modules (roughly one per subsystem) as well as one or two shell scripts. The information on how the 
+scripts are configured and deployed on a plain Debian system is maintained in an Ansible playbook which can be used to deploy the code onto a fresh OS if required. The ansible playbook and
+inventory files using this role should look similar to this:
+</p>
+
+<pre>
+(ansible-venv) ➜  provision cat rippers.yml 
+---
+- hosts: rippers
+
+  become: yes
+
+  roles:
+    - ripper
+
+(ansible-venv) ➜  provision cat production 
+[rippers]
+fred.provnet0.local ansible_user=enki ansible_host=192.168.10.79
+
+(ansible-venv) ➜  provision 
+</pre>
+
+<p>
+Remember to leave the become:yes in the playbook as most actions require root. The playbook sets up everything to run for ansible<sub>user</sub> on the ripper machine.
+</p>
+
+<p>
+The Python code attempts to detect (and sometimes correct) a few failure modes that were discovered during testing:
+</p>
+
+<ul class="org-ul">
+<li>the SATA&lt;-&gt;USB bridge not powering up quick enough, there is an attempt at opening and closing of the drive tray before archival is started to try to make sure that the drive works</li>
+<li>the arm move functions which are used for grabbing discs can detect if there is no item to be grabbed at the current position and prevent the arm to go places where it might damage itself</li>
+<li>the ARuCO markers are used to detect if the camera is switched on and pointed in the right direction</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgc45a3c7" class="outline-3">
+<h3 id="orgc45a3c7"><span class="section-number-3">1.3</span> Tests</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+See the robot in action on the <a href="https://vimeo.com/254591558">video</a>. This is a test run containing one short mode1 data cd and an empty CD-R to simulate a disc that can't be read and this goes to the "FAILED" tray.
+</p>
+</div>
+
+
+<div id="outline-container-org3c3cd15" class="outline-4">
+<h4 id="org3c3cd15"><span class="section-number-4">1.3.1</span> "Production" runs</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+After some inital tests when I was reasonably confident that the entire systems works as expected I began "production" runs where I would leave the robot on it's own for a number of hours 
+with a bunch of disks in the source tray. During each production runs fixes and adjustements were made to improve reliability or to provide better data collection.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Run</th>
+<th scope="col" class="org-left">Start time</th>
+<th scope="col" class="org-right">Number of discs</th>
+<th scope="col" class="org-left">End time</th>
+<th scope="col" class="org-right">Successful disks</th>
+<th scope="col" class="org-right">Failed disks</th>
+<th scope="col" class="org-left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Prod #1</td>
+<td class="org-left">2018-02-17T13:46Z</td>
+<td class="org-right">14</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">14</td>
+<td class="org-right">0</td>
+<td class="org-left">One unexpected mechanical fault, had to restart manually, end time not recorded.</td>
+</tr>
+
+<tr>
+<td class="org-left">Prod #2</td>
+<td class="org-left">2018-02-23T23:37Z</td>
+<td class="org-right">15</td>
+<td class="org-left">2018-02-24T07:25Z</td>
+<td class="org-right">11</td>
+<td class="org-right">4</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prod #3</td>
+<td class="org-left">2018-02-25T21:45Z</td>
+<td class="org-right">13</td>
+<td class="org-left">2018-02-25T23:56Z</td>
+<td class="org-right">7</td>
+<td class="org-right">6</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prod #4</td>
+<td class="org-left">2018-03-04T18:29Z</td>
+<td class="org-right">14</td>
+<td class="org-left">2018-03-04T20:14Z</td>
+<td class="org-right">10</td>
+<td class="org-right">4</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prod #5</td>
+<td class="org-left">2018-03-09T23:02Z</td>
+<td class="org-right">7</td>
+<td class="org-left">2018-03-16T12:47Z</td>
+<td class="org-right">5</td>
+<td class="org-right">2</td>
+<td class="org-left">Many disks with L-EC errors, mechanical + camera faults</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The information gathered during the production runs has been summarized using the 'summarize-rip.sh' scripts and plotted using gnuplot:
+</p>
+
+
+<div class="figure">
+<p><img src="production-runs-summary.png" alt="production-runs-summary.png" />
+</p>
+</div>
+
+<p>
+As you can see the ripping speed of Audio-CDs is much less than for data CDs (more time on the vertical axis). The reason for this is unclear as of now, it may be just that the Audio-CD 
+disks are much more worn out causing the drive to work harder with error correction.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-01-07 16:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

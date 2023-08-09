@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-07 16:55 -->
+<!-- 2023-07-21 17:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dell PowerConnect 2808</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,92 +191,45 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Dell PowerConnect 2808</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5f80f16">1. Introduction</a></li>
-<li><a href="#orgb05c16f">2. Hardware</a>
+<li><a href="#orgec732e7">1. Introduction</a></li>
+<li><a href="#org15ba51f">2. Hardware</a>
 <ul>
-<li><a href="#org4e8ee80">2.1. Main parts on PCB</a></li>
-<li><a href="#org61f0c0a">2.2. Connectors</a></li>
-<li><a href="#org228b4c6">2.3. Serial console (J2)</a></li>
-<li><a href="#org8d4f36a">2.4. Boot log (normal boot)</a></li>
-<li><a href="#orge129ee8">2.5. Default configuration dump</a></li>
+<li><a href="#org6b108b4">2.1. Main parts on PCB</a></li>
+<li><a href="#org3dae123">2.2. Connectors</a></li>
+<li><a href="#orgfd70903">2.3. Serial console (J2)</a></li>
+<li><a href="#orgac0b541">2.4. Boot log (normal boot)</a></li>
+<li><a href="#org6b3cc21">2.5. Default configuration dump</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5f80f16" class="outline-2">
-<h2 id="org5f80f16"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgec732e7" class="outline-2">
+<h2 id="orgec732e7"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Dell PowerConnect 2808 is a managed 8 port Gigabit switch.
 </p>
 
 
-<div class="figure">
+<div id="org0828f62" class="figure">
 <p><a href="dell-powerconnect-2808/main-pcb1.jpg"><img src="dell-powerconnect-2808/thumb-main-pcb1.jpg" alt="thumb-main-pcb1.jpg" /></a>
 </p>
 </div>
 
 
-<div class="figure">
+<div id="orgf14fdbc" class="figure">
 <p><a href="dell-powerconnect-2808/main-pcb2.jpg"><img src="dell-powerconnect-2808/thumb-main-pcb2.jpg" alt="thumb-main-pcb2.jpg" /></a>
 </p>
 </div>
@@ -270,12 +237,12 @@ The Dell PowerConnect 2808 is a managed 8 port Gigabit switch.
 </div>
 
 
-<div id="outline-container-orgb05c16f" class="outline-2">
-<h2 id="orgb05c16f"><span class="section-number-2">2</span> Hardware</h2>
+<div id="outline-container-org15ba51f" class="outline-2">
+<h2 id="org15ba51f"><span class="section-number-2">2.</span> Hardware</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org4e8ee80" class="outline-3">
-<h3 id="org4e8ee80"><span class="section-number-3">2.1</span> Main parts on PCB</h3>
+<div id="outline-container-org6b108b4" class="outline-3">
+<h3 id="org6b108b4"><span class="section-number-3">2.1.</span> Main parts on PCB</h3>
 <div class="outline-text-3" id="text-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -364,8 +331,8 @@ The Dell PowerConnect 2808 is a managed 8 port Gigabit switch.
 </table>
 </div>
 </div>
-<div id="outline-container-org61f0c0a" class="outline-3">
-<h3 id="org61f0c0a"><span class="section-number-3">2.2</span> Connectors</h3>
+<div id="outline-container-org3dae123" class="outline-3">
+<h3 id="org3dae123"><span class="section-number-3">2.2.</span> Connectors</h3>
 <div class="outline-text-3" id="text-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -409,8 +376,8 @@ The Dell PowerConnect 2808 is a managed 8 port Gigabit switch.
 </div>
 </div>
 
-<div id="outline-container-org228b4c6" class="outline-3">
-<h3 id="org228b4c6"><span class="section-number-3">2.3</span> Serial console (J2)</h3>
+<div id="outline-container-orgfd70903" class="outline-3">
+<h3 id="orgfd70903"><span class="section-number-3">2.3.</span> Serial console (J2)</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Serial console is a 3.3V TTL UART running at 9600 bps, 8 bits, 1 stop bit and no parity.
@@ -462,8 +429,8 @@ Serial console is a 3.3V TTL UART running at 9600 bps, 8 bits, 1 stop bit and no
 </div>
 </div>
 
-<div id="outline-container-org8d4f36a" class="outline-3">
-<h3 id="org8d4f36a"><span class="section-number-3">2.4</span> Boot log (normal boot)</h3>
+<div id="outline-container-orgac0b541" class="outline-3">
+<h3 id="orgac0b541"><span class="section-number-3">2.4.</span> Boot log (normal boot)</h3>
 <div class="outline-text-3" id="text-2-4">
 <pre>
 
@@ -559,8 +526,8 @@ console> 01-Jan-2000 00:00:17 %LINK-W-Down:  g1
 </div>
 
 
-<div id="outline-container-orge129ee8" class="outline-3">
-<h3 id="orge129ee8"><span class="section-number-3">2.5</span> Default configuration dump</h3>
+<div id="outline-container-org6b3cc21" class="outline-3">
+<h3 id="org6b3cc21"><span class="section-number-3">2.5.</span> Default configuration dump</h3>
 <div class="outline-text-3" id="text-2-5">
 <pre>
 console# show tech-support config 
@@ -1201,8 +1168,8 @@ console# 01-Jan-2000 00:02:26 %INIT-I-Startup: Cold Startup
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-01-07 16:55</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2023-07-21 17:43</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

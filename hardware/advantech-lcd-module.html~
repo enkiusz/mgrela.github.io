@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-07 16:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advantech LCD module</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Advantech LCD module</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org55b4a2f">1. Intro</a></li>
+<li><a href="#org056b136">2. Hardware</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org0047d4a">2.0.1. Chips</a></li>
+</ul>
+</li>
+<li><a href="#orgfe10548">2.1. Interfaces</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<base href="advantech-lcd-module/"/>
+
+<div id="outline-container-org55b4a2f" class="outline-2">
+<h2 id="org55b4a2f"><span class="section-number-2">1</span> Intro</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The Advantech LCD manipulator is a simple module which contains a text LCD, a keypad all connected to a controller board. <a href="https://www.advantech.com/">Advantech</a> is a industrial and embedded computer
+manufacturer. Unfortunately there are no labels or P/N information on the module or the board so it's not possible to exactly identify this part.
+The controller has a PIC processor and an RS-232 interface chip which drives an interface connecting to a PC mainboard. This module was installed in some 
+kind of networking appliance which I disasembled some time ago and I decided to reverse engineer the communication protocol in order to be able to use the module in my 
+own projects. The module front looks like this:
+</p>
+
+
+<div class="figure">
+<p><a href="module.jpg"><img src="thumb-module.jpg" alt="thumb-module.jpg" /></a>
+</p>
+</div>
+
+<p>
+The module back reveals the controller board and connectors:
+</p>
+
+
+<div class="figure">
+<p><a href="module-back.jpg"><img src="thumb-module-back.jpg" alt="thumb-module-back.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org056b136" class="outline-2">
+<h2 id="org056b136"><span class="section-number-2">2</span> Hardware</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0047d4a" class="outline-4">
+<h4 id="org0047d4a"><span class="section-number-4">2.0.1</span> Chips</h4>
+<div class="outline-text-4" id="text-2-0-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Label</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">U1</td>
+<td class="org-left">PIC16F873</td>
+<td class="org-left">Placed in a precision socket</td>
+</tr>
+
+<tr>
+<td class="org-left">U2</td>
+<td class="org-left">ADM213</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Both chips and their surroundings have been documented on the photos below:
+</p>
+
+<p>
+<a href="U1-closeup.jpg"><img src="thumb-U1-closeup.jpg" alt="thumb-U1-closeup.jpg" /></a>
+<a href="U2-closeup.jpg"><img src="thumb-U2-closeup.jpg" alt="thumb-U2-closeup.jpg" /></a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfe10548" class="outline-3">
+<h3 id="orgfe10548"><span class="section-number-3">2.1</span> Interfaces</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The RS-232 interface runs at 2400 bps with 8n1 configuration. This interface uses RS-232 voltage levels therefore can't be connected directly to a microcontroller. When the 
+module boots it sends out an "ADVANTECH CORP" string:
+</p>
+
+<pre class="example">
+--- Miniterm on /dev/ttyUSB0  2400,8,N,1 ---
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ ADVANTECH CORP
+
+</pre>
+
+<p>
+Each keypress generates a 2 byte packet transmitted from the module. The keys map to the packets in the following way:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Keypress</th>
+<th scope="col" class="org-left">Packet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">UP</td>
+<td class="org-left">0xFD 0x41</td>
+</tr>
+
+<tr>
+<td class="org-left">DOWN</td>
+<td class="org-left">0xFD 0x42</td>
+</tr>
+
+<tr>
+<td class="org-left">LEFT</td>
+<td class="org-left">0xFD 0x44</td>
+</tr>
+
+<tr>
+<td class="org-left">RIGHT</td>
+<td class="org-left">0xFD 0x48</td>
+</tr>
+
+<tr>
+<td class="org-left">ENTER</td>
+<td class="org-left">0xFD 0x50</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+The display protocol is also very simple. In order to display text on the LCD you need to send a string of 80 bytes to the serial port. The way the string needs to be built
+is show in the following code:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/usr/bin/env python3</span>
+
+<span style="color: #4f97d7; font-weight: bold;">import</span> serial, sys
+
+<span style="color: #7590db;">serial_port</span> = sys.argv<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">line1</span> = sys.argv<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span><span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">line2</span> = sys.argv<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">3</span><span style="color: #4f97d7;">]</span>
+
+<span style="color: #7590db;">ser</span> = serial.Serial<span style="color: #4f97d7;">(</span>port=serial_port, baudrate=<span style="color: #a45bad;">2400</span><span style="color: #4f97d7;">)</span>
+
+ser.write<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">bytes</span><span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"{}{:&lt;16}{}{:&lt;16}"</span>.<span style="color: #4f97d7;">format</span><span style="color: #2d9574;">(</span><span style="color: #2d9574;">"\x00"</span> * <span style="color: #a45bad;">24</span>, line1, <span style="color: #2d9574;">"\x00"</span> * <span style="color: #a45bad;">24</span>, line2<span style="color: #2d9574;">)</span>, <span style="color: #2d9574;">'ascii'</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+
+<p>
+For example, by running the command:
+</p>
+
+<pre class="example">
+➜  advantech-lcd-module git:(master) ✗ python3 lcd_update.py /dev/ttyUSB0 'this is a test' '12345678'
+</pre>
+
+<p>
+We get the following result:
+</p>
+
+
+<div class="figure">
+<p><a href="test-lines-displayed.jpg"><img src="thumb-test-lines-displayed.jpg" alt="thumb-test-lines-displayed.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-01-07 16:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

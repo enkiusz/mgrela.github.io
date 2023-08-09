@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-11 16:43 -->
+<!-- 2023-07-21 17:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>D-Link DIR-655 Wireless Router</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Maciej Grela" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,83 +191,36 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">D-Link DIR-655 Wireless Router</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4a00b8c">1. Introduction</a></li>
-<li><a href="#org07b3d97">2. Hardware</a>
+<li><a href="#orgb9a23fa">1. Introduction</a></li>
+<li><a href="#orgbd9b57f">2. Hardware</a>
 <ul>
-<li><a href="#org42c0dc5">2.1. Main parts</a></li>
-<li><a href="#org2949d65">2.2. Connectors</a>
+<li><a href="#org2199207">2.1. Main parts</a></li>
+<li><a href="#org77df4f8">2.2. Connectors</a>
 <ul>
-<li><a href="#org49c0050">2.2.1. J1 connector</a></li>
-<li><a href="#org3b7792a">2.2.2. J2 connector</a></li>
+<li><a href="#org8bbb77a">2.2.1. J1 connector</a></li>
+<li><a href="#org77321d9">2.2.2. J2 connector</a></li>
 </ul>
 </li>
-<li><a href="#orgd2f6806">2.3. The IP7150U CPU</a></li>
+<li><a href="#org549c036">2.3. The IP7150U CPU</a></li>
 </ul>
 </li>
-<li><a href="#org335d100">3. References</a></li>
+<li><a href="#orge1d4636">3. References</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4a00b8c" class="outline-2">
-<h2 id="org4a00b8c"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgb9a23fa" class="outline-2">
+<h2 id="orgb9a23fa"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The D-Link DIR-655 is a 802.11 bgn and gigabit Ethernet wireless router. Its basic hardware is described on <a href="https://wikidevi.wi-cat.ru/Main_Page">wikidevi</a> with multiple hardware revisions.
@@ -261,22 +228,22 @@ The D-Link DIR-655 is a 802.11 bgn and gigabit Ethernet wireless router. Its bas
 </div>
 </div>
 
-<div id="outline-container-org07b3d97" class="outline-2">
-<h2 id="org07b3d97"><span class="section-number-2">2</span> Hardware</h2>
+<div id="outline-container-orgbd9b57f" class="outline-2">
+<h2 id="orgbd9b57f"><span class="section-number-2">2.</span> Hardware</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The main PCB with the main shield and heatpads removed reveals the main chip and the Ethernet bridge:
 </p>
 
 
-<div class="figure">
+<div id="orgaa9c54f" class="figure">
 <p><a href="dlink-dir-655/pcb.jpg"><img src="dlink-dir-655/thumb-pcb.jpg" alt="thumb-pcb.jpg" /></a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org42c0dc5" class="outline-3">
-<h3 id="org42c0dc5"><span class="section-number-3">2.1</span> Main parts</h3>
+<div id="outline-container-org2199207" class="outline-3">
+<h3 id="org2199207"><span class="section-number-3">2.1.</span> Main parts</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Main parts are documented on wikidevi.
@@ -284,8 +251,8 @@ Main parts are documented on wikidevi.
 </div>
 </div>
 
-<div id="outline-container-org2949d65" class="outline-3">
-<h3 id="org2949d65"><span class="section-number-3">2.2</span> Connectors</h3>
+<div id="outline-container-org77df4f8" class="outline-3">
+<h3 id="org77df4f8"><span class="section-number-3">2.2.</span> Connectors</h3>
 <div class="outline-text-3" id="text-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -325,8 +292,8 @@ Main parts are documented on wikidevi.
 </table>
 </div>
 
-<div id="outline-container-org49c0050" class="outline-4">
-<h4 id="org49c0050"><span class="section-number-4">2.2.1</span> J1 connector</h4>
+<div id="outline-container-org8bbb77a" class="outline-4">
+<h4 id="org8bbb77a"><span class="section-number-4">2.2.1.</span> J1 connector</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -425,8 +392,8 @@ working here looks to be binary in nature.
 </div>
 </div>
 
-<div id="outline-container-org3b7792a" class="outline-4">
-<h4 id="org3b7792a"><span class="section-number-4">2.2.2</span> J2 connector</h4>
+<div id="outline-container-org77321d9" class="outline-4">
+<h4 id="org77321d9"><span class="section-number-4">2.2.2.</span> J2 connector</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 The trace from this connector has not yet been obtained.
@@ -435,8 +402,8 @@ The trace from this connector has not yet been obtained.
 </div>
 </div>
 
-<div id="outline-container-orgd2f6806" class="outline-3">
-<h3 id="orgd2f6806"><span class="section-number-3">2.3</span> The IP7150U CPU</h3>
+<div id="outline-container-org549c036" class="outline-3">
+<h3 id="org549c036"><span class="section-number-3">2.3.</span> The IP7150U CPU</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 The UBICOM IP7150U CPU is a non-standard (that is not MIPS, ARM or any other common ISA) architecture CPU with hardware threads designed for telecommunications
@@ -452,8 +419,8 @@ it's possible that equivalent operations can be performed by any other JTAG dong
 </div>
 
 
-<div id="outline-container-org335d100" class="outline-2">
-<h2 id="org335d100"><span class="section-number-2">3</span> References</h2>
+<div id="outline-container-orge1d4636" class="outline-2">
+<h2 id="orge1d4636"><span class="section-number-2">3.</span> References</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 A brochure about IP7100 CPUs
@@ -484,8 +451,8 @@ GPL downloads for the Western Digital N900
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-01-11 16:43</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2023-07-21 17:43</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

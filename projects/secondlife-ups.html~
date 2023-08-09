@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-07 16:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Second Life UPS</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Second Life UPS</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2ffa6cc">1. Design overview</a></li>
+<li><a href="#org579a300">2. Component layout</a></li>
+<li><a href="#org7ef01e0">3. The battery</a></li>
+<li><a href="#org5d63cc8">4. The output board</a></li>
+<li><a href="#org0cd857f">5. The controller board</a></li>
+<li><a href="#org134fc50">6. AC power connection</a></li>
+<li><a href="#orgf3e7534">7. Final device</a></li>
+</ul>
+</div>
+</div>
+<base href="secondlife-ups/"/>
+
+<div id="outline-container-org2ffa6cc" class="outline-2">
+<h2 id="org2ffa6cc"><span class="section-number-2">1</span> Design overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I have decided to build a UPS that would power my home network equipment rack using lithium-ion 18650 cells.
+</p>
+
+
+<div class="figure">
+<p><a href="rack.jpg"><img src="thumb-rack.jpg" alt="thumb-rack.jpg" /></a>
+</p>
+</div>
+
+<p>
+First let's lay out some basic design considerations
+</p>
+<ul class="org-ul">
+<li>should fit the equipment rack in a 1U format</li>
+<li>it should provide 12V DC, 5V DC as well as 230V for the switch</li>
+</ul>
+
+<p>
+The current list of devices that need to be powered by the UPS together with their nameplate voltage and current consumption information:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Device</th>
+<th scope="col" class="org-right">Voltage [V]</th>
+<th scope="col" class="org-right">Current (max) [A]</th>
+<th scope="col" class="org-right">Power (max) [W]</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Router</td>
+<td class="org-right">19</td>
+<td class="org-right">2</td>
+<td class="org-right">38</td>
+<td class="org-left">A small form factor PC</td>
+</tr>
+
+<tr>
+<td class="org-left">16-port switch</td>
+<td class="org-right">230V AC</td>
+<td class="org-right">0.1</td>
+<td class="org-right">22.5</td>
+<td class="org-left">Rated at 22.5 W in the <a href="https://www.cnet.com/products/3com-baseline-plus-switch-2920-switch-16-ports-managed-desktop-series/">technical specs</a></td>
+</tr>
+
+<tr>
+<td class="org-left">AP</td>
+<td class="org-right">24</td>
+<td class="org-right">0.25</td>
+<td class="org-right">6.5</td>
+<td class="org-left">Rated at 6.5 W (see <a href="https://dl.ui.com/datasheets/unifi/UniFi_AC_APs_DS.pdf">datasheet</a>), passive 24V PoE Mode B (230V/0.02A)</td>
+</tr>
+
+<tr>
+<td class="org-left">Raspberry Pi</td>
+<td class="org-right">5</td>
+<td class="org-right">2.1</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">GPON modem</td>
+<td class="org-right">12</td>
+<td class="org-right">0.5</td>
+<td class="org-right">6</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Total</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">83.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+As can be seen there is a large amount of different voltages required in order to power all of the devices, therefore some modifications and compromises will have to be made:
+</p>
+
+<ul class="org-ul">
+<li>The UPS will provide stabilized 12 V and 5 V power rails</li>
+<li>The 19V for the router will be provided by a dedicated step-up dc-dc converter based on the very popular XL6009 chip from aliexpress</li>
+<li>The 230V AC will be temporarily provided by a small car 12V -&gt; 230V inverter</li>
+<li>The PoE injector is scheduled to be replaced by an PoE injector which can be powered from DC</li>
+<li>The router will be replaced in the future with a Mikrotik Routerboard or a PFsense appliance from <a href="https://teklager.se/en/pfsense-hardware/">https://teklager.se/en/pfsense-hardware/</a> that both can be powered from DC</li>
+<li>The switch will be modded to have a DC power supply</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org579a300" class="outline-2">
+<h2 id="org579a300"><span class="section-number-2">2</span> Component layout</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The 1U case that I used for this project is a case from a ipTime ZC-SW2405 switch:
+</p>
+
+
+<div class="figure">
+<p><a href="switch-case.jpg"><img src="thumb-switch-case.jpg" alt="thumb-switch-case.jpg" /></a>
+</p>
+</div>
+
+<p>
+I have removed everything from the switch case including the power supply as it was only providing 3.3V and did not have enough power. The case has 1U dimensions, to be exact 16 cm x 44 cm x 4.4 cm.
+I have also drilled out all of the studs holding the original PCBs to the case in order to fit the battery and AC PSU. This has proven to be a hindrance however as I had to remake some of them later to 
+mount my custom boards.
+</p>
+
+<p>
+The case size puts a limit on the size and shape of two biggest internal components - the battery pack and the 230V AC power supply. I have devised the following placement for these components.
+</p>
+
+
+<div class="figure">
+<p><a href="basic-layout.jpg"><img src="thumb-basic-layout.jpg" alt="thumb-basic-layout.jpg" /></a>
+</p>
+</div>
+
+<p>
+From the basic layout the following elements are COTS components:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Brand</th>
+<th scope="col" class="org-left">Model</th>
+<th scope="col" class="org-left">Parameters</th>
+<th scope="col" class="org-left">Notes</th>
+<th scope="col" class="org-left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">KAYPW</td>
+<td class="org-left">Switching Power Supply</td>
+<td class="org-left">24V 5A 120W max</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="https://www.aliexpress.com/item/33042313383.html">https://www.aliexpress.com/item/33042313383.html</a></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">40A 16.8V Balance REV 2.3</td>
+<td class="org-left">4S 40A</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="https://www.aliexpress.com/item/4000026248298.html">https://www.aliexpress.com/item/4000026248298.html</a></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">XL4015-B CC/CV module</td>
+<td class="org-left">5A CC/CV, 75W max</td>
+<td class="org-left">Li-Ion charger</td>
+<td class="org-left"><a href="https://www.aliexpress.com/item/4000383898441.html">https://www.aliexpress.com/item/4000383898441.html</a></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">XL4015 buck dc-dc converter</td>
+<td class="org-left">5A max</td>
+<td class="org-left">Provides 5 V and  12 V outputs</td>
+<td class="org-left"><a href="https://www.aliexpress.com/item/4000796650052.html">https://www.aliexpress.com/item/4000796650052.html</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org7ef01e0" class="outline-2">
+<h2 id="org7ef01e0"><span class="section-number-2">3</span> The battery</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The battery for the UPS was built using 18650 Li-Ion cells recovered from hoverboard battery packs. These are cheap no-name cells with not a lot of capacity left in them (around 800 mAh) each but I figured
+that a UPS would be the perfect idea to utilise them. They will operate under low current load per cell so their internal resistance shouldn't be a problem. The UPS will be mostly sitting idle and charged 
+so the cells won't get further capacity fade from cycling. The cells have been screened for self-discharge and excessive heat generation during operation. As the space in the case is pretty tight heat might
+be a problem therefore two thermal fuses tripping at 75 °C have been fitted in the battery as a safety feature. The battery will be protected with a 20A car fuse and paired with a 4S 40A BMS. 
+</p>
+
+<p>
+As a further step to increase the lifetime of the cells the top charging voltage will be limited to 4V per cell. This provides a battery with around 80% capacity while significantly increasing the 
+number of cycles (see <a href="https://batteryuniversity.com/learn/article/how_to_prolong_lithium_based_batteries">https://batteryuniversity.com/learn/article/how_to_prolong_lithium_based_batteries</a>).
+</p>
+
+<p>
+The cells themselves were mounted in plastic cages recovered from the disassembled hoverboard battery packs. This type of cages are not the only ones that can be used, you could also use very popular DIY
+holders with brackets that can be assembled together in many shapes: <a href="https://www.aliexpress.com/item/32871111193.html">https://www.aliexpress.com/item/32871111193.html</a>. The cells were welded together with a spot welder using a 0.1 mm nickel strip, first
+the rows of the cells:
+</p>
+
+
+<div class="figure">
+<p><a href="battery-pack1.jpg"><img src="thumb-battery-pack1.jpg" alt="thumb-battery-pack1.jpg" /></a>
+</p>
+</div>
+
+<p>
+Next, the cells are arranged with poles alternating between positive and negative. This makes it easy to weld horizontal strips forming series connections between cells on both sides. This can be seen
+on the two pictures below:
+</p>
+
+
+<div class="figure">
+<p><a href="battery-pack2.jpg"><img src="thumb-battery-pack2.jpg" alt="thumb-battery-pack2.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="battery-pack3.jpg"><img src="thumb-battery-pack3.jpg" alt="thumb-battery-pack3.jpg" /></a>
+</p>
+</div>
+
+<p>
+Next, the battery has the main leads soldered to the ends and balancing wires to each cell.
+</p>
+
+
+<div class="figure">
+<p><a href="battery-pack4.jpg"><img src="thumb-battery-pack4.jpg" alt="thumb-battery-pack4.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="battery-pack5.jpg"><img src="thumb-battery-pack5.jpg" alt="thumb-battery-pack5.jpg" /></a>
+</p>
+</div>
+
+<p>
+After applying insulating tape on both ends and also between the cells the battery connections are complete:
+</p>
+
+
+<div class="figure">
+<p><a href="battery-pack6.jpg"><img src="thumb-battery-pack6.jpg" alt="thumb-battery-pack6.jpg" /></a>
+</p>
+</div>
+
+<p>
+Now two thermal fuses are attached with heat-conducting glue in order to trip a protection circuit if excessive heat is generated during charging or discharging of the battery.
+</p>
+
+
+<div class="figure">
+<p><a href="battery-pack7.jpg"><img src="thumb-battery-pack7.jpg" alt="thumb-battery-pack7.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org5d63cc8" class="outline-2">
+<h2 id="org5d63cc8"><span class="section-number-2">4</span> The output board</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The output connectors board provides for the attachment points for all of the devices being powered by the UPS. Due to a "standard" developed in the <a href="https://hackerspace.pl">Warsaw Hackerspace</a> of using Tamiya connectors as universal
+DC power plugs I have opted to get 4 of those on the front as well as 4 screw terminals. These were divided in between the 12V and 5V outputs. As the 12V output is much more versatile there are
+6 x 12V and 2 x 5V outputs.
+</p>
+
+<p>
+The actual building process of the output connectors board was a multi-step process as I wanted to make sure that my connectors would perfectly fit the existing cutouts in the front panel of the switch. 
+First, the baseboard was fitted and screwed in in front of the cutouts. A piece of double sided tape was glued to hold the connectors when they are positioned in place:
+</p>
+
+
+<div class="figure">
+<p><a href="output-board1.jpg"><img src="thumb-output-board1.jpg" alt="thumb-output-board1.jpg" /></a>
+</p>
+</div>
+
+<p>
+Then the 4 Tamiya connector housings were glued in place held together with their corresponding plug housings in order to provide proper clearance for the entire pack. The screw terminals were mounted 
+in a similar fashion:
+</p>
+
+
+<div class="figure">
+<p><a href="output-board2.jpg"><img src="thumb-output-board2.jpg" alt="thumb-output-board2.jpg" /></a>
+</p>
+</div>
+
+<p>
+The screw terminals were additionally fixed with epoxy glue as the surface holding onto the doublesided tape was too small to ensure a good grip. After the connectors were mounted they were soldered
+to 12V (yellow wires) and 5V (red wires) power rails and a common ground rail.
+</p>
+
+
+<div class="figure">
+<p><a href="output-board3.jpg"><img src="thumb-output-board3.jpg" alt="thumb-output-board3.jpg" /></a>
+</p>
+</div>
+
+<p>
+On the right you can see the fuse sockets, one is for the 12V rail, the second one is for the 5V rail and the third one is used for the auxillary rail connected directly to the battery without any 
+DC-DC converters in between. This will not be available on the front but have a screw terminal inside where extra devices can be connected. The power rails and ground rail were reinforced with copper
+"busbars" from below:
+</p>
+
+
+<div class="figure">
+<p><a href="output-board4.jpg"><img src="thumb-output-board4.jpg" alt="thumb-output-board4.jpg" /></a>
+</p>
+</div>
+
+<p>
+The DC-DC converters supplying the 12V and 5V rails are mounted on the side of the connector boards one on top of the other secured with distance posts and an isolating pad at the bottom. These have 
+outputs on the right which will be connected with short wires to the connector board, you can also see the blue screw terminal on the connector board used to plug in into the auxillary battery connection.
+In the initial revision of the hardware, the 5V was supplied by an LM2596 module and 12V was sources from an XL4015. This can be seen on the picture below:
+</p>
+
+
+<div class="figure">
+<p><a href="output-board5.jpg"><img src="thumb-output-board5.jpg" alt="thumb-output-board5.jpg" /></a>
+</p>
+</div>
+
+<p>
+I have found out however, that the LM1596 isn't capable enough to reliably power all of the 5V loads (a Raspberry Pi + a fan in the rack in my case). Therefore I decided to replace the LM2596 with another 
+XL4015 board adjusted to provide 5.1V just in case to account for voltage drops on shitty wires. During the mounting of both boards I had to provide some distancing between the top and the bottom one
+as the bottom inductor was touching some solder joints on the top board. I used here small M3 screws with plastic insulating distance rings which were originally holding MOSFETs to a heatsink in a power
+supply. I knew they would come in handy some day ;)
+</p>
+
+
+<div class="figure">
+<p><a href="distance-screw1.jpg"><img src="thumb-distance-screw1.jpg" alt="thumb-distance-screw1.jpg" /></a>
+</p>
+</div>
+
+<p>
+The plastic distance rings fit perfectly into the M3 holes of the module and provide an ideal amount of distancing:
+</p>
+
+
+<div class="figure">
+<p><a href="distance-screw2.jpg"><img src="thumb-distance-screw2.jpg" alt="thumb-distance-screw2.jpg" /></a>
+</p>
+</div>
+
+
+<div class="figure">
+<p><a href="distance-screw3.jpg"><img src="thumb-distance-screw3.jpg" alt="thumb-distance-screw3.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0cd857f" class="outline-2">
+<h2 id="org0cd857f"><span class="section-number-2">5</span> The controller board</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Even though the entire controller board has been manually wired on a breadboard I made a schematics of the connections in <a href="https://www.kicad.org/">KiCad</a> instead of paragraphs of text describing how everything is 
+connected together:
+</p>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="control-circuit.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<p>
+If your browser can't render SVGs o<sub>O</sub>, you can download the <a href="control-circuit.pdf">PDF version</a> or the <a href="hw.zip">Kicad project</a> itself. The controller board circuit was assembled on a breadboard with the time-proven technique of jumper wire:
+</p>
+
+
+<div class="figure">
+<p><a href="controller-board1.jpg"><img src="thumb-controller-board1.jpg" alt="thumb-controller-board1.jpg" /></a>
+</p>
+</div>
+
+<p>
+You can also see a heatsink attached to the BMS and a long screw terminal used as a point to connect all of the ground wires. Two LEDs are plugged in and wired to the front panel to provide basic
+status information. The thermal fuses are not yet connected and their terminals are shorted with jumpers for testing purposes. The fan cooling the AC PSU is powered via a 7812 regulator wrapped in
+insulating tape as it was added as an afterthought and I didn't want to disassemble everything:
+</p>
+
+
+<div class="figure">
+<p><a href="fan-power.jpg"><img src="thumb-fan-power.jpg" alt="thumb-fan-power.jpg" /></a>
+</p>
+</div>
+
+<p>
+The battery cutoff switch seen on the schematic acts as if a thermal fuse has been tripped cutting of power to both the charging relay and the power selection relay disconnecting the battery from
+both the charger and the loads.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org134fc50" class="outline-2">
+<h2 id="org134fc50"><span class="section-number-2">6</span> AC power connection</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+The AC 230V cable has been attached using an electrical pipe fitting usually found in distribution boxes. It's very practical as it's pretty sturdy and provides a good amount of strain relief for the cable:
+</p>
+
+
+<div class="figure">
+<p><a href="ac-cable1.jpg"><img src="thumb-ac-cable1.jpg" alt="thumb-ac-cable1.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf3e7534" class="outline-2">
+<h2 id="orgf3e7534"><span class="section-number-2">7</span> Final device</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+The final result before the case is screwed on:
+</p>
+
+
+<div class="figure">
+<p><a href="final-assembly1.jpg"><img src="thumb-final-assembly1.jpg" alt="thumb-final-assembly1.jpg" /></a>
+</p>
+</div>
+
+<p>
+The front panel contains two status LEDs as well as the battery cutoff switch. 
+</p>
+
+
+<div class="figure">
+<p><a href="final-assembly2.jpg"><img src="thumb-final-assembly2.jpg" alt="thumb-final-assembly2.jpg" /></a>
+</p>
+</div>
+
+<p>
+I have also added stickers to showcase maximum current ratings allowed and label the output voltages.
+</p>
+
+
+<div class="figure">
+<p><a href="stickers1.jpg"><img src="thumb-stickers1.jpg" alt="thumb-stickers1.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-01-07 16:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

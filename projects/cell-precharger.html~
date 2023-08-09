@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-07 16:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A Lithium-Ion Cell Precharger</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Maciej Grela" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">A Lithium-Ion Cell Precharger</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga9c55ed">1. The rationale</a></li>
+<li><a href="#org5211e91">2. The problem, "solution" and solution</a></li>
+<li><a href="#orgada26c6">3. The design goals</a></li>
+<li><a href="#orgcf01db3">4. Breadboard version and testing</a></li>
+<li><a href="#orgbe18d33">5. Testing the initial circuit</a></li>
+<li><a href="#org622bd7d">6. Manufacturing</a></li>
+<li><a href="#org3bb0388">7. The rig assembly</a></li>
+<li><a href="#org2147ad2">8. Closing thoughts</a></li>
+</ul>
+</div>
+</div>
+<base href="cell-precharger/"/>
+
+<div id="outline-container-orga9c55ed" class="outline-2">
+<h2 id="orga9c55ed"><span class="section-number-2">1</span> The rationale</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+When working with refurbished Lithium-Ion cells, in particular with attempting to recycle cells from used battery packs you will discover many cells in these packs who are very deeply 
+discharged. It's common to see cells that read a &lt; 1V open-circuit voltage. There can be a number of reasons for this to happen:
+</p>
+
+<ol class="org-ol">
+<li>the cell may be damaged in a way that manifests itself as self-discharge</li>
+<li>the cell may have it's CID (<a href="https://batteryuniversity.com/learn/article/safety_circuits_for_modern_batteries">Current Interrupt Device</a>) tripped which is an internal fuse in the cell that mechanically disconnects the cell terminals from the case in case of 
+excessive conditions inside the cell, in this case the voltage just reads 0 and presents an infinite internal resistance</li>
+<li>the cell may have been connected to a BMS and not charged for a very long time, this causes the slow leakage current of internal resistances in the BMS to slowly drain the cell</li>
+</ol>
+
+<p>
+Of those 3 groups the last one is the most interesting to us as these cells can potentially still be reused. It is commonly known that deep discharge is damaging to lithium-ion cells.
+The cell will loose capacity, the internal resistance will increase. In extreme cases internal shorts can form in the cell which may cause thermal runaway of a cell
+(fire + smoke). So deeply discharged cell reuse is not without risks and you should always understand what you are doing, monitor the conditions of your cells (current, temperature and voltage)
+and always have safety features in place. Still for low-current applications there can be a place for a cell that will probably not handle its rated maximum current capacity safely but otherwise is
+not totally dead. 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5211e91" class="outline-2">
+<h2 id="org5211e91"><span class="section-number-2">2</span> The problem, "solution" and solution</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The basic practical issue with deeply discharged cells is that all ordinary chargers have a threshold voltage of a cell which the charger will accept. This voltage is typically around 2.5 or 2.75 V. 
+So if a cell has lower voltage than this the charger may simply refuse to charge it. The solution here is to first trickle-charge the battery until the threshold voltage is achieved and then 
+proceed with charging them with an ordinary charger. 
+</p>
+
+<p>
+There are numerous videos of this process on youtube often performed by connecting them in parallel to a charged "donor" cell where the current will flow from one to the other charging the weak cell
+relatively quickly. The thing is this is not what we want to do because the currents can be quite large (&gt; 1 A easily) so we risk damaging the weak cell further. It would be much better to charge it
+using a small amount of current (&lt; 100 mA) for a longer time. 
+</p>
+
+<p>
+Another way is to use a normal power supply (for example a 5V one) and connect it to the battery together with a voltmeter. You should be able to watch the battery voltage slowly rise towards the threshold
+voltage and disconnect it when you are ready.
+</p>
+
+<p>
+Both of these approaches make it harder to control the charging current and require you to be constantly alert while you are doing this to disconnect the cell when it's finished trickle-charging or when
+something unexpected happens.
+</p>
+
+<p>
+This is where the precharger comes into play. It allows you to perform trickle-charging on cells with relative safety and simplicity. The circut also indicates when the trickle-charging process is complete
+with a LED so you can connect each precharger to their own cell holder and build a rig that can pre-charge multiple cells at once.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgada26c6" class="outline-2">
+<h2 id="orgada26c6"><span class="section-number-2">3</span> The design goals</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The design considerations I have laid out for this circuit are the following:
+</p>
+
+<ul class="org-ul">
+<li>limited and low charging current to not cause any issues if the cell is shorted or otherwise badly damaged</li>
+<li>cell voltage limit so that overvoltage will not be an issue even when the cell is left connected for a longer amount of time</li>
+<li>a LED indicator when the cells reaches a threshold voltage</li>
+<li>simple and cheap to allow for building rigs pre-charging multiple cells at once</li>
+<li>powered from +5V DC to be usable with many power supplies and even USB</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcf01db3" class="outline-2">
+<h2 id="orgcf01db3"><span class="section-number-2">4</span> Breadboard version and testing</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The first design built on a breadboard was designed to be the following:
+</p>
+
+
+<div class="figure">
+<p><a href="prototype-circuit.jpg"><img src="thumb-prototype-circuit.jpg" alt="thumb-prototype-circuit.jpg" /></a>
+</p>
+</div>
+
+<p>
+This is a novice level circuit with a voltage divider halving the supply voltage from 5 V to 2.5 V. The cell is connected in parallel to the lower resistor making sure that the cell voltage (U<sub>c</sub>) will never
+exceed 2.5 V which meets one of our design goals. The divider also meets the other design goal of limiting the trickle-charging current. 
+</p>
+
+<p>
+When a totally empty cell (reading 0V) is connected to the circuit the voltage on the lower resistor will also be 0 V this means that no no current will flow there but instead all current from the power
+supply will flow through the battery as a lithium-ion cell's internal resistance is typically on the order of miliohms. This current will have a maximum value of 
+</p>
+
+<p>
+I<sub>o</sub> = 5 V / 47 = 100 mA
+</p>
+
+<p>
+this may look excessive at first but the voltage of the cell will quickly rise and less and more and more current will flow through the bottom resistor. After a while the cell voltage U<sub>c</sub> will be equal to 
+2.5 V and the trickle-charging process will end.
+</p>
+
+<p>
+Now the TL431 circuit needs explanation. This is acually the trickle-charge end indicator which uses the TL431's internal opamp and the 2.5 V bandgap reference as a convenient comparator which 
+will light up the LED when the voltage on the lower resistor (equal to U<sub>c</sub>) will be more than 2.5 V. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe18d33" class="outline-2">
+<h2 id="orgbe18d33"><span class="section-number-2">5</span> Testing the initial circuit</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The circuit has been assembled on a breadboard with a voltmeter and ampmeter connected to the cell cage to monitor charging current and cell voltage.
+</p>
+
+
+<div class="figure">
+<p><a href="prototype-breadboard.jpg"><img src="thumb-prototype-breadboard.jpg" alt="thumb-prototype-breadboard.jpg" /></a>
+</p>
+</div>
+
+<p>
+As the cell is not yet connected the LED is on because the voltage on the lower resistor is 2.5V. When we connect a cell the LED will switch off and the trickle-charging process will start.The circuit
+has been tested with an overly discharged cell having and open-circuit voltage slightly below 1V. Needless to say this cell is not being recognized as connected to a charger (for example the 
+Liitokala Lii-500 that I'm using).
+</p>
+
+<p>
+A voltmeter and current meter are connected to the cell monitoring voltage and current. Initially after connecting the cell to the precharger around 50 mA flows to the cell:
+</p>
+
+
+<div class="figure">
+<p><a href="testcell-initial-state.jpg"><img src="thumb-testcell-initial-state.jpg" alt="thumb-testcell-initial-state.jpg" /></a>
+</p>
+</div>
+
+<p>
+The current slowly drops as the cell voltage rises towards 2.5 V, the state after around 10 minutes is:
+</p>
+
+
+<div class="figure">
+<p><a href="testcell-after-10min.jpg"><img src="thumb-testcell-after-10min.jpg" alt="thumb-testcell-after-10min.jpg" /></a>
+</p>
+</div>
+
+<p>
+When the target voltage is reached the indicator LED lights up and the current is just 5 mA:
+</p>
+
+
+<div class="figure">
+<p><a href="testcell-precharge-finished.jpg"><img src="thumb-testcell-precharge-finished.jpg" alt="thumb-testcell-precharge-finished.jpg" /></a>
+</p>
+</div>
+
+<p>
+The cell is now ready to be charged back up using an ordinary charger:
+</p>
+
+
+<div class="figure">
+<p><a href="testcell-final-charge.jpg"><img src="thumb-testcell-final-charge.jpg" alt="thumb-testcell-final-charge.jpg" /></a>
+</p>
+</div>
+
+<p>
+You should monitor the cell temperature during this phase as heating may occur if the cell is damaged. Anything more than 40 degrees Celcius means the cell is unusable.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org622bd7d" class="outline-2">
+<h2 id="org622bd7d"><span class="section-number-2">6</span> Manufacturing</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+As I plan to build a rig for pre-charging around 20 cells at once I tought it might make sense to make a small order from JLCPCB saving work on PCB manufacturing and soldering. This way 
+you can also more easily replicate this project and build the pre-charger yourself. The production rev 1 schematic is as follows:
+</p>
+
+
+<div class="figure">
+<p><img src="manuf-schematic-rev1.png" alt="manuf-schematic-rev1.png" />
+</p>
+</div>
+
+<p>
+The reader might notice that there have been a number of changes to the design. First, the resistor divider values have been increased to 100 Ohms in order to cut down on the maximum current 
+that can flow through a cell. I have also introduced a slight imbalance into the divider in order to bump the final voltage above 2.5V to around 2.6V. This makes the comparator circuit work
+more reliably. In order to guard against tolerances working against this I have also specified both resistors to have 1% tolerance.
+</p>
+
+<p>
+The design is a very small 22 mm x 18 mm dual layer PCB with two M2 mounting holes and footprints for both an SMD and a through-hole LEDs:
+</p>
+
+
+<div class="figure">
+<p><img src="manuf-pcb-rev1.png" alt="manuf-pcb-rev1.png" />
+</p>
+</div>
+
+<p>
+The <a href="cell-precharger.zip">Kicad project</a> can also be downloaded.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3bb0388" class="outline-2">
+<h2 id="org3bb0388"><span class="section-number-2">7</span> The rig assembly</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+The ordered modules were assembled on a piece of board with each module connected to an individual 18650 socket. All of the modules are powered with an LM2596 step-down module which allows for
+more input voltage agility for the device.
+</p>
+
+
+<div class="figure">
+<p><a href="rig-v1.jpg"><img src="thumb-rig-v1.jpg" alt="thumb-rig-v1.jpg" /></a>
+</p>
+</div>
+
+<p>
+Unfortunately I have noticed that the individual modules connected in parallel cause "latching" behaviour with eachother which requires the power supply to be reset when new cells are added.
+This needs fixing in the individual module, I also want to make it a bit narrower to more easily glue a number of modules next to eachother. The layout of connectors could also use some
+optimization.
+</p>
+
+<p>
+But for now the rig works as intended.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2147ad2" class="outline-2">
+<h2 id="org2147ad2"><span class="section-number-2">8</span> Closing thoughts</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+There is <a href="https://www.nature.com/articles/srep30248.pdf">research</a> showing that the internal shorts do not develop when discharging lithium-ion cells until they are at -12% SoC. That is when they have been discharged to "negative voltage".
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-01-07 16:52</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
