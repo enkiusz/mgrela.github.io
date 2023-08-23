@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-21 17:43 -->
+<!-- 2023-08-23 18:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Netgear ReadyNAS RN3138</title>
@@ -201,35 +201,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org137aff6">1. Hardware</a>
+<li><a href="#orgff050f2">1. Hardware</a>
 <ul>
-<li><a href="#org27b2544">1.1. Main board</a>
+<li><a href="#org623ce93">1.1. Main board</a>
 <ul>
-<li><a href="#orgd75addc">1.1.1. Connectors on the mainboard</a></li>
+<li><a href="#orgf039cfc">1.1.1. Connectors on the mainboard</a></li>
 </ul>
 </li>
-<li><a href="#org35c11c0">1.2. Network traffic observed when NAS is booting</a></li>
+<li><a href="#orge8cd450">1.2. Network traffic observed when NAS is booting</a></li>
 </ul>
 </li>
-<li><a href="#org533c17a">2. Software update mechanism</a>
+<li><a href="#orgcfff590">2. Software update mechanism</a>
 <ul>
-<li><a href="#org36abbbb">2.1. Booting an alternative operating system</a></li>
+<li><a href="#org06137f6">2.1. Booting an alternative operating system</a></li>
 </ul>
 </li>
-<li><a href="#orga26c390">3. Mods</a>
+<li><a href="#org1d77d61">3. Mods</a>
 <ul>
-<li><a href="#orga0b4920">3.1. Additional hard disks</a></li>
-<li><a href="#orgfefac13">3.2. Internal USB storage connector</a></li>
-<li><a href="#org3167d22">3.3. Voltage, temperature and fan speed monitoring</a></li>
-<li><a href="#orga3d275f">3.4. Chassis buttons and LEDs</a></li>
+<li><a href="#org7d2b2c6">3.1. Additional hard disks</a></li>
+<li><a href="#org86dc5bc">3.2. Internal USB storage connector</a></li>
+<li><a href="#org9baa6b8">3.3. Voltage, temperature and fan speed monitoring</a></li>
+<li><a href="#org8790a9f">3.4. Chassis buttons and LEDs</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org137aff6" class="outline-2">
-<h2 id="org137aff6"><span class="section-number-2">1.</span> Hardware</h2>
+<div id="outline-container-orgff050f2" class="outline-2">
+<h2 id="orgff050f2"><span class="section-number-2">1.</span> Hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Netgear ReadyNAS 3138 is a 1U rack-mounted NAS server with 4 3.5'' SATA drive slots. I have recently purchased such a device in order to use it as a small home fileserver
@@ -243,18 +243,18 @@ All of the currently available information about the device has been moved to <a
 </p>
 </div>
 
-<div id="outline-container-org27b2544" class="outline-3">
-<h3 id="org27b2544"><span class="section-number-3">1.1.</span> Main board</h3>
+<div id="outline-container-org623ce93" class="outline-3">
+<h3 id="org623ce93"><span class="section-number-3">1.1.</span> Main board</h3>
 <div class="outline-text-3" id="text-1-1">
 
-<div id="org2687914" class="figure">
+<div id="orge0f5b0c" class="figure">
 <p><a href="netgear-rn3138/Netgear-RN3138-mainboard1.jpg"><img src="netgear-rn3138/thumb-Netgear-RN3138-mainboard1.jpg" alt="thumb-Netgear-RN3138-mainboard1.jpg" /></a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd75addc" class="outline-4">
-<h4 id="orgd75addc"><span class="section-number-4">1.1.1.</span> Connectors on the mainboard</h4>
+<div id="outline-container-orgf039cfc" class="outline-4">
+<h4 id="orgf039cfc"><span class="section-number-4">1.1.1.</span> Connectors on the mainboard</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -396,7 +396,7 @@ All of the currently available information about the device has been moved to <a
 </div>
 
 <ol class="org-ol">
-<li><a id="org27ddafe"></a>LPC Connector<br />
+<li><a id="orgee82d2d"></a>LPC Connector<br />
 <div class="outline-text-5" id="text-1-1-1-1">
 <p>
 The mainboard contains an unpopulated 2x5 Dupont connector wired to the CPU and to the IT8732F Super I/O chip. Based on some trace routing together with a pinout of the IT8732F chip
@@ -503,7 +503,7 @@ logic analyzer is too slow to gather a trace of the signals on this connector (L
 </div>
 </li>
 
-<li><a id="orgade4bee"></a>Front panel connector<br />
+<li><a id="orgb9542ff"></a>Front panel connector<br />
 <div class="outline-text-5" id="text-1-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -603,8 +603,8 @@ logic analyzer is too slow to gather a trace of the signals on this connector (L
 </div>
 </div>
 
-<div id="outline-container-org35c11c0" class="outline-3">
-<h3 id="org35c11c0"><span class="section-number-3">1.2.</span> Network traffic observed when NAS is booting</h3>
+<div id="outline-container-orge8cd450" class="outline-3">
+<h3 id="orge8cd450"><span class="section-number-3">1.2.</span> Network traffic observed when NAS is booting</h3>
 <div class="outline-text-3" id="text-1-2">
 <pre>
 Aug 13 19:14:50 newton dnsmasq-dhcp[2894]: 4065195709 available DHCP range: 10.2.0.8 -- 10.2.0.14
@@ -769,8 +769,8 @@ Aug 13 19:16:06 newton dnsmasq[2894]: reply d2r4ddhdzue4sy.cloudfront.net is 260
 </div>
 </div>
 
-<div id="outline-container-org533c17a" class="outline-2">
-<h2 id="org533c17a"><span class="section-number-2">2.</span> Software update mechanism</h2>
+<div id="outline-container-orgcfff590" class="outline-2">
+<h2 id="orgcfff590"><span class="section-number-2">2.</span> Software update mechanism</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The NAS operating system contains an automatic software update mechanism which can be triggered from the Admin UI. The below is the documentation of reverse engineering efforts for this mechanism.
@@ -985,8 +985,8 @@ from which the BIOS boots.
 </p>
 </div>
 
-<div id="outline-container-org36abbbb" class="outline-3">
-<h3 id="org36abbbb"><span class="section-number-3">2.1.</span> Booting an alternative operating system</h3>
+<div id="outline-container-org06137f6" class="outline-3">
+<h3 id="org06137f6"><span class="section-number-3">2.1.</span> Booting an alternative operating system</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The knowledge and access we gained on the serial console allows us to boot an alternative operating system on the NAS. We will use <a href="https://www.alpinelinux.org">Alpine Linux</a> x86<sub>64</sub> as a proof of concept as it's one of the smallest
@@ -1794,12 +1794,12 @@ As you can see we have successfully booted Alpine Linux as an alternative OS on 
 </div>
 </div>
 </div>
-<div id="outline-container-orga26c390" class="outline-2">
-<h2 id="orga26c390"><span class="section-number-2">3.</span> Mods</h2>
+<div id="outline-container-org1d77d61" class="outline-2">
+<h2 id="org1d77d61"><span class="section-number-2">3.</span> Mods</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga0b4920" class="outline-3">
-<h3 id="orga0b4920"><span class="section-number-3">3.1.</span> Additional hard disks</h3>
+<div id="outline-container-org7d2b2c6" class="outline-3">
+<h3 id="org7d2b2c6"><span class="section-number-3">3.1.</span> Additional hard disks</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 The NAS enclosure contains place for 3 additional 2.5'' drives inside, the mainboard has 2 unused SATA connectors. The power supply also has 2 unused SATA power plugs. 
@@ -1807,15 +1807,15 @@ This setup is perfect for including ZFS L2ARC SSD drives or extra drives for the
 </p>
 
 
-<div id="org49f59b9" class="figure">
+<div id="org2d77c7e" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-additional-2-SFF-drives.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-additional-2-SFF-drives.jpg" alt="thumb-netgear-rn3138-additional-2-SFF-drives.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgfefac13" class="outline-3">
-<h3 id="orgfefac13"><span class="section-number-3">3.2.</span> Internal USB storage connector</h3>
+<div id="outline-container-org86dc5bc" class="outline-3">
+<h3 id="org86dc5bc"><span class="section-number-3">3.2.</span> Internal USB storage connector</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The NAS is designed to boot from an internal USB storage device plugged directly into the mainboard using a 2mm pitch 9 pin male header. The pinout of this header is 
@@ -1824,7 +1824,7 @@ identical to the <a href="https://pinoutguide.com/Motherboard/usb_2_1_header_pin
 </p>
 
 
-<div id="orgdbd5c23" class="figure">
+<div id="org34bc61b" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-J13-pinout.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-J13-pinout.jpg" alt="thumb-netgear-rn3138-J13-pinout.jpg" /></a>
 </p>
 </div>
@@ -1836,7 +1836,7 @@ use a pre-made perfboard but it's still possible to stick in a 2mm female header
 </p>
 
 
-<div id="org21044f5" class="figure">
+<div id="org5c1833e" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-2mm-pitch-in-breadboard.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-2mm-pitch-in-breadboard.jpg" alt="thumb-netgear-rn3138-2mm-pitch-in-breadboard.jpg" /></a>
 </p>
 </div>
@@ -1846,15 +1846,15 @@ After some drilling, n USB-A connector and jumper wire the following result can 
 </p>
 
 
-<div id="org098e664" class="figure">
+<div id="org904f1de" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-internal-usb-breakout.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-internal-usb-breakout.jpg" alt="thumb-netgear-rn3138-internal-usb-breakout.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3167d22" class="outline-3">
-<h3 id="org3167d22"><span class="section-number-3">3.3.</span> Voltage, temperature and fan speed monitoring</h3>
+<div id="outline-container-org9baa6b8" class="outline-3">
+<h3 id="org9baa6b8"><span class="section-number-3">3.3.</span> Voltage, temperature and fan speed monitoring</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 The voltage rails, chassis fans and chassis temperature sensor seem to be monitored in the IT8732F chip on board. The BIOS Setup Utility can report the following readings:
@@ -1905,8 +1905,8 @@ granting us the following quirks:
 </div>
 </div>
 
-<div id="outline-container-orga3d275f" class="outline-3">
-<h3 id="orga3d275f"><span class="section-number-3">3.4.</span> Chassis buttons and LEDs</h3>
+<div id="outline-container-org8790a9f" class="outline-3">
+<h3 id="org8790a9f"><span class="section-number-3">3.4.</span> Chassis buttons and LEDs</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 The chassis contains a number of status indicator LEDs as well as "Unit Identification" and "Reset" buttons. These are used by the original firmware in order to execute factory reset,
@@ -1952,7 +1952,7 @@ The kernel code responsible for the handling of these has not been located yet.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-07-21 17:43</p>
+<p class="date">Created: 2023-08-23 18:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

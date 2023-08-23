@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-21 17:43 -->
+<!-- 2023-08-23 18:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Enecsys Gateway CG-A-AB-US-1</title>
@@ -201,29 +201,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org90cd103">1. Intro</a></li>
-<li><a href="#org2a1967e">2. Zigbee Radio</a></li>
-<li><a href="#orgc7073b4">3. Network interface</a>
+<li><a href="#orgc3eec7a">1. Intro</a></li>
+<li><a href="#org0060f06">2. Zigbee Radio</a></li>
+<li><a href="#orgbb325db">3. Network interface</a>
 <ul>
-<li><a href="#orgbd5b9c8">3.1. Device bootup</a></li>
-<li><a href="#org222d12e">3.2. Port scans</a></li>
-<li><a href="#orga8ee6d4">3.3. The Web Interface</a>
+<li><a href="#orgb5c6fce">3.1. Device bootup</a></li>
+<li><a href="#org2435bd7">3.2. Port scans</a></li>
+<li><a href="#org8c54b7c">3.3. The Web Interface</a>
 <ul>
-<li><a href="#org6d55a89">3.3.1. Main user interface</a></li>
-<li><a href="#org977e004">3.3.2. Debug Interface</a></li>
-<li><a href="#org09eca2d">3.3.3. The MPFS upload</a></li>
+<li><a href="#org0a45428">3.3.1. Main user interface</a></li>
+<li><a href="#org3ea7674">3.3.2. Debug Interface</a></li>
+<li><a href="#org252f83d">3.3.3. The MPFS upload</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org22ca928">4. Debug Messages Format</a></li>
+<li><a href="#org2fcc7ed">4. Debug Messages Format</a></li>
 </ul>
 </div>
 </div>
 <base href="enecsys-gateway-cg-a-ab-us-1/"/>
 
-<div id="outline-container-org90cd103" class="outline-2">
-<h2 id="org90cd103"><span class="section-number-2">1.</span> Intro</h2>
+<div id="outline-container-orgc3eec7a" class="outline-2">
+<h2 id="orgc3eec7a"><span class="section-number-2">1.</span> Intro</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Enecsys Gateway is a Zigbee gateway allowing communications between the Enecsys microinverters and their monitoring backend. The Enecsys company is unfortunately <a href="https://businessbankruptcies.com/cases/enecsys-llc">defunct since 2015</a>
@@ -232,8 +232,8 @@ and their DNS domains have been taken over by a UK enecsys owner who created his
 </div>
 </div>
 
-<div id="outline-container-org2a1967e" class="outline-2">
-<h2 id="org2a1967e"><span class="section-number-2">2.</span> Zigbee Radio</h2>
+<div id="outline-container-org0060f06" class="outline-2">
+<h2 id="org0060f06"><span class="section-number-2">2.</span> Zigbee Radio</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The gateway contains a <a href="https://octopart.com/etrx2-pa-telegesis-19255118">ETRX2-PA</a> Zigbee module manufactured by Telegesis. More information about this module can be found in the page describing the <a href="../enecsys-smi-360-72.html">Enecsys SMI-360-72 Inverter</a>. This
@@ -378,12 +378,12 @@ LCD.
 </div>
 
 
-<div id="outline-container-orgc7073b4" class="outline-2">
-<h2 id="orgc7073b4"><span class="section-number-2">3.</span> Network interface</h2>
+<div id="outline-container-orgbb325db" class="outline-2">
+<h2 id="orgbb325db"><span class="section-number-2">3.</span> Network interface</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgbd5b9c8" class="outline-3">
-<h3 id="orgbd5b9c8"><span class="section-number-3">3.1.</span> Device bootup</h3>
+<div id="outline-container-orgb5c6fce" class="outline-3">
+<h3 id="orgb5c6fce"><span class="section-number-3">3.1.</span> Device bootup</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 During the gateway bootup the following network traffic can be seen:
@@ -395,8 +395,8 @@ During the gateway bootup the following network traffic can be seen:
 </div>
 </div>
 
-<div id="outline-container-org222d12e" class="outline-3">
-<h3 id="org222d12e"><span class="section-number-3">3.2.</span> Port scans</h3>
+<div id="outline-container-org2435bd7" class="outline-3">
+<h3 id="org2435bd7"><span class="section-number-3">3.2.</span> Port scans</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 TCP port scan results for the gateway's IPv4 address:
@@ -450,8 +450,8 @@ Nmap done: 1 IP address (1 host up) scanned in 1314.44 seconds
 </div>
 </div>
 
-<div id="outline-container-orga8ee6d4" class="outline-3">
-<h3 id="orga8ee6d4"><span class="section-number-3">3.3.</span> The Web Interface</h3>
+<div id="outline-container-org8c54b7c" class="outline-3">
+<h3 id="org8c54b7c"><span class="section-number-3">3.3.</span> The Web Interface</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 The default credentials for the web interface are admin/password. You can tell that the gateway is (c) 2009 as there is no way to change the admin password ;).
@@ -506,8 +506,8 @@ The following endpoints have been detected on the device:
 </table>
 </div>
 
-<div id="outline-container-org6d55a89" class="outline-4">
-<h4 id="org6d55a89"><span class="section-number-4">3.3.1.</span> Main user interface</h4>
+<div id="outline-container-org0a45428" class="outline-4">
+<h4 id="org0a45428"><span class="section-number-4">3.3.1.</span> Main user interface</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 The main user interface has basic settings like IP address and it can be used to set the remote monitoring server hostname and port. Apart from that NTP and proxy can be configured. 
@@ -515,15 +515,15 @@ Here is a screenshot of the main UI:
 </p>
 
 
-<div id="org56f044f" class="figure">
+<div id="org56b1c53" class="figure">
 <p><a href="main-ui.png"><img src="thumb-main-ui.png" alt="thumb-main-ui.png" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org977e004" class="outline-4">
-<h4 id="org977e004"><span class="section-number-4">3.3.2.</span> Debug Interface</h4>
+<div id="outline-container-org3ea7674" class="outline-4">
+<h4 id="org3ea7674"><span class="section-number-4">3.3.2.</span> Debug Interface</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 The debug interface allows us to see what messages the Zigbee Module UART sends to the main MCU. These appear to be raw decrypted contents of Zigbee frames from the inverters as well as
@@ -532,7 +532,7 @@ section near the end of the document. There is also a status display about the Z
 </p>
 
 
-<div id="org61458a9" class="figure">
+<div id="orgfbf3c5e" class="figure">
 <p><a href="debug-ui.png"><img src="thumb-debug-ui.png" alt="thumb-debug-ui.png" /></a>
 </p>
 </div>
@@ -542,7 +542,7 @@ The debug UI polls the /ajax.xml endpoint in the background in order to receive 
 following XML:
 </p>
 
-<div class="ajax_xml" id="org3f3d4bf">
+<div class="ajax_xml" id="org01dd07e">
 <p>
 &lt;response&gt;
 &lt;zigbeeData&gt;&lt;/zigbeeData&gt;
@@ -664,8 +664,8 @@ following XML:
 </div>
 </div>
 
-<div id="outline-container-org09eca2d" class="outline-4">
-<h4 id="org09eca2d"><span class="section-number-4">3.3.3.</span> The MPFS upload</h4>
+<div id="outline-container-org252f83d" class="outline-4">
+<h4 id="org252f83d"><span class="section-number-4">3.3.3.</span> The MPFS upload</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 The MPFS is an internal HTTP upload server enabled by default in the Microchip TCP/IP stack. This feature can be used to upload files into the internal flash and possibly even modify
@@ -678,8 +678,8 @@ of the Zigbee traffic encryption happens in the Zigbee module and the Microchip 
 </div>
 
 
-<div id="outline-container-org22ca928" class="outline-2">
-<h2 id="org22ca928"><span class="section-number-2">4.</span> Debug Messages Format</h2>
+<div id="outline-container-org2fcc7ed" class="outline-2">
+<h2 id="org2fcc7ed"><span class="section-number-2">4.</span> Debug Messages Format</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A number of debug messages have been captured so far when the device and inverter were in various operational modes. Based on simple time correlation the messages sent out from the
@@ -1041,7 +1041,7 @@ by the inverter which have not yet been located:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-07-21 17:43</p>
+<p class="date">Created: 2023-08-23 18:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

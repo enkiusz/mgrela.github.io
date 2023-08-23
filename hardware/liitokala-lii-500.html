@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-21 17:43 -->
+<!-- 2023-08-23 18:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Liitokala Engineer Lii-500 Automation</title>
@@ -201,33 +201,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org84028e2">1. Overview</a></li>
-<li><a href="#org90e1383">2. The charger hardware</a></li>
-<li><a href="#orge773c73">3. The LCD and its interface</a>
+<li><a href="#org63b0d6c">1. Overview</a></li>
+<li><a href="#org6bd35b0">2. The charger hardware</a></li>
+<li><a href="#orgeefb6da">3. The LCD and its interface</a>
 <ul>
-<li><a href="#org688d851">3.1. Electrical</a></li>
-<li><a href="#org7e10982">3.2. SPI Protocol</a></li>
-<li><a href="#orgf5e1f39">3.3. Framebuffer layout</a></li>
+<li><a href="#orgb407aaf">3.1. Electrical</a></li>
+<li><a href="#orgf7c3012">3.2. SPI Protocol</a></li>
+<li><a href="#org39cbed7">3.3. Framebuffer layout</a></li>
 </ul>
 </li>
-<li><a href="#org1cd246d">4. The SPI sniffer</a>
+<li><a href="#org6ff89c9">4. The SPI sniffer</a>
 <ul>
-<li><a href="#org6d419ec">4.1. Bus tap board</a></li>
-<li><a href="#org6b5d3cb">4.2. The sniffer code</a></li>
-<li><a href="#org955e224">4.3. Interpreting the data</a></li>
+<li><a href="#org6972de9">4.1. Bus tap board</a></li>
+<li><a href="#org997c7d6">4.2. The sniffer code</a></li>
+<li><a href="#org7ca8a2f">4.3. Interpreting the data</a></li>
 </ul>
 </li>
-<li><a href="#org72baf22">5. The sidekick board</a></li>
-<li><a href="#orgc1329f0">6. The sidekick sensor board</a></li>
-<li><a href="#orgac9658a">7. Future developments</a></li>
-<li><a href="#org4382d32">8. Addendum</a></li>
+<li><a href="#org118e24c">5. The sidekick board</a></li>
+<li><a href="#orge01cadc">6. The sidekick sensor board</a></li>
+<li><a href="#orgdf49054">7. Future developments</a></li>
+<li><a href="#orgfc65820">8. Addendum</a></li>
 </ul>
 </div>
 </div>
 <base href="liitokala-lii-500/"/>
 
-<div id="outline-container-org84028e2" class="outline-2">
-<h2 id="org84028e2"><span class="section-number-2">1.</span> Overview</h2>
+<div id="outline-container-org63b0d6c" class="outline-2">
+<h2 id="org63b0d6c"><span class="section-number-2">1.</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The <a href="http://www.liito-kala.com/page92?product_id=6&amp;brd=1">Liitokala Engineer Lii-500</a> is a universal chemistry 4-cell smart charger manufactured by the well-known Liitokala brand. It is very popular with people building battery packs out of second life
@@ -248,8 +248,8 @@ but the internal board microcontroller and LCD screen are entirely different.
 </div>
 </div>
 
-<div id="outline-container-org90e1383" class="outline-2">
-<h2 id="org90e1383"><span class="section-number-2">2.</span> The charger hardware</h2>
+<div id="outline-container-org6bd35b0" class="outline-2">
+<h2 id="org6bd35b0"><span class="section-number-2">2.</span> The charger hardware</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The popularity of the Lii-500 charger means, that there are multiple modifications and hacks already published, a quick search on youtube reveals a number of videos showcasing the internals or
@@ -271,19 +271,19 @@ the MCU and the LCD screen. Just a small drop-in pass-through board would be req
 </div>
 </div>
 
-<div id="outline-container-orge773c73" class="outline-2">
-<h2 id="orge773c73"><span class="section-number-2">3.</span> The LCD and its interface</h2>
+<div id="outline-container-orgeefb6da" class="outline-2">
+<h2 id="orgeefb6da"><span class="section-number-2">3.</span> The LCD and its interface</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org688d851" class="outline-3">
-<h3 id="org688d851"><span class="section-number-3">3.1.</span> Electrical</h3>
+<div id="outline-container-orgb407aaf" class="outline-3">
+<h3 id="orgb407aaf"><span class="section-number-3">3.1.</span> Electrical</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 I have found that some of the LCD modules had unmarked controller chips on the back of the board:
 </p>
 
 
-<div id="orgd6edb3b" class="figure">
+<div id="orgb7997d8" class="figure">
 <p><a href="lcd-module-back.jpg"><img src="thumb-lcd-module-back.jpg" alt="thumb-lcd-module-back.jpg" /></a>
 </p>
 </div>
@@ -293,7 +293,7 @@ However, by disassembling the next charger I discovered that it's LCD module con
 </p>
 
 
-<div id="orge0a18f7" class="figure">
+<div id="orgb83c978" class="figure">
 <p><a href="lcd-module-holtek.jpg"><img src="thumb-lcd-module-holtek.jpg" alt="thumb-lcd-module-holtek.jpg" /></a>
 </p>
 </div>
@@ -386,15 +386,15 @@ reference:
 </p>
 
 
-<div id="org805a539" class="figure">
+<div id="orga9e5977" class="figure">
 <p><a href="lcd-module-connector.jpg"><img src="thumb-lcd-module-connector.jpg" alt="thumb-lcd-module-connector.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7e10982" class="outline-3">
-<h3 id="org7e10982"><span class="section-number-3">3.2.</span> SPI Protocol</h3>
+<div id="outline-container-orgf7c3012" class="outline-3">
+<h3 id="orgf7c3012"><span class="section-number-3">3.2.</span> SPI Protocol</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The SPI protocol consists of a series of unidirectional transfers from the MCU to the LCD controller. As far as I've seen there is no readback in the other direction, it is possible that the missing
@@ -408,7 +408,7 @@ is provided below:
 </p>
 
 
-<div id="orgdbf38a9" class="figure">
+<div id="org09d39cc" class="figure">
 <p><img src="example-command-spi-transfer.png" alt="example-command-spi-transfer.png" />
 </p>
 </div>
@@ -492,7 +492,7 @@ below:
 </p>
 
 
-<div id="orgcb08351" class="figure">
+<div id="org667b9d7" class="figure">
 <p><img src="example-lcd-framebuffer-spi-transfer.png" alt="example-lcd-framebuffer-spi-transfer.png" />
 </p>
 </div>
@@ -692,8 +692,8 @@ Relevant logic probe captures which can be opened in the <a href="https://www.sa
 </div>
 </div>
 
-<div id="outline-container-orgf5e1f39" class="outline-3">
-<h3 id="orgf5e1f39"><span class="section-number-3">3.3.</span> Framebuffer layout</h3>
+<div id="outline-container-org39cbed7" class="outline-3">
+<h3 id="org39cbed7"><span class="section-number-3">3.3.</span> Framebuffer layout</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Using the above code I figured out the mapping between the particular framebuffer bits and different pieces of the LCD display. Please note, that the LCD module that I had had the silkscreen marking of
@@ -701,7 +701,7 @@ Using the above code I figured out the mapping between the particular framebuffe
 </p>
 
 
-<div id="org35cdf3f" class="figure">
+<div id="orge2c7707" class="figure">
 <p><a href="lcd-display-layout.jpg"><img src="thumb-lcd-display-layout.jpg" alt="thumb-lcd-display-layout.jpg" /></a>
 </p>
 </div>
@@ -714,15 +714,15 @@ on the LCD.
 </div>
 </div>
 
-<div id="outline-container-org1cd246d" class="outline-2">
-<h2 id="org1cd246d"><span class="section-number-2">4.</span> The SPI sniffer</h2>
+<div id="outline-container-org6ff89c9" class="outline-2">
+<h2 id="org6ff89c9"><span class="section-number-2">4.</span> The SPI sniffer</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 After confirming the basic facts about the protocol the first version of the sniffer was breadboarded and later improved upon:
 </p>
 
 
-<div id="org044c0c2" class="figure">
+<div id="orgb8905e5" class="figure">
 <p><a href="spi-sniffer-breadboard.jpg"><img src="thumb-spi-sniffer-breadboard.jpg" alt="thumb-spi-sniffer-breadboard.jpg" /></a>
 </p>
 </div>
@@ -733,8 +733,8 @@ version to transmit data from the LCD to a PC.
 </p>
 </div>
 
-<div id="outline-container-org6d419ec" class="outline-3">
-<h3 id="org6d419ec"><span class="section-number-3">4.1.</span> Bus tap board</h3>
+<div id="outline-container-org6972de9" class="outline-3">
+<h3 id="org6972de9"><span class="section-number-3">4.1.</span> Bus tap board</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 The next order of business was to somehow bring out the LCD wires from outside of the charger enclosure neatly in order to connect them to whatever will be snffing the traffic. For this purpose
@@ -743,7 +743,7 @@ vent in the case:
 </p>
 
 
-<div id="org8ad7a00" class="figure">
+<div id="orga20c538" class="figure">
 <p><a href="spi-sniffer-breakout-board.jpg"><img src="thumb-spi-sniffer-breakout-board.jpg" alt="thumb-spi-sniffer-breakout-board.jpg" /></a>
 </p>
 </div>
@@ -755,8 +755,8 @@ slots have been marked on the photo above.
 </div>
 </div>
 
-<div id="outline-container-org6b5d3cb" class="outline-3">
-<h3 id="org6b5d3cb"><span class="section-number-3">4.2.</span> The sniffer code</h3>
+<div id="outline-container-org997c7d6" class="outline-3">
+<h3 id="org997c7d6"><span class="section-number-3">4.2.</span> The sniffer code</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 The code uses USB to transfer the SPI traffic to the host for interpretation. It was based around a CDC-ACM example. It doesn't have a proper USB VID and PID currently.
@@ -802,8 +802,8 @@ This file is used so that you can assign a serial number to each SPI sniffer dev
 </div>
 </div>
 
-<div id="outline-container-org955e224" class="outline-3">
-<h3 id="org955e224"><span class="section-number-3">4.3.</span> Interpreting the data</h3>
+<div id="outline-container-org7ca8a2f" class="outline-3">
+<h3 id="org7ca8a2f"><span class="section-number-3">4.3.</span> Interpreting the data</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Interpreting the raw data sent via serial port to a USB host is performed using Python code published <a href="https://github.com/mgrela/greatriver/blob/master/bin/test-liitokala-lcd.py">here</a>. The Python encodes the LCD layout reverse-engineered as well as provides some logic to detect
@@ -835,8 +835,8 @@ and when charging finishes:
 </div>
 </div>
 
-<div id="outline-container-org72baf22" class="outline-2">
-<h2 id="org72baf22"><span class="section-number-2">5.</span> The sidekick board</h2>
+<div id="outline-container-org118e24c" class="outline-2">
+<h2 id="org118e24c"><span class="section-number-2">5.</span> The sidekick board</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 In order to make the entire idea easier to use I have began developing a custom PCB with streamlined connectors and small footprint. The board is basically a <a href="https://stm32-base.org/assets/pdf/boards/original-schematic-STM32F103C8T6-Blue_Pill.pdf">STM32 Blue Pill</a> remixed for this application.
@@ -849,7 +849,7 @@ The REV 2 board:
 </p>
 
 
-<div id="org124a50e" class="figure">
+<div id="org4b68e87" class="figure">
 <p><a href="sdkk-lii500-rev2-board.jpg"><img src="thumb-sdkk-lii500-rev2-board.jpg" alt="thumb-sdkk-lii500-rev2-board.jpg" /></a>
 </p>
 </div>
@@ -859,15 +859,15 @@ Attached on the back of the charger LCD:
 </p>
 
 
-<div id="org2d3f4a6" class="figure">
+<div id="orgf3bf795" class="figure">
 <p><a href="sdkk-lii500-rev2-attached.jpg"><img src="thumb-sdkk-lii500-rev2-attached.jpg" alt="thumb-sdkk-lii500-rev2-attached.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc1329f0" class="outline-2">
-<h2 id="orgc1329f0"><span class="section-number-2">6.</span> The sidekick sensor board</h2>
+<div id="outline-container-orge01cadc" class="outline-2">
+<h2 id="orge01cadc"><span class="section-number-2">6.</span> The sidekick sensor board</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 In order to facilitate the probing of each cell voltage as well as temperature a sensor board has been designed. This board is still in the prototype phase.
@@ -876,8 +876,8 @@ In order to facilitate the probing of each cell voltage as well as temperature a
 </div>
 
 
-<div id="outline-container-orgac9658a" class="outline-2">
-<h2 id="orgac9658a"><span class="section-number-2">7.</span> Future developments</h2>
+<div id="outline-container-orgdf49054" class="outline-2">
+<h2 id="orgdf49054"><span class="section-number-2">7.</span> Future developments</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 This is not by all means a finished project. The future direction of development is planned to be (in the order of highest-priority on top):
@@ -893,8 +893,8 @@ This is not by all means a finished project. The future direction of development
 </div>
 
 
-<div id="outline-container-org4382d32" class="outline-2">
-<h2 id="org4382d32"><span class="section-number-2">8.</span> Addendum</h2>
+<div id="outline-container-orgfc65820" class="outline-2">
+<h2 id="orgfc65820"><span class="section-number-2">8.</span> Addendum</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li><a href="cell-connected-no-charging.logicdata">Logic probe capture when a cell is connected</a></li>
@@ -906,7 +906,7 @@ This is not by all means a finished project. The future direction of development
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-07-21 17:43</p>
+<p class="date">Created: 2023-08-23 18:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

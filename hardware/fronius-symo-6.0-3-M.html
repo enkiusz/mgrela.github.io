@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-21 17:43 -->
+<!-- 2023-08-23 18:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fronius Symo 6.0-3-M inverter</title>
@@ -201,20 +201,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1c9b91c">1. Interfaces</a>
+<li><a href="#org1bd791e">1. Interfaces</a>
 <ul>
-<li><a href="#orgbaedb2b">1.1. DATCOM</a></li>
-<li><a href="#org7b94f7d">1.2. The Datamanager card</a>
+<li><a href="#org2844a78">1.1. DATCOM</a></li>
+<li><a href="#org84a99e5">1.2. The Datamanager card</a>
 <ul>
-<li><a href="#org636cbf7">1.2.1. Ethernet</a></li>
-<li><a href="#orgc3b06fd">1.2.2. WLAN</a></li>
-<li><a href="#orgfcd4f71">1.2.3. USB</a></li>
+<li><a href="#orgf612b92">1.2.1. Ethernet</a></li>
+<li><a href="#orgd0343dd">1.2.2. WLAN</a></li>
+<li><a href="#org7ff1e0a">1.2.3. USB</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org10ab445">2. Other</a></li>
-<li><a href="#orgee14ce2">3. References</a></li>
+<li><a href="#org8cf7174">2. Other</a></li>
+<li><a href="#org155d67f">3. References</a></li>
 </ul>
 </div>
 </div>
@@ -225,16 +225,16 @@ The <a href="https://www.fronius.com/en-gb/uk/photovoltaics/products/all-product
 information I was able to gather on this device, some easy, some other a bit harder to find.
 </p>
 
-<div id="outline-container-org1c9b91c" class="outline-2">
-<h2 id="org1c9b91c"><span class="section-number-2">1.</span> Interfaces</h2>
+<div id="outline-container-org1bd791e" class="outline-2">
+<h2 id="org1bd791e"><span class="section-number-2">1.</span> Interfaces</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Aside the obvious DC and AC inputs the inverter has a number of interfaces for monitoring and integration to different systems.
 </p>
 </div>
 
-<div id="outline-container-orgbaedb2b" class="outline-3">
-<h3 id="orgbaedb2b"><span class="section-number-3">1.1.</span> DATCOM</h3>
+<div id="outline-container-org2844a78" class="outline-3">
+<h3 id="org2844a78"><span class="section-number-3">1.1.</span> DATCOM</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The DATCOM bus is RS-485 based and documented in <a href="https://www.fronius.com/~/downloads/Solar%20Energy/Operating%20Instructions/42,0410,0968.pdf">Fronius DATCOM Detail</a>.
@@ -242,8 +242,8 @@ The DATCOM bus is RS-485 based and documented in <a href="https://www.fronius.co
 </div>
 </div>
 
-<div id="outline-container-org7b94f7d" class="outline-3">
-<h3 id="org7b94f7d"><span class="section-number-3">1.2.</span> The Datamanager card</h3>
+<div id="outline-container-org84a99e5" class="outline-3">
+<h3 id="org84a99e5"><span class="section-number-3">1.2.</span> The Datamanager card</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The Datamanager card is an optional datalogger and interface card installed in the inverter which allows for it to connect to the internet and 
@@ -260,8 +260,8 @@ Some information about the card's capabilities (albeit for an older model) is pr
 </p>
 </div>
 
-<div id="outline-container-org636cbf7" class="outline-4">
-<h4 id="org636cbf7"><span class="section-number-4">1.2.1.</span> Ethernet</h4>
+<div id="outline-container-orgf612b92" class="outline-4">
+<h4 id="orgf612b92"><span class="section-number-4">1.2.1.</span> Ethernet</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 The card has an ordinary 100MBit RJ-45 socket.
@@ -269,12 +269,12 @@ The card has an ordinary 100MBit RJ-45 socket.
 </div>
 </div>
 
-<div id="outline-container-orgc3b06fd" class="outline-4">
-<h4 id="orgc3b06fd"><span class="section-number-4">1.2.2.</span> WLAN</h4>
+<div id="outline-container-orgd0343dd" class="outline-4">
+<h4 id="orgd0343dd"><span class="section-number-4">1.2.2.</span> WLAN</h4>
 <div class="outline-text-4" id="text-1-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org9b23255"></a>Fronius Solar JSON API<br />
+<li><a id="org351faf5"></a>Fronius Solar JSON API<br />
 <div class="outline-text-5" id="text-1-2-2-1">
 <p>
 The Datamanager card exposes a JSON API which is used by the inverter management page to which you can browse on port 80 of the Datamanager card's IP.
@@ -302,7 +302,7 @@ There are also python modules to wrap the JSON requests in an API, for example <
 </div>
 </li>
 
-<li><a id="orgc4fc2f8"></a>MODBUS<br />
+<li><a id="orga393dad"></a>MODBUS<br />
 <div class="outline-text-5" id="text-1-2-2-2">
 <p>
 The Datamanager card implements a MODBUS interface via RS485 and via TCP over the LAN. The interface is named "SunSpec" and it may be compatible with 
@@ -312,7 +312,7 @@ their own site also under the IDs of <a href="https://www.fronius.com/~/download
 </div>
 </li>
 
-<li><a id="org49c3afb"></a>Fronius Push Service<br />
+<li><a id="orga921d71"></a>Fronius Push Service<br />
 <div class="outline-text-5" id="text-1-2-2-3">
 <p>
 The Datamanager card can also upload logs to an FTP server and this is called a Push Service. It's documented on the Fronius site when you search 
@@ -323,8 +323,8 @@ for Push Service and find a <a href="https://www.fronius.com/~/downloads/Solar%2
 </ol>
 </div>
 
-<div id="outline-container-orgfcd4f71" class="outline-4">
-<h4 id="orgfcd4f71"><span class="section-number-4">1.2.3.</span> USB</h4>
+<div id="outline-container-org7ff1e0a" class="outline-4">
+<h4 id="org7ff1e0a"><span class="section-number-4">1.2.3.</span> USB</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 The inverter also has a USB port used for firmware update. This process has been already documented by others for example on <a href="https://www.youtube.com/watch?v=y7abDHGdV5E">Youtube</a>.
@@ -337,8 +337,8 @@ I have managed to download the currently available firmware files and they appea
 </div>
 </div>
 </div>
-<div id="outline-container-org10ab445" class="outline-2">
-<h2 id="org10ab445"><span class="section-number-2">2.</span> Other</h2>
+<div id="outline-container-org8cf7174" class="outline-2">
+<h2 id="org8cf7174"><span class="section-number-2">2.</span> Other</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I found some references to using MODBUS for Fronius inverter monitoring in the EU <a href="https://cordis.europa.eu/project/id/731285">SHAR-Q project paper</a>.
@@ -346,8 +346,8 @@ I found some references to using MODBUS for Fronius inverter monitoring in the E
 </div>
 </div>
 
-<div id="outline-container-orgee14ce2" class="outline-2">
-<h2 id="orgee14ce2"><span class="section-number-2">3.</span> References</h2>
+<div id="outline-container-org155d67f" class="outline-2">
+<h2 id="org155d67f"><span class="section-number-2">3.</span> References</h2>
 <div class="outline-text-2" id="text-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -455,7 +455,7 @@ I found some references to using MODBUS for Fronius inverter monitoring in the E
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-07-21 17:43</p>
+<p class="date">Created: 2023-08-23 18:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
