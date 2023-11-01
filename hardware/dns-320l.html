@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-23 18:39 -->
+<!-- 2023-11-01 19:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>DNS-320L NAS</title>
@@ -218,7 +218,16 @@
 <li><a href="#org5980501">5. Building mainline Linux kernel</a></li>
 <li><a href="#orgdbafc73">6. Building a rootfs</a></li>
 <li><a href="#orge3f691e">7. Bootloader setup</a></li>
-<li><a href="#orge59a554">8. References</a></li>
+<li><a href="#org82c02f7">8. Benchmarks</a>
+<ul>
+<li><a href="#org84c0d52">8.1. I/O speed</a></li>
+<li><a href="#orgf329fe1">8.2. Direct I/O, no encryption</a></li>
+<li><a href="#orgf80eb95">8.3. Direct I/O, encrypted using dm-crypt with aes-cbc-plain</a></li>
+<li><a href="#orge3e0f3a">8.4. Direct I/O, encrypted using dm-crypt with aes-xts-plain64</a></li>
+<li><a href="#org2c8dd46">8.5. Direct I/O, encrypted using dm-crypt with</a></li>
+</ul>
+</li>
+<li><a href="#orge59a554">9. References</a></li>
 </ul>
 </div>
 </div>
@@ -318,11 +327,12 @@ There are differences between the A3 and A4 versions in the type of memory chips
 
 <p>
 The system is based on a Marvell Kirkwood 1GHz SOC, other chips include an Ethernet controller, flash, RAM as well as an MCU which is a systems management controller similar to what
-you would have in a laptop or PC. The NAS has it's page on both <a href="https://deviwiki.com/wiki/D-Link_DNS-320L_rev_A1">deviwiki</a> and new <a href="https://wikidevi.wi-cat.ru/D-Link_DNS-320L_rev_A1">wikidevi</a> where detailed information about the chips on the board can be found. The main board looks like this:
+you would have in a laptop or PC. The NAS has it's page on both <a href="https://deviwiki.com/wiki/D-Link_DNS-320L_rev_A1">deviwiki</a> and new <a href="https://wikidevi.wi-cat.ru/D-Link_DNS-320L_rev_A1">wikidevi</a> where detailed information about the chips on the board can be found. Different
+devices based on the 88F6702 SoC used are <a href="https://wikidevi.wi-cat.ru/LaCie_CloudBox">LaCie CloudBox</a> which contain a <a href="https://github.com/torvalds/linux/blob/8bc9e6515183935fa0cccaf67455c439afe4982b/arch/arm/boot/dts/marvell/kirkwood-cloudbox.dts">DTS file</a> for this device. The main board looks like this:
 </p>
 
 
-<div id="org7911f14" class="figure">
+<div id="orgdd46387" class="figure">
 <p><a href="board1.jpg"><img src="thumb-board1.jpg" alt="thumb-board1.jpg" /></a>
 </p>
 </div>
@@ -447,7 +457,7 @@ to route it to where it can be accessed:
 </p>
 
 
-<div id="org5c0fa72" class="figure">
+<div id="org66d3f12" class="figure">
 <p><a href="connectors1.jpg"><img src="thumb-connectors.jpg" alt="thumb-connectors.jpg" /></a>
 </p>
 </div>
@@ -595,34 +605,34 @@ used is below:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #bc6ec5;">#include</span> <span style="color: #4f97d7;">&lt;</span><span style="color: #2d9574;">Wire.h</span><span style="color: #4f97d7;">&gt;</span>
+<pre class="src src-C"><span style="color: #d75fd7;">#include</span> <span style="color: #268bd2;">&lt;</span><span style="color: #2aa198;">Wire.h</span><span style="color: #268bd2;">&gt;</span>
 
-<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">setup</span><span style="color: #4f97d7;">()</span>
-<span style="color: #4f97d7;">{</span>
-  Wire.begin<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">0x20</span><span style="color: #bc6ec5;">)</span>;
-  Wire.onReceive<span style="color: #bc6ec5;">(</span>receiveCmd<span style="color: #bc6ec5;">)</span>;
-  Wire.onRequest<span style="color: #bc6ec5;">(</span>sendResponse<span style="color: #bc6ec5;">)</span>;
-  Serial.begin<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">9600</span><span style="color: #bc6ec5;">)</span>;
-<span style="color: #4f97d7;">}</span>
+<span style="color: #df005f; font-weight: bold;">void</span> <span style="color: #d75fd7; font-weight: bold;">setup</span><span style="color: #268bd2;">()</span>
+<span style="color: #268bd2;">{</span>
+  Wire.begin<span style="color: #d75fd7;">(</span><span style="color: #d75fd7;">0x20</span><span style="color: #d75fd7;">)</span>;
+  Wire.onReceive<span style="color: #d75fd7;">(</span>receiveCmd<span style="color: #d75fd7;">)</span>;
+  Wire.onRequest<span style="color: #d75fd7;">(</span>sendResponse<span style="color: #d75fd7;">)</span>;
+  Serial.begin<span style="color: #d75fd7;">(</span><span style="color: #d75fd7;">9600</span><span style="color: #d75fd7;">)</span>;
+<span style="color: #268bd2;">}</span>
 
-<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">loop</span><span style="color: #4f97d7;">()</span>
-<span style="color: #4f97d7;">{</span>
-  delay<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">100</span><span style="color: #bc6ec5;">)</span>;
-<span style="color: #4f97d7;">}</span>
+<span style="color: #df005f; font-weight: bold;">void</span> <span style="color: #d75fd7; font-weight: bold;">loop</span><span style="color: #268bd2;">()</span>
+<span style="color: #268bd2;">{</span>
+  delay<span style="color: #d75fd7;">(</span><span style="color: #d75fd7;">100</span><span style="color: #d75fd7;">)</span>;
+<span style="color: #268bd2;">}</span>
 
-<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">receiveCmd</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">howMany</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7;">{</span>
-  <span style="color: #4f97d7; font-weight: bold;">while</span><span style="color: #bc6ec5;">(</span>Wire.available<span style="color: #2d9574;">()</span>&gt;<span style="color: #a45bad;">0</span><span style="color: #bc6ec5;">)</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">loop through all but the last</span>
-  <span style="color: #bc6ec5;">{</span>
-    <span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">c</span> = Wire.read<span style="color: #2d9574;">()</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">receive byte as a character</span>
-    Serial.print<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"CMD: "</span><span style="color: #2d9574;">)</span>;
-    Serial.println<span style="color: #2d9574;">(</span>c, HEX<span style="color: #2d9574;">)</span>;         <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">print the character</span>
-  <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #df005f; font-weight: bold;">void</span> <span style="color: #d75fd7; font-weight: bold;">receiveCmd</span><span style="color: #268bd2;">(</span><span style="color: #df005f; font-weight: bold;">int</span> <span style="color: #8787d7;">howMany</span><span style="color: #268bd2;">)</span>
+<span style="color: #268bd2;">{</span>
+  <span style="color: #268bd2; font-weight: bold;">while</span><span style="color: #d75fd7;">(</span>Wire.available<span style="color: #2aa198;">()</span>&gt;<span style="color: #d75fd7;">0</span><span style="color: #d75fd7;">)</span> <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">loop through all but the last</span>
+  <span style="color: #d75fd7;">{</span>
+    <span style="color: #df005f; font-weight: bold;">char</span> <span style="color: #8787d7;">c</span> = Wire.read<span style="color: #2aa198;">()</span>; <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">receive byte as a character</span>
+    Serial.print<span style="color: #2aa198;">(</span><span style="color: #2aa198;">"CMD: "</span><span style="color: #2aa198;">)</span>;
+    Serial.println<span style="color: #2aa198;">(</span>c, HEX<span style="color: #2aa198;">)</span>;         <span style="color: #008787; background-color: #262626;">// </span><span style="color: #008787; background-color: #262626;">print the character</span>
+  <span style="color: #d75fd7;">}</span>
+<span style="color: #268bd2;">}</span>
 
-<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">sendResponse</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
-  Wire.write<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">0xAA</span><span style="color: #bc6ec5;">)</span>;
-<span style="color: #4f97d7;">}</span>
+<span style="color: #df005f; font-weight: bold;">void</span> <span style="color: #d75fd7; font-weight: bold;">sendResponse</span><span style="color: #268bd2;">()</span> <span style="color: #268bd2;">{</span>
+  Wire.write<span style="color: #d75fd7;">(</span><span style="color: #d75fd7;">0xAA</span><span style="color: #d75fd7;">)</span>;
+<span style="color: #268bd2;">}</span>
 </pre>
 </div>
 
@@ -1797,10 +1807,642 @@ Marvell>>
 </div>
 </div>
 
+<div id="outline-container-org82c02f7" class="outline-2">
+<h2 id="org82c02f7"><span class="section-number-2">8.</span> Benchmarks</h2>
+<div class="outline-text-2" id="text-8">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Silicon</th>
+<th scope="col" class="org-left">Device</th>
+<th scope="col" class="org-left">Ciphersuite</th>
+<th scope="col" class="org-right"># jobs</th>
+<th scope="col" class="org-right">Read BW KB/s</th>
+<th scope="col" class="org-right">Write BW KB/s</th>
+<th scope="col" class="org-left">Util%</th>
+<th scope="col" class="org-right">CPU user</th>
+<th scope="col" class="org-right">CPU sys</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Marvell CESA</td>
+<td class="org-left">sda</td>
+<td class="org-left">plaintext</td>
+<td class="org-right">1</td>
+<td class="org-right">7495</td>
+<td class="org-right">7733</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.735452</td>
+<td class="org-right">5.410057</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Marvell CESA</td>
+<td class="org-left">sda</td>
+<td class="org-left">aes-cbc-plain</td>
+<td class="org-right">1</td>
+<td class="org-right">3675</td>
+<td class="org-right">3830</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.385759</td>
+<td class="org-right">1.805941</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Marvell CESA</td>
+<td class="org-left">sda</td>
+<td class="org-left">aes-xts-plain64</td>
+<td class="org-right">1</td>
+<td class="org-right">3789</td>
+<td class="org-right">3980</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.287679</td>
+<td class="org-right">1.985887</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CPU</td>
+<td class="org-left">linear</td>
+<td class="org-left">plaintext</td>
+<td class="org-right">1</td>
+<td class="org-right">7450</td>
+<td class="org-right">7703</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.744598</td>
+<td class="org-right">5.411187</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">CPU</td>
+<td class="org-left">linear</td>
+<td class="org-left">aes-cbc-plain</td>
+<td class="org-right">1</td>
+<td class="org-right">3486</td>
+<td class="org-right">3621</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.385765</td>
+<td class="org-right">1.697039</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">CPU</td>
+<td class="org-left">linear</td>
+<td class="org-left">aex-xts-plain64</td>
+<td class="org-right">1</td>
+<td class="org-right">3776</td>
+<td class="org-right">3954</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.294207</td>
+<td class="org-right">1.968481</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CPU</td>
+<td class="org-left">sda</td>
+<td class="org-left">plaintext</td>
+<td class="org-right">1</td>
+<td class="org-right">7350</td>
+<td class="org-right">7585</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.579864</td>
+<td class="org-right">5.382793</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">CPU</td>
+<td class="org-left">sda</td>
+<td class="org-left">aes-cbc-plain</td>
+<td class="org-right">1</td>
+<td class="org-right">3671</td>
+<td class="org-right">3824</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.315302</td>
+<td class="org-right">1.860694</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">CPU</td>
+<td class="org-left">sda</td>
+<td class="org-left">aes-xts-plain64</td>
+<td class="org-right">1</td>
+<td class="org-right">3780</td>
+<td class="org-right">3961</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.438496</td>
+<td class="org-right">1.826110</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-org84c0d52" class="outline-3">
+<h3 id="org84c0d52"><span class="section-number-3">8.1.</span> I/O speed</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+Hard drives:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# smartctl -a /dev/sda
+smartctl 7.3 2022-02-28 r5338 [armv5tel-linux-6.5.5] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Model Family:     Toshiba 2.5" HDD MQ01ABD...
+Device Model:     TOSHIBA MQ01ABD050V
+Serial Number:    X7NESTTBS
+LU WWN Device Id: 5 000039 815c85c50
+Firmware Version: AX0D1Q
+User Capacity:    499,034,120,192 bytes [499 GB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    5400 rpm
+Form Factor:      2.5 inches
+Device is:        In smartctl database 7.3/5319
+ATA Version is:   ATA8-ACS (minor revision not indicated)
+SATA Version is:  SATA 2.6, 3.0 Gb/s (current: 3.0 Gb/s)
+Local Time is:    Thu Jan  1 00:25:18 1970 UTC
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+# smartctl -a /dev/sdb
+smartctl 7.3 2022-02-28 r5338 [armv5tel-linux-6.5.5] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Device Model:     HITACHI HTS547550A9E384
+Serial Number:    J2120052C1ST5B
+LU WWN Device Id: 5 000cca 63dc0cda3
+Firmware Version: JE3ZD60D
+User Capacity:    500,107,862,016 bytes [500 GB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    5400 rpm
+Form Factor:      2.5 inches
+Device is:        Not in smartctl database 7.3/5319
+ATA Version is:   ATA8-ACS T13/1699-D revision 6
+SATA Version is:  SATA 2.6, 3.0 Gb/s (current: 3.0 Gb/s)
+Local Time is:    Thu Jan  1 00:26:22 1970 UTC
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+
+<p>
+RAID configuration:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# cat /proc/mdstat
+Personalities : [raid1]
+md127 : active raid1 sda1[0] sdb1[1]
+      487204864 blocks super 1.2 [2/2] [UU]
+      bitmap: 0/4 pages [0KB], 65536KB chunk
+
+unused devices: &lt;<span style="color: #d75fd7; font-weight: bold;">none</span>&gt;
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf329fe1" class="outline-3">
+<h3 id="orgf329fe1"><span class="section-number-3">8.2.</span> Direct I/O, no encryption</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+fio job file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# cat directio.job 
+[global]
+bs=256K
+iodepth=64
+direct=1
+ioengine=libaio
+group_reporting
+time_based
+runtime=120
+numjobs=1
+rw=readwrite
+
+[job1]
+filename=/dev/md127
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+
+<p>
+Results:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# fio directio.job
+job1: (g=0): rw=rw, bs=(R) 256KiB-256KiB, (W) 256KiB-256KiB, (T) 256KiB-256KiB, ioengine=libaio, iodepth=64
+fio-3.34
+Starting 1 process
+Jobs: 1 (f=1): [M(1)][100.0%][r=34.0MiB/s,w=30.5MiB/s][r=135,w=121 IOPS][eta 00m:00s]
+job1: (groupid=0, jobs=1): err= 0: pid=250: Thu Jan  1 01:08:59 1970
+  read: IOPS=163, BW=40.8MiB/s (42.8MB/s)(4908MiB/120237msec)
+    slat (usec): min=517, max=49145, avg=1553.57, stdev=1950.45
+    clat (usec): min=682, max=787092, avg=188469.05, stdev=87065.91
+     lat (msec): min=7, max=787, avg=190.02, stdev=86.76
+    clat percentiles (msec):
+     |  1.00th=[   25],  5.00th=[   61], 10.00th=[   89], 20.00th=[  118],
+     | 30.00th=[  142], 40.00th=[  165], 50.00th=[  184], 60.00th=[  201],
+     | 70.00th=[  224], 80.00th=[  247], 90.00th=[  284], 95.00th=[  338],
+     | 99.00th=[  472], 99.50th=[  550], 99.90th=[  701], 99.95th=[  726],
+     | 99.99th=[  776]
+   bw (  KiB/s): min=10199, max=81431, per=100.00%, avg=41797.59, stdev=11447.05, samples=239
+   iops        : min=   39, max=  318, avg=162.93, stdev=44.75, samples=239
+  write: IOPS=163, BW=40.9MiB/s (42.9MB/s)(4916MiB/120237msec); 0 zone resets
+    slat (usec): min=546, max=331436, avg=1501.62, stdev=3122.70
+    clat (msec): min=5, max=536, avg=198.85, stdev=87.85
+     lat (msec): min=7, max=537, avg=200.35, stdev=87.55
+    clat percentiles (msec):
+     |  1.00th=[   34],  5.00th=[   66], 10.00th=[   92], 20.00th=[  124],
+     | 30.00th=[  150], 40.00th=[  174], 50.00th=[  192], 60.00th=[  211],
+     | 70.00th=[  234], 80.00th=[  262], 90.00th=[  326], 95.00th=[  368],
+     | 99.00th=[  430], 99.50th=[  456], 99.90th=[  489], 99.95th=[  502],
+     | 99.99th=[  535]
+   bw (  KiB/s): min= 7619, max=78336, per=100.00%, avg=41909.28, stdev=12653.75, samples=239
+   iops        : min=   29, max=  306, avg=163.36, stdev=49.50, samples=239
+  lat (usec)   : 750=0.01%
+  lat (msec)   : 4=0.01%, 10=0.06%, 20=0.31%, 50=2.98%, 100=9.46%
+  lat (msec)   : 250=65.92%, 500=20.83%, 750=0.41%, 1000=0.02%
+  cpu          : usr=2.38%, sys=23.41%, ctx=45281, majf=0, minf=29
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, &gt;=64=99.8%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, &gt;=64=0.0%
+     issued rwts: total=19631,19665,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=40.8MiB/s (42.8MB/s), 40.8MiB/s-40.8MiB/s (42.8MB/s-42.8MB/s), io=4908MiB (5146MB), run=120237-120237msec
+  WRITE: bw=40.9MiB/s (42.9MB/s), 40.9MiB/s-40.9MiB/s (42.9MB/s-42.9MB/s), io=4916MiB (5155MB), run=120237-120237msec
+
+Disk stats (read/write):
+    md127: ios=19591/19647, merge=0/0, ticks=3263450/3625690, in_queue=6889140, util=99.57%, aggrios=6172/15260, aggrmerge=3643/4485, aggrticks=951136/1018075, aggrin_queue=1983680, aggrutil=98.87%
+  sdb: ios=0/17080, merge=0/2665, ticks=0/923250, in_queue=928836, util=74.01%
+  sda: ios=12344/13440, merge=7287/6305, ticks=1902272/1112901, in_queue=3038525, util=98.87%
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf80eb95" class="outline-3">
+<h3 id="orgf80eb95"><span class="section-number-3">8.3.</span> Direct I/O, encrypted using dm-crypt with aes-cbc-plain</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+Cipher setup:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# cryptsetup luksDump /dev/md127
+LUKS header information
+Version:        2
+Epoch:          3
+Metadata area:  16384 [bytes]
+Keyslots area:  16744448 [bytes]
+UUID:           73f64ff8-b02c-4496-931f-dcb3ffbb5a9f
+Label:          (no label)
+Subsystem:      (no subsystem)
+Flags:          (no flags)
+
+Data segments:
+  0: crypt
+        offset: 16777216 [bytes]
+        length: (whole device)
+        cipher: aes-cbc-plain
+        sector: 4096 [bytes]
+
+Keyslots:
+  0: luks2
+        Key:        128 bits
+        Priority:   normal
+        Cipher:     aes-cbc-plain
+        Cipher key: 128 bits
+        PBKDF:      pbkdf2
+        Hash:       sha256
+        Iterations: 6701
+        Salt:       f9 73 0c a0 2e 2f 44 76 3c 78 80 19 fc 58 db a3
+                    62 47 53 5d 71 56 16 28 8d 95 cd 5c b9 71 6a 37
+        AF stripes: 4000
+        AF hash:    sha256
+        Area offset:32768 [bytes]
+        Area length:65536 [bytes]
+        Digest ID:  0
+Tokens:
+Digests:
+  0: pbkdf2
+        Hash:       sha256
+        Iterations: 8471
+        Salt:       26 a6 31 88 41 7a 6e c6 0b bb 41 94 df fd fa 58
+                    35 c7 aa 9c 02 0c 6d b3 84 dd ff 0e 1f b7 ea eb
+        Digest:     40 9b 61 99 00 3c b3 af f1 d0 de 3b 3d 1d 50 cd
+                    b8 f6 b8 99 f5 fa 94 27 96 f7 44 6b 8b 39 53 17
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+
+<p>
+Cipher should be accelerated by Marvell CESA engine:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+name         : cbc(aes)
+driver       : mv-cbc-aes
+module       : kernel
+priority     : 300
+refcnt       : 1
+selftest     : passed
+internal     : no
+type         : skcipher
+async        : yes
+blocksize    : 16
+min keysize  : 16
+max keysize  : 32
+ivsize       : 16
+chunksize    : 16
+walksize     : 16
+&lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+
+
+<p>
+Job file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# cat directio.job
+[global]
+bs=256K
+iodepth=64
+direct=1
+ioengine=libaio
+group_reporting
+time_based
+runtime=120
+numjobs=1
+rw=readwrite
+
+[job1]
+filename=/dev/mapper/dcrypt
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+
+<p>
+Results:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# fio directio.job
+job1: (g=0): rw=rw, bs=(R) 256KiB-256KiB, (W) 256KiB-256KiB, (T) 256KiB-256KiB, ioengine=libaio, iodepth=64
+fio-3.34
+Starting 1 process
+Jobs: 1 (f=1): [M(1)][0.2%][r=1021KiB/s,w=1532KiB/s][r=3,w=5 IOPS][eta 14h:40m:51s]
+job1: (groupid=0, jobs=1): err= 0: pid=243: Thu Jan  1 01:03:04 1970
+  read: IOPS=17, BW=4520KiB/s (4628kB/s)(537MiB/121664msec)
+    slat (usec): min=528, max=4022, avg=1344.08, stdev=179.64
+    clat (msec): min=210, max=3387, avg=1761.69, stdev=161.71
+     lat (msec): min=211, max=3389, avg=1763.03, stdev=161.67
+    clat percentiles (msec):
+     |  1.00th=[ 1250],  5.00th=[ 1720], 10.00th=[ 1737], 20.00th=[ 1737],
+     | 30.00th=[ 1754], 40.00th=[ 1754], 50.00th=[ 1770], 60.00th=[ 1770],
+     | 70.00th=[ 1770], 80.00th=[ 1787], 90.00th=[ 1787], 95.00th=[ 1804],
+     | 99.00th=[ 2165], 99.50th=[ 2836], 99.90th=[ 3306], 99.95th=[ 3339],
+     | 99.99th=[ 3373]
+   bw (  KiB/s): min= 2043, max= 7680, per=99.76%, avg=4509.92, stdev=1172.23, samples=240
+   iops        : min=    7, max=   30, avg=17.22, stdev= 4.57, samples=240
+  write: IOPS=18, BW=4760KiB/s (4874kB/s)(566MiB/121664msec); 0 zone resets
+    slat (usec): min=560, max=5922, avg=616.20, stdev=245.15
+    clat (msec): min=437, max=3357, avg=1765.04, stdev=157.04
+     lat (msec): min=438, max=3357, avg=1765.66, stdev=156.95
+    clat percentiles (msec):
+     |  1.00th=[ 1183],  5.00th=[ 1737], 10.00th=[ 1737], 20.00th=[ 1754],
+     | 30.00th=[ 1754], 40.00th=[ 1754], 50.00th=[ 1770], 60.00th=[ 1770],
+     | 70.00th=[ 1787], 80.00th=[ 1787], 90.00th=[ 1787], 95.00th=[ 1804],
+     | 99.00th=[ 2198], 99.50th=[ 2735], 99.90th=[ 3239], 99.95th=[ 3272],
+     | 99.99th=[ 3373]
+   bw (  KiB/s): min= 2043, max= 7168, per=99.90%, avg=4755.18, stdev=982.85, samples=240
+   iops        : min=    7, max=   28, avg=18.18, stdev= 3.89, samples=240
+  lat (msec)   : 250=0.05%, 500=0.32%, 750=0.20%, 1000=0.23%, 2000=98.05%
+  lat (msec)   : &gt;=2000=1.16%
+  cpu          : usr=0.35%, sys=2.35%, ctx=6614, majf=0, minf=29
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.2%, 16=0.4%, 32=0.7%, &gt;=64=98.6%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, &gt;=64=0.0%
+     issued rwts: total=2148,2262,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=4520KiB/s (4628kB/s), 4520KiB/s-4520KiB/s (4628kB/s-4628kB/s), io=537MiB (563MB), run=121664-121664msec
+  WRITE: bw=4760KiB/s (4874kB/s), 4760KiB/s-4760KiB/s (4874kB/s-4874kB/s), io=566MiB (593MB), run=121664-121664msec
+
+Disk stats (read/write):
+    dm-0: ios=2144/2259, merge=0/0, ticks=3753660/3961610, in_queue=7715270, util=99.93%, aggrios=2148/2262, aggrmerge=0/0, aggrticks=6800/6450, aggrin_queue=13250, aggrutil=38.04%
+    md127: ios=2148/2262, merge=0/0, ticks=6800/6450, in_queue=13250, util=38.04%, aggrios=1072/2280, aggrmerge=2/0, aggrticks=4064/5653, aggrin_queue=10229, aggrutil=37.44%
+  sdb: ios=0/2280, merge=0/0, ticks=0/6580, in_queue=7062, util=24.07%
+  sda: ios=2144/2280, merge=4/0, ticks=8128/4726, in_queue=13397, util=37.44%
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge3e0f3a" class="outline-3">
+<h3 id="orge3e0f3a"><span class="section-number-3">8.4.</span> Direct I/O, encrypted using dm-crypt with aes-xts-plain64</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+Cipher setup:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# cryptsetup luksDump /dev/md127
+LUKS header information
+Version:        2
+Epoch:          3
+Metadata area:  16384 [bytes]
+Keyslots area:  16744448 [bytes]
+UUID:           9a516a3a-abcb-4958-9b42-7c00becdd349
+Label:          (no label)
+Subsystem:      (no subsystem)
+Flags:        (no flags)
+
+Data segments:
+  0: crypt
+  offset: 16777216 [bytes]
+  length: (whole device)
+  cipher: aes-xts-plain64
+  sector: 4096 [bytes]
+
+Keyslots:
+  0: luks2
+  Key:        512 bits
+  Priority:   normal
+  Cipher:     aes-xts-plain64
+  Cipher key: 512 bits
+  PBKDF:      pbkdf2
+  Hash:       sha256
+  Iterations: 3299
+  Salt:       84 43 2c 52 48 72 f0 e5 4b b4 78 f6 59 2b 1d fb
+              91 e4 48 de 8c 89 8c 53 d8 2d 08 65 2c 6b 0c b2
+  AF stripes: 4000
+  AF hash:    sha256
+  Area offset:32768 [bytes]
+  Area length:258048 [bytes]
+  Digest ID:  0
+Tokens:
+Digests:
+  0: pbkdf2
+  Hash:       sha256
+  Iterations: 4116
+  Salt:       0a 29 d2 d8 c2 15 d1 31 94 ed 55 ac ad c2 65 41
+              32 7f 51 f0 02 d8 f1 91 f7 f5 62 4c a3 7b 70 4e
+  Digest:     c5 71 38 6f 6b 6f ba f2 5e b5 9d 3f 53 75 3f 01
+              ef b5 f5 4b 49 f9 4e f1 68 5a 83 a6 f7 a1 5f 76
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+
+<p>
+Job file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">  &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+[global]
+bs=256K
+iodepth=64
+direct=1
+ioengine=libaio
+group_reporting
+time_based
+runtime=120
+numjobs=1
+rw=readwrite
+
+[job1]
+filename=/dev/mapper/dcrypt
+
+  &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+
+<p>
+Results:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">    &lt;<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+# fio directio.job
+job1: (g=0): rw=rw, bs=(R) 256KiB-256KiB, (W) 256KiB-256KiB, (T) 256KiB-256KiB, ioengine=libaio, iodepth=64
+fio-3.34
+Starting 1 process
+Jobs: 1 (f=1): [M(1)][0.2%][eta 17h:56m:08s]
+job1: (groupid=0, jobs=1): err= 0: pid=219: Thu Jan  1 00:50:28 1970
+  read: IOPS=14, BW=3752KiB/s (3842kB/s)(447MiB/122054msec)
+    slat (usec): min=535, max=3178, avg=1333.50, stdev=132.79
+    clat (msec): min=301, max=4105, avg=2135.65, stdev=204.95
+     lat (msec): min=303, max=4106, avg=2136.98, stdev=204.93
+    clat percentiles (msec):
+     |  1.00th=[ 1284],  5.00th=[ 2123], 10.00th=[ 2123], 20.00th=[ 2123],
+     | 30.00th=[ 2123], 40.00th=[ 2140], 50.00th=[ 2140], 60.00th=[ 2140],
+     | 70.00th=[ 2140], 80.00th=[ 2140], 90.00th=[ 2165], 95.00th=[ 2165],
+     | 99.00th=[ 2836], 99.50th=[ 3473], 99.90th=[ 4044], 99.95th=[ 4111],
+     | 99.99th=[ 4111]
+   bw (  KiB/s): min= 1024, max= 7168, per=99.78%, avg=3744.96, stdev=1040.30, samples=240
+   iops        : min=    4, max=   28, avg=14.26, stdev= 4.08, samples=240
+  write: IOPS=15, BW=3908KiB/s (4001kB/s)(466MiB/122054msec); 0 zone resets
+    slat (usec): min=558, max=6949, avg=627.68, stdev=372.27
+    clat (msec): min=438, max=4137, avg=2136.88, stdev=220.34
+     lat (msec): min=438, max=4138, avg=2137.51, stdev=220.20
+    clat percentiles (msec):
+     |  1.00th=[ 1200],  5.00th=[ 2123], 10.00th=[ 2123], 20.00th=[ 2123],
+     | 30.00th=[ 2140], 40.00th=[ 2140], 50.00th=[ 2140], 60.00th=[ 2140],
+     | 70.00th=[ 2140], 80.00th=[ 2165], 90.00th=[ 2165], 95.00th=[ 2165],
+     | 99.00th=[ 2970], 99.50th=[ 3574], 99.90th=[ 4077], 99.95th=[ 4144],
+     | 99.99th=[ 4144]
+   bw (  KiB/s): min= 1024, max= 6144, per=99.91%, avg=3904.90, stdev=967.18, samples=240
+   iops        : min=    4, max=   24, avg=14.88, stdev= 3.83, samples=240
+  lat (msec)   : 500=0.33%, 750=0.25%, 1000=0.22%, 2000=1.01%, &gt;=2000=98.19%
+  cpu          : usr=0.32%, sys=1.90%, ctx=5499, majf=0, minf=26
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.2%, 16=0.4%, 32=0.9%, &gt;=64=98.3%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, &gt;=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, &gt;=64=0.0%
+     issued rwts: total=1789,1863,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=3752KiB/s (3842kB/s), 3752KiB/s-3752KiB/s (3842kB/s-3842kB/s), io=447MiB (469MB), run=122054-122054msec
+  WRITE: bw=3908KiB/s (4001kB/s), 3908KiB/s-3908KiB/s (4001kB/s-4001kB/s), io=466MiB (488MB), run=122054-122054msec
+
+Disk stats (read/write):
+    dm-0: ios=1788/1861, merge=0/0, ticks=3790690/3943590, in_queue=7734280, util=99.92%, aggrios=1789/1863, aggrmerge=0/0, aggrticks=5710/5270, aggrin_queue=10980, aggrutil=31.40%
+    md127: ios=1789/1863, merge=0/0, ticks=5710/5270, in_queue=10980, util=31.40%, aggrios=892/1886, aggrmerge=2/0, aggrticks=3369/4966, aggrin_queue=9076, aggrutil=31.00%
+  sdb: ios=0/1886, merge=0/0, ticks=0/5860, in_queue=6559, util=20.10%
+  sda: ios=1785/1886, merge=4/0, ticks=6739/4073, in_queue=11594, util=31.00%
+    &lt;/<span style="color: #d75fd7; font-weight: bold;">pre</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c8dd46" class="outline-3">
+<h3 id="org2c8dd46"><span class="section-number-3">8.5.</span> Direct I/O, encrypted using dm-crypt with</h3>
+</div>
+</div>
 
 <div id="outline-container-orge59a554" class="outline-2">
-<h2 id="orge59a554"><span class="section-number-2">8.</span> References</h2>
-<div class="outline-text-2" id="text-8">
+<h2 id="orge59a554"><span class="section-number-2">9.</span> References</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 This is a list of references I used when working on the NAS. A lot has been done already by others:
 </p>
@@ -1826,7 +2468,7 @@ This is a list of references I used when working on the NAS. A lot has been done
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-08-23 18:39</p>
+<p class="date">Created: 2023-11-01 19:53</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
