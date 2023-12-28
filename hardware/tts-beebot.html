@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-12-28 17:35 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TTS Bee-Bot Unofficial Service Manual</title>
+<meta name="author" content="Maciej Grela" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">TTS Bee-Bot Unofficial Service Manual</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7932154">1. TLDR</a></li>
+<li><a href="#org12bfcb0">2. Metadata</a></li>
+<li><a href="#org458e27f">3. Intro</a></li>
+<li><a href="#orgdfec8f9">4. Hardware overview</a></li>
+<li><a href="#org2e71a0d">5. Observed failures</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org641a0a8">5.0.1. USB Charger PCB</a></li>
+<li><a href="#org709a469">5.0.2. Speaker replacement</a></li>
+<li><a href="#orgcbaa6ba">5.0.3. Battery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1520d43">6. Replacement parts summary</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org7932154" class="outline-2">
+<h2 id="org7932154"><span class="section-number-2">1.</span> TLDR</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This is an unofficial "service manual" for the TTS Bee-Bot educational robot discussing common failures I've seen with it. Fixes to those
+problems are provided in the form of replacement part recommendations as well as replacement PCBs.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12bfcb0" class="outline-2">
+<h2 id="org12bfcb0"><span class="section-number-2">2.</span> Metadata</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+A service manual (even an "unofficial" one) needs some kind of revision control. This is provided in the table below:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Date</th>
+<th scope="col" class="org-right">Revision</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2024-01-02</td>
+<td class="org-right">1</td>
+<td class="org-left">Initial revision</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org458e27f" class="outline-2">
+<h2 id="org458e27f"><span class="section-number-2">3.</span> Intro</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The <a href="https://www.tts-international.com/bee-bot-programmable-floor-robot/1015268.html">TTS Bee-Bot Programmable Floor Robot</a> is an educational desktop robot geared towards teaching children simple programming concepts. The robot replays a
+sequence of movement steps (Forward, Back, Turn Left 90°, Turn Right 90°) which are programmed using buttons on its back. The robot provides audio and
+visual feedback for the child.
+</p>
+
+<p>
+In case it's not obvious, this website is not affiliated with TTS in any way and the Bee-Bot® name is used purely for product
+identification purposes. This unofficial service manual is (to the best of my knowledge) not endorsed by TTS.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgdfec8f9" class="outline-2">
+<h2 id="orgdfec8f9"><span class="section-number-2">4.</span> Hardware overview</h2>
+<div class="outline-text-2" id="text-4">
+
+<div id="org5b879a4" class="figure">
+<p><a href="tts-beebot/outside.jpg"><img src="tts-beebot/thumb-outside.jpg" alt="thumb-outside.jpg" /></a>
+</p>
+</div>
+
+<p>
+The robot is relatively well designed and easy to disassemble. The bottom provides access to the battery bay, the USB-B charging connector and 4 screws
+marked with red circles which need to be unscrewed to split the two halves:
+</p>
+
+
+<div id="orgacedb62" class="figure">
+<p><a href="tts-beebot/bottom.jpg"><img src="tts-beebot/thumb-bottom.jpg" alt="thumb-bottom.jpg" /></a>
+</p>
+</div>
+
+<p>
+A well thought out part of the robot design is that when the top cover is removed the robot can still be operated while having access to it's internals:
+</p>
+
+
+<div id="org995f712" class="figure">
+<p><a href="tts-beebot/inside.jpg"><img src="tts-beebot/thumb-inside.jpg" alt="thumb-inside.jpg" /></a>
+</p>
+</div>
+
+<p>
+There are two PCBs visible, the horizontal PCB is the main CPU, the vertical PCB is the USB charger board which controls charging and power to the robot.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2e71a0d" class="outline-2">
+<h2 id="org2e71a0d"><span class="section-number-2">5.</span> Observed failures</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+There are two failures which I have seen happen with the robots I've come across:
+</p>
+
+<ul class="org-ul">
+<li>inability to charge using the USB-B connector</li>
+<li>speaker stops working</li>
+</ul>
+
+<p>
+Although my sample size is not large (a small fleet of 4 units), all of the robots have manifested at least one of the above problems. Solutions to
+both of those have been described in detail below.
+</p>
+
+<p>
+Together with those there are also other more predictable issues such as the Lithium-Ion battery loosing capacity over time which is important for
+an educational toy that needs to work for an entire school day to be usable in classrooms. 
+</p>
+</div>
+
+<div id="outline-container-org641a0a8" class="outline-4">
+<h4 id="org641a0a8"><span class="section-number-4">5.0.1.</span> USB Charger PCB</h4>
+<div class="outline-text-4" id="text-5-0-1">
+<p>
+All of the charging failures are caused by a damaged USB Charger PCB board which looks like chemical corrosion. The situation is interesting because
+the damage on all four examined PCBs looks very similar and no other signs of liquid ingress have been observed:
+</p>
+
+
+<div id="org22179aa" class="figure">
+<p><a href="tts-beebot/four-charger-boards.jpg"><img src="tts-beebot/thumb-four-charger-boards.jpg" alt="thumb-four-charger-boards.jpg" /></a>
+</p>
+</div>
+
+<p>
+The details of the "corrosion" can be seen in detail on one of the boards still mounted inside the robot:
+</p>
+
+
+<div id="org5566a26" class="figure">
+<p><a href="tts-beebot/original-charger-pcb.jpg"><img src="tts-beebot/thumb-original-charger-pcb.jpg" alt="thumb-original-charger-pcb.jpg" /></a>
+</p>
+</div>
+
+<p>
+A replacement board has been designed in KiCad built around the very popular TP4056 charger chip plus some external vanilla components. The schematics for
+the board is shown below:
+</p>
+
+
+<div id="org3de8546" class="figure">
+<p><img src="tts-beebot/usb_charger.png" alt="usb_charger.png" />
+</p>
+</div>
+
+<p>
+The replacement board has certain improvements from the original, specifically:
+</p>
+<ul class="org-ul">
+<li>the charging LED is dual color giving a more usable indication of charging state</li>
+<li>the board has the possibility to connect a temperature sensor to the Li-Ion cell, this would however require changing the battery connector and would
+make the robot incompatible with original batteries</li>
+</ul>
+
+<p>
+PCB manufacturing has been sponsored by <a href="https://www.pcbway.com/">https://www.pcbway.com/</a> and I must say that the service they provided has been excellent.
+The traces, drill precision, hole plating and silkscreen quality are top-notch for any hacker's purposes :).
+</p>
+
+<p>
+One of the finished PCB can be seen below:
+</p>
+
+
+<div id="org3bb0abe" class="figure">
+<p><a href="tts-beebot/new-pcb.jpg"><img src="tts-beebot/thumb-new-pcb.jpg" alt="thumb-new-pcb.jpg" /></a>
+</p>
+</div>
+
+<p>
+The PCB is two-sided but all of the SMT components are mounted on one side only. The packages used are 1206 and 0603 making it perfectly possible to
+assemble the board by hand. If you pay close attention you might notice that the original charging PCB has a few extra components which are missing on the
+new board - a SOT-23 transistor plus a few resistors and a capacitor. Initially I could not properly reverse engineer the purpose or operation of this extra
+circuit therefore I decided to simply omit it as my testbench tests did not suggest it's needed for the operation of the robot.
+</p>
+
+<p>
+The new PCB fits perfectly on the original spot with the charging LED leads bent like the original board. The LED mount point with the PCB has been
+secured with some small amount of hot glue to help with mechanical strength:
+</p>
+
+
+
+<div id="orgfe9a898" class="figure">
+<p><a href="tts-beebot/new-pcb-fit.jpg"><img src="tts-beebot/thumb-new-pcb-fit.jpg" alt="thumb-new-pcb-fit.jpg" /></a>
+</p>
+</div>
+
+<p>
+The original wires are resoldered to the new board and the robot is confirmed to work again with USB charging. This process is aided by the fact that the
+wire holes are arranged in the same configuration (albeit mirrored) than on the original PCB. After checking the functionality of the robot I discovered
+the reason for the additional circuit on the original board. The capacitor on the main controller PCB needs to be discharged when the robot is switched
+off as it browns out the CPU in an undefined state. The result is that quickly switching the robot off and on doesn't properly reset it. I have botched
+on a circuit that performs this role after mounting the replacement boards:
+</p>
+
+
+<div id="orgf1e7fe4" class="figure">
+<p><a href="tts-beebot/anti-glitch-circuit.jpg"><img src="tts-beebot/thumb-anti-glitch-circuit.jpg" alt="thumb-anti-glitch-circuit.jpg" /></a>
+</p>
+</div>
+
+<p>
+After this the robot works much more reliably when powered on and off. Of course this change will be implemented in the next revision of the replacement
+charger PCB.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org709a469" class="outline-4">
+<h4 id="org709a469"><span class="section-number-4">5.0.2.</span> Speaker replacement</h4>
+<div class="outline-text-4" id="text-5-0-2">
+<p>
+The speaker is placed on the back side of the robot and is pushed down with a plastic post secured by a foam pad which unfortunately means that its replacement
+requires the disassembly of all of the large robot parts, no wires apart from the speaker wires need to be unsoldered fortunately:
+</p>
+
+
+<div id="org101ab44" class="figure">
+<p><a href="tts-beebot/speaker.jpg"><img src="tts-beebot/thumb-speaker.jpg" alt="thumb-speaker.jpg" /></a>
+</p>
+</div>
+
+<p>
+The speaker failure can be diagnosed with a multimeter as a lack of connectivity between the speaker terminals instead of the nominal 8Ω resistance. This
+failure is caused by the coil being burned by excessive current and this can be clearly noticed as part of the diaphragm is darkened:
+</p>
+
+
+<div id="orge786aee" class="figure">
+<p><a href="tts-beebot/coil-damage.jpg"><img src="tts-beebot/thumb-coil-damage.jpg" alt="thumb-coil-damage.jpg" /></a>
+</p>
+</div>
+
+<p>
+The exact reason for this failure is unknown. By looking at the speaker driver circuit we can try an educated guess:
+</p>
+
+
+<div id="org33ab7d3" class="figure">
+<p><img src="tts-beebot/speaker-circuit.png" alt="speaker-circuit.png" />
+</p>
+</div>
+
+
+<p>
+The speaker is directly wired to a transistor therefore if the CPU output pin gets stuck in the 'ON' state for extended periods of time, excessive current
+will flow throught the speaker coil. This problem can likely be fixed by adding some kind of capacitive coupling to the circuit but this "short"
+project has become long enough already. Fixes for the speaker circuit have been left for a future revision of this document.
+</p>
+
+<p>
+Fortunately the speaker is a vanilla part that can be easily purchased, the exact size needs to be matched though. Especially the height is important
+as the height of the plastic pole pushing the speaker down cannot be adjusted. I have measured the original speaker and found a suitable replacement
+on <a href="https://www.farnell.com">https://www.farnell.com</a>, the purchase link is down in the <a href="#org1520d43">Replacement parts summary table</a> below.
+Here is the new (much thinner) speaker mounted with 4 foam pads flued to reach the previous height:
+</p>
+
+
+<div id="org1235fc7" class="figure">
+<p><a href="tts-beebot/new-speaker.jpg"><img src="tts-beebot/thumb-new-speaker.jpg" alt="thumb-new-speaker.jpg" /></a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcbaa6ba" class="outline-4">
+<h4 id="orgcbaa6ba"><span class="section-number-4">5.0.3.</span> Battery</h4>
+<div class="outline-text-4" id="text-5-0-3">
+<p>
+When the battery capacity fades an original replacement battery can be ordered or a DIY battery can be built using a Molex Microblade 51005 Series used in
+small RC models. It can be easily purchased from multiple sources. The cell used is a Lithium-Ion 3.7V pouch cell. The dimensions of the battery bay
+can be referenced in the <a href="#org1520d43">Replacement parts summary table</a> below.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1520d43" class="outline-2">
+<h2 id="org1520d43"><span class="section-number-2">6.</span> Replacement parts summary</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+This table summarizes the various replacement parts that can be either ordered or built by an average skilled hacker or maker. Detailed specifications as well
+as links to PCB layouts and ordering links are included.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Source</th>
+<th scope="col" class="org-left">Part Name</th>
+<th scope="col" class="org-left">Part Number</th>
+<th scope="col" class="org-left">Specifications</th>
+<th scope="col" class="org-left">Compatible Bee-Bot Marking</th>
+<th scope="col" class="org-left">Purchase links</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">TTS</td>
+<td class="org-left">Replacement Battery</td>
+<td class="org-left">IT10069</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="https://www.tts-group.co.uk/bee-bot%2Fblue-bot-replacement-battery/1015414.html">Manufacturer site</a></td>
+<td class="org-left">Original replacement part</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://pop.fsck.pl">fsck.pl</a></td>
+<td class="org-left">TTS BEEBOT USB CHARGER PCB</td>
+<td class="org-left">N/A</td>
+<td class="org-left"><a href="tts-beebot/rev-B1.zip">Kicad project</a></td>
+<td class="org-left">EL00363-03-17</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DIY assembly required, SMT soldering</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://www.kingstate.com.tw/">KINGSTATE</a></td>
+<td class="org-left">Speaker</td>
+<td class="org-left">KINGSTATE KDMG26008</td>
+<td class="org-left">26.5mm dia, 7mm height, 8Ω, 0.25W</td>
+<td class="org-left">EL00363-03-17</td>
+<td class="org-left"><a href="https://uk.farnell.com/kingstate/kdmg26008/loudspeaker-micro/dp/1502731">Farnell</a></td>
+<td class="org-left">Any matching specifications can be used</td>
+</tr>
+
+<tr>
+<td class="org-left">Molex</td>
+<td class="org-left">Battery connector</td>
+<td class="org-left">051005-0200 (housing) + 500138000 (terminal)</td>
+<td class="org-left">Molex Microblade 51005 Series 2.0mm Pitch Wire-to-Wire Receptacle, 2P</td>
+<td class="org-left">EL00363-03-17</td>
+<td class="org-left"><a href="https://uk.farnell.com/molex-partner-stock/51005-0200/connector-housing-rcpt-2pos-2mm/dp/4239920">Farnell</a></td>
+<td class="org-left">Can be used together with a 3.7V Lithium-Ion pouch cell to build a replacement battery. The battery bay is 32mmx36mm wide and 10mm deep.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Maciej Grela</p>
+<p class="date">Created: 2023-12-28 17:35</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
