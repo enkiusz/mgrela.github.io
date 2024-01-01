@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-12-28 17:35 -->
+<!-- 2024-01-01 15:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TTS Bee-Bot Unofficial Service Manual</title>
@@ -201,29 +201,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7932154">1. TLDR</a></li>
-<li><a href="#org12bfcb0">2. Metadata</a></li>
-<li><a href="#org458e27f">3. Intro</a></li>
-<li><a href="#orgdfec8f9">4. Hardware overview</a></li>
-<li><a href="#org2e71a0d">5. Observed failures</a>
+<li><a href="#orgc9cb6ec">1. TLDR</a></li>
+<li><a href="#orga3cb573">2. Metadata</a></li>
+<li><a href="#org03ddb0d">3. Intro</a></li>
+<li><a href="#orgb29b285">4. Hardware overview</a></li>
+<li><a href="#orgbd7d10f">5. Observed failures</a>
 <ul>
 <li>
 <ul>
-<li><a href="#org641a0a8">5.0.1. USB Charger PCB</a></li>
-<li><a href="#org709a469">5.0.2. Speaker replacement</a></li>
-<li><a href="#orgcbaa6ba">5.0.3. Battery</a></li>
+<li><a href="#org11c3143">5.0.1. USB Charger PCB</a></li>
+<li><a href="#orgd753814">5.0.2. Speaker replacement</a></li>
+<li><a href="#org32a1c1e">5.0.3. Battery</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1520d43">6. Replacement parts summary</a></li>
+<li><a href="#org959f572">6. Replacement parts summary</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org7932154" class="outline-2">
-<h2 id="org7932154"><span class="section-number-2">1.</span> TLDR</h2>
+<div id="outline-container-orgc9cb6ec" class="outline-2">
+<h2 id="orgc9cb6ec"><span class="section-number-2">1.</span> TLDR</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is an unofficial "service manual" for the TTS Bee-Bot educational robot discussing common failures I've seen with it. Fixes to those
@@ -232,8 +232,8 @@ problems are provided in the form of replacement part recommendations as well as
 </div>
 </div>
 
-<div id="outline-container-org12bfcb0" class="outline-2">
-<h2 id="org12bfcb0"><span class="section-number-2">2.</span> Metadata</h2>
+<div id="outline-container-orga3cb573" class="outline-2">
+<h2 id="orga3cb573"><span class="section-number-2">2.</span> Metadata</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A service manual (even an "unofficial" one) needs some kind of revision control. This is provided in the table below:
@@ -258,7 +258,7 @@ A service manual (even an "unofficial" one) needs some kind of revision control.
 </thead>
 <tbody>
 <tr>
-<td class="org-right">2024-01-02</td>
+<td class="org-right">2024-01-01</td>
 <td class="org-right">1</td>
 <td class="org-left">Initial revision</td>
 </tr>
@@ -267,8 +267,8 @@ A service manual (even an "unofficial" one) needs some kind of revision control.
 </div>
 </div>
 
-<div id="outline-container-org458e27f" class="outline-2">
-<h2 id="org458e27f"><span class="section-number-2">3.</span> Intro</h2>
+<div id="outline-container-org03ddb0d" class="outline-2">
+<h2 id="org03ddb0d"><span class="section-number-2">3.</span> Intro</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The <a href="https://www.tts-international.com/bee-bot-programmable-floor-robot/1015268.html">TTS Bee-Bot Programmable Floor Robot</a> is an educational desktop robot geared towards teaching children simple programming concepts. The robot replays a
@@ -284,11 +284,11 @@ identification purposes. This unofficial service manual is (to the best of my kn
 </div>
 
 
-<div id="outline-container-orgdfec8f9" class="outline-2">
-<h2 id="orgdfec8f9"><span class="section-number-2">4.</span> Hardware overview</h2>
+<div id="outline-container-orgb29b285" class="outline-2">
+<h2 id="orgb29b285"><span class="section-number-2">4.</span> Hardware overview</h2>
 <div class="outline-text-2" id="text-4">
 
-<div id="org5b879a4" class="figure">
+<div id="orga129bea" class="figure">
 <p><a href="tts-beebot/outside.jpg"><img src="tts-beebot/thumb-outside.jpg" alt="thumb-outside.jpg" /></a>
 </p>
 </div>
@@ -299,7 +299,7 @@ marked with red circles which need to be unscrewed to split the two halves:
 </p>
 
 
-<div id="orgacedb62" class="figure">
+<div id="org4d7fd3d" class="figure">
 <p><a href="tts-beebot/bottom.jpg"><img src="tts-beebot/thumb-bottom.jpg" alt="thumb-bottom.jpg" /></a>
 </p>
 </div>
@@ -309,7 +309,7 @@ A well thought out part of the robot design is that when the top cover is remove
 </p>
 
 
-<div id="org995f712" class="figure">
+<div id="org32cf629" class="figure">
 <p><a href="tts-beebot/inside.jpg"><img src="tts-beebot/thumb-inside.jpg" alt="thumb-inside.jpg" /></a>
 </p>
 </div>
@@ -321,8 +321,8 @@ There are two PCBs visible, the horizontal PCB is the main CPU, the vertical PCB
 </div>
 
 
-<div id="outline-container-org2e71a0d" class="outline-2">
-<h2 id="org2e71a0d"><span class="section-number-2">5.</span> Observed failures</h2>
+<div id="outline-container-orgbd7d10f" class="outline-2">
+<h2 id="orgbd7d10f"><span class="section-number-2">5.</span> Observed failures</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 There are two failures which I have seen happen with the robots I've come across:
@@ -344,8 +344,8 @@ an educational toy that needs to work for an entire school day to be usable in c
 </p>
 </div>
 
-<div id="outline-container-org641a0a8" class="outline-4">
-<h4 id="org641a0a8"><span class="section-number-4">5.0.1.</span> USB Charger PCB</h4>
+<div id="outline-container-org11c3143" class="outline-4">
+<h4 id="org11c3143"><span class="section-number-4">5.0.1.</span> USB Charger PCB</h4>
 <div class="outline-text-4" id="text-5-0-1">
 <p>
 All of the charging failures are caused by a damaged USB Charger PCB board which looks like chemical corrosion. The situation is interesting because
@@ -353,7 +353,7 @@ the damage on all four examined PCBs looks very similar and no other signs of li
 </p>
 
 
-<div id="org22179aa" class="figure">
+<div id="orgb91798c" class="figure">
 <p><a href="tts-beebot/four-charger-boards.jpg"><img src="tts-beebot/thumb-four-charger-boards.jpg" alt="thumb-four-charger-boards.jpg" /></a>
 </p>
 </div>
@@ -363,7 +363,7 @@ The details of the "corrosion" can be seen in detail on one of the boards still 
 </p>
 
 
-<div id="org5566a26" class="figure">
+<div id="orgba0e657" class="figure">
 <p><a href="tts-beebot/original-charger-pcb.jpg"><img src="tts-beebot/thumb-original-charger-pcb.jpg" alt="thumb-original-charger-pcb.jpg" /></a>
 </p>
 </div>
@@ -374,7 +374,7 @@ the board is shown below:
 </p>
 
 
-<div id="org3de8546" class="figure">
+<div id="org8125322" class="figure">
 <p><img src="tts-beebot/usb_charger.png" alt="usb_charger.png" />
 </p>
 </div>
@@ -398,7 +398,7 @@ One of the finished PCB can be seen below:
 </p>
 
 
-<div id="org3bb0abe" class="figure">
+<div id="org3ca0c44" class="figure">
 <p><a href="tts-beebot/new-pcb.jpg"><img src="tts-beebot/thumb-new-pcb.jpg" alt="thumb-new-pcb.jpg" /></a>
 </p>
 </div>
@@ -417,7 +417,7 @@ secured with some small amount of hot glue to help with mechanical strength:
 
 
 
-<div id="orgfe9a898" class="figure">
+<div id="org4779c16" class="figure">
 <p><a href="tts-beebot/new-pcb-fit.jpg"><img src="tts-beebot/thumb-new-pcb-fit.jpg" alt="thumb-new-pcb-fit.jpg" /></a>
 </p>
 </div>
@@ -431,7 +431,7 @@ on a circuit that performs this role after mounting the replacement boards:
 </p>
 
 
-<div id="orgf1e7fe4" class="figure">
+<div id="org84994d5" class="figure">
 <p><a href="tts-beebot/anti-glitch-circuit.jpg"><img src="tts-beebot/thumb-anti-glitch-circuit.jpg" alt="thumb-anti-glitch-circuit.jpg" /></a>
 </p>
 </div>
@@ -443,8 +443,8 @@ charger PCB.
 </div>
 </div>
 
-<div id="outline-container-org709a469" class="outline-4">
-<h4 id="org709a469"><span class="section-number-4">5.0.2.</span> Speaker replacement</h4>
+<div id="outline-container-orgd753814" class="outline-4">
+<h4 id="orgd753814"><span class="section-number-4">5.0.2.</span> Speaker replacement</h4>
 <div class="outline-text-4" id="text-5-0-2">
 <p>
 The speaker is placed on the back side of the robot and is pushed down with a plastic post secured by a foam pad which unfortunately means that its replacement
@@ -452,7 +452,7 @@ requires the disassembly of all of the large robot parts, no wires apart from th
 </p>
 
 
-<div id="org101ab44" class="figure">
+<div id="orgbe5d210" class="figure">
 <p><a href="tts-beebot/speaker.jpg"><img src="tts-beebot/thumb-speaker.jpg" alt="thumb-speaker.jpg" /></a>
 </p>
 </div>
@@ -463,7 +463,7 @@ failure is caused by the coil being burned by excessive current and this can be 
 </p>
 
 
-<div id="orge786aee" class="figure">
+<div id="org93af991" class="figure">
 <p><a href="tts-beebot/coil-damage.jpg"><img src="tts-beebot/thumb-coil-damage.jpg" alt="thumb-coil-damage.jpg" /></a>
 </p>
 </div>
@@ -473,7 +473,7 @@ The exact reason for this failure is unknown. By looking at the speaker driver c
 </p>
 
 
-<div id="org33ab7d3" class="figure">
+<div id="org027ea58" class="figure">
 <p><img src="tts-beebot/speaker-circuit.png" alt="speaker-circuit.png" />
 </p>
 </div>
@@ -488,33 +488,33 @@ project has become long enough already. Fixes for the speaker circuit have been 
 <p>
 Fortunately the speaker is a vanilla part that can be easily purchased, the exact size needs to be matched though. Especially the height is important
 as the height of the plastic pole pushing the speaker down cannot be adjusted. I have measured the original speaker and found a suitable replacement
-on <a href="https://www.farnell.com">https://www.farnell.com</a>, the purchase link is down in the <a href="#org1520d43">Replacement parts summary table</a> below.
-Here is the new (much thinner) speaker mounted with 4 foam pads flued to reach the previous height:
+on <a href="https://www.farnell.com">https://www.farnell.com</a>, the purchase link is down in the <a href="#org959f572">Replacement parts summary table</a> below.
+Here is the new (much thinner) speaker mounted with 4 foam pads glued to reach the previous height:
 </p>
 
 
-<div id="org1235fc7" class="figure">
+<div id="org53aab36" class="figure">
 <p><a href="tts-beebot/new-speaker.jpg"><img src="tts-beebot/thumb-new-speaker.jpg" alt="thumb-new-speaker.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgcbaa6ba" class="outline-4">
-<h4 id="orgcbaa6ba"><span class="section-number-4">5.0.3.</span> Battery</h4>
+<div id="outline-container-org32a1c1e" class="outline-4">
+<h4 id="org32a1c1e"><span class="section-number-4">5.0.3.</span> Battery</h4>
 <div class="outline-text-4" id="text-5-0-3">
 <p>
 When the battery capacity fades an original replacement battery can be ordered or a DIY battery can be built using a Molex Microblade 51005 Series used in
 small RC models. It can be easily purchased from multiple sources. The cell used is a Lithium-Ion 3.7V pouch cell. The dimensions of the battery bay
-can be referenced in the <a href="#org1520d43">Replacement parts summary table</a> below.
+can be referenced in the <a href="#org959f572">Replacement parts summary table</a> below.
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org1520d43" class="outline-2">
-<h2 id="org1520d43"><span class="section-number-2">6.</span> Replacement parts summary</h2>
+<div id="outline-container-org959f572" class="outline-2">
+<h2 id="org959f572"><span class="section-number-2">6.</span> Replacement parts summary</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 This table summarizes the various replacement parts that can be either ordered or built by an average skilled hacker or maker. Detailed specifications as well
@@ -562,7 +562,7 @@ as links to PCB layouts and ordering links are included.
 </tr>
 
 <tr>
-<td class="org-left"><a href="https://pop.fsck.pl">fsck.pl</a></td>
+<td class="org-left">[[<a href="https://pop.fsck.pl/hardware/tts-beebot.html">https://pop.fsck.pl/hardware/tts-beebot.html</a>][fsck.pl</td>
 <td class="org-left">TTS BEEBOT USB CHARGER PCB</td>
 <td class="org-left">N/A</td>
 <td class="org-left"><a href="tts-beebot/rev-B1.zip">Kicad project</a></td>
@@ -597,7 +597,7 @@ as links to PCB layouts and ordering links are included.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-12-28 17:35</p>
+<p class="date">Created: 2024-01-01 15:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
