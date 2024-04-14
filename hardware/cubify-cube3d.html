@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-23 18:39 -->
+<!-- 2024-04-14 22:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cubify Cube 3D printer</title>
@@ -201,18 +201,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org72c6765">1. Main board</a>
+<li><a href="#orgfb4bc37">1. Main board</a>
 <ul>
-<li><a href="#orgfcda12c">1.1. Chips</a></li>
-<li><a href="#org03b6645">1.2. Connectors</a></li>
-<li><a href="#orgc7eef56">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
+<li><a href="#org1cf82de">1.1. Chips</a></li>
+<li><a href="#orgeaed930">1.2. Connectors</a></li>
+<li><a href="#orgf86632a">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
 </ul>
 </li>
-<li><a href="#orgcaaad23">2. Cartridges</a></li>
-<li><a href="#orgb111981">3. Software</a></li>
-<li><a href="#orgf728dae">4. CONN12 output while printing</a></li>
-<li><a href="#org0c64f6b">5. Firmware update</a></li>
-<li><a href="#org06dd4ba">6. Links</a></li>
+<li><a href="#orgca293b3">2. Cartridges</a></li>
+<li><a href="#orgbb7834b">3. Software</a></li>
+<li><a href="#org7d68118">4. CONN12 output while printing</a></li>
+<li><a href="#org7ade57a">5. Firmware update</a></li>
+<li><a href="#orgc234279">6. Links</a></li>
 </ul>
 </div>
 </div>
@@ -228,12 +228,12 @@ two cartridges of filament.
 Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </p>
 
-<div id="outline-container-org72c6765" class="outline-2">
-<h2 id="org72c6765"><span class="section-number-2">1.</span> Main board</h2>
+<div id="outline-container-orgfb4bc37" class="outline-2">
+<h2 id="orgfb4bc37"><span class="section-number-2">1.</span> Main board</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgfcda12c" class="outline-3">
-<h3 id="orgfcda12c"><span class="section-number-3">1.1.</span> Chips</h3>
+<div id="outline-container-org1cf82de" class="outline-3">
+<h3 id="org1cf82de"><span class="section-number-3">1.1.</span> Chips</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -294,8 +294,8 @@ Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </div>
 
 
-<div id="outline-container-org03b6645" class="outline-3">
-<h3 id="org03b6645"><span class="section-number-3">1.2.</span> Connectors</h3>
+<div id="outline-container-orgeaed930" class="outline-3">
+<h3 id="orgeaed930"><span class="section-number-3">1.2.</span> Connectors</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 There are the following connectors on the board:
@@ -311,8 +311,8 @@ There are the following connectors on the board:
 </div>
 </div>
 
-<div id="outline-container-orgc7eef56" class="outline-3">
-<h3 id="orgc7eef56"><span class="section-number-3">1.3.</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
+<div id="outline-container-orgf86632a" class="outline-3">
+<h3 id="orgf86632a"><span class="section-number-3">1.3.</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 I soldered two new pin headers onto the board to access the PICkit2 connector as well as the CONN12 which I expected would be the serial port. 
@@ -472,8 +472,8 @@ EXIT
 </div>
 </div>
 
-<div id="outline-container-orgcaaad23" class="outline-2">
-<h2 id="orgcaaad23"><span class="section-number-2">2.</span> Cartridges</h2>
+<div id="outline-container-orgca293b3" class="outline-2">
+<h2 id="orgca293b3"><span class="section-number-2">2.</span> Cartridges</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The chip inside the cartridge with filament is a DS28E01.
@@ -481,8 +481,8 @@ The chip inside the cartridge with filament is a DS28E01.
 </div>
 </div>
 
-<div id="outline-container-orgb111981" class="outline-2">
-<h2 id="orgb111981"><span class="section-number-2">3.</span> Software</h2>
+<div id="outline-container-orgbb7834b" class="outline-2">
+<h2 id="orgbb7834b"><span class="section-number-2">3.</span> Software</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The software needed is the older Cubify not the new Cube Print. When trying to print the new files the printer displays a message "Cannot print this file".
@@ -491,8 +491,8 @@ The software needed is the older Cubify not the new Cube Print. When trying to p
 </div>
 
 
-<div id="outline-container-orgf728dae" class="outline-2">
-<h2 id="orgf728dae"><span class="section-number-2">4.</span> CONN12 output while printing</h2>
+<div id="outline-container-org7d68118" class="outline-2">
+<h2 id="org7d68118"><span class="section-number-2">4.</span> CONN12 output while printing</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Besides communication from the microcontroller to the WLAN chip the CONN12 serial port serves also as a debug console. I have wired an external cable reaching out of the case
@@ -1283,8 +1283,8 @@ After print an information about firmware update is shown. This might mean that 
 </div>
 </div>
 
-<div id="outline-container-org0c64f6b" class="outline-2">
-<h2 id="org0c64f6b"><span class="section-number-2">5.</span> Firmware update</h2>
+<div id="outline-container-org7ade57a" class="outline-2">
+<h2 id="org7ade57a"><span class="section-number-2">5.</span> Firmware update</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 When the update firmware option is selected the USB port becomes active and reports as a Microchip USB HID Bootloader:
@@ -1398,8 +1398,8 @@ Reading memory&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org06dd4ba" class="outline-2">
-<h2 id="org06dd4ba"><span class="section-number-2">6.</span> Links</h2>
+<div id="outline-container-orgc234279" class="outline-2">
+<h2 id="orgc234279"><span class="section-number-2">6.</span> Links</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Forum thread about teardown of cubify cube 3:
@@ -1413,9 +1413,7 @@ Firmware files are supposed to be found at: <a href="http://cubify.s3.amazonaws.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-08-23 18:39</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="author">Author: Maciej Grela &lt;<a href="mailto:enki@fsck.pl">enki@fsck.pl</a>&gt;</p><p><a href="https://fediring.net/previous?host=pop.fsck.pl">←</a><a href="https://fediring.net/">Fediring</a><a href="https://fediring.net/next?host=pop.fsck.pl">→</a></p>
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-23 18:39 -->
+<!-- 2024-04-14 22:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HIKVISION DS-7316HI-S</title>
@@ -201,10 +201,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org692598d">1. Symptoms</a>
+<li><a href="#orgcded1e9">1. Symptoms</a>
 <ul>
-<li><a href="#orgda1c1a2">1.1. RS-232 interface fix</a></li>
-<li><a href="#org0f980c4">1.2. Firmware restore</a></li>
+<li><a href="#orgfdfdc1b">1.1. RS-232 interface fix</a></li>
+<li><a href="#org9a45586">1.2. Firmware restore</a></li>
 </ul>
 </li>
 </ul>
@@ -212,8 +212,8 @@
 </div>
 <base href="hikvision-ds-7316hi-s/"/>
 
-<div id="outline-container-org692598d" class="outline-2">
-<h2 id="org692598d"><span class="section-number-2">1.</span> Symptoms</h2>
+<div id="outline-container-orgcded1e9" class="outline-2">
+<h2 id="orgcded1e9"><span class="section-number-2">1.</span> Symptoms</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The <a href="https://www.hikvision.com/UploadFile/image/US-Technical%20Specification%20of%20DS-7304HI-S_7308HI-S_7316HI-S.pdf">HIKVISION DS-7316HI-S</a> is an NVR supporting analog CCTV cameras which I got for free. It was declared to be broken and indeed was failing to boot. The console output was providing the following hints:
@@ -239,8 +239,8 @@ HKVS #
 </div>
 </div>
 
-<div id="outline-container-orgda1c1a2" class="outline-3">
-<h3 id="orgda1c1a2"><span class="section-number-3">1.1.</span> RS-232 interface fix</h3>
+<div id="outline-container-orgfdfdc1b" class="outline-3">
+<h3 id="orgfdfdc1b"><span class="section-number-3">1.1.</span> RS-232 interface fix</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The bootloader is U-Boot but the console did not work. It would print the above messages but did not accept any input. After investigating this I found out that the RS-232 interface 
@@ -348,8 +348,8 @@ We can see what is wrong here, the 'bootcmd' contains instructions to load the u
 </div>
 </div>
 
-<div id="outline-container-org0f980c4" class="outline-3">
-<h3 id="org0f980c4"><span class="section-number-3">1.2.</span> Firmware restore</h3>
+<div id="outline-container-org9a45586" class="outline-3">
+<h3 id="org9a45586"><span class="section-number-3">1.2.</span> Firmware restore</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 I found a firmware image and a user's manual on a <a href="https://down.dipol.com.pl/Cctv/M76080/">Polish CCTV shop download site</a> (old-skool plain file server!). In order to perform the update you need to setup a TFTP server responding to the
@@ -1122,9 +1122,7 @@ The repair seems to be successful as the boot splashscreen appears on the connec
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Maciej Grela</p>
-<p class="date">Created: 2023-08-23 18:39</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="author">Author: Maciej Grela &lt;<a href="mailto:enki@fsck.pl">enki@fsck.pl</a>&gt;</p><p><a href="https://fediring.net/previous?host=pop.fsck.pl">←</a><a href="https://fediring.net/">Fediring</a><a href="https://fediring.net/next?host=pop.fsck.pl">→</a></p>
 </div>
 </body>
 </html>
