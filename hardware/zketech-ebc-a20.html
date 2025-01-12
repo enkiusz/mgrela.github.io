@@ -1,0 +1,2296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-12 16:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZKETECH EBC-A20 Battery Tester</title>
+<meta name="author" content="Maciej Grela" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">ZKETECH EBC-A20 Battery Tester</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org72ea577">1. Introduction</a></li>
+<li><a href="#org64bcdef">2. Control interface</a>
+<ul>
+<li><a href="#org241465b">2.1. Control protocol</a>
+<ul>
+<li><a href="#org8373e99">2.1.1. Packet structure</a></li>
+<li><a href="#org716688f">2.1.2. Field reference</a></li>
+<li><a href="#orgbcd5a42">2.1.3. Packet reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<base href="zketech-ebc-a20/"/>
+
+<div id="outline-container-org72ea577" class="outline-2">
+<h2 id="org72ea577"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The ZKETECH EBC-A20 is a battery tester with integrated charging and discharging circuits. Its basic capabilities are:
+</p>
+
+<ul class="org-ul">
+<li>voltage range when discharging 0 - 30 V</li>
+<li>voltage range while charging 0 - 18 V</li>
+<li>charging current range 0.1 - 5 A</li>
+<li>discharge current range: 0.1 - 20 A</li>
+</ul>
+
+<p>
+The device is pretty popular and there are multiple places where a manual can be downloaded with more detailed specifications.
+The focus of this article is the control and monitoring interface provided by the battery tester
+</p>
+</div>
+</div>
+
+<div id="outline-container-org64bcdef" class="outline-2">
+<h2 id="org64bcdef"><span class="section-number-2">2.</span> Control interface</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The device is equipped with a Mini USB socket on the back where a provided cable is connected. The cable contains a USB &lt;-&gt; serial converter
+as the Mini USB connector actually carries serial port signals. I have not checked what happens when an ordinary USB cable is plugged there and
+connected to a USB hub. I hope the designers took that possibility into account.
+</p>
+
+<p>
+The control interface can be used by a vendor-provided piece of software - "EB Software(English Version)_v1.8.8.rar" (<a href="zketech-ebc-a20/EB Software(English Version)_v1.8.8.rar">mirror</a>). This piece of
+software can also be found relatively easily.
+</p>
+
+<p>
+The physical layer of the control interface is a 9600 bps, 8 bit, <b>odd parity</b>.
+</p>
+</div>
+
+<div id="outline-container-org241465b" class="outline-3">
+<h3 id="org241465b"><span class="section-number-3">2.1.</span> Control protocol</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org8373e99" class="outline-4">
+<h4 id="org8373e99"><span class="section-number-4">2.1.1.</span> Packet structure</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+The control protocol exchanges packets (also called "frames" in this document) between the controller PC and the battery tester.
+The packets are binary encoded, a typical packet is shown below in hexadecimal:
+</p>
+
+<code>
+fa 0c 00 00 02 1e 00 00 00 00 00 0a 01 3c 00 0a 09 24 f8
+</code>
+
+<p>
+The basic structure of the encoded packet is shown below:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Offset</th>
+<th scope="col" class="org-left">0</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+<th scope="col" class="org-right">5</th>
+<th scope="col" class="org-right">6</th>
+<th scope="col" class="org-right">7</th>
+<th scope="col" class="org-right">8</th>
+<th scope="col" class="org-right">9</th>
+<th scope="col" class="org-right">10</th>
+<th scope="col" class="org-left">11</th>
+<th scope="col" class="org-right">12</th>
+<th scope="col" class="org-left">13</th>
+<th scope="col" class="org-right">14</th>
+<th scope="col" class="org-left">15</th>
+<th scope="col" class="org-right">16</th>
+<th scope="col" class="org-right">17</th>
+<th scope="col" class="org-left">18</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Value</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">fa</td>
+<td class="org-left">0c</td>
+<td class="org-right">00</td>
+<td class="org-right">00</td>
+<td class="org-right">02</td>
+<td class="org-right">1e</td>
+<td class="org-right">00</td>
+<td class="org-right">00</td>
+<td class="org-right">00</td>
+<td class="org-right">00</td>
+<td class="org-right">00</td>
+<td class="org-left">0a</td>
+<td class="org-right">01</td>
+<td class="org-left">3c</td>
+<td class="org-right">00</td>
+<td class="org-left">0a</td>
+<td class="org-right">09</td>
+<td class="org-right">24</td>
+<td class="org-left">f8</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Description</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">CRC</td>
+<td class="org-left">EOF</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Each packet begins with a 0xfa byte and ands with 0xf8. These are marked with <b>SOF</b> and <b>EOF</b>. The <b>payload</b> are the bytes between offset 1
+and 16 (inclusively). A packet also contains a "CRC" which is a simple checksum not an actual <a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">Cyclic redundancy check</a>. It can be calculated by
+performing a XOR operation on the payload bytes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #268bd2;">hex</span><span style="color: #268bd2;">(</span><span style="color: #d75fd7;">0x0c</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x02</span> ^ <span style="color: #d75fd7;">0x1e</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x0a</span> ^ <span style="color: #d75fd7;">0x01</span> ^ <span style="color: #d75fd7;">0x3c</span> ^ <span style="color: #d75fd7;">0x00</span> ^ <span style="color: #d75fd7;">0x0a</span> ^ <span style="color: #d75fd7;">0x09</span><span style="color: #268bd2;">)</span>
+<span style="color: #af875f;">'0x24'</span>
+&gt;&gt;&gt;
+</pre>
+</div>
+
+<p>
+A number of packet types sent by the battery tester to the PC or vice-versa have been identified, an example of which is the packet sent when
+the controlling software requests cell charging:
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Offset</th>
+<th scope="col" class="org-right">0</th>
+<th scope="col" class="org-right">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+<th scope="col" class="org-right">5</th>
+<th scope="col" class="org-right">6</th>
+<th scope="col" class="org-right">7</th>
+<th scope="col" class="org-right">8</th>
+<th scope="col" class="org-right">9</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Start charging</b></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">fa</td>
+<td class="org-right">21</td>
+<td class="org-right">00</td>
+<td class="org-right">32</td>
+<td class="org-right">01</td>
+<td class="org-right">3c</td>
+<td class="org-right">00</td>
+<td class="org-right">0a</td>
+<td class="org-right">1c</td>
+<td class="org-right">f8</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">SOF</td>
+<td class="org-right">PT</td>
+<td class="org-right">I1</td>
+<td class="org-right">I2</td>
+<td class="org-right">V1</td>
+<td class="org-right">V2</td>
+<td class="org-right">CUT1</td>
+<td class="org-right">CUT2</td>
+<td class="org-right">CRC</td>
+<td class="org-right">EOF</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+The first payload byte is the packet type identifier - 0x21 represents the <b>Start charging</b> packet. Next there are 3 16-bit fields encoding:
+</p>
+
+<ul class="org-ul">
+<li>the charging current (in units of 10 mA)</li>
+<li>the charging voltage (in units of 10 mV)</li>
+<li>the cutoff current (in units of 10 mA)</li>
+</ul>
+
+<p>
+Each of those values is encoded using the following scheme:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; I1 = <span style="color: #d75fd7;">0x00</span>
+&gt;&gt;&gt; I2 = <span style="color: #d75fd7;">0x32</span>
+&gt;&gt;&gt; <span style="color: #d75fd7;">240</span> * I1 + I2
+<span style="color: #d75fd7;">50</span>
+</pre>
+</div>
+
+<p>
+In effect this is a "base240" encoding and it's purpose is likely to prevent values larger than 240 (0xf0) to be present in the packet bytes.
+This makes sense when you consider the fact that bytes 0xfa and 0xf8 are used as "control codes" to mark start and end of packets. In summary the
+packet above encodes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; I1 = <span style="color: #d75fd7;">0x00</span>
+&gt;&gt;&gt; I2 = <span style="color: #d75fd7;">0x32</span>
+&gt;&gt;&gt; <span style="color: #d75fd7;">240</span> * I1 + I2
+<span style="color: #d75fd7;">50</span>  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">charging current 50 * 10 mA = 500 mA</span>
+&gt;&gt;&gt; V1 = <span style="color: #d75fd7;">0x01</span>
+&gt;&gt;&gt; V2 = <span style="color: #d75fd7;">0x3c</span>
+&gt;&gt;&gt; <span style="color: #d75fd7;">240</span> * V1 + V2
+<span style="color: #d75fd7;">300</span>  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">charging voltage 300 * 10 mV = 3V</span>
+&gt;&gt;&gt; CUT1 = <span style="color: #d75fd7;">0x00</span>
+&gt;&gt;&gt; CUT2 = <span style="color: #d75fd7;">0x0a</span>
+&gt;&gt;&gt; <span style="color: #d75fd7;">240</span> * CUT1 + CUT2
+<span style="color: #d75fd7;">10</span>  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">cutoff current 10 * 10 mA = 100 mA</span>
+&gt;&gt;&gt;
+</pre>
+</div>
+
+<p>
+What follows is a table with descriptions of all of the packets that have been observed so far together with their types, encoded fields and other
+extra information.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org716688f" class="outline-4">
+<h4 id="org716688f"><span class="section-number-4">2.1.2.</span> Field reference</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Fields like current or voltage have common encoding for all packet types:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Field name</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Unit</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">PT</td>
+<td class="org-left">Packet type</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">DT</td>
+<td class="org-left">Device type</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">0x09 is EBC-A20</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">(FW1, FW2)</td>
+<td class="org-left">Firmware version</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Displayed in the ZKETECH aplication, for example 302 is displayed as 'V3.02'</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">(T1, T2)</td>
+<td class="org-left">Time</td>
+<td class="org-left">min</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">(I1, I2)</td>
+<td class="org-left">Current</td>
+<td class="org-left">10 mA</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">(V1, V2</td>
+<td class="org-left">Voltage</td>
+<td class="org-left">1 mV</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">(C1, C2)</td>
+<td class="org-left">Charge count</td>
+<td class="org-left">1 mAh</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">(E1, E2)</td>
+<td class="org-left">Unknown</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Might be energy in Wh</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">(CC1, CC2)</td>
+<td class="org-left">Charging current</td>
+<td class="org-left">10 mA</td>
+<td class="org-left">Charging</td>
+</tr>
+
+<tr>
+<td class="org-left">(CV1, CV2)</td>
+<td class="org-left">Charging voltage</td>
+<td class="org-left">10 mV</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">(CUT1, CUT2)</td>
+<td class="org-left">Cutoff current</td>
+<td class="org-left">10 mA</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">(CC1, CC2)</td>
+<td class="org-left">Charging current</td>
+<td class="org-left">10 mA</td>
+<td class="org-left">Discharging</td>
+</tr>
+
+<tr>
+<td class="org-left">(CUTV1, CUTV2)</td>
+<td class="org-left">Cutoff voltage</td>
+<td class="org-left">10 mV</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgbcd5a42" class="outline-4">
+<h4 id="orgbcd5a42"><span class="section-number-4">2.1.3.</span> Packet reference</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+This table does not exhaust all of the packet that I have seen while sniffing the traffic between the original software and the battery tester. A bit more is
+documented in the <a href="https://gist.github.com/enkiusz/6408645efd622b8a638a14957cd37f47">Python code</a>.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Kind</th>
+<th scope="col" class="org-left">0</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">4</th>
+<th scope="col" class="org-left">5</th>
+<th scope="col" class="org-left">6</th>
+<th scope="col" class="org-left">7</th>
+<th scope="col" class="org-left">8</th>
+<th scope="col" class="org-left">9</th>
+<th scope="col" class="org-left">10</th>
+<th scope="col" class="org-left">11</th>
+<th scope="col" class="org-left">12</th>
+<th scope="col" class="org-left">13</th>
+<th scope="col" class="org-left">14</th>
+<th scope="col" class="org-left">15</th>
+<th scope="col" class="org-left">16</th>
+<th scope="col" class="org-left">17</th>
+<th scope="col" class="org-left">18</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Description</b></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">02</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">0a</td>
+<td class="org-left">13</td>
+<td class="org-left">00</td>
+<td class="org-left">14</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">01</td>
+<td class="org-left">0a</td>
+<td class="org-left">00</td>
+<td class="org-left">0a</td>
+<td class="org-left">09</td>
+<td class="org-left">35</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">Tester idle,</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CV1</td>
+<td class="org-left">CV2</td>
+<td class="org-left">CUT1</td>
+<td class="org-left">CUT2</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">sent after connecting</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">66</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">08</td>
+<td class="org-left">88</td>
+<td class="org-left">00</td>
+<td class="org-left">14</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">01</td>
+<td class="org-left">3e</td>
+<td class="org-left">0c</td>
+<td class="org-left">8f</td>
+<td class="org-left">09</td>
+<td class="org-left">05</td>
+<td class="org-left">09</td>
+<td class="org-left">4b</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">FW1</td>
+<td class="org-left">FW2</td>
+<td class="org-left">unk</td>
+<td class="org-left">unk</td>
+<td class="org-left">unk</td>
+<td class="org-left">unk</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">Idle FW report,</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">sent after connecting</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Maybe HW version too?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">unk means unknown</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">0c</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">07</td>
+<td class="org-left">de</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">01</td>
+<td class="org-left">b4</td>
+<td class="org-left">00</td>
+<td class="org-left">0a</td>
+<td class="org-left">09</td>
+<td class="org-left">63</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CV1</td>
+<td class="org-left">CV2</td>
+<td class="org-left">CUT1</td>
+<td class="org-left">CUT2</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">CC-CV charging in progress</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">70</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">04</td>
+<td class="org-left">53</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">01</td>
+<td class="org-left">3e</td>
+<td class="org-left">0c</td>
+<td class="org-left">8f</td>
+<td class="org-left">09</td>
+<td class="org-left">05</td>
+<td class="org-left">09</td>
+<td class="org-left">63</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">FW1</td>
+<td class="org-left">FW2</td>
+<td class="org-left">unk</td>
+<td class="org-left">unk</td>
+<td class="org-left">unk</td>
+<td class="org-left">unk</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">CC-CV charging FW report,</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">sent for a few</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">seconds after</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">charging begins</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">16</td>
+<td class="org-left">00</td>
+<td class="org-left">0a</td>
+<td class="org-left">0a</td>
+<td class="org-left">64</td>
+<td class="org-left">00</td>
+<td class="org-left">14</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">01</td>
+<td class="org-left">0a</td>
+<td class="org-left">00</td>
+<td class="org-left">0a</td>
+<td class="org-left">09</td>
+<td class="org-left">5c</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CV1</td>
+<td class="org-left">CV2</td>
+<td class="org-left">CUT1</td>
+<td class="org-left">CUT2</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">CC-CV charging end</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">sent when current cutoff</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">threshold is reached</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">10</td>
+<td class="org-left">49</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">01</td>
+<td class="org-left">3c</td>
+<td class="org-left">00</td>
+<td class="org-left">78</td>
+<td class="org-left">09</td>
+<td class="org-left">27</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CV1</td>
+<td class="org-left">CV2</td>
+<td class="org-left">CUT1</td>
+<td class="org-left">CUT2</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">CC discharge idle</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">0a</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">0f</td>
+<td class="org-left">41</td>
+<td class="org-left">00</td>
+<td class="org-left">02</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">01</td>
+<td class="org-left">3c</td>
+<td class="org-left">00</td>
+<td class="org-left">3c</td>
+<td class="org-left">09</td>
+<td class="org-left">4e</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CV1</td>
+<td class="org-left">CV2</td>
+<td class="org-left">CUT1</td>
+<td class="org-left">CUT2</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">CC discharge in progress</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Status</td>
+<td class="org-left">fa</td>
+<td class="org-left">14</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">0c</td>
+<td class="org-left">77</td>
+<td class="org-left">01</td>
+<td class="org-left">59</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">01</td>
+<td class="org-left">3c</td>
+<td class="org-left">00</td>
+<td class="org-left">78</td>
+<td class="org-left">09</td>
+<td class="org-left">7b</td>
+<td class="org-left">f8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">I1</td>
+<td class="org-left">I2</td>
+<td class="org-left">V1</td>
+<td class="org-left">V2</td>
+<td class="org-left">C1</td>
+<td class="org-left">C2</td>
+<td class="org-left">E1</td>
+<td class="org-left">E2</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CV1</td>
+<td class="org-left">CV2</td>
+<td class="org-left">CUT1</td>
+<td class="org-left">CUT2</td>
+<td class="org-left">DT</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+</tr>
+
+<tr>
+<td class="org-left">CC discharge end</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Command</td>
+<td class="org-left">fa</td>
+<td class="org-left">05</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">05</td>
+<td class="org-left">f8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Connect</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">After this '-PC-' appears</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">on LCD</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Command</td>
+<td class="org-left">fa</td>
+<td class="org-left">06</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">06</td>
+<td class="org-left">f8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Disconnect</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Command</td>
+<td class="org-left">fa</td>
+<td class="org-left">02</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">02</td>
+<td class="org-left">f8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Stop</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Used for both charging and</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">discharging</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Command</td>
+<td class="org-left">fa</td>
+<td class="org-left">21</td>
+<td class="org-left">00</td>
+<td class="org-left">32</td>
+<td class="org-left">01</td>
+<td class="org-left">3c</td>
+<td class="org-left">00</td>
+<td class="org-left">78</td>
+<td class="org-left">02</td>
+<td class="org-left">f8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CV1</td>
+<td class="org-left">CV2</td>
+<td class="org-left">CUT1</td>
+<td class="org-left">CUT2</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Start CC-CV charging</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Command</td>
+<td class="org-left">fa</td>
+<td class="org-left">0a</td>
+<td class="org-left">00</td>
+<td class="org-left">03</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">02</td>
+<td class="org-left">f8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">T1</td>
+<td class="org-left">T2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">CC-CV time?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">sent every minute while</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">charging</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Command</td>
+<td class="org-left">fa</td>
+<td class="org-left">01</td>
+<td class="org-left">00</td>
+<td class="org-left">03</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">00</td>
+<td class="org-left">02</td>
+<td class="org-left">f8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOF</td>
+<td class="org-left">PT</td>
+<td class="org-left">CC1</td>
+<td class="org-left">CC2</td>
+<td class="org-left">CUTV1</td>
+<td class="org-left">CUTV2</td>
+<td class="org-left">T1</td>
+<td class="org-left">T2</td>
+<td class="org-left">CRC</td>
+<td class="org-left">EOF</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Start CC discharge</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">(CUTV1, CUTV2) is the cutoff</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">voltage</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">(T1, T2) is the time limit</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div><h3>Links</h3><p><a href="https://github.com/enkiusz">Github</a>&nbsp;&nbsp;<a href="https://git.sr.ht/~enkiusz/">Sourcehut</a>&nbsp;&nbsp;<a href="https://hackaday.io/projects/hacker/159106">Hackaday</a></p><p><a href="https://fediring.net/previous?host=pop.fsck.pl">←</a>&nbsp;&nbsp;<a href="https://fediring.net/">Fediring</a>&nbsp;&nbsp;<a href="https://fediring.net/next?host=pop.fsck.pl">→</a></p></div>
+</div>
+</body>
+</html>
