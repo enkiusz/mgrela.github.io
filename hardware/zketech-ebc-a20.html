@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:54 -->
+<!-- 2025-02-23 19:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZKETECH EBC-A20 Battery Tester</title>
@@ -432,8 +432,8 @@ performing a XOR operation on the payload bytes:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">&gt;&gt;&gt; <span style="color: #4f97d7;">hex</span><span style="color: #4f97d7;">(</span><span style="color: #a45bad;">0x0c</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x02</span> ^ <span style="color: #a45bad;">0x1e</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x0a</span> ^ <span style="color: #a45bad;">0x01</span> ^ <span style="color: #a45bad;">0x3c</span> ^ <span style="color: #a45bad;">0x00</span> ^ <span style="color: #a45bad;">0x0a</span> ^ <span style="color: #a45bad;">0x09</span><span style="color: #4f97d7;">)</span>
-<span style="color: #9f8766;">'0x24'</span>
+<pre class="src src-python">&gt;&gt;&gt; hex(0x0c ^ 0x00 ^ 0x00 ^ 0x02 ^ 0x1e ^ 0x00 ^ 0x00 ^ 0x00 ^ 0x00 ^ 0x00 ^ 0x0a ^ 0x01 ^ 0x3c ^ 0x00 ^ 0x0a ^ 0x09)
+'0x24'
 &gt;&gt;&gt;
 </pre>
 </div>
@@ -576,10 +576,10 @@ Each 16-bit field value is encoded with 2 bytes using the following scheme:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">&gt;&gt;&gt; I1 = <span style="color: #a45bad;">0x00</span>
-&gt;&gt;&gt; I2 = <span style="color: #a45bad;">0x32</span>
-&gt;&gt;&gt; <span style="color: #a45bad;">240</span> * I1 + I2
-<span style="color: #a45bad;">50</span>
+<pre class="src src-python">&gt;&gt;&gt; I1 = 0x00
+&gt;&gt;&gt; I2 = 0x32
+&gt;&gt;&gt; 240 * I1 + I2
+50
 </pre>
 </div>
 
@@ -590,16 +590,16 @@ packet above encodes the following fields:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">&gt;&gt;&gt; I1 = <span style="color: #a45bad;">0x00</span>
-&gt;&gt;&gt; I2 = <span style="color: #a45bad;">0x32</span>
-&gt;&gt;&gt; <span style="color: #a45bad;">240</span> * I1 + I2
-<span style="color: #a45bad;">50</span>
-&gt;&gt;&gt; V1 = <span style="color: #a45bad;">0x01</span>
-&gt;&gt;&gt; V2 = <span style="color: #a45bad;">0x3c</span>
-&gt;&gt;&gt; <span style="color: #a45bad;">240</span> * V1 + V2https://github.com/dev-strom/esp-ebc-mqtt/blob/main/lib/commands/EbcA20.cpp
-&gt;&gt;&gt; CUT2 = <span style="color: #a45bad;">0x0a</span>
-&gt;&gt;&gt; <span style="color: #a45bad;">240</span> * CUT1 + CUT2
-<span style="color: #a45bad;">10</span>
+<pre class="src src-python">&gt;&gt;&gt; I1 = 0x00
+&gt;&gt;&gt; I2 = 0x32
+&gt;&gt;&gt; 240 * I1 + I2
+50
+&gt;&gt;&gt; V1 = 0x01
+&gt;&gt;&gt; V2 = 0x3c
+&gt;&gt;&gt; 240 * V1 + V2
+&gt;&gt;&gt; CUT2 = 0x0a
+&gt;&gt;&gt; 240 * CUT1 + CUT2
+10
 &gt;&gt;&gt;
 </pre>
 </div>
@@ -611,29 +611,29 @@ Explaining this encoding in prose would be tedious therefore a Python implementa
 
 <div class="org-src-container">
 <pre class="src src-python">
-<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">decode_ranged</span><span style="color: #4f97d7;">(</span>h: <span style="color: #4f97d7;">int</span>, l: <span style="color: #4f97d7;">int</span><span style="color: #4f97d7;">)</span> -&gt; <span style="color: #4f97d7;">float</span>:
-    <span style="color: #9f8766;">"""</span>
-<span style="color: #9f8766;">    Decode a base240 value to a float taking into account different offsets and scaling</span>
-<span style="color: #9f8766;">    factors for multiple ranges.</span>
-<span style="color: #9f8766;">    """</span>
-    <span style="color: #4f97d7; font-weight: bold;">if</span> h &amp; <span style="color: #a45bad;">0x80</span> == <span style="color: #a45bad;">0x80</span>:
-        <span style="color: #4f97d7; font-weight: bold;">if</span> h &amp; <span style="color: #a45bad;">0xe0</span> == <span style="color: #a45bad;">0xe0</span>:
-            <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">range is &gt; 200.0</span>
-            <span style="color: #7590db;">v</span> = <span style="color: #a45bad;">240</span> * <span style="color: #4f97d7;">(</span>h &amp; <span style="color: #a45bad;">0x3f</span><span style="color: #4f97d7;">)</span> + l
-            <span style="color: #7590db;">m</span> = <span style="color: #a45bad;">0</span>.<span style="color: #a45bad;">1</span>
-            <span style="color: #7590db;">offset</span> = <span style="color: #a45bad;">0x1c00</span>
-        <span style="color: #4f97d7; font-weight: bold;">else</span>:
-            <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">10.00 &lt; range &lt; 200.0</span>
-            <span style="color: #7590db;">v</span> = <span style="color: #a45bad;">240</span> * <span style="color: #4f97d7;">(</span>h &amp; <span style="color: #a45bad;">0x7f</span><span style="color: #4f97d7;">)</span> + l
-            <span style="color: #7590db;">m</span> = <span style="color: #a45bad;">0</span>.<span style="color: #a45bad;">01</span>
-            <span style="color: #7590db;">offset</span> = <span style="color: #a45bad;">0x800</span>
-    <span style="color: #4f97d7; font-weight: bold;">else</span>:
-        <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">range is &lt; 10.00</span>
-        <span style="color: #7590db;">v</span> = <span style="color: #a45bad;">240</span> * h + l
-        <span style="color: #7590db;">m</span> = <span style="color: #a45bad;">0</span>.<span style="color: #a45bad;">001</span>
-        <span style="color: #7590db;">offset</span> = <span style="color: #a45bad;">0</span>
+def decode_ranged(h: int, l: int) -&gt; float:
+    """
+    Decode a base240 value to a float taking into account different offsets and scaling
+    factors for multiple ranges.
+    """
+    if h &amp; 0x80 == 0x80:
+        if h &amp; 0xe0 == 0xe0:
+            # range is &gt; 200.0
+            v = 240 * (h &amp; 0x3f) + l
+            m = 0.1
+            offset = 0x1c00
+        else:
+            # 10.00 &lt; range &lt; 200.0
+            v = 240 * (h &amp; 0x7f) + l
+            m = 0.01
+            offset = 0x800
+    else:
+        # range is &lt; 10.00
+        v = 240 * h + l
+        m = 0.001
+        offset = 0
 
-    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7;">(</span>v - offset<span style="color: #4f97d7;">)</span> * m
+    return (v - offset) * m
 </pre>
 </div>
 
