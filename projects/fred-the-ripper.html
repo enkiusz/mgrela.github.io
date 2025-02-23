@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-12 13:44 -->
+<!-- 2025-02-23 16:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fred the Ripper</title>
@@ -201,24 +201,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org783385b">1. Rationale</a>
+<li><a href="#orgf6bbfc7">1. Rationale</a>
 <ul>
-<li><a href="#org6d058b3">1.1. Hardware</a>
+<li><a href="#org25e9085">1.1. Hardware</a>
 <ul>
-<li><a href="#org534d97a">1.1.1. Overview</a></li>
-<li><a href="#orgc58dc6b">1.1.2. The power supplies</a></li>
-<li><a href="#orgcb0a8fe">1.1.3. The disc trays</a></li>
-<li><a href="#org83d7d0e">1.1.4. The arm</a></li>
-<li><a href="#org1fae10a">1.1.5. The drive subsystem</a></li>
-<li><a href="#orgd38220d">1.1.6. The vision subsystem</a></li>
-<li><a href="#orgaca552c">1.1.7. The controller</a></li>
-<li><a href="#org0588ed3">1.1.8. The debugcam</a></li>
+<li><a href="#orgc2f647a">1.1.1. Overview</a></li>
+<li><a href="#org96a6e77">1.1.2. The power supplies</a></li>
+<li><a href="#org42ff91b">1.1.3. The disc trays</a></li>
+<li><a href="#orge0e7434">1.1.4. The arm</a></li>
+<li><a href="#orgef48a2c">1.1.5. The drive subsystem</a></li>
+<li><a href="#org06be0e9">1.1.6. The vision subsystem</a></li>
+<li><a href="#org58c34c0">1.1.7. The controller</a></li>
+<li><a href="#orgeb3af7c">1.1.8. The debugcam</a></li>
 </ul>
 </li>
-<li><a href="#org68ed113">1.2. Software</a></li>
-<li><a href="#orgd816281">1.3. Tests</a>
+<li><a href="#orgd01a3dc">1.2. Software</a></li>
+<li><a href="#orga13c398">1.3. Tests</a>
 <ul>
-<li><a href="#org8d6554b">1.3.1. "Production" runs</a></li>
+<li><a href="#org00a2ef9">1.3.1. "Production" runs</a></li>
 </ul>
 </li>
 </ul>
@@ -244,8 +244,8 @@ the current fatures are:
 </ul>
 
 
-<div id="outline-container-org783385b" class="outline-2">
-<h2 id="org783385b"><span class="section-number-2">1.</span> Rationale</h2>
+<div id="outline-container-orgf6bbfc7" class="outline-2">
+<h2 id="orgf6bbfc7"><span class="section-number-2">1.</span> Rationale</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The reason for this project was to learn how to use the UArm, OpenCV and flex my diy muscles while making something that will be actually useful. The usefullness part
@@ -253,12 +253,12 @@ is me getting rid of two boxes full of old Audio CDs, archives and god-knows-wha
 </p>
 </div>
 
-<div id="outline-container-org6d058b3" class="outline-3">
-<h3 id="org6d058b3"><span class="section-number-3">1.1.</span> Hardware</h3>
+<div id="outline-container-org25e9085" class="outline-3">
+<h3 id="org25e9085"><span class="section-number-3">1.1.</span> Hardware</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org534d97a" class="outline-4">
-<h4 id="org534d97a"><span class="section-number-4">1.1.1.</span> Overview</h4>
+<div id="outline-container-orgc2f647a" class="outline-4">
+<h4 id="orgc2f647a"><span class="section-number-4">1.1.1.</span> Overview</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 The robot consists of 5 subsystems:
@@ -278,7 +278,7 @@ these will be described in detail in the following chapters. An overview of the 
 </p>
 
 
-<div id="orgab2f5b1" class="figure">
+<div id="org45a124a" class="figure">
 <p><img src="block-schematics.svg" alt="block-schematics.svg" class="org-svg" />
 </p>
 </div>
@@ -304,8 +304,8 @@ these will be described in detail in the following chapters. An overview of the 
 </div>
 </div>
 
-<div id="outline-container-orgc58dc6b" class="outline-4">
-<h4 id="orgc58dc6b"><span class="section-number-4">1.1.2.</span> The power supplies</h4>
+<div id="outline-container-org96a6e77" class="outline-4">
+<h4 id="org96a6e77"><span class="section-number-4">1.1.2.</span> The power supplies</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 The supplies are a small <a href="https://microdream.co.uk/delta-electronics-dps-111ab-a-146-6w-psu-power-supply.html">Newton Power Ltd DPS-111AB</a> 146W ATX power supply together with an <a href="https://www.instructables.com/id/The-Introduction-of-XL6009-Step-up-Power-Module-DC/">XL6009</a> step up DC-DC converter to provide 19V for the controller PC. A stable 5V supply with a high current
@@ -315,8 +315,8 @@ ones. It's pretty annoying when your arm, camera, etc. do random resets when the
 </div>
 </div>
 
-<div id="outline-container-orgcb0a8fe" class="outline-4">
-<h4 id="orgcb0a8fe"><span class="section-number-4">1.1.3.</span> The disc trays</h4>
+<div id="outline-container-org42ff91b" class="outline-4">
+<h4 id="org42ff91b"><span class="section-number-4">1.1.3.</span> The disc trays</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 The robot has three disc trays:
@@ -337,8 +337,8 @@ As a protip it's good to make the job of picking up discs easier by cutting two 
 </div>
 </div>
 
-<div id="outline-container-org83d7d0e" class="outline-4">
-<h4 id="org83d7d0e"><span class="section-number-4">1.1.4.</span> The arm</h4>
+<div id="outline-container-orge0e7434" class="outline-4">
+<h4 id="orge0e7434"><span class="section-number-4">1.1.4.</span> The arm</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 The UArm I used was perfect for the task as it had a vacuum pump and suction cup which made it possible to easily grab and manipulate big flat items :). Because the arm is the only place where I have 
@@ -347,7 +347,7 @@ tray is full. This task is achieved thanks to <a href="https://www.vishay.com/do
 </p>
 
 
-<div id="org45b406d" class="figure">
+<div id="org8df9bd8" class="figure">
 <p><a href="disc-presence-sensor.png"><img src="thumb-disc-presence-sensor.png" alt="thumb-disc-presence-sensor.png" /></a>
 </p>
 </div>
@@ -374,8 +374,8 @@ ADC problems described above I could connect only one of the sensors. I chose th
 </div>
 </div>
 
-<div id="outline-container-org1fae10a" class="outline-4">
-<h4 id="org1fae10a"><span class="section-number-4">1.1.5.</span> The drive subsystem</h4>
+<div id="outline-container-orgef48a2c" class="outline-4">
+<h4 id="orgef48a2c"><span class="section-number-4">1.1.5.</span> The drive subsystem</h4>
 <div class="outline-text-4" id="text-1-1-5">
 <p>
 The drive subsystem uses an <a href="https://www.cnet.com/products/sony-optiarc-ad-5260s-dvdrw-r-dl-drive-serial-ata-internal/specs/">Sony Optiarc DVD RW AD-5260S</a> drive connected with a <a href="http://www.jmicron.com/PDF/brief/jm20337.pdf">JMicron JM20337</a> SATA&lt;-&gt;USB bridge to the controller PC. The type of drive used is the limiting factor when it comes to
@@ -385,8 +385,8 @@ to realize that the drive is connected and power has been detected. I'm not sure
 </div>
 </div>
 
-<div id="outline-container-orgd38220d" class="outline-4">
-<h4 id="orgd38220d"><span class="section-number-4">1.1.6.</span> The vision subsystem</h4>
+<div id="outline-container-org06be0e9" class="outline-4">
+<h4 id="org06be0e9"><span class="section-number-4">1.1.6.</span> The vision subsystem</h4>
 <div class="outline-text-4" id="text-1-1-6">
 <p>
 The vision subsystem is used to make photos of archived discs in order to obtain the cover photo of every disc encountered. This greatly helps in later identification of a particular disc. The camera is a 
@@ -399,7 +399,7 @@ The camera is situated above the robot working surface, the holder was built usi
 </p>
 
 
-<div id="orgc6c03c1" class="figure">
+<div id="orgf4bd3dc" class="figure">
 <p><a href="camera-holder.jpg"><img src="thumb-camera-holder.jpg" alt="thumb-camera-holder.jpg" /></a>
 </p>
 </div>
@@ -437,8 +437,8 @@ Because of this I had to build a "fake battery" which was providing USB 5V power
 </div>
 </div>
 
-<div id="outline-container-orgaca552c" class="outline-4">
-<h4 id="orgaca552c"><span class="section-number-4">1.1.7.</span> The controller</h4>
+<div id="outline-container-org58c34c0" class="outline-4">
+<h4 id="org58c34c0"><span class="section-number-4">1.1.7.</span> The controller</h4>
 <div class="outline-text-4" id="text-1-1-7">
 <p>
 The Ftr uses a kektop (<a href="http://www.ntt.pl/index.php?c=1279">NTT HOME W 300P</a> net-top style PC) with an Intel Atom 230 CPU (1.6 GHz), 1 GB of RAM and a small 16GB internal SSD. It's currently running Debian.
@@ -450,15 +450,15 @@ by the 'LCD4USB' driver.
 </p>
 
 
-<div id="org156973d" class="figure">
+<div id="org78dd5b7" class="figure">
 <p><a href="lcd-display.jpg"><img src="thumb-lcd-display.jpg" alt="thumb-lcd-display.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0588ed3" class="outline-4">
-<h4 id="org0588ed3"><span class="section-number-4">1.1.8.</span> The debugcam</h4>
+<div id="outline-container-orgeb3af7c" class="outline-4">
+<h4 id="orgeb3af7c"><span class="section-number-4">1.1.8.</span> The debugcam</h4>
 <div class="outline-text-4" id="text-1-1-8">
 <p>
 The debugcam is a simple webcam recording every rip operation for debugging of mechanical faults. The resolution and frame rates are quite low (320x240 and 10 FPS) but it's enough to figure out what
@@ -466,7 +466,7 @@ happened when you find a disk next to the drive in a place it's not supposed to 
 </p>
 
 
-<div id="orgb73258b" class="figure">
+<div id="org2599a87" class="figure">
 <p><a href="debugcam.jpg"><img src="thumb-debugcam.jpg" alt="thumb-debugcam.jpg" /></a>
 </p>
 </div>
@@ -482,8 +482,8 @@ An example video from the debugcam:
 </div>
 </div>
 
-<div id="outline-container-org68ed113" class="outline-3">
-<h3 id="org68ed113"><span class="section-number-3">1.2.</span> Software</h3>
+<div id="outline-container-orgd01a3dc" class="outline-3">
+<h3 id="orgd01a3dc"><span class="section-number-3">1.2.</span> Software</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The software is currently written in Python and can be downloaded from <a href="https://github.com/mgrela/fred-the-ripper">github repository</a>:
@@ -529,8 +529,8 @@ The Python code attempts to detect (and sometimes correct) a few failure modes t
 </div>
 
 
-<div id="outline-container-orgd816281" class="outline-3">
-<h3 id="orgd816281"><span class="section-number-3">1.3.</span> Tests</h3>
+<div id="outline-container-orga13c398" class="outline-3">
+<h3 id="orga13c398"><span class="section-number-3">1.3.</span> Tests</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 See the robot in action on the <a href="https://vimeo.com/254591558">video</a>. This is a test run containing one short mode1 data cd and an empty CD-R to simulate a disc that can't be read and this goes to the "FAILED" tray.
@@ -538,8 +538,8 @@ See the robot in action on the <a href="https://vimeo.com/254591558">video</a>. 
 </div>
 
 
-<div id="outline-container-org8d6554b" class="outline-4">
-<h4 id="org8d6554b"><span class="section-number-4">1.3.1.</span> "Production" runs</h4>
+<div id="outline-container-org00a2ef9" class="outline-4">
+<h4 id="org00a2ef9"><span class="section-number-4">1.3.1.</span> "Production" runs</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 After some inital tests when I was reasonably confident that the entire systems works as expected I began "production" runs where I would leave the robot on it's own for a number of hours 
@@ -633,7 +633,7 @@ The information gathered during the production runs has been summarized using th
 </p>
 
 
-<div id="orgcf436de" class="figure">
+<div id="org76b2e21" class="figure">
 <p><img src="production-runs-summary.png" alt="production-runs-summary.png" />
 </p>
 </div>
