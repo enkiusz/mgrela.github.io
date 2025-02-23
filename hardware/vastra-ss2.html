@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vastra SS2 Smart Power Strip</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,48 +202,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org95b26fc">1. Hardware</a>
+<li><a href="#orge818939">1. Hardware</a>
 <ul>
-<li><a href="#org494319d">1.1. Boards</a></li>
-<li><a href="#orgf05372c">1.2. CON Board (Controller)</a>
+<li><a href="#org933c0db">1.1. Boards</a></li>
+<li><a href="#org455f799">1.2. CON Board (Controller)</a>
 <ul>
-<li><a href="#org44b3f83">1.2.1. WR3 Wireless module</a></li>
-<li><a href="#orgdae2717">1.2.2. J2 Button board</a></li>
-<li><a href="#org48d3a65">1.2.3. J4 UART interface</a></li>
-<li><a href="#orgb0d28e3">1.2.4. Tuya Serial Connection</a></li>
-<li><a href="#org5e9ba9f">1.2.5. Extra hacking connector</a></li>
-<li><a href="#org4aa073d">1.2.6. Log UART interface</a></li>
+<li><a href="#org786a519">1.2.1. WR3 Wireless module</a></li>
+<li><a href="#org95d8d89">1.2.2. J2 Button board</a></li>
+<li><a href="#org93e9975">1.2.3. J4 UART interface</a></li>
+<li><a href="#orge548f20">1.2.4. Tuya Serial Connection</a></li>
+<li><a href="#org1042a48">1.2.5. Extra hacking connector</a></li>
+<li><a href="#org223d486">1.2.6. Log UART interface</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org0ec43a9">2. Application</a>
+<li><a href="#org9b37196">2. Application</a>
 <ul>
-<li><a href="#org1505832">2.1. Tuya Protocol Integration data</a>
+<li><a href="#org96e6f68">2.1. Tuya Protocol Integration data</a>
 <ul>
-<li><a href="#orgd6c2eb9">2.1.1. Product info</a></li>
-<li><a href="#org5fae878">2.1.2. Product mode</a></li>
-<li><a href="#orgb95a2e1">2.1.3. Tuya Data Points</a></li>
+<li><a href="#org818d062">2.1.1. Product info</a></li>
+<li><a href="#org53e0394">2.1.2. Product mode</a></li>
+<li><a href="#orgc15a1af">2.1.3. Tuya Data Points</a></li>
 </ul>
 </li>
-<li><a href="#org358dd28">2.2. Tuya Integration Manual</a></li>
+<li><a href="#org108f361">2.2. Tuya Integration Manual</a></li>
 </ul>
 </li>
-<li><a href="#org0eecf44">3. References</a></li>
+<li><a href="#orgeb2b0e2">3. References</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org95b26fc" class="outline-2">
-<h2 id="org95b26fc"><span class="section-number-2">1.</span> Hardware</h2>
+<div id="outline-container-orge818939" class="outline-2">
+<h2 id="orge818939"><span class="section-number-2">1.</span> Hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The hardware inside consists of (apart from the ordinary Schuko sockets) several PCBs connected together with JST XH and pin header connectors.
 </p>
 </div>
 
-<div id="outline-container-org494319d" class="outline-3">
-<h3 id="org494319d"><span class="section-number-3">1.1.</span> Boards</h3>
+<div id="outline-container-org933c0db" class="outline-3">
+<h3 id="org933c0db"><span class="section-number-3">1.1.</span> Boards</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -293,31 +294,31 @@ Some photos of the boards:
 </p>
 
 
-<div id="orgf35acfd" class="figure">
+<div id="org521c4d3" class="figure">
 <p><a href="vastra-ss2/internals.jpg"><img src="vastra-ss2/thumb-internals.jpg" alt="thumb-internals.jpg" /></a>
 </p>
 </div>
 
 
-<div id="orga469c7f" class="figure">
+<div id="org01cf7f5" class="figure">
 <p><a href="vastra-ss2/SW3A-POWER.jpg"><img src="vastra-ss2/thumb-SW3A-POWER.jpg" alt="thumb-SW3A-POWER.jpg" /></a>
 </p>
 </div>
 
 
-<div id="orgb9a2b49" class="figure">
+<div id="orge91dff0" class="figure">
 <p><a href="vastra-ss2/SW3A-Control-WR3.jpg"><img src="vastra-ss2/thumb-SW3A-Control-WR3.jpg" alt="thumb-SW3A-Control-WR3.jpg" /></a>
 </p>
 </div>
 
 
-<div id="orgd2ff349" class="figure">
+<div id="org38e5f95" class="figure">
 <p><a href="vastra-ss2/SW3A-Control-MCU.jpg"><img src="vastra-ss2/thumb-SW3A-Control-MCU.jpg" alt="thumb-SW3A-Control-MCU.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org41348ac" class="figure">
+<div id="org3eb3381" class="figure">
 <p><a href="vastra-ss2/SW3A-Control-ADC.jpg"><img src="vastra-ss2/thumb-SW3A-Control-ADC.jpg" alt="thumb-SW3A-Control-ADC.jpg" /></a>
 </p>
 </div>
@@ -325,8 +326,8 @@ Some photos of the boards:
 </div>
 
 
-<div id="outline-container-orgf05372c" class="outline-3">
-<h3 id="orgf05372c"><span class="section-number-3">1.2.</span> CON Board (Controller)</h3>
+<div id="outline-container-org455f799" class="outline-3">
+<h3 id="org455f799"><span class="section-number-3">1.2.</span> CON Board (Controller)</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Notable parts are 3 ADCs, a MCU and a Tuya WR3 wireless module. Summary below:
@@ -453,8 +454,8 @@ Notable parts are 3 ADCs, a MCU and a Tuya WR3 wireless module. Summary below:
 </div>
 
 
-<div id="outline-container-org44b3f83" class="outline-4">
-<h4 id="org44b3f83"><span class="section-number-4">1.2.1.</span> WR3 Wireless module</h4>
+<div id="outline-container-org786a519" class="outline-4">
+<h4 id="org786a519"><span class="section-number-4">1.2.1.</span> WR3 Wireless module</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 The WR3 Wireless module is based on the Realtek RTL8710BN chip.
@@ -661,8 +662,8 @@ The connections of the WR3 module can be traced to be as follows:
 </div>
 </div>
 
-<div id="outline-container-orgdae2717" class="outline-4">
-<h4 id="orgdae2717"><span class="section-number-4">1.2.2.</span> J2 Button board</h4>
+<div id="outline-container-org95d8d89" class="outline-4">
+<h4 id="org95d8d89"><span class="section-number-4">1.2.2.</span> J2 Button board</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -710,8 +711,8 @@ The connections of the WR3 module can be traced to be as follows:
 </div>
 </div>
 
-<div id="outline-container-org48d3a65" class="outline-4">
-<h4 id="org48d3a65"><span class="section-number-4">1.2.3.</span> J4 UART interface</h4>
+<div id="outline-container-org93e9975" class="outline-4">
+<h4 id="org93e9975"><span class="section-number-4">1.2.3.</span> J4 UART interface</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 The J4 UART interface is connected to the main STC8F UART which can be used for programming the chip. During operation it sends out periodic data 
@@ -812,8 +813,8 @@ set of GPIO pins from the WR3 module.
 </div>
 </div>
 
-<div id="outline-container-orgb0d28e3" class="outline-4">
-<h4 id="orgb0d28e3"><span class="section-number-4">1.2.4.</span> Tuya Serial Connection</h4>
+<div id="outline-container-orge548f20" class="outline-4">
+<h4 id="orge548f20"><span class="section-number-4">1.2.4.</span> Tuya Serial Connection</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 The U6 microcontroller and the U7 Tuya WLAN module are connected with a serial port which uses the TuyaMCU protocol documented here: <a href="https://tasmota.github.io/docs/TuyaMCU/">https://tasmota.github.io/docs/TuyaMCU/</a>
@@ -825,7 +826,7 @@ As the TuyaMCU protocol is mostly half-duplex both lines of communication can be
 </p>
 
 
-<div id="org855b78d" class="figure">
+<div id="orga5809d7" class="figure">
 <p><img src="vastra-ss2/uart-connection.svg" alt="uart-connection.svg" class="org-svg" />
 </p>
 </div>
@@ -874,8 +875,8 @@ $ ./tuyamcu-sniffer.py /dev/ttyUSB0
 </div>
 </div>
 
-<div id="outline-container-org5e9ba9f" class="outline-4">
-<h4 id="org5e9ba9f"><span class="section-number-4">1.2.5.</span> Extra hacking connector</h4>
+<div id="outline-container-org1042a48" class="outline-4">
+<h4 id="org1042a48"><span class="section-number-4">1.2.5.</span> Extra hacking connector</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <p>
 In order to simplify hacking an extra connector has been added to the device wired into all of the relevant pins of the WR3 WLAN module:
@@ -966,8 +967,8 @@ In order to simplify hacking an extra connector has been added to the device wir
 </div>
 </div>
 
-<div id="outline-container-org4aa073d" class="outline-4">
-<h4 id="org4aa073d"><span class="section-number-4">1.2.6.</span> Log UART interface</h4>
+<div id="outline-container-org223d486" class="outline-4">
+<h4 id="org223d486"><span class="section-number-4">1.2.6.</span> Log UART interface</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <p>
 The UART<sub>Log</sub><sub>RXD</sub> and UART<sub>Log</sub><sub>TXD</sub> form an UART interface to the Tuya WR3 module. The port settings are 115200 bits/s, 8n1, the interface is 3.3V TTL logic levels.
@@ -1283,8 +1284,8 @@ WIFI initialized
 </div>
 </div>
 
-<div id="outline-container-org0ec43a9" class="outline-2">
-<h2 id="org0ec43a9"><span class="section-number-2">2.</span> Application</h2>
+<div id="outline-container-org9b37196" class="outline-2">
+<h2 id="org9b37196"><span class="section-number-2">2.</span> Application</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The device's controlling application can be downloaded from the Google Play store under the name "Vastra Smart Devices" and package id <a href="pl.vastra.android.smartdevices.zip">pl.vastra.android.smartdevices</a>. This application
@@ -1292,8 +1293,8 @@ is built based on the Tuya SDKs and it' also possible to use the non-branded "Tu
 </p>
 </div>
 
-<div id="outline-container-org1505832" class="outline-3">
-<h3 id="org1505832"><span class="section-number-3">2.1.</span> Tuya Protocol Integration data</h3>
+<div id="outline-container-org96e6f68" class="outline-3">
+<h3 id="org96e6f68"><span class="section-number-3">2.1.</span> Tuya Protocol Integration data</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The device supports both AP and EZ provisioning modes, however the "Vastra Smart Devices" application seems to only implement the EZ mode (can be recognized by the fast blinking 
@@ -1302,8 +1303,8 @@ code to sniff the WLAN credentials off the air for EZ mode.
 </p>
 </div>
 
-<div id="outline-container-orgd6c2eb9" class="outline-4">
-<h4 id="orgd6c2eb9"><span class="section-number-4">2.1.1.</span> Product info</h4>
+<div id="outline-container-org818d062" class="outline-4">
+<h4 id="org818d062"><span class="section-number-4">2.1.1.</span> Product info</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <pre>
 2022-12-19 15:31.10 [info     ] frame                          fullpacket=b'55aa0301002a7b2270223a227176656e6b6c78667377736769756177222c2276223a22312e302e31222c226d223a307dd9' payload=b'7b2270223a227176656e6b6c78667377736769756177222c2276223a22312e302e31222c226d223a307d' proto_ver=<MCUFrameProtoVer.MCU_TX_VER: 3> type=<MCUFrameType.PRODUCT_INFO_CMD: 1>
@@ -1318,8 +1319,8 @@ b'{"p":"qvenklxfswsgiuaw","v":"1.0.1","m":0}'
 </div>
 </div>
 
-<div id="outline-container-org5fae878" class="outline-4">
-<h4 id="org5fae878"><span class="section-number-4">2.1.2.</span> Product mode</h4>
+<div id="outline-container-org53e0394" class="outline-4">
+<h4 id="org53e0394"><span class="section-number-4">2.1.2.</span> Product mode</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <pre>
 2022-12-19 15:31.10 [info     ] frame                          fullpacket=b'55aa0002000001' payload=b'' proto_ver=<MCUFrameProtoVer.MCU_RX_VER: 0> type=<MCUFrameType.WORK_MODE_CMD: 2>
@@ -1328,8 +1329,8 @@ b'{"p":"qvenklxfswsgiuaw","v":"1.0.1","m":0}'
 </div>
 </div>
 
-<div id="outline-container-orgb95a2e1" class="outline-4">
-<h4 id="orgb95a2e1"><span class="section-number-4">2.1.3.</span> Tuya Data Points</h4>
+<div id="outline-container-orgc15a1af" class="outline-4">
+<h4 id="orgc15a1af"><span class="section-number-4">2.1.3.</span> Tuya Data Points</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1556,8 +1557,8 @@ b'{"p":"qvenklxfswsgiuaw","v":"1.0.1","m":0}'
 </div>
 </div>
 
-<div id="outline-container-org358dd28" class="outline-3">
-<h3 id="org358dd28"><span class="section-number-3">2.2.</span> Tuya Integration Manual</h3>
+<div id="outline-container-org108f361" class="outline-3">
+<h3 id="org108f361"><span class="section-number-3">2.2.</span> Tuya Integration Manual</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 The below is a short howto on controlling the power strip without using the official app but instead integrating it manually with the Tuya cloud. A similar guide can be also
@@ -1600,7 +1601,7 @@ an env.py file alongside the example Python code. The configuration values are i
 </ol>
 
 
-<div id="org73ec0d8" class="figure">
+<div id="org3be9a96" class="figure">
 <p><a href="vastra-ss2/tuya-iot-project.png"><img src="vastra-ss2/tuya-iot-project-thumb.png" alt="tuya-iot-project-thumb.png" /></a>
 </p>
 </div>
@@ -1612,7 +1613,7 @@ used on a mobile phone in Poland will be using the "Central Europe Data Center".
 </ol>
 
 
-<div id="orgee5c0c6" class="figure">
+<div id="org07f1b5a" class="figure">
 <p><a href="vastra-ss2/tuya-select-dc.png"><img src="vastra-ss2/thumb-tuya-select-dc.png" alt="thumb-tuya-select-dc.png" /></a>
 </p>
 </div>
@@ -1631,7 +1632,7 @@ QR code you need to scan can be found in the "Link Tuya App Account" section of 
 </ol>
 
 
-<div id="org126253b" class="figure">
+<div id="org463d30f" class="figure">
 <p><a href="vastra-ss2/tuya-link-app.png"><img src="vastra-ss2/thumb-tuya-link-app.png" alt="thumb-tuya-link-app.png" /></a>
 </p>
 </div>
@@ -1646,7 +1647,7 @@ There should be an indication that devices were sucessfully linked to your proje
 </p>
 
 
-<div id="org5166407" class="figure">
+<div id="org7a6b503" class="figure">
 <p><img src="vastra-ss2/tuya-device-notification.png" alt="tuya-device-notification.png" />
 </p>
 </div>
@@ -1656,7 +1657,7 @@ There should be an indication that devices were sucessfully linked to your proje
 </ol>
 
 
-<div id="org4ae0823" class="figure">
+<div id="orgcf97e42" class="figure">
 <p><a href="vastra-ss2/tuya-devices-view.png"><img src="vastra-ss2/thumb-tuya-devices-view.png" alt="thumb-tuya-devices-view.png" /></a>
 </p>
 </div>
@@ -1668,7 +1669,7 @@ There should be an indication that devices were sucessfully linked to your proje
 </ol>
 
 
-<div id="org54f8448" class="figure">
+<div id="org3b6d5ae" class="figure">
 <p><a href="vastra-ss2/tuya-service-api-authorizations.png"><img src="vastra-ss2/thumb-tuya-service-api-authorizations.png" alt="thumb-tuya-service-api-authorizations.png" /></a>
 </p>
 </div>
@@ -1771,8 +1772,8 @@ $ python3 device.py
 </div>
 </div>
 
-<div id="outline-container-org0eecf44" class="outline-2">
-<h2 id="org0eecf44"><span class="section-number-2">3.</span> References</h2>
+<div id="outline-container-orgeb2b0e2" class="outline-2">
+<h2 id="orgeb2b0e2"><span class="section-number-2">3.</span> References</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Tuya cloud integration instruction

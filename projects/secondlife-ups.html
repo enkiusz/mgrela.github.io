@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Second Life UPS</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,27 +202,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org21e7039">1. Design overview</a></li>
-<li><a href="#org1f72a1a">2. Component layout</a></li>
-<li><a href="#org38955a6">3. The battery</a></li>
-<li><a href="#org5318d08">4. The output board</a></li>
-<li><a href="#org587ed0e">5. The controller board</a></li>
-<li><a href="#org1f16bcf">6. AC power connection</a></li>
-<li><a href="#org803959d">7. Final device</a></li>
+<li><a href="#org3aca0f7">1. Design overview</a></li>
+<li><a href="#orge918651">2. Component layout</a></li>
+<li><a href="#org78fedb8">3. The battery</a></li>
+<li><a href="#org70aa664">4. The output board</a></li>
+<li><a href="#org2364a82">5. The controller board</a></li>
+<li><a href="#org6bada59">6. AC power connection</a></li>
+<li><a href="#orgf9b16de">7. Final device</a></li>
 </ul>
 </div>
 </div>
 <base href="secondlife-ups/"/>
 
-<div id="outline-container-org21e7039" class="outline-2">
-<h2 id="org21e7039"><span class="section-number-2">1.</span> Design overview</h2>
+<div id="outline-container-org3aca0f7" class="outline-2">
+<h2 id="org3aca0f7"><span class="section-number-2">1.</span> Design overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I have decided to build a UPS that would power my home network equipment rack using lithium-ion 18650 cells.
 </p>
 
 
-<div id="org5d397df" class="figure">
+<div id="orgb25bf0c" class="figure">
 <p><a href="rack.jpg"><img src="thumb-rack.jpg" alt="thumb-rack.jpg" /></a>
 </p>
 </div>
@@ -328,15 +329,15 @@ As can be seen there is a large amount of different voltages required in order t
 </div>
 </div>
 
-<div id="outline-container-org1f72a1a" class="outline-2">
-<h2 id="org1f72a1a"><span class="section-number-2">2.</span> Component layout</h2>
+<div id="outline-container-orge918651" class="outline-2">
+<h2 id="orge918651"><span class="section-number-2">2.</span> Component layout</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The 1U case that I used for this project is a case from a ipTime ZC-SW2405 switch:
 </p>
 
 
-<div id="org5547d8d" class="figure">
+<div id="org2a3e298" class="figure">
 <p><a href="switch-case.jpg"><img src="thumb-switch-case.jpg" alt="thumb-switch-case.jpg" /></a>
 </p>
 </div>
@@ -352,7 +353,7 @@ The case size puts a limit on the size and shape of two biggest internal compone
 </p>
 
 
-<div id="org14ff38f" class="figure">
+<div id="org886c146" class="figure">
 <p><a href="basic-layout.jpg"><img src="thumb-basic-layout.jpg" alt="thumb-basic-layout.jpg" /></a>
 </p>
 </div>
@@ -421,8 +422,8 @@ From the basic layout the following elements are COTS components:
 </div>
 </div>
 
-<div id="outline-container-org38955a6" class="outline-2">
-<h2 id="org38955a6"><span class="section-number-2">3.</span> The battery</h2>
+<div id="outline-container-org78fedb8" class="outline-2">
+<h2 id="org78fedb8"><span class="section-number-2">3.</span> The battery</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The battery for the UPS was built using 18650 Li-Ion cells recovered from hoverboard battery packs. These are cheap no-name cells with not a lot of capacity left in them (around 800 mAh) each but I figured
@@ -443,7 +444,7 @@ the rows of the cells:
 </p>
 
 
-<div id="org4d6b4c5" class="figure">
+<div id="org96d2b75" class="figure">
 <p><a href="battery-pack1.jpg"><img src="thumb-battery-pack1.jpg" alt="thumb-battery-pack1.jpg" /></a>
 </p>
 </div>
@@ -454,13 +455,13 @@ on the two pictures below:
 </p>
 
 
-<div id="orga318ed2" class="figure">
+<div id="org897bb7e" class="figure">
 <p><a href="battery-pack2.jpg"><img src="thumb-battery-pack2.jpg" alt="thumb-battery-pack2.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org1e9e5f7" class="figure">
+<div id="org017890b" class="figure">
 <p><a href="battery-pack3.jpg"><img src="thumb-battery-pack3.jpg" alt="thumb-battery-pack3.jpg" /></a>
 </p>
 </div>
@@ -470,13 +471,13 @@ Next, the battery has the main leads soldered to the ends and balancing wires to
 </p>
 
 
-<div id="org214698c" class="figure">
+<div id="orgbd02c98" class="figure">
 <p><a href="battery-pack4.jpg"><img src="thumb-battery-pack4.jpg" alt="thumb-battery-pack4.jpg" /></a>
 </p>
 </div>
 
 
-<div id="orgb0d98fa" class="figure">
+<div id="org8ab2836" class="figure">
 <p><a href="battery-pack5.jpg"><img src="thumb-battery-pack5.jpg" alt="thumb-battery-pack5.jpg" /></a>
 </p>
 </div>
@@ -486,7 +487,7 @@ After applying insulating tape on both ends and also between the cells the batte
 </p>
 
 
-<div id="org429c206" class="figure">
+<div id="org1f621c4" class="figure">
 <p><a href="battery-pack6.jpg"><img src="thumb-battery-pack6.jpg" alt="thumb-battery-pack6.jpg" /></a>
 </p>
 </div>
@@ -496,7 +497,7 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </p>
 
 
-<div id="orgf6b2404" class="figure">
+<div id="org0dafbb7" class="figure">
 <p><a href="battery-pack7.jpg"><img src="thumb-battery-pack7.jpg" alt="thumb-battery-pack7.jpg" /></a>
 </p>
 </div>
@@ -504,8 +505,8 @@ Now two thermal fuses are attached with heat-conducting glue in order to trip a 
 </div>
 
 
-<div id="outline-container-org5318d08" class="outline-2">
-<h2 id="org5318d08"><span class="section-number-2">4.</span> The output board</h2>
+<div id="outline-container-org70aa664" class="outline-2">
+<h2 id="org70aa664"><span class="section-number-2">4.</span> The output board</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The output connectors board provides for the attachment points for all of the devices being powered by the UPS. Due to a "standard" developed in the <a href="https://hackerspace.pl">Warsaw Hackerspace</a> of using Tamiya connectors as universal
@@ -519,7 +520,7 @@ First, the baseboard was fitted and screwed in in front of the cutouts. A piece 
 </p>
 
 
-<div id="org30e0c8d" class="figure">
+<div id="org879875d" class="figure">
 <p><a href="output-board1.jpg"><img src="thumb-output-board1.jpg" alt="thumb-output-board1.jpg" /></a>
 </p>
 </div>
@@ -530,7 +531,7 @@ in a similar fashion:
 </p>
 
 
-<div id="org83c2151" class="figure">
+<div id="org3387071" class="figure">
 <p><a href="output-board2.jpg"><img src="thumb-output-board2.jpg" alt="thumb-output-board2.jpg" /></a>
 </p>
 </div>
@@ -541,7 +542,7 @@ to 12V (yellow wires) and 5V (red wires) power rails and a common ground rail.
 </p>
 
 
-<div id="orge63722a" class="figure">
+<div id="org03213fa" class="figure">
 <p><a href="output-board3.jpg"><img src="thumb-output-board3.jpg" alt="thumb-output-board3.jpg" /></a>
 </p>
 </div>
@@ -553,7 +554,7 @@ DC-DC converters in between. This will not be available on the front but have a 
 </p>
 
 
-<div id="org1590def" class="figure">
+<div id="org155268e" class="figure">
 <p><a href="output-board4.jpg"><img src="thumb-output-board4.jpg" alt="thumb-output-board4.jpg" /></a>
 </p>
 </div>
@@ -565,7 +566,7 @@ In the initial revision of the hardware, the 5V was supplied by an LM2596 module
 </p>
 
 
-<div id="org137e08f" class="figure">
+<div id="org2e5d6ca" class="figure">
 <p><a href="output-board5.jpg"><img src="thumb-output-board5.jpg" alt="thumb-output-board5.jpg" /></a>
 </p>
 </div>
@@ -578,7 +579,7 @@ supply. I knew they would come in handy some day ;)
 </p>
 
 
-<div id="orga8ad5d7" class="figure">
+<div id="org72c58e3" class="figure">
 <p><a href="distance-screw1.jpg"><img src="thumb-distance-screw1.jpg" alt="thumb-distance-screw1.jpg" /></a>
 </p>
 </div>
@@ -588,13 +589,13 @@ The plastic distance rings fit perfectly into the M3 holes of the module and pro
 </p>
 
 
-<div id="org5b1d600" class="figure">
+<div id="orgc154a0d" class="figure">
 <p><a href="distance-screw2.jpg"><img src="thumb-distance-screw2.jpg" alt="thumb-distance-screw2.jpg" /></a>
 </p>
 </div>
 
 
-<div id="org882e320" class="figure">
+<div id="org2f2de7c" class="figure">
 <p><a href="distance-screw3.jpg"><img src="thumb-distance-screw3.jpg" alt="thumb-distance-screw3.jpg" /></a>
 </p>
 </div>
@@ -602,8 +603,8 @@ The plastic distance rings fit perfectly into the M3 holes of the module and pro
 </div>
 
 
-<div id="outline-container-org587ed0e" class="outline-2">
-<h2 id="org587ed0e"><span class="section-number-2">5.</span> The controller board</h2>
+<div id="outline-container-org2364a82" class="outline-2">
+<h2 id="org2364a82"><span class="section-number-2">5.</span> The controller board</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Even though the entire controller board has been manually wired on a breadboard I made a schematics of the connections in <a href="https://www.kicad.org/">KiCad</a> instead of paragraphs of text describing how everything is 
@@ -611,7 +612,7 @@ connected together:
 </p>
 
 
-<div id="org2751310" class="figure">
+<div id="org7632847" class="figure">
 <p><img src="control-circuit.svg" alt="control-circuit.svg" class="org-svg" />
 </p>
 </div>
@@ -621,7 +622,7 @@ If your browser can't render SVGs o<sub>O</sub>, you can download the <a href="c
 </p>
 
 
-<div id="org6d71f12" class="figure">
+<div id="org6634442" class="figure">
 <p><a href="controller-board1.jpg"><img src="thumb-controller-board1.jpg" alt="thumb-controller-board1.jpg" /></a>
 </p>
 </div>
@@ -633,7 +634,7 @@ insulating tape as it was added as an afterthought and I didn't want to disassem
 </p>
 
 
-<div id="orgb9e6f71" class="figure">
+<div id="org9a1a5f1" class="figure">
 <p><a href="fan-power.jpg"><img src="thumb-fan-power.jpg" alt="thumb-fan-power.jpg" /></a>
 </p>
 </div>
@@ -645,30 +646,30 @@ both the charger and the loads.
 </div>
 </div>
 
-<div id="outline-container-org1f16bcf" class="outline-2">
-<h2 id="org1f16bcf"><span class="section-number-2">6.</span> AC power connection</h2>
+<div id="outline-container-org6bada59" class="outline-2">
+<h2 id="org6bada59"><span class="section-number-2">6.</span> AC power connection</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The AC 230V cable has been attached using an electrical pipe fitting usually found in distribution boxes. It's very practical as it's pretty sturdy and provides a good amount of strain relief for the cable:
 </p>
 
 
-<div id="org39ec72a" class="figure">
+<div id="org38bea80" class="figure">
 <p><a href="ac-cable1.jpg"><img src="thumb-ac-cable1.jpg" alt="thumb-ac-cable1.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org803959d" class="outline-2">
-<h2 id="org803959d"><span class="section-number-2">7.</span> Final device</h2>
+<div id="outline-container-orgf9b16de" class="outline-2">
+<h2 id="orgf9b16de"><span class="section-number-2">7.</span> Final device</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The final result before the case is screwed on:
 </p>
 
 
-<div id="orgba84332" class="figure">
+<div id="orgc64f6c5" class="figure">
 <p><a href="final-assembly1.jpg"><img src="thumb-final-assembly1.jpg" alt="thumb-final-assembly1.jpg" /></a>
 </p>
 </div>
@@ -678,7 +679,7 @@ The front panel contains two status LEDs as well as the battery cutoff switch.
 </p>
 
 
-<div id="org9de0c7d" class="figure">
+<div id="org5a0d3a2" class="figure">
 <p><a href="final-assembly2.jpg"><img src="thumb-final-assembly2.jpg" alt="thumb-final-assembly2.jpg" /></a>
 </p>
 </div>
@@ -688,7 +689,7 @@ I have also added stickers to showcase maximum current ratings allowed and label
 </p>
 
 
-<div id="org0c4462b" class="figure">
+<div id="org445a5d8" class="figure">
 <p><a href="stickers1.jpg"><img src="thumb-stickers1.jpg" alt="thumb-stickers1.jpg" /></a>
 </p>
 </div>

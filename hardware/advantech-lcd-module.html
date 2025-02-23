@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Advantech LCD module</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,15 +202,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf1c043f">1. Intro</a></li>
-<li><a href="#org1f96a91">2. Hardware</a>
+<li><a href="#org3139d5c">1. Intro</a></li>
+<li><a href="#orga138160">2. Hardware</a>
 <ul>
 <li>
 <ul>
-<li><a href="#orgfd8957d">2.0.1. Chips</a></li>
+<li><a href="#org6986b8d">2.0.1. Chips</a></li>
 </ul>
 </li>
-<li><a href="#org0826079">2.1. Interfaces</a></li>
+<li><a href="#org4540511">2.1. Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -217,8 +218,8 @@
 </div>
 <base href="advantech-lcd-module/"/>
 
-<div id="outline-container-orgf1c043f" class="outline-2">
-<h2 id="orgf1c043f"><span class="section-number-2">1.</span> Intro</h2>
+<div id="outline-container-org3139d5c" class="outline-2">
+<h2 id="org3139d5c"><span class="section-number-2">1.</span> Intro</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Advantech LCD manipulator is a simple module which contains a text LCD, a keypad all connected to a controller board. <a href="https://www.advantech.com/">Advantech</a> is a industrial and embedded computer
@@ -229,7 +230,7 @@ own projects. The module front looks like this:
 </p>
 
 
-<div id="orgab9b368" class="figure">
+<div id="org0794d60" class="figure">
 <p><a href="module.jpg"><img src="thumb-module.jpg" alt="thumb-module.jpg" /></a>
 </p>
 </div>
@@ -239,19 +240,19 @@ The module back reveals the controller board and connectors:
 </p>
 
 
-<div id="orgb5cfd5b" class="figure">
+<div id="org6e1784b" class="figure">
 <p><a href="module-back.jpg"><img src="thumb-module-back.jpg" alt="thumb-module-back.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1f96a91" class="outline-2">
-<h2 id="org1f96a91"><span class="section-number-2">2.</span> Hardware</h2>
+<div id="outline-container-orga138160" class="outline-2">
+<h2 id="orga138160"><span class="section-number-2">2.</span> Hardware</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgfd8957d" class="outline-4">
-<h4 id="orgfd8957d"><span class="section-number-4">2.0.1.</span> Chips</h4>
+<div id="outline-container-org6986b8d" class="outline-4">
+<h4 id="org6986b8d"><span class="section-number-4">2.0.1.</span> Chips</h4>
 <div class="outline-text-4" id="text-2-0-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -296,8 +297,8 @@ Both chips and their surroundings have been documented on the photos below:
 </div>
 </div>
 
-<div id="outline-container-org0826079" class="outline-3">
-<h3 id="org0826079"><span class="section-number-3">2.1.</span> Interfaces</h3>
+<div id="outline-container-org4540511" class="outline-3">
+<h3 id="org4540511"><span class="section-number-3">2.1.</span> Interfaces</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The RS-232 interface runs at 2400 bps with 8n1 configuration. This interface uses RS-232 voltage levels therefore can't be connected directly to a microcontroller. When the 
@@ -391,7 +392,7 @@ We get the following result:
 </p>
 
 
-<div id="org69e9059" class="figure">
+<div id="org48fca83" class="figure">
 <p><a href="test-lines-displayed.jpg"><img src="thumb-test-lines-displayed.jpg" alt="thumb-test-lines-displayed.jpg" /></a>
 </p>
 </div>

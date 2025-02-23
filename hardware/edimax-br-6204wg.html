@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Edimax BR-6204Wg</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,10 +202,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7fc0f0a">1. Hardware</a></li>
-<li><a href="#org0090d42">2. Bootloader</a></li>
-<li><a href="#org1ae8052">3. Original firmware</a></li>
-<li><a href="#org74afe2f">4. Alternative Firmware</a></li>
+<li><a href="#orgc4f2dcb">1. Hardware</a></li>
+<li><a href="#org881e1f6">2. Bootloader</a></li>
+<li><a href="#orgf98eee2">3. Original firmware</a></li>
+<li><a href="#orgc16b54e">4. Alternative Firmware</a></li>
 </ul>
 </div>
 </div>
@@ -212,8 +213,8 @@
 The random Edimax router found in the junk box will serve as a garage 802.11 AP.
 </p>
 
-<div id="outline-container-org7fc0f0a" class="outline-2">
-<h2 id="org7fc0f0a"><span class="section-number-2">1.</span> Hardware</h2>
+<div id="outline-container-orgc4f2dcb" class="outline-2">
+<h2 id="orgc4f2dcb"><span class="section-number-2">1.</span> Hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The router is built based on the <a href="https://www.linux-mips.org/wiki/Realtek_SOC#Realtek_RTL8186">RTL8186</a> SoC with 2 MB of Flash and 16 MB of RAM. 
@@ -231,8 +232,8 @@ is sold under many different brands).
 </div>
 </div>
 
-<div id="outline-container-org0090d42" class="outline-2">
-<h2 id="org0090d42"><span class="section-number-2">2.</span> Bootloader</h2>
+<div id="outline-container-org881e1f6" class="outline-2">
+<h2 id="org881e1f6"><span class="section-number-2">2.</span> Bootloader</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The bootloader can be activated by pressing the "RESET" button and holding it while the device power is turned on. This process is described
@@ -281,8 +282,8 @@ AUTOBURN: 0/1
 </div>
 </div>
 
-<div id="outline-container-org1ae8052" class="outline-2">
-<h2 id="org1ae8052"><span class="section-number-2">3.</span> Original firmware</h2>
+<div id="outline-container-orgf98eee2" class="outline-2">
+<h2 id="orgf98eee2"><span class="section-number-2">3.</span> Original firmware</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The original firmware boot serial log:
@@ -828,8 +829,8 @@ PS_PORT2NAME=''
 </div>
 </div>
 
-<div id="outline-container-org74afe2f" class="outline-2">
-<h2 id="org74afe2f"><span class="section-number-2">4.</span> Alternative Firmware</h2>
+<div id="outline-container-orgc16b54e" class="outline-2">
+<h2 id="orgc16b54e"><span class="section-number-2">4.</span> Alternative Firmware</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 There are alternative firmware projects for the RTL8186-based routers. The most known one seems to be Wive-NG. I have not tried to install them however as I need only very basic AP functionality. 

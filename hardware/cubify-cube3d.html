@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cubify Cube 3D printer</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,18 +202,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0e6292a">1. Main board</a>
+<li><a href="#orgf549868">1. Main board</a>
 <ul>
-<li><a href="#org481c26d">1.1. Chips</a></li>
-<li><a href="#org03a931e">1.2. Connectors</a></li>
-<li><a href="#org3819f67">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
+<li><a href="#orgd25508e">1.1. Chips</a></li>
+<li><a href="#org95582e1">1.2. Connectors</a></li>
+<li><a href="#org3e6fa85">1.3. Tapping the PIC &lt;-&gt; WLAN communications</a></li>
 </ul>
 </li>
-<li><a href="#org14d0cfb">2. Cartridges</a></li>
-<li><a href="#org0ca32f6">3. Software</a></li>
-<li><a href="#orgf1430a3">4. CONN12 output while printing</a></li>
-<li><a href="#orgdd3cae8">5. Firmware update</a></li>
-<li><a href="#org85cb0c5">6. Links</a></li>
+<li><a href="#org12a629c">2. Cartridges</a></li>
+<li><a href="#org98721da">3. Software</a></li>
+<li><a href="#org894b67a">4. CONN12 output while printing</a></li>
+<li><a href="#orgb63e93b">5. Firmware update</a></li>
+<li><a href="#org2a62852">6. Links</a></li>
 </ul>
 </div>
 </div>
@@ -228,12 +229,12 @@ two cartridges of filament.
 Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </p>
 
-<div id="outline-container-org0e6292a" class="outline-2">
-<h2 id="org0e6292a"><span class="section-number-2">1.</span> Main board</h2>
+<div id="outline-container-orgf549868" class="outline-2">
+<h2 id="orgf549868"><span class="section-number-2">1.</span> Main board</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org481c26d" class="outline-3">
-<h3 id="org481c26d"><span class="section-number-3">1.1.</span> Chips</h3>
+<div id="outline-container-orgd25508e" class="outline-3">
+<h3 id="orgd25508e"><span class="section-number-3">1.1.</span> Chips</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -294,8 +295,8 @@ Screws are Allen H2.5 <b>not</b> Allen H3 or Torx like I thought.
 </div>
 
 
-<div id="outline-container-org03a931e" class="outline-3">
-<h3 id="org03a931e"><span class="section-number-3">1.2.</span> Connectors</h3>
+<div id="outline-container-org95582e1" class="outline-3">
+<h3 id="org95582e1"><span class="section-number-3">1.2.</span> Connectors</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 There are the following connectors on the board:
@@ -311,8 +312,8 @@ There are the following connectors on the board:
 </div>
 </div>
 
-<div id="outline-container-org3819f67" class="outline-3">
-<h3 id="org3819f67"><span class="section-number-3">1.3.</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
+<div id="outline-container-org3e6fa85" class="outline-3">
+<h3 id="org3e6fa85"><span class="section-number-3">1.3.</span> Tapping the PIC &lt;-&gt; WLAN communications</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 I soldered two new pin headers onto the board to access the PICkit2 connector as well as the CONN12 which I expected would be the serial port. 
@@ -472,8 +473,8 @@ EXIT
 </div>
 </div>
 
-<div id="outline-container-org14d0cfb" class="outline-2">
-<h2 id="org14d0cfb"><span class="section-number-2">2.</span> Cartridges</h2>
+<div id="outline-container-org12a629c" class="outline-2">
+<h2 id="org12a629c"><span class="section-number-2">2.</span> Cartridges</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The chip inside the cartridge with filament is a DS28E01.
@@ -481,8 +482,8 @@ The chip inside the cartridge with filament is a DS28E01.
 </div>
 </div>
 
-<div id="outline-container-org0ca32f6" class="outline-2">
-<h2 id="org0ca32f6"><span class="section-number-2">3.</span> Software</h2>
+<div id="outline-container-org98721da" class="outline-2">
+<h2 id="org98721da"><span class="section-number-2">3.</span> Software</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The software needed is the older Cubify not the new Cube Print. When trying to print the new files the printer displays a message "Cannot print this file".
@@ -491,8 +492,8 @@ The software needed is the older Cubify not the new Cube Print. When trying to p
 </div>
 
 
-<div id="outline-container-orgf1430a3" class="outline-2">
-<h2 id="orgf1430a3"><span class="section-number-2">4.</span> CONN12 output while printing</h2>
+<div id="outline-container-org894b67a" class="outline-2">
+<h2 id="org894b67a"><span class="section-number-2">4.</span> CONN12 output while printing</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Besides communication from the microcontroller to the WLAN chip the CONN12 serial port serves also as a debug console. I have wired an external cable reaching out of the case
@@ -1283,8 +1284,8 @@ After print an information about firmware update is shown. This might mean that 
 </div>
 </div>
 
-<div id="outline-container-orgdd3cae8" class="outline-2">
-<h2 id="orgdd3cae8"><span class="section-number-2">5.</span> Firmware update</h2>
+<div id="outline-container-orgb63e93b" class="outline-2">
+<h2 id="orgb63e93b"><span class="section-number-2">5.</span> Firmware update</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 When the update firmware option is selected the USB port becomes active and reports as a Microchip USB HID Bootloader:
@@ -1398,8 +1399,8 @@ Reading memory&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org85cb0c5" class="outline-2">
-<h2 id="org85cb0c5"><span class="section-number-2">6.</span> Links</h2>
+<div id="outline-container-org2a62852" class="outline-2">
+<h2 id="org2a62852"><span class="section-number-2">6.</span> Links</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Forum thread about teardown of cubify cube 3:

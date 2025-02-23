@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HIKVISION DS-7316HI-S</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,10 +202,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org58e2fcf">1. Symptoms</a>
+<li><a href="#org6de51b1">1. Symptoms</a>
 <ul>
-<li><a href="#org483d13a">1.1. RS-232 interface fix</a></li>
-<li><a href="#org6cf06f0">1.2. Firmware restore</a></li>
+<li><a href="#org9adf8a1">1.1. RS-232 interface fix</a></li>
+<li><a href="#org0f27823">1.2. Firmware restore</a></li>
 </ul>
 </li>
 </ul>
@@ -212,8 +213,8 @@
 </div>
 <base href="hikvision-ds-7316hi-s/"/>
 
-<div id="outline-container-org58e2fcf" class="outline-2">
-<h2 id="org58e2fcf"><span class="section-number-2">1.</span> Symptoms</h2>
+<div id="outline-container-org6de51b1" class="outline-2">
+<h2 id="org6de51b1"><span class="section-number-2">1.</span> Symptoms</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The <a href="https://www.hikvision.com/UploadFile/image/US-Technical%20Specification%20of%20DS-7304HI-S_7308HI-S_7316HI-S.pdf">HIKVISION DS-7316HI-S</a> is an NVR supporting analog CCTV cameras which I got for free. It was declared to be broken and indeed was failing to boot. The console output was providing the following hints:
@@ -239,8 +240,8 @@ HKVS #
 </div>
 </div>
 
-<div id="outline-container-org483d13a" class="outline-3">
-<h3 id="org483d13a"><span class="section-number-3">1.1.</span> RS-232 interface fix</h3>
+<div id="outline-container-org9adf8a1" class="outline-3">
+<h3 id="org9adf8a1"><span class="section-number-3">1.1.</span> RS-232 interface fix</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The bootloader is U-Boot but the console did not work. It would print the above messages but did not accept any input. After investigating this I found out that the RS-232 interface 
@@ -348,8 +349,8 @@ We can see what is wrong here, the 'bootcmd' contains instructions to load the u
 </div>
 </div>
 
-<div id="outline-container-org6cf06f0" class="outline-3">
-<h3 id="org6cf06f0"><span class="section-number-3">1.2.</span> Firmware restore</h3>
+<div id="outline-container-org0f27823" class="outline-3">
+<h3 id="org0f27823"><span class="section-number-3">1.2.</span> Firmware restore</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 I found a firmware image and a user's manual on a <a href="https://down.dipol.com.pl/Cctv/M76080/">Polish CCTV shop download site</a> (old-skool plain file server!). In order to perform the update you need to setup a TFTP server responding to the

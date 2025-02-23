@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZKETECH EBC-A20 Battery Tester</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,14 +202,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb5ddc0b">1. Introduction</a></li>
-<li><a href="#orge08946b">2. Control interface</a>
+<li><a href="#org078f2be">1. Introduction</a></li>
+<li><a href="#org2a981b4">2. Control interface</a>
 <ul>
-<li><a href="#org91a0089">2.1. Control protocol</a>
+<li><a href="#org6521063">2.1. Control protocol</a>
 <ul>
-<li><a href="#org4ed4fc4">2.1.1. Packet structure and field encoding</a></li>
-<li><a href="#org91e93b7">2.1.2. Field reference</a></li>
-<li><a href="#org904e8ba">2.1.3. Packet reference</a></li>
+<li><a href="#org0961a1c">2.1.1. Packet structure and field encoding</a></li>
+<li><a href="#org6702d5b">2.1.2. Field reference</a></li>
+<li><a href="#orgd15c795">2.1.3. Packet reference</a></li>
 </ul>
 </li>
 </ul>
@@ -218,8 +219,8 @@
 </div>
 <base href="zketech-ebc-a20/"/>
 
-<div id="outline-container-orgb5ddc0b" class="outline-2">
-<h2 id="orgb5ddc0b"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org078f2be" class="outline-2">
+<h2 id="org078f2be"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The ZKETECH EBC-A20 is a battery tester with integrated charging and discharging circuits. Its basic capabilities are:
@@ -247,8 +248,8 @@ You can use the code on <a href="https://gist.github.com/enkiusz/6408645efd622b8
 </div>
 </div>
 
-<div id="outline-container-orge08946b" class="outline-2">
-<h2 id="orge08946b"><span class="section-number-2">2.</span> Control interface</h2>
+<div id="outline-container-org2a981b4" class="outline-2">
+<h2 id="org2a981b4"><span class="section-number-2">2.</span> Control interface</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The device is equipped with a Mini USB socket on the back where a provided cable is connected. The cable contains a USB &lt;-&gt; serial converter
@@ -266,12 +267,12 @@ The physical layer of the control interface is a 9600 bps, 8 bit, <b>odd parity<
 </p>
 </div>
 
-<div id="outline-container-org91a0089" class="outline-3">
-<h3 id="org91a0089"><span class="section-number-3">2.1.</span> Control protocol</h3>
+<div id="outline-container-org6521063" class="outline-3">
+<h3 id="org6521063"><span class="section-number-3">2.1.</span> Control protocol</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org4ed4fc4" class="outline-4">
-<h4 id="org4ed4fc4"><span class="section-number-4">2.1.1.</span> Packet structure and field encoding</h4>
+<div id="outline-container-org0961a1c" class="outline-4">
+<h4 id="org0961a1c"><span class="section-number-4">2.1.1.</span> Packet structure and field encoding</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 The control protocol exchanges packets (also called "frames" in this document) between the controller PC and the battery tester.
@@ -646,8 +647,8 @@ What follows is a table with descriptions of all of the packets that have been o
 </div>
 </div>
 
-<div id="outline-container-org91e93b7" class="outline-4">
-<h4 id="org91e93b7"><span class="section-number-4">2.1.2.</span> Field reference</h4>
+<div id="outline-container-org6702d5b" class="outline-4">
+<h4 id="org6702d5b"><span class="section-number-4">2.1.2.</span> Field reference</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 Fields like current or voltage have common encoding for all packet types:
@@ -810,8 +811,8 @@ Fields like current or voltage have common encoding for all packet types:
 </div>
 
 
-<div id="outline-container-org904e8ba" class="outline-4">
-<h4 id="org904e8ba"><span class="section-number-4">2.1.3.</span> Packet reference</h4>
+<div id="outline-container-orgd15c795" class="outline-4">
+<h4 id="orgd15c795"><span class="section-number-4">2.1.3.</span> Packet reference</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 This table does not exhaust all of the packet that I have seen while sniffing the traffic between the original software and the battery tester. A bit more is

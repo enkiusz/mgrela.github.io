@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-23 16:32 -->
+<!-- 2025-02-23 16:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Netgear ReadyNAS RN3138</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style>#content { max-width: 90%; margin: auto; }</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,35 +202,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbb1e323">1. Hardware</a>
+<li><a href="#orgae13cf7">1. Hardware</a>
 <ul>
-<li><a href="#org4f79031">1.1. Main board</a>
+<li><a href="#orgc222a0a">1.1. Main board</a>
 <ul>
-<li><a href="#org61578f1">1.1.1. Connectors on the mainboard</a></li>
+<li><a href="#org62b49f5">1.1.1. Connectors on the mainboard</a></li>
 </ul>
 </li>
-<li><a href="#org7d14d11">1.2. Network traffic observed when NAS is booting</a></li>
+<li><a href="#org59f233f">1.2. Network traffic observed when NAS is booting</a></li>
 </ul>
 </li>
-<li><a href="#org78cdd9f">2. Software update mechanism</a>
+<li><a href="#orgefc77ad">2. Software update mechanism</a>
 <ul>
-<li><a href="#org5602dfe">2.1. Booting an alternative operating system</a></li>
+<li><a href="#org4122d8c">2.1. Booting an alternative operating system</a></li>
 </ul>
 </li>
-<li><a href="#org13dfbac">3. Mods</a>
+<li><a href="#orgf80fec9">3. Mods</a>
 <ul>
-<li><a href="#orgcdf2722">3.1. Additional hard disks</a></li>
-<li><a href="#orge8decbd">3.2. Internal USB storage connector</a></li>
-<li><a href="#org28b648d">3.3. Voltage, temperature and fan speed monitoring</a></li>
-<li><a href="#orga119581">3.4. Chassis buttons and LEDs</a></li>
+<li><a href="#org891c1f6">3.1. Additional hard disks</a></li>
+<li><a href="#orgce404e1">3.2. Internal USB storage connector</a></li>
+<li><a href="#org15da28a">3.3. Voltage, temperature and fan speed monitoring</a></li>
+<li><a href="#org2aa2bef">3.4. Chassis buttons and LEDs</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbb1e323" class="outline-2">
-<h2 id="orgbb1e323"><span class="section-number-2">1.</span> Hardware</h2>
+<div id="outline-container-orgae13cf7" class="outline-2">
+<h2 id="orgae13cf7"><span class="section-number-2">1.</span> Hardware</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Netgear ReadyNAS 3138 is a 1U rack-mounted NAS server with 4 3.5'' SATA drive slots. I have recently purchased such a device in order to use it as a small home fileserver
@@ -243,18 +244,18 @@ All of the currently available information about the device has been moved to <a
 </p>
 </div>
 
-<div id="outline-container-org4f79031" class="outline-3">
-<h3 id="org4f79031"><span class="section-number-3">1.1.</span> Main board</h3>
+<div id="outline-container-orgc222a0a" class="outline-3">
+<h3 id="orgc222a0a"><span class="section-number-3">1.1.</span> Main board</h3>
 <div class="outline-text-3" id="text-1-1">
 
-<div id="org2d41f09" class="figure">
+<div id="org409a0d9" class="figure">
 <p><a href="netgear-rn3138/Netgear-RN3138-mainboard1.jpg"><img src="netgear-rn3138/thumb-Netgear-RN3138-mainboard1.jpg" alt="thumb-Netgear-RN3138-mainboard1.jpg" /></a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org61578f1" class="outline-4">
-<h4 id="org61578f1"><span class="section-number-4">1.1.1.</span> Connectors on the mainboard</h4>
+<div id="outline-container-org62b49f5" class="outline-4">
+<h4 id="org62b49f5"><span class="section-number-4">1.1.1.</span> Connectors on the mainboard</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -396,7 +397,7 @@ All of the currently available information about the device has been moved to <a
 </div>
 
 <ol class="org-ol">
-<li><a id="orgfcf0da6"></a>LPC Connector<br />
+<li><a id="org4002382"></a>LPC Connector<br />
 <div class="outline-text-5" id="text-1-1-1-1">
 <p>
 The mainboard contains an unpopulated 2x5 Dupont connector wired to the CPU and to the IT8732F Super I/O chip. Based on some trace routing together with a pinout of the IT8732F chip
@@ -503,7 +504,7 @@ logic analyzer is too slow to gather a trace of the signals on this connector (L
 </div>
 </li>
 
-<li><a id="org42e8d36"></a>Front panel connector<br />
+<li><a id="orgba8f8ad"></a>Front panel connector<br />
 <div class="outline-text-5" id="text-1-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -603,8 +604,8 @@ logic analyzer is too slow to gather a trace of the signals on this connector (L
 </div>
 </div>
 
-<div id="outline-container-org7d14d11" class="outline-3">
-<h3 id="org7d14d11"><span class="section-number-3">1.2.</span> Network traffic observed when NAS is booting</h3>
+<div id="outline-container-org59f233f" class="outline-3">
+<h3 id="org59f233f"><span class="section-number-3">1.2.</span> Network traffic observed when NAS is booting</h3>
 <div class="outline-text-3" id="text-1-2">
 <pre>
 Aug 13 19:14:50 newton dnsmasq-dhcp[2894]: 4065195709 available DHCP range: 10.2.0.8 -- 10.2.0.14
@@ -769,8 +770,8 @@ Aug 13 19:16:06 newton dnsmasq[2894]: reply d2r4ddhdzue4sy.cloudfront.net is 260
 </div>
 </div>
 
-<div id="outline-container-org78cdd9f" class="outline-2">
-<h2 id="org78cdd9f"><span class="section-number-2">2.</span> Software update mechanism</h2>
+<div id="outline-container-orgefc77ad" class="outline-2">
+<h2 id="orgefc77ad"><span class="section-number-2">2.</span> Software update mechanism</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The NAS operating system contains an automatic software update mechanism which can be triggered from the Admin UI. The below is the documentation of reverse engineering efforts for this mechanism.
@@ -985,8 +986,8 @@ from which the BIOS boots.
 </p>
 </div>
 
-<div id="outline-container-org5602dfe" class="outline-3">
-<h3 id="org5602dfe"><span class="section-number-3">2.1.</span> Booting an alternative operating system</h3>
+<div id="outline-container-org4122d8c" class="outline-3">
+<h3 id="org4122d8c"><span class="section-number-3">2.1.</span> Booting an alternative operating system</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The knowledge and access we gained on the serial console allows us to boot an alternative operating system on the NAS. We will use <a href="https://www.alpinelinux.org">Alpine Linux</a> x86<sub>64</sub> as a proof of concept as it's one of the smallest
@@ -1794,12 +1795,12 @@ As you can see we have successfully booted Alpine Linux as an alternative OS on 
 </div>
 </div>
 </div>
-<div id="outline-container-org13dfbac" class="outline-2">
-<h2 id="org13dfbac"><span class="section-number-2">3.</span> Mods</h2>
+<div id="outline-container-orgf80fec9" class="outline-2">
+<h2 id="orgf80fec9"><span class="section-number-2">3.</span> Mods</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgcdf2722" class="outline-3">
-<h3 id="orgcdf2722"><span class="section-number-3">3.1.</span> Additional hard disks</h3>
+<div id="outline-container-org891c1f6" class="outline-3">
+<h3 id="org891c1f6"><span class="section-number-3">3.1.</span> Additional hard disks</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 The NAS enclosure contains place for 3 additional 2.5'' drives inside, the mainboard has 2 unused SATA connectors. The power supply also has 2 unused SATA power plugs. 
@@ -1807,15 +1808,15 @@ This setup is perfect for including ZFS L2ARC SSD drives or extra drives for the
 </p>
 
 
-<div id="orgd5638c8" class="figure">
+<div id="orgeb15de6" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-additional-2-SFF-drives.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-additional-2-SFF-drives.jpg" alt="thumb-netgear-rn3138-additional-2-SFF-drives.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orge8decbd" class="outline-3">
-<h3 id="orge8decbd"><span class="section-number-3">3.2.</span> Internal USB storage connector</h3>
+<div id="outline-container-orgce404e1" class="outline-3">
+<h3 id="orgce404e1"><span class="section-number-3">3.2.</span> Internal USB storage connector</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The NAS is designed to boot from an internal USB storage device plugged directly into the mainboard using a 2mm pitch 9 pin male header. The pinout of this header is 
@@ -1824,7 +1825,7 @@ identical to the <a href="https://pinoutguide.com/Motherboard/usb_2_1_header_pin
 </p>
 
 
-<div id="orgdc380f1" class="figure">
+<div id="org4d0658e" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-J13-pinout.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-J13-pinout.jpg" alt="thumb-netgear-rn3138-J13-pinout.jpg" /></a>
 </p>
 </div>
@@ -1836,7 +1837,7 @@ use a pre-made perfboard but it's still possible to stick in a 2mm female header
 </p>
 
 
-<div id="org8bc3817" class="figure">
+<div id="org2527fc9" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-2mm-pitch-in-breadboard.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-2mm-pitch-in-breadboard.jpg" alt="thumb-netgear-rn3138-2mm-pitch-in-breadboard.jpg" /></a>
 </p>
 </div>
@@ -1846,15 +1847,15 @@ After some drilling, n USB-A connector and jumper wire the following result can 
 </p>
 
 
-<div id="orgabcb1dd" class="figure">
+<div id="orgf9849a8" class="figure">
 <p><a href="netgear-rn3138/netgear-rn3138-internal-usb-breakout.jpg"><img src="netgear-rn3138/thumb-netgear-rn3138-internal-usb-breakout.jpg" alt="thumb-netgear-rn3138-internal-usb-breakout.jpg" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org28b648d" class="outline-3">
-<h3 id="org28b648d"><span class="section-number-3">3.3.</span> Voltage, temperature and fan speed monitoring</h3>
+<div id="outline-container-org15da28a" class="outline-3">
+<h3 id="org15da28a"><span class="section-number-3">3.3.</span> Voltage, temperature and fan speed monitoring</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 The voltage rails, chassis fans and chassis temperature sensor seem to be monitored in the IT8732F chip on board. The BIOS Setup Utility can report the following readings:
@@ -1905,8 +1906,8 @@ granting us the following quirks:
 </div>
 </div>
 
-<div id="outline-container-orga119581" class="outline-3">
-<h3 id="orga119581"><span class="section-number-3">3.4.</span> Chassis buttons and LEDs</h3>
+<div id="outline-container-org2aa2bef" class="outline-3">
+<h3 id="org2aa2bef"><span class="section-number-3">3.4.</span> Chassis buttons and LEDs</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 The chassis contains a number of status indicator LEDs as well as "Unit Identification" and "Reset" buttons. These are used by the original firmware in order to execute factory reset,
